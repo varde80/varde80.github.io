@@ -10,17 +10,17 @@ categories: AI Jupyterhub
 * Terminal을 사용하여 설치하고자 하는 서버에 SSH를 통하여 접속한 후, 아래와 같이 python3, curl, git을 설치한다.
 
 ```	
-	$ sudo apt install python3 git curl
+ $ sudo apt install python3 git curl
 ```
 
-* 아래의 텍스트를 복사하여 Terminal에 붙인 후 실행한다. 이때 <admin-user-name> 을 JupyterHub에 최초로 사용할 관리자 이름으로 바꾸어 실행한다.
+* 아래의 텍스트를 복사하여 Terminal에 붙인 후 실행한다. 이때 `admin-user-name` 을 JupyterHub에 최초로 사용할 관리자 이름으로 바꾸어 실행한다.
 
 ```
-curl https://raw.githubusercontent.com/jupyterhub/the-littlest-jupyterhub/master/bootstrap/bootstrap.py | sudo -E python3 - --admin <admin-user-name>
+ curl https://raw.githubusercontent.com/jupyterhub/the-littlest-jupyterhub/master/bootstrap/bootstrap.py | sudo -E python3 - --admin *admin-user-name*
 ```
 
 
-Press Enter to start the installation process. This will take 5-10 minutes, and will say ‘Done!’ when the installation process is complete.
+Enter 키를 눌러 설치를 시 to start the installation process. This will take 5-10 minutes, and will say ‘Done!’ when the installation process is complete.
 
 Copy the Public IP of your server, and try accessing http://<public-ip> from your browser. If everything went well, this should give you a JupyterHub login page.
 
@@ -77,7 +77,7 @@ See Install conda, pip or apt packages for more information.
 ## Step 4: Setup HTTPS
 Once you are ready to run your server for real, and have a domain, it’s a good idea to proceed directly to Enable HTTPS.
 
- 참고 [Jupyterhub 페이지][Jupyterhub]
- 
- [Jupyterhub]: [https://the-littlest-jupyterhub.readthedocs.io/en/latest/install/custom-server.html
+ 참고 [Jupyterhub 페이지][Jupyterhub-docs]
+
+ [Jupyterhub-docs]: https://the-littlest-jupyterhub.readthedocs.io/en/latest/install/custom-server.html
 
