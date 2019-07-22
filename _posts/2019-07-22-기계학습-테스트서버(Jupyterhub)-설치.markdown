@@ -7,21 +7,21 @@ categories: AI Jupyterhub
 
 ## Step 1: The Littlest JupyterHub (TLJH) 설치
 
-* Terminal을 사용하여 설치하고자 하는 서버에 SSH를 통하여 접속한 후, 아래와 같이 python3, curl, git을 설치한다.
+Terminal을 사용하여 설치하고자 하는 서버에 SSH를 통하여 접속한 후, 아래와 같이 python3, curl, git을 설치한다.
 
 ```	
  $ sudo apt install python3 git curl
 ```
 
-* 아래의 텍스트를 복사하여 Terminal에 붙인 후 실행한다. 이때 `admin-user-name` 을 JupyterHub에 최초로 사용할 관리자 이름으로 바꾸어 실행한다.
+아래의 텍스트를 복사하여 Terminal에 붙인 후 실행한다. 이때 `admin-user-name` 을 JupyterHub에 최초로 사용할 관리자 이름으로 바꾸어 실행한다.
 
 ```
  curl https://raw.githubusercontent.com/jupyterhub/the-littlest-jupyterhub/master/bootstrap/bootstrap.py | sudo -E python3 - --admin *admin-user-name*
 ```
 
-* Enter 키를 눌러 설치를 시작한다. 설치는 5-10분 정도 소요되며 설치가 완료되면 ‘Done!’이라는 메시지를 보여준다. 
+Enter 키를 눌러 설치를 시작한다. 설치는 5-10분 정도 소요되며 설치가 완료되면 ‘Done!’이라는 메시지를 보여준다. 
 
-* 해당서버의 IP 주소를 카피한 후 인터넷 브라우저에 `http://IP주소 (cf. http://123.123.123.123)`와 같이 입력한다. 설치가 성공적으로 끝났다면 다음과 같은 admin page에 접속이 가능해 진다. 
+해당서버의 IP 주소를 카피한 후 인터넷 브라우저에 `http://IP주소 (cf. http://123.123.123.123)`와 같이 입력한다. 설치가 성공적으로 끝났다면 다음과 같은 admin page에 접속이 가능해 진다. 
 
 ![JupyterHub log-in page](/assets/admin2.png)
 
@@ -29,26 +29,26 @@ categories: AI Jupyterhub
 
 ## Step 2: 사용자 추가 
 
-* JupyterHub에서 대부분의 administration 과 configuration은 웹 UI를 통해 직접적으로 수행가능하다.
+JupyterHub에서 대부분의 administration 과 configuration은 웹 UI를 통해 직접적으로 수행가능하다.
 
 1. JupyterHub 페이지의 우측상단의 `control panel` 버튼을 클릭하여 Control Panel을 실행한다. 
 
-![Control panel button in notebook](/assets/cpanel.png)
+	![Control panel button in notebook](/assets/cpanel.png)
 
 2. `control panel` 페이지에서 좌측상단의 `Admin` 링크를 실행 한다.
 
-![Admin button in control panel, top left](/assets/adminpage.png)
+	![Admin button in control panel, top left](/assets/adminpage.png)
 
-JupyterHub admin 페이지에서는 새로운 사용자를 추가하거나 제거 할수 있으며, 각각의 사용자의 서버를 시작하거나 종료할수 있다. .
+	JupyterHub admin 페이지에서는 새로운 사용자를 추가하거나 제거 할수 있으며, 각각의 사용자의 서버를 시작하거나 종료할수 있다. .
 
 3. Click the Add Users button.
 
-![Add Users button in the admin page](/assets/adduser.png)
+	![Add Users button in the admin page](/assets/adduser.png)
 A Add Users dialog box opens up.
 
 4. Type the names of users you want to add to this JupyterHub in the dialog box, one per line.
 
-![JupyterHub adduser pages](/assets/users.png)
+	![JupyterHub adduser pages](/assets/users.png)
 
 Adding users with add users dialog
 You can tick the Admin checkbox if you want to give admin rights to all these users too.
