@@ -7,25 +7,25 @@ categories: AI Jupyterhub
 
 ## Step 1: The Littlest JupyterHub (TLJH) 설치
 
-Terminal을 사용하여 설치하고자 하는 서버에 SSH를 통하여 접속한 후, 아래와 같이 python3, curl, git을 설치한다.
+1. Terminal을 사용하여 설치하고자 하는 서버에 SSH를 통하여 접속한 후, 아래와 같이 python3, curl, git을 설치한다.
 
-```	
- $ sudo apt install python3 git curl
-```
+	```	
+ 	$ sudo apt install python3 git curl
+	```
 
-아래의 텍스트를 복사하여 Terminal에 붙인 후 실행한다. 이때 `admin-user-name` 을 JupyterHub에 최초로 사용할 관리자 이름으로 바꾸어 실행한다.
+2. 아래의 텍스트를 복사하여 Terminal에 붙인 후 실행한다. 이때 `admin-user-name` 을 JupyterHub에 최초로 사용할 관리자 이름으로 바꾸어 실행한다.
 
-```
- curl https://raw.githubusercontent.com/jupyterhub/the-littlest-jupyterhub/master/bootstrap/bootstrap.py | sudo -E python3 - --admin *admin-user-name*
-```
+	```
+ 	curl https://raw.githubusercontent.com/jupyterhub/the-littlest-jupyterhub/master/bootstrap/bootstrap.py | sudo -E python3 - --admin *admin-user-name*
+	```
 
-Enter 키를 눌러 설치를 시작한다. 설치는 5-10분 정도 소요되며 설치가 완료되면 ‘Done!’이라는 메시지를 보여준다. 
+3. Enter 키를 눌러 설치를 시작한다. 설치는 5-10분 정도 소요되며 설치가 완료되면 ‘Done!’이라는 메시지를 보여준다. 
 
-해당서버의 IP 주소를 카피한 후 인터넷 브라우저에 `http://IP주소 (cf. http://123.123.123.123)`와 같이 입력한다. 설치가 성공적으로 끝났다면 다음과 같은 admin page에 접속이 가능해 진다. 
+4. 해당서버의 IP 주소를 카피한 후 인터넷 브라우저에 `http://IP주소 (cf. http://123.123.123.123)`와 같이 입력한다. 설치가 성공적으로 끝났다면 다음과 같은 admin page에 접속이 가능해 진다. 
 
-![JupyterHub log-in page](/assets/admin2.png)
+	![JupyterHub log-in page](/assets/admin2.png)
 
-위에서 사용한 관리자 ID를 이용하여 로그인 한다. 이때 비밀 번호의 경우 최초로 입력하는 비밀번호가 향후 사용되어진다. 전체 서버를 관리하기 위한 암호 이므로 강력한 암호를 설정하는 것이 좋다. 
+5. 위에서 사용한 관리자 ID를 이용하여 로그인 한다. 이때 비밀 번호의 경우 최초로 입력하는 비밀번호가 향후 사용되어진다. 전체 서버를 관리하기 위한 암호 이므로 강력한 암호를 설정하는 것이 좋다. 
 
 ## Step 2: 사용자 추가 
 
@@ -50,12 +50,12 @@ A Add Users dialog box opens up.
 
 	![JupyterHub adduser pages](/assets/users.png)
 
-Adding users with add users dialog
-You can tick the Admin checkbox if you want to give admin rights to all these users too.
+	Adding users with add users dialog
+	You can tick the Admin checkbox if you want to give admin rights to all these users too.
 
 5. Click the Add Users button in the dialog box. Your users are now added to the JupyterHub! When they log in for the first time, they can set their password - and use it to log in again in the future.
 
-Congratulations, you now have a multi user JupyterHub that you can add arbitrary users to!
+	Congratulations, you now have a multi user JupyterHub that you can add arbitrary users to!
 
 ## Step 3: 전체 사용자를 위한 conda / pip 패키지 설치 
 * JupyterHub에서 전체 사용자에게 공유되는 사용자 환경은 conda 환경이다. 
