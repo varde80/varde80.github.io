@@ -2,7 +2,7 @@
 layout: post
 title:  "MDCS(Materials Data Curation System) 서버 설치 "
 date:   2019-07-01 11:35:00 +0900
-categories: Bigdata Django MongoDB 
+categories: Bigdata Django MongoDB PyPI
 ---
 
 # MDCS 2.0 Installation Process
