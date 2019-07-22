@@ -21,9 +21,9 @@ categories: AI Jupyterhub
 
 * Enter 키를 눌러 설치를 시작한다. 설치는 5-10분 정도 소요되며 설치가 완료되면 ‘Done!’이라는 메시지를 보여준다. 
 
-* 해당서버의 IP 주소를 카피한 후 인터넷 브라우저에 http://IP주소 (cf. `http://123.123.123.123`)와 같이 입력한다. 설치가 성공적으ㅗ 끝났다면 다음과 같은 admin page에 접속이 가능해 진다. 
+* 해당서버의 IP 주소를 카피한 후 인터넷 브라우저에 `http://IP주소 (cf. http://123.123.123.123)`와 같이 입력한다. 설치가 성공적으로 끝났다면 다음과 같은 admin page에 접속이 가능해 진다. 
 
-![JupyterHub log-in page](/assets/admin.png)
+![JupyterHub log-in page](/assets/admin2.png)
 
 Login using the admin user name you used in step 2. You can choose any password that you wish. Use a strong password & note it down somewhere, since this will be the password for the admin user account from now on.
 
