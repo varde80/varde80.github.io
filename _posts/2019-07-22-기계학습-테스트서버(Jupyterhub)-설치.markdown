@@ -19,12 +19,12 @@ categories: AI Jupyterhub
  curl https://raw.githubusercontent.com/jupyterhub/the-littlest-jupyterhub/master/bootstrap/bootstrap.py | sudo -E python3 - --admin *admin-user-name*
 ```
 
+* Enter 키를 눌러 설치를 시작한다. 설치는 5-10분 정도 소요되며 설치가 완료되면 ‘Done!’이라는 메시지를 보여준다. 
 
-Enter 키를 눌러 설치를 시 to start the installation process. This will take 5-10 minutes, and will say ‘Done!’ when the installation process is complete.
+* 해당서버의 IP 주소를 카피한 후 인터넷 브라우저에 http://IP주소 (cf. `http://123.123.123.123`)와 같이 입력한다. 설치가 성공적으ㅗ 끝났다면 다음과 같은 admin page에 접속이 가능해 진다. 
 
-Copy the Public IP of your server, and try accessing http://<public-ip> from your browser. If everything went well, this should give you a JupyterHub login page.
+![JupyterHub log-in page](/assets/admin.png)
 
-JupyterHub log-in page
 Login using the admin user name you used in step 2. You can choose any password that you wish. Use a strong password & note it down somewhere, since this will be the password for the admin user account from now on.
 
 Congratulations, you have a running working JupyterHub!
@@ -54,30 +54,29 @@ Click the Add Users button in the dialog box. Your users are now added to the Ju
 
 Congratulations, you now have a multi user JupyterHub that you can add arbitrary users to!
 
-##Step 3: Install conda / pip packages for all users
-The User Environment is a conda environment that is shared by all users in the JupyterHub. Libraries installed in this environment are immediately available to all users. Admin users can install packages in this environment with sudo -E.
+##Step 3: 전체 사용자를 위한 conda / pip 패키지 설치 
+* JupyterHub에서 전체 사용자에게 공유되는 사용자 환경은 conda 환경이다. 
+이 환경 상에서 설치된 라이브러리들은 전체 사용자에게 즉시 사용 가능하게 되며, 이를 위해 관리자는 
+`sudo -E` 명령어를 통하여 관련 라이브러리들을 설치 할 수 있다.
 
-Log in as an admin user and open a Terminal in your Jupyter Notebook.
+	1. 이를 위한 관리자 (admin user)로 JupyterHub에 접속한 뒤 Jupyter Notebook 상에서 Terminal을 실행한다. 
 
-New Terminal button under New menu
-Install gdal from conda-forge.
+	2. 	Terminal 상에서 `conda-forge`에서 `gdal` 을 설치한다. 
+	`sudo -E conda install -c conda-forge gdal`
+	
+	*The sudo -E is very important!*
 
-sudo -E conda install -c conda-forge gdal
-Copy to clipboard
-The sudo -E is very important!
-
-Install there with pip
+	3. 	`pip`를 이용하여 `there`를 설치한다. p
 			
-sudo -E pip install there
-Copy to clipboard
-The packages gdal and there are now available to all users in JupyterHub. If a user already had a python notebook running, they have to restart their notebook’s kernel to make the new libraries available.
+	`sudo -E pip install there`
+	
+	이로써 gdal 과 there 패키지를 JupyterHub 전체사용자가 사용가능하도록 설치하였다. 그러나 현재 python notebook을 사용하고 있는 사용자의 경우 사용중인 notebook의 kernel을 재시작 해야 새로 설치죈 라이브러리가 사용가능해지게 된다. 
 
-See Install conda, pip or apt packages for more information.
+## Step 4: HTTPS 설정
+* 도메인 등을 설정하여 실질적으로 서버 운영을 하고자 할때는 보안등을 위하여 HTTPS를 설정하는 것이 필요하다. 자세한 사항은 Jupyterhub의 [Enable HTTPS][Enable-HTTPS] 도움말을 참고하자.
 
-## Step 4: Setup HTTPS
-Once you are ready to run your server for real, and have a domain, it’s a good idea to proceed directly to Enable HTTPS.
-
- 참고 [Jupyterhub 페이지][Jupyterhub-docs]
+## 참고: [Jupyterhub 설치 페이지][Jupyterhub-docs]
 
  [Jupyterhub-docs]: https://the-littlest-jupyterhub.readthedocs.io/en/latest/install/custom-server.html
+ [Enable HTTPS]: https://the-littlest-jupyterhub.readthedocs.io/en/latest/howto/admin/https.html#howto-admin-https
 
