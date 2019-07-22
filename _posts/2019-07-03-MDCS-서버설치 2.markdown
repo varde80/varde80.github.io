@@ -5,7 +5,6 @@ date:   2019-07-12 10:34:59 +0900
 categories: AI Jupyterhub
 ---
 
-# MDCS 설치
 Ubuntu에 Docker로 설치한다.
 
 ## Python 설치
@@ -58,8 +57,9 @@ $ cd MDCS
 ```
 
 ## MongoDB 설치
-* 참고: https://github.com/usnistgov/MDCS/blob/stable/docs/MongoDB%20Configuration.md
-* 참고: https://hub.docker.com/_/mongo/
+* 참고: [MDCS][mdcs]
+* 참고: [docker Hub for MongoDB][docker-Hub-mongo]
+
 ```
 $ cd ~/Projects/MDCS
 $ vi conf/mongodb.conf
@@ -87,8 +87,8 @@ $ docker run --name mongo_mdcs -p 27017:27017 \
   ```
 
 ### MongoDB 설정
-* 참고: https://github.com/usnistgov/MDCS/blob/stable/docs/MongoDB%20Configuration.md
-* 참고: https://hub.docker.com/_/mongo/  
+* 참고: [MDCS MongoDB Configuration Doc][MDCS-mongo]
+* 참고: [docker Hub for MongoDB][docker-Hub-mongo]
 ```
 $ docker exec -it mongo_mdcs /bin/bash
 # mongo --port 27017  -u "admin" -p "관리자암호" --authenticationDatabase admin
@@ -121,7 +121,8 @@ ALLOWED_HOST = [<ip 또는 domain>]
 ```
 
 ## Redis 설치
-* 참고: https://hub.docker.com/_/redis/
+* 참고: [docker Hub for redis][docker-Hub-redis]
+
 ```
 $ docker run --name redis_mdcs \
 -p 6379:6379 \
@@ -168,7 +169,7 @@ Superuser created successfully.
 ```
 
 ## 실행
-* 참고: http://i5on9i.blogspot.com/2016/07/celery_21.html
+* 참고: [celery pages][celery-pages]
 ```
 $ cd ~/Projects/MDCS
 $ source activate curator
@@ -192,3 +193,10 @@ $ source activate curator
   $ cd ~
   $ ln -s /data data
   ```
+
+[mdcs]: https://github.com/usnistgov/MDCS/blob/stable/docs/MongoDB%20Configuration.md
+[docker-Hub]: https://hub.docker.com/_/mongo/
+[docker-Hub-redis]: https://hub.docker.com/_/redis/
+[celery-pages]: http://i5on9i.blogspot.com/2016/07/celery_21.html
+[MDCS-mongo]: https://github.com/usnistgov/MDCS/blob/stable/docs/MongoDB%20Configuration.md
+
