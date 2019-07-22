@@ -7,7 +7,7 @@ categories: AI Jupyterhub
 
 ## Step 1: The Littlest JupyterHub (TLJH) 설치
 
-1. Terminal을 사용하여 설치하고자 하는 서버에 SSH를 통하여 접속한 후, 아래와 같이 python3, curl, git을 설치한다.
+1. *Terminal을 사용하여 설치하고자 하는 서버에 SSH를 통하여 접속한 후, 아래와 같이 python3, curl, git을 설치한다.*
 
 	```	
  	$ sudo apt install python3 git curl
