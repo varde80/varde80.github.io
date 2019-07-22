@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "기계학습 테스트서버(Jupyterhub) 설치 "
+title:  "Docker 를 이용한 MDCS(Materials Data Curation System) 서버 설치 "
 date:   2019-07-12 10:34:59 +0900
 categories: AI Jupyterhub
 ---
