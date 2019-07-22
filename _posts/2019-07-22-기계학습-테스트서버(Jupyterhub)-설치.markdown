@@ -1,18 +1,24 @@
+---
+layout: post
+title:  "기계학습 테스트서버(Jupyterhub) 설치 "
+date:   2019-07-22 16:25:00 +0900
+categories: AI Jupyterhub
+---
 
+## Step 1: Installing The Littlest JupyterHub
 
-# Step 1: Installing The Littlest JupyterHub
+* Terminal을 사용하여 설치하고자 하는 서버에 SSH를 통하여 접속한 후, 아래와 같이 python3, curl, git을 설치한다.
 
-* Terminal을 사용하여 설치하고자 하는 서버에 SSH를 통하여 접속한 후, 아래와 같이 opython3, curl, git을 설치한다.
-
+```	
 	$ sudo apt install python3 git curl
-Copy to clipboard
-Copy the text below, and paste it into the terminal. Replace <admin-user-name> with the name of the first admin user for this JupyterHub. Choose any name you like (don’t forget to remove the brackets!). This admin user can log in after the JupyterHub is set up, and can configure it to their needs. Remember to add your username!
+```
+
+* 아래의 텍스트를 복사하여 Terminal에 붙인 후 실행한다. 이때 <admin-user-name> 을 JupyterHub에 최초로 사용할 관리자 이름으로 바꾸어 실행한다.
+
 ```
 curl https://raw.githubusercontent.com/jupyterhub/the-littlest-jupyterhub/master/bootstrap/bootstrap.py | sudo -E python3 - --admin <admin-user-name>
 ```
-Copy to clipboard
-Note
-See What does the installer do? if you want to understand exactly what the installer is doing. Customizing the Installer documents other options that can be passed to the installer.
+
 
 Press Enter to start the installation process. This will take 5-10 minutes, and will say ‘Done!’ when the installation process is complete.
 
@@ -23,7 +29,7 @@ Login using the admin user name you used in step 2. You can choose any password 
 
 Congratulations, you have a running working JupyterHub!
 
-#Step 2: Adding more users
+##Step 2: Adding more users
 Most administration & configuration of the JupyterHub can be done from the web UI directly. Let’s add a few users who can log in!
 
 Open the Control Panel by clicking the control panel button on the top right of your JupyterHub.
@@ -48,7 +54,7 @@ Click the Add Users button in the dialog box. Your users are now added to the Ju
 
 Congratulations, you now have a multi user JupyterHub that you can add arbitrary users to!
 
-#Step 3: Install conda / pip packages for all users
+##Step 3: Install conda / pip packages for all users
 The User Environment is a conda environment that is shared by all users in the JupyterHub. Libraries installed in this environment are immediately available to all users. Admin users can install packages in this environment with sudo -E.
 
 Log in as an admin user and open a Terminal in your Jupyter Notebook.
@@ -68,7 +74,7 @@ The packages gdal and there are now available to all users in JupyterHub. If a u
 
 See Install conda, pip or apt packages for more information.
 
-# Step 4: Setup HTTPS
+## Step 4: Setup HTTPS
 Once you are ready to run your server for real, and have a domain, it’s a good idea to proceed directly to Enable HTTPS.
 
  
