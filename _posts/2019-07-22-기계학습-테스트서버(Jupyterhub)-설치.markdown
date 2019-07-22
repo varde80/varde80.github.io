@@ -5,7 +5,7 @@ date:   2019-07-22 16:25:00 +0900
 categories: AI Jupyterhub
 ---
 
-## Step 1: Installing The Littlest JupyterHub
+## Step 1: The Littlest JupyterHub (TLJH) 설치
 
 * Terminal을 사용하여 설치하고자 하는 서버에 SSH를 통하여 접속한 후, 아래와 같이 python3, curl, git을 설치한다.
 
@@ -25,36 +25,39 @@ categories: AI Jupyterhub
 
 ![JupyterHub log-in page](/assets/admin2.png)
 
-Login using the admin user name you used in step 2. You can choose any password that you wish. Use a strong password & note it down somewhere, since this will be the password for the admin user account from now on.
+위에서 사용한 관리자 ID를 이용하여 로그인 한다. 이때 비밀 번호의 경우 최초로 입력하는 비밀번호가 향후 사용되어진다. 전체 서버를 관리하기 위한 암호 이므로 강력한 암호를 설정하는 것이 좋다. 
 
-Congratulations, you have a running working JupyterHub!
+## Step 2: 사용자 추가 
 
-##Step 2: Adding more users
-Most administration & configuration of the JupyterHub can be done from the web UI directly. Let’s add a few users who can log in!
+* JupyterHub에서 대부분의 administration 과 configuration은 웹 UI를 통해 직접적으로 수행가능하다.
 
-Open the Control Panel by clicking the control panel button on the top right of your JupyterHub.
+1. Open the Control Panel by clicking the control panel button on the top right of your JupyterHub.
 
 Control panel button in notebook, top right
-In the control panel, open the Admin link in the top left.
 
-Admin button in control panel, top left
+2. In the control panel, open the Admin link in the top left.
+
+![Admin button in control panel, top left](/assets/cpanel.png)
+
 This opens up the JupyterHub admin page, where you can add / delete users, start / stop peoples’ servers and see who is online.
 
-Click the Add Users button.
+3. Click the Add Users button.
 
-Add Users button in the admin page
+![Add Users button in the admin page](/assets/adduser.png)
 A Add Users dialog box opens up.
 
-Type the names of users you want to add to this JupyterHub in the dialog box, one per line.
+4. Type the names of users you want to add to this JupyterHub in the dialog box, one per line.
+
+![JupyterHub adduser pages](/assets/users.png)
 
 Adding users with add users dialog
 You can tick the Admin checkbox if you want to give admin rights to all these users too.
 
-Click the Add Users button in the dialog box. Your users are now added to the JupyterHub! When they log in for the first time, they can set their password - and use it to log in again in the future.
+5. Click the Add Users button in the dialog box. Your users are now added to the JupyterHub! When they log in for the first time, they can set their password - and use it to log in again in the future.
 
 Congratulations, you now have a multi user JupyterHub that you can add arbitrary users to!
 
-##Step 3: 전체 사용자를 위한 conda / pip 패키지 설치 
+## Step 3: 전체 사용자를 위한 conda / pip 패키지 설치 
 * JupyterHub에서 전체 사용자에게 공유되는 사용자 환경은 conda 환경이다. 
 이 환경 상에서 설치된 라이브러리들은 전체 사용자에게 즉시 사용 가능하게 되며, 이를 위해 관리자는 
 `sudo -E` 명령어를 통하여 관련 라이브러리들을 설치 할 수 있다.
