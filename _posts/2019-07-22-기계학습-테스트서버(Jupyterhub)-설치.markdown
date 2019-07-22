@@ -31,15 +31,15 @@ categories: AI Jupyterhub
 
 * JupyterHub에서 대부분의 administration 과 configuration은 웹 UI를 통해 직접적으로 수행가능하다.
 
-1. Open the Control Panel by clicking the control panel button on the top right of your JupyterHub.
+1. JupyterHub 페이지의 우측상단의 `control panel` 버튼을 클릭하여 Control Panel을 실행한다. 
 
-Control panel button in notebook, top right
+![Control panel button in notebook](/assets/cpanel.png)
 
-2. In the control panel, open the Admin link in the top left.
+2. `control panel` 페이지에서 좌측상단의 `Admin` 링크를 실행 한다.
 
 ![Admin button in control panel, top left](/assets/cpanel.png)
 
-This opens up the JupyterHub admin page, where you can add / delete users, start / stop peoples’ servers and see who is online.
+JupyterHub admin 페이지에서는 새로운 사용자를 추가하거나 제거 할수 있으며, 각각의 사용자의 서버를 시작하거나 종료할수 있다. .
 
 3. Click the Add Users button.
 
