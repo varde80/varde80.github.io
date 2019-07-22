@@ -1,6 +1,6 @@
-# 기계학습 테스트 서버 (JuppyterHub) 설치
 
-## Step 1: Installing The Littlest JupyterHub
+
+# Step 1: Installing The Littlest JupyterHub
 
 * Terminal을 사용하여 설치하고자 하는 서버에 SSH를 통하여 접속한 후, 아래와 같이 opython3, curl, git을 설치한다.
 
@@ -23,7 +23,7 @@ Login using the admin user name you used in step 2. You can choose any password 
 
 Congratulations, you have a running working JupyterHub!
 
-##Step 2: Adding more users
+#Step 2: Adding more users
 Most administration & configuration of the JupyterHub can be done from the web UI directly. Let’s add a few users who can log in!
 
 Open the Control Panel by clicking the control panel button on the top right of your JupyterHub.
@@ -48,7 +48,7 @@ Click the Add Users button in the dialog box. Your users are now added to the Ju
 
 Congratulations, you now have a multi user JupyterHub that you can add arbitrary users to!
 
-##Step 3: Install conda / pip packages for all users
+#Step 3: Install conda / pip packages for all users
 The User Environment is a conda environment that is shared by all users in the JupyterHub. Libraries installed in this environment are immediately available to all users. Admin users can install packages in this environment with sudo -E.
 
 Log in as an admin user and open a Terminal in your Jupyter Notebook.
@@ -61,14 +61,14 @@ Copy to clipboard
 The sudo -E is very important!
 
 Install there with pip
-
+			
 sudo -E pip install there
 Copy to clipboard
 The packages gdal and there are now available to all users in JupyterHub. If a user already had a python notebook running, they have to restart their notebook’s kernel to make the new libraries available.
 
 See Install conda, pip or apt packages for more information.
 
-## Step 4: Setup HTTPS
+# Step 4: Setup HTTPS
 Once you are ready to run your server for real, and have a domain, it’s a good idea to proceed directly to Enable HTTPS.
 
  
