@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "기계학습 테스트서버(Jupyterhub) 설치 "
+date:   2019-07-12 10:34:59 +0900
+categories: AI Jupyterhub
+---
+
 # MDCS 설치
 Ubuntu에 Docker로 설치한다.
 
