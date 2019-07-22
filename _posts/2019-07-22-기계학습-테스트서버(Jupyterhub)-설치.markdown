@@ -37,7 +37,7 @@ categories: AI Jupyterhub
 
 2. `control panel` 페이지에서 좌측상단의 `Admin` 링크를 실행 한다.
 
-![Admin button in control panel, top left](/assets/cpanel.png)
+![Admin button in control panel, top left](/assets/adminpage.png)
 
 JupyterHub admin 페이지에서는 새로운 사용자를 추가하거나 제거 할수 있으며, 각각의 사용자의 서버를 시작하거나 종료할수 있다. .
 
