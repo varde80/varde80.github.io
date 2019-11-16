@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "pyen-virtualenv 사용  "
+date:   2019-07-30 11:47:00 +0900
+categories: Linux OSX virtualen
+---
+
+# MDCS 2.0 Installation Process
+
+## INTRODUCTION
+
+    ```
+    mongo --host <mongo_url> --port <port> -u <admin_login> -p <admin_pwd> --authenticationDatabase admin)
+    ```
