@@ -13,7 +13,7 @@ categories: Linode Linux
 
  	$ ssh root@139.162.68.100
 	$ apt-get update && apt-get upgrade
-	$ hostname ctl set-hostname mdcs-server
+	$ hostnamectl set-hostname mdcs-server
 	$ hostname
 
 ## server에 host 파일 설정
@@ -72,5 +72,14 @@ categories: Linode Linux
 	$ sudo ufw enable
 	$ sudo ufw status
 
+# Step 2: pyenv 설치
+
+## Pyenv용 기본 패키지 설치
+
+	$ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
+
+	$ curl https://pyenv.run | bash
+	$ exec $SHELL
+	$ pyenv update
 
 [corey]: https://www.youtube.com/watch?v=Sa_kQheCnds
