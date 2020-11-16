@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Docker 를 이용한 MDCS(Materials Data Curation System) 서버 설치 2 "
+title:  "MDCS(Materials Data Curation System) 서버 설치 2 "
 date:   2020-11-16 10:34:59 +0900
 categories: Docker Django MongoDB
 ---
