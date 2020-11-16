@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Docker 를 이용한 MDCS(Materials Data Curation System) 서버 설치 "
+title:  "Docker 를 이용한 MDCS(Materials Data Curation System) 서버 설치 2 "
 date:   2020-11-16 10:34:59 +0900
 categories: Docker Django MongoDB
 ---
@@ -36,6 +36,7 @@ echo $PATH
 ```
 
 버전 정보에 Anaconda 어쩌고가 포함되었는지 확인
+
 ```
 $ python -V
 ```
@@ -45,6 +46,7 @@ $ python -V
 
 * 참고: [MDCS][mdcs]
 * 참고: [docker Hub for MongoDB][docker-Hub-mongo1]
+
 
 ```
 $ wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
@@ -84,11 +86,9 @@ $ cd MDCS
 ```
 pip install -r requirements.txt
 pip install -r requirements.core.txt
-
 ```
  
 ## MongoDB setting
-
 ```
 $ cd ~/Projects/MDCS
 $ vi conf/mongodb.conf
@@ -99,17 +99,18 @@ security:
 storage:
     dbPath: /data/db
 ```
-## start MongoDB
 
+## start MongoDB
 ```
 $ mongod --config conf\mongodb.conf
 ```
+
 ## permission error 발생시 
 ```
 $ sudo chown -R mongodb:mongodb /vol/db/
 ```
-## open new cmd & create mongo admin
 
+## open new cmd & create mongo admin
 ```
 $$ mongo --port 27017
 
@@ -124,8 +125,8 @@ $$ mongo --port 27017
 	exit
 
 ```
-##Create MongoDB non-administrative user
 
+##Create MongoDB non-administrative user
 ``` 
 $$ mongo --port 27017 -u "mdb_admin" --authenticationDatabase admin
 	use mgi
