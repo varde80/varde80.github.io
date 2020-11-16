@@ -10,10 +10,11 @@ Ubuntu에 Docker로 설치한다.
 ## Python 설치
 ### Anaconda 설치 
 ```
-$ cd ~/Downloads
-$ wget https://repo.continuum.io/archive/Anaconda2-2018.12-Linux-x86_64.sh
-$ chmod 775 Anaconda2-2018.12-Linux-x86_64.sh
-$ ./Anaconda2-2018.12-Linux-x86_64.sh
+$ cd /tmp
+$ curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
+$ chmod 775 Anaconda3-2019.03-Linux-x86_64.sh
+$ sha256sum Anaconda3-2019.03-Linux-x86_64.sh
+$ bash Anaconda3-2019.03-Linux-x86_64.sh
 ```
 엔터 &rarr; 끝까지 스페이스 바 &rarr; yes &rarr; 엔터 &rarr; yes (PATH 추가. 디폴트가 no이니 꼭 yes 할 것) &rarr; no
 
@@ -22,14 +23,14 @@ $ ./Anaconda2-2018.12-Linux-x86_64.sh
 $ source ~/.bashrc
 $ echo $PATH
 ```
-anaconda 실행 폴더 경로 (`/home/사용자아이디/anaconda2/bin`) 가 추가 되었는지 확인
+anaconda 실행 폴더 경로 (`/home/사용자아이디/anaconda3/bin`) 가 추가 되었는지 확인
   
 안 됐으면 `~/.bashrc` 에 아래 한 줄 추가
 ```
 $ vi ~/.bashrc
 
 ...
-export PATH=/home/사용자아이디/anaconda2/bin:$PATH
+export PATH=/home/사용자아이디/anaconda3/bin:$PATH
 source ~/.bashrc
 echo $PATH
 ```
@@ -39,9 +40,31 @@ echo $PATH
 $ python -V
 ```
 
-### env 생성 (2.7.2)
+
+## MongoDB 설치
+* 참고: [MDCS][mdcs]
+* 참고: [docker Hub for MongoDB][docker-Hub-mongo1]
 ```
-$ conda create -n curator python=2.7
+$ wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+$ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+$ sudo apt-get update
+$ sudo apt-get install -y mongodb-org=4.4.1 mongodb-org-server=4.4.1 mongodb-org-shell=4.4.1 mongodb-org-mongos=4.4.1 mongodb-org-tools=4.4.1
+
+```
+
+## REDIS 설치
+
+```
+$ sudo apt install redis-server
+$ sudo systemctl restart redis.service
+$ sudo systemctl status redis
+
+```
+
+### env 생성 (3.6.8)
+```
+$ conda create -n curator python=3.6
+$ conda activate curator
 ```
 
 ### Git 설치
@@ -52,56 +75,67 @@ $ sudo apt-get install git
 ### 프로젝트 clone
 ```
 $ cd ~/Projects
-$ git clone https://github.com/macromancer/MDCS.git
+$ git clone --branch master https://github.com/usnistgov/MDCS.git
 $ cd MDCS
 ```
 
-## MongoDB 설치
-* 참고: [MDCS][mdcs]
-* 참고: [docker Hub for MongoDB][docker-Hub-mongo1]
+## Rrequirement.txt 설치
+```
+pip install -r requirements.txt
+pip install -r requirements.core.txt
+
+```
+ 
+## MongoDB setting
 
 ```
 $ cd ~/Projects/MDCS
 $ vi conf/mongodb.conf
 net:
-bindIp: 127.0.0.1
+    bindIp: 127.0.0.1
 security:
-authorization: enabled
+    authorization: enabled
 storage:
-dbPath: /data/db
-
-$ mkdir -p /data/db/mongo
-$ docker run --name mongo_mdcs -p 27017:27017 \
--v /data/db/mongo:/data/db \
--v ~/Projects/MDCS/conf:/etc/mongo \
--e MONGO_INITDB_ROOT_USERNAME=admin \
--e MONGO_INITDB_ROOT_PASSWORD='관리자암호' \
---restart unless-stopped \
--d mongo \
---config /etc/mongo/mongodb.conf
+    dbPath: /data/db
 ```
+## start MongoDB
 
-* 실행 확인
-  ```
-  $ docker ps
-  ```
-
-### MongoDB 설정
-* 참고: [MDCS MongoDB Configuration Doc][MDCS-mongo]
-* 참고: [docker Hub for MongoDB][docker-Hub-mongo2]
 ```
-$ docker exec -it mongo_mdcs /bin/bash
-# mongo --port 27017  -u "admin" -p "관리자암호" --authenticationDatabase admin
-> use mgi
-> db.createUser(
-{
-user: "mgi_user",
-pwd: "일반암호",
-roles: ["readWrite"]
-}
-)
-> exit
-# exit
+$ mongod --config conf\mongodb.conf
+```
+## permission error 발생시 
+```
+$ sudo chown -R mongodb:mongodb /vol/db/
+```
+## open new cmd & create mongo admin
+
+```
+$$ mongo --port 27017
+
+	use admin
+	db.createUser(
+	{
+	user: "mdb_admin_user:mdb_admin",
+	pwd: "mdb_admin_pwd",
+	roles: [ { role: "userAdminAnyDatabase", db: "admin"},"backup","restore"]
+	}
+	)
+	exit
+
+```
+##Create MongoDB non-administrative user
+
+``` 
+$$ mongo --port 27017 -u "mdb_admin" --authenticationDatabase admin
+	use mgi
+	db.createUser(
+	{
+	 user: "mdb_user",
+	 pwd: "mdb_pwd",
+	 roles: ["readWrite"]
+	}
+	)
+	exit
 ```
 
 ### MDCS setting.py 수정
@@ -110,8 +144,8 @@ $ cd ~/Projects/MDCS
 $ vi mdcs/settings.py
 ...
 # Replace by your own values
-MONGO_MGI_USER = "mgi_user"
-MONGO_MGI_PASSWORD = "일반암호"
+MONGO_MGI_USER = "mdb_user"
+MONGO_MGI_PASSWORD = "mdb_pwd"
 ...
 # SERVER_URI = 'http://127.0.0.1:8000'
 SERVER_URI = 'http://<ip 또는 domain>:8000'
