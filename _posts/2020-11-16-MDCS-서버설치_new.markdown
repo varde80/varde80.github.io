@@ -1,0 +1,238 @@
+---
+layout: post
+title:  "Docker 를 이용한 MDCS(Materials Data Curation System) 서버 설치 2 "
+date:   2020-11-16 10:34:59 +0900
+categories: Docker Django MongoDB
+---
+
+Ubuntu에 Docker로 설치한다.
+
+## Python 설치
+### Anaconda 설치 
+```
+$ cd /tmp
+$ curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
+$ chmod 775 Anaconda3-2019.03-Linux-x86_64.sh
+$ sha256sum Anaconda3-2019.03-Linux-x86_64.sh
+$ bash Anaconda3-2019.03-Linux-x86_64.sh
+```
+엔터 &rarr; 끝까지 스페이스 바 &rarr; yes &rarr; 엔터 &rarr; yes (PATH 추가. 디폴트가 no이니 꼭 yes 할 것) &rarr; no
+
+다음 명령으로 path가 설정되었는지 확인한다.
+```
+$ source ~/.bashrc
+$ echo $PATH
+```
+anaconda 실행 폴더 경로 (`/home/사용자아이디/anaconda3/bin`) 가 추가 되었는지 확인
+  
+안 됐으면 `~/.bashrc` 에 아래 한 줄 추가
+```
+$ vi ~/.bashrc
+
+...
+export PATH=/home/사용자아이디/anaconda3/bin:$PATH
+source ~/.bashrc
+echo $PATH
+```
+
+버전 정보에 Anaconda 어쩌고가 포함되었는지 확인
+
+```
+$ python -V
+```
+
+
+## MongoDB 설치
+
+* 참고: [MDCS][mdcs]
+* 참고: [docker Hub for MongoDB][docker-Hub-mongo1]
+
+
+```
+$ wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+$ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+$ sudo apt-get update
+$ sudo apt-get install -y mongodb-org=4.4.1 mongodb-org-server=4.4.1 mongodb-org-shell=4.4.1 mongodb-org-mongos=4.4.1 mongodb-org-tools=4.4.1
+```
+
+## REDIS 설치
+
+```
+$ sudo apt install redis-server
+$ sudo systemctl restart redis.service
+$ sudo systemctl status redis
+
+```
+
+### env 생성 (3.6.8)
+```
+$ conda create -n curator python=3.6
+$ conda activate curator
+```
+
+### Git 설치
+```
+$ sudo apt-get install git
+```
+
+### 프로젝트 clone
+```
+$ cd ~/Projects
+$ git clone --branch master https://github.com/usnistgov/MDCS.git
+$ cd MDCS
+```
+
+## Rrequirement.txt 설치
+```
+pip install -r requirements.txt
+pip install -r requirements.core.txt
+```
+ 
+## MongoDB setting
+```
+$ cd ~/Projects/MDCS
+$ vi conf/mongodb.conf
+net:
+    bindIp: 127.0.0.1
+security:
+    authorization: enabled
+storage:
+    dbPath: /data/db
+```
+
+## start MongoDB
+```
+$ mongod --config conf\mongodb.conf
+```
+
+## permission error 발생시 
+```
+$ sudo chown -R mongodb:mongodb /vol/db/
+```
+
+## open new cmd & create mongo admin
+```
+$$ mongo --port 27017
+
+	use admin
+	db.createUser(
+	{
+	user: "mdb_admin_user:mdb_admin",
+	pwd: "mdb_admin_pwd",
+	roles: [ { role: "userAdminAnyDatabase", db: "admin"},"backup","restore"]
+	}
+	)
+	exit
+
+```
+
+##Create MongoDB non-administrative user
+``` 
+$$ mongo --port 27017 -u "mdb_admin" --authenticationDatabase admin
+	use mgi
+	db.createUser(
+	{
+	 user: "mdb_user",
+	 pwd: "mdb_pwd",
+	 roles: ["readWrite"]
+	}
+	)
+	exit
+```
+
+### MDCS setting.py 수정
+```
+$ cd ~/Projects/MDCS
+$ vi mdcs/settings.py
+...
+# Replace by your own values
+MONGO_MGI_USER = "mdb_user"
+MONGO_MGI_PASSWORD = "mdb_pwd"
+...
+# SERVER_URI = 'http://127.0.0.1:8000'
+SERVER_URI = 'http://<ip 또는 domain>:8000'
+...
+# ALLOWED_HOST = []
+ALLOWED_HOST = [<ip 또는 domain>]
+```
+
+## Redis 설치
+* 참고: [docker Hub for redis][docker-Hub-redis]
+
+```
+$ docker run --name redis_mdcs \
+-p 6379:6379 \
+--restart unless-stopped \
+-d redis
+$ docker exec -it redis_mdcs /bin/bash
+# redis-cli
+> ping
+> exit
+# exit
+```
+
+## Python 패키지 설치
+```
+$ cd ~/Projects/MDCS
+$ source activate curator
+(curator) $ pip install -e git://github.com/MongoEngine/django-mongoengine.git@v0.2.1#egg=django-mongoengine
+(curator) $ pip install --no-cache-dir -r requirements.txt
+(curator) $ pip install git+https://github.com/macromancer/core_module_excel_uploader_app.git@1.0.0-rc2.1
+(curator) $ pip install --no-cache-dir -r requirements.core.txt
+```
+
+## 장고 프로젝트 migrate
+
+먼저 셀러리를 실행하자.
+```
+(curator) $ celery multi start worker1 -A mdcs -Q feeds -l info --pidfile="./celery_worker.pid"
+```
+
+```
+(curator) $ cd ~/Projects/MDCS
+(curator) $ python manage.py migrate auth
+(curator) $ python manage.py migrate
+(curator) $ python manage.py collectstatic --noinput
+(curator) $ sudo apt-get install gettext
+(curator) $ python manage.py compilemessages
+(curator) $ python manage.py createsuperuser
+loading settings at...:mgi.settings
+Username (leave blank to use 'xxx'): <mdcs_superuser_username>
+Email address: <mdcs_superuser_email>
+Password: 
+Password (again): 
+Superuser created successfully.
+```
+
+## 실행
+* 참고: [celery pages][celery-pages]
+```
+$ cd ~/Projects/MDCS
+$ source activate curator
+(curator) $ celery multi start worker1 -A mdcs -Q feeds -l info --pidfile="./celery_worker.pid"
+(curator) $ python manage.py runserver 0.0.0.0:8000 &
+```
+* 일반사용자 화면: `http://127.0.0.1:8000/`
+* 관리자 화면: `http://127.0.0.1:8000/admin/`
+ 
+## 참고: 서버 사용자 추가 시 할 일
+* docker 그룹에 추가
+  ```
+  $ sudo gpasswd -a 사용자아이디 docker
+  ```
+* dev 그룹에 추가
+  ```
+  $ sudo gpasswd -a 사용자아이디 dev
+  ```
+* 사용자 홈 디렉토리에 /data 폴더 링크 생성
+  ```
+  $ cd ~
+  $ ln -s /data data
+  ```
+
+[mdcs]: https://github.com/usnistgov/MDCS/blob/stable/docs/MongoDB%20Configuration.md
+[docker-Hub-mongo1]: https://hub.docker.com/_/mongo/
+[docker-Hub-redis]: https://hub.docker.com/_/redis/
+[celery-pages]: http://i5on9i.blogspot.com/2016/07/celery_21.html
+[MDCS-mongo]: https://github.com/usnistgov/MDCS/blob/stable/docs/MongoDB%20Configuration.md
+[docker-Hub-mongo2]: https://hub.docker.com/_/mongo/
