@@ -4,7 +4,7 @@ import researchData from '../data/research.json'
 import journalsData from '../data/journals.json'
 import conferencesData from '../data/conferences.json'
 import preprintsData from '../data/preprints.json'
-import galleryData from '../data/gallery.json'
+import galleryData from '../data/news.json'
 import type { ResearchArea, Publication } from '../types'
 import { getAssetUrl } from '../utils/assets'
 

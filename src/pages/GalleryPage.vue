@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
-import galleryData from '../data/gallery.json'
+import galleryData from '../data/news.json'
 import type { GalleryImage } from '../types'
 import { getAssetUrl } from '../utils/assets'
 
