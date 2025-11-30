@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/aimat-lab/',
   plugins: [vue(), tailwindcss()],
   resolve: {
     alias: {
