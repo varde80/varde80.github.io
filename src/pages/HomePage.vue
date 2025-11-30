@@ -1,35 +1,26 @@
 <script setup lang="ts">
 import { ref, onUnmounted } from 'vue'
 import researchData from '../data/research.json'
-import journalsData from '../data/journals.json'
-import conferencesData from '../data/conferences.json'
-import preprintsData from '../data/preprints.json'
 import galleryData from '../data/news.json'
-import type { ResearchArea, Publication } from '../types'
+import type { ResearchArea } from '../types'
 import { getAssetUrl } from '../utils/assets'
 
 const research = ref<ResearchArea[]>(researchData as ResearchArea[])
 
-// Flatten gallery images into slides
-const gallerySlides = galleryData.flatMap(item =>
-  item.images.map(image => ({
-    image,
-    title: item.title,
-    description: item.description,
-    date: item.date
-  }))
-)
-const recentPublications = ref<Publication[]>(
-  ([...journalsData, ...conferencesData, ...preprintsData] as Publication[])
-    .sort((a, b) => {
-      // Sort by year descending, then by id descending
-      if (b.year !== a.year) return b.year - a.year
-      const idA = parseInt(a.id.replace('pub', ''))
-      const idB = parseInt(b.id.replace('pub', ''))
-      return idB - idA
-    })
-    .slice(0, 5)
-)
+// Filter news from last 3 months and flatten into slides
+const threeMonthsAgo = new Date()
+threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3)
+
+const gallerySlides = galleryData
+  .filter(item => new Date(item.date) >= threeMonthsAgo)
+  .flatMap(item =>
+    item.images.map(image => ({
+      image,
+      title: item.title,
+      description: item.description,
+      date: item.date
+    }))
+  )
 
 const heroSlides = [
   {
@@ -76,7 +67,7 @@ const prevGallerySlide = () => {
   }
 }
 
-const galleryInterval = setInterval(nextGallerySlide, 4000)
+const galleryInterval = setInterval(nextGallerySlide, 30000)
 
 onUnmounted(() => {
   clearInterval(heroInterval)
@@ -177,43 +168,6 @@ onUnmounted(() => {
       </div>
     </section>
 
-    <!-- Recent Publications -->
-    <section class="py-16 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center mb-8">
-          <h2 class="text-3xl font-bold text-gray-900">Recent Publications</h2>
-          <RouterLink
-            to="/achievements"
-            class="text-blue-600 hover:text-blue-800 font-medium flex items-center"
-          >
-            View All
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </RouterLink>
-        </div>
-        <div class="space-y-4">
-          <div
-            v-for="pub in recentPublications"
-            :key="pub.id"
-            class="bg-gray-50 rounded-lg p-4 hover:bg-gray-100 transition-colors"
-          >
-            <h3 class="font-medium text-gray-900 mb-2">{{ pub.title }}</h3>
-            <p class="text-sm text-gray-600 mb-1">
-                <span v-for="(author, index) in pub.authors" :key="index">
-                  <span :class="{ 'font-bold': author.includes('^') }">{{ author.replace(/[*+^]/g, '') }}</span><sup v-if="author.includes('*')" class="text-blue-600">*</sup><span v-if="index < pub.authors.length - 1">, </span>
-                </span>
-              </p>
-            <p class="text-sm text-blue-600">
-              {{ pub.journal }} ({{ pub.year }})
-              <span v-if="pub.volume">, {{ pub.volume }}</span>
-              <span v-if="pub.pages">, {{ pub.pages }}</span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Gallery Section -->
     <section v-if="gallerySlides.length > 0" class="py-16 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -230,6 +184,11 @@ onUnmounted(() => {
           </RouterLink>
         </div>
 
+        <!-- News Description -->
+        <div class="mb-4 min-h-[3rem]">
+          <p class="text-blue-700 font-semibold text-xl">{{ gallerySlides[currentGallerySlide]?.description }}</p>
+        </div>
+
         <!-- Gallery Slideshow -->
         <div class="relative aspect-[3/1] max-h-[400px] bg-gray-900 rounded-lg overflow-hidden">
           <div
@@ -239,10 +198,6 @@ onUnmounted(() => {
             :class="currentGallerySlide === index ? 'opacity-100' : 'opacity-0'"
           >
             <img :src="getAssetUrl(slide.image)" :alt="slide.title" class="absolute inset-0 w-full h-full object-contain" />
-            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent"></div>
-            <div class="absolute top-0 left-0 right-0 p-6">
-              <p class="text-white font-bold text-2xl drop-shadow-lg">{{ slide.description }}</p>
-            </div>
           </div>
 
           <!-- Slide Controls -->

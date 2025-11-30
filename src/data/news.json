@@ -6,8 +6,28 @@
       "/images/news/ICCV2025_2.jpg"
     ],
     "title": "ICCV 2025 CV4MS Workshop",
-    "description": "Mr. Hieu and Nam attended the ICCV 2025 CV4MS Workshop placed in Hawaii, USA.",
+    "description": "Mr. Hieu and Mr. Nam attended the CV4MS Workshop at ICCV 2025, held in Hawaii, USA.",
     "date": "2025-11-01",
     "category": "Conferences"
+  },
+  {
+    "id": "g2",
+    "images": [
+      "/images/news/20251110_AEI.jpg"      
+    ],
+    "title": "New Paper Alert, Adv.E.I. by Mr. Phan",
+    "description": "Congratulations! Mr. Phan’s paper, 'Parameter-Aware High-Fidelity Microstructure Generation Using Stable Diffusion,' has been accepted by AEI.",
+    "date": "2025-11-10",
+    "category": "Paper Alerts"
+  },
+  {
+    "id": "g3",
+    "images": [
+      "/images/news/20251126_MC.jpg"      
+    ],
+    "title": "New Paper Alert!! Mater. Charact. by Dr. Tran",
+    "description": "Congratulations! Dr. Trans’s paper, 'Microstructure-informed forming limits in aluminum alloys: Experiments and crystal plasticity simulations,' has been accepted by Mater. Charact.",
+    "date": "2025-11-26",
+    "category": "Paper Alerts"
   }
 ]
