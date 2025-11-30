@@ -218,7 +218,7 @@ onUnmounted(() => {
     <section v-if="gallerySlides.length > 0" class="py-16 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center mb-8">
-          <h2 class="text-3xl font-bold text-gray-900">Gallery</h2>
+          <h2 class="text-3xl font-bold text-gray-900">News</h2>
           <RouterLink
             to="/gallery"
             class="text-blue-600 hover:text-blue-800 font-medium flex items-center"
