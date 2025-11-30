@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import researchData from '../data/research.json'
 import type { ResearchArea } from '../types'
+import { getAssetUrl } from '../utils/assets'
 
 const research = ref<ResearchArea[]>(researchData as ResearchArea[])
 </script>
@@ -24,7 +25,7 @@ const research = ref<ResearchArea[]>(researchData as ResearchArea[])
           <div class="md:flex">
             <div class="md:w-2/5 relative overflow-hidden h-[280px] flex items-center justify-center">
               <img
-                :src="area.image"
+                :src="getAssetUrl(area.image)"
                 :alt="area.title"
                 class="max-w-full max-h-full object-contain"
               />

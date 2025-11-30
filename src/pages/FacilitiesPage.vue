@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import facilitiesData from '../data/facilities.json'
 import type { Facility } from '../types'
+import { getAssetUrl } from '../utils/assets'
 
 const facilities = ref<Facility[]>(facilitiesData as Facility[])
 </script>
@@ -23,7 +24,7 @@ const facilities = ref<Facility[]>(facilitiesData as Facility[])
           <div class="h-96 bg-gray-200 overflow-hidden relative flex items-center justify-center">
             <img
               v-if="facility.image"
-              :src="facility.image"
+              :src="getAssetUrl(facility.image)"
               :alt="facility.name"
               class="w-[90%] h-[90%] object-contain"
             />

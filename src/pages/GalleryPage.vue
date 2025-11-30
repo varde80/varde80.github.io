@@ -2,6 +2,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import galleryData from '../data/gallery.json'
 import type { GalleryImage } from '../types'
+import { getAssetUrl } from '../utils/assets'
 
 const images = ref<GalleryImage[]>(galleryData as GalleryImage[])
 
@@ -103,7 +104,7 @@ onUnmounted(() => {
           <div class="aspect-video bg-gray-200 relative overflow-hidden">
             <img
               v-if="image.images && image.images.length > 0"
-              :src="image.images[currentImageIndices[image.id] || 0]"
+              :src="getAssetUrl(image.images[currentImageIndices[image.id] || 0] || '')"
               :alt="image.title"
               class="w-full h-full object-cover transition-opacity duration-500"
             />
@@ -147,7 +148,7 @@ onUnmounted(() => {
         <div class="aspect-video bg-gray-200 flex items-center justify-center relative">
           <img
             v-if="selectedImage.images && selectedImage.images.length > 0"
-            :src="selectedImage.images[currentImageIndices[selectedImage.id] || 0]"
+            :src="getAssetUrl(selectedImage.images[currentImageIndices[selectedImage.id] || 0] || '')"
             :alt="selectedImage.title"
             class="w-full h-full object-contain"
           />

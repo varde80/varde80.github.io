@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import membersData from '../data/members.json'
 import type { MembersData } from '../types'
+import { getAssetUrl } from '../utils/assets'
 
 const members = ref<MembersData>(membersData as MembersData)
 const showEmail = ref(false)
@@ -19,7 +20,7 @@ const showEmail = ref(false)
           <div class="flex flex-col md:flex-row gap-8">
             <div class="flex-shrink-0">
               <div class="w-48 h-48 bg-gray-200 rounded-lg overflow-hidden">
-                <img :src="members.professor.image" :alt="members.professor.name" class="w-full h-full object-cover" />
+                <img :src="getAssetUrl(members.professor.image)" :alt="members.professor.name" class="w-full h-full object-cover" />
               </div>
             </div>
             <div class="flex-1">
@@ -79,7 +80,7 @@ const showEmail = ref(false)
             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
           >
             <div class="h-48 bg-gray-200">
-              <img :src="member.image" :alt="member.name" class="w-full h-full object-cover" />
+              <img :src="getAssetUrl(member.image)" :alt="member.name" class="w-full h-full object-cover" />
             </div>
             <div class="p-4">
               <h3 class="font-semibold text-gray-900">{{ member.name }}</h3>
@@ -100,7 +101,7 @@ const showEmail = ref(false)
             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
           >
             <div class="h-48 bg-gray-200">
-              <img :src="member.image" :alt="member.name" class="w-full h-full object-cover" />
+              <img :src="getAssetUrl(member.image)" :alt="member.name" class="w-full h-full object-cover" />
             </div>
             <div class="p-4">
               <h3 class="font-semibold text-gray-900">{{ member.name }}</h3>
@@ -121,7 +122,7 @@ const showEmail = ref(false)
             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
           >
             <div class="h-48 bg-gray-200">
-              <img :src="member.image" :alt="member.name" class="w-full h-full object-cover" />
+              <img :src="getAssetUrl(member.image)" :alt="member.name" class="w-full h-full object-cover" />
             </div>
             <div class="p-4">
               <h3 class="font-semibold text-gray-900">{{ member.name }}</h3>

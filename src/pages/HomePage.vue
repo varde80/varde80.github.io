@@ -6,6 +6,7 @@ import conferencesData from '../data/conferences.json'
 import preprintsData from '../data/preprints.json'
 import galleryData from '../data/gallery.json'
 import type { ResearchArea, Publication } from '../types'
+import { getAssetUrl } from '../utils/assets'
 
 const research = ref<ResearchArea[]>(researchData as ResearchArea[])
 
@@ -93,7 +94,7 @@ onUnmounted(() => {
         class="absolute inset-0 transition-opacity duration-1000"
         :class="currentSlide === index ? 'opacity-100' : 'opacity-0'"
       >
-        <img :src="slide.image" :alt="slide.title" class="absolute inset-0 w-full h-full object-contain" />
+        <img :src="getAssetUrl(slide.image)" :alt="slide.title" class="absolute inset-0 w-full h-full object-contain" />
         <div class="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-gray-900/60"></div>
         <div class="absolute inset-0 flex items-center justify-center">
           <div class="text-center text-white px-4">
@@ -160,7 +161,7 @@ onUnmounted(() => {
           >
             <div class="h-48 relative overflow-hidden flex items-center justify-center">
               <img
-                :src="area.image"
+                :src="getAssetUrl(area.image)"
                 :alt="area.title"
                 class="max-w-full max-h-full object-contain"
               />
@@ -237,7 +238,7 @@ onUnmounted(() => {
             class="absolute inset-0 transition-opacity duration-1000"
             :class="currentGallerySlide === index ? 'opacity-100' : 'opacity-0'"
           >
-            <img :src="slide.image" :alt="slide.title" class="absolute inset-0 w-full h-full object-contain" />
+            <img :src="getAssetUrl(slide.image)" :alt="slide.title" class="absolute inset-0 w-full h-full object-contain" />
             <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent"></div>
             <div class="absolute top-0 left-0 right-0 p-6">
               <p class="text-white font-bold text-2xl drop-shadow-lg">{{ slide.description }}</p>
