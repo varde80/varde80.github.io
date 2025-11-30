@@ -79,7 +79,7 @@ const showEmail = ref(false)
             :key="member.id"
             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
           >
-            <div class="h-60 bg-gray-100 flex items-center justify-center">
+            <div class="h-52 bg-gray-100 flex items-center justify-center">
               <img :src="getAssetUrl(member.image)" :alt="member.name" class="w-full object-contain" />
             </div>
             <div class="p-4">
