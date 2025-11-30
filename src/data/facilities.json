@@ -1,0 +1,78 @@
+[
+  {
+    "id": "f1",
+    "name": "GPU Cluster",
+    "description": "K8S GPU cluster for deep learning and machine learning tasks.",
+    "image": "/images/facilities/cluster.jpg",
+    "manufacturer": "Miruware",
+    "model": "K8S Cluster",
+    "specifications": [
+      "Nvidia A100 x10ea",
+      "Nvidia A6000 x24ea"
+    ]
+  },
+  {
+    "id": "f2",
+    "name": "Automatic Universal Tensile Machine",
+    "description": "A fully automated tensile testing system covering the specimen handling, testing, and data analysis",
+    "image": "/images/facilities/atm.png",
+    "manufacturer": "Zwick Roell",
+    "model": "Z100_ROBOTEST",
+    "specifications": [
+      "Nominal Capacity: 100 kN",
+      "Testing Speed: 0.0005 ~ 1,500 mm/min",
+      "Robot Type: 6-Axis Industrial Robot"
+    ]
+  },
+  {
+    "id": "f3",
+    "name": "3D Measuring Machine",
+    "description": "automatically measure the geometry of the specimen using robot and optics",
+    "image": "/images/facilities/3d_scanner.png",
+    "manufacturer": "Gom",
+    "model": "Atos Scanbox5120",
+    "specifications": [
+      "Scan area: 500 x 370 mm",
+      "600W blue LED"
+    ]
+  },
+  {
+    "id": "f4",
+    "name": "Automatic Rolling Mill",
+    "description": "automatic reverse 2-high rolling machine for plate",
+    "image": "/images/facilities/rolling.png",
+    "manufacturer": "Darvin",
+    "model": "",
+    "specifications": [
+      "Capacity: 150 ton"
+    ]
+  },
+  {
+    "id": "f5",
+    "name": "X-RAY Diffractometer",
+    "description": "High-performance automated equipment capable of producing data at the scale needed for AI model training; it will be used to automate specimen preparation and build an AI service platform.",
+    "image": "/images/facilities/xrd.png",
+    "manufacturer": "Malvern Panalytical",
+    "model": "Empyrean",
+    "specifications": [
+      "X-Ray Generator Max power: 4kW",
+      "X-ray tube anode : Cu",
+      "Max Voltage, Current : 45kV, 60mA"
+    ]
+  },
+  {
+    "id": "f6",
+    "name": "Fiber Laser Cutting Machine",
+    "description": "A fiber laser-based system designed for the efficient cutting of complex geometries and high-speed test specimen preparation.",
+    "image": "/images/facilities/laser.png",
+    "manufacturer": "RMTech",
+    "model": "Vulcan 1390",
+    "specifications": [
+      "Laser Output Power: 4 kW",
+      "Positioning Accuracy: 0.02 mm / 300 mm",
+      "Repeatability: 0.020 mm / 300 mm",
+      "Laser Lifespan: Over 100,000 hours",
+      "Processing Area (Working Area): 1.2 m x 0.9 m"
+    ]
+  }
+]

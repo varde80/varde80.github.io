@@ -1,0 +1,19 @@
+[
+    {
+        "id": "conf1",
+        "type": "conference",
+        "title": "MatSSL: Robust Self-Supervised Representation Learning for Metallographic Image Segmentation",
+        "authors": [
+            "Hoang Hai Nam Nguyen^+",
+            "Phan Nguyen Duc Hieu^+",
+            "Ho Won Lee^*"
+        ],
+        "journal": "International Conferece on Computer Vision (ICCV) 2025, Computer Vision for Materials Science(CV4MS) Workshop",
+        "year": 2025,
+        "volume": "",
+        "pages": "",
+        "doi": "",
+        "link": "https://openaccess.thecvf.com/content/ICCV2025W/CV4MS/papers/Nguyen_MatSSL_Robust_Self-Supervised_Representation_Learning_for_Metallographic_Image_Segmentation_ICCVW_2025_paper.pdf",
+        "featured": false
+    }
+]

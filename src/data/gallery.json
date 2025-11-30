@@ -1,0 +1,13 @@
+[
+  {
+    "id": "g1",
+    "images": [
+      "/images/gallery/ICCV2025_1.jpg",
+      "/images/gallery/ICCV2025_2.jpg"
+    ],
+    "title": "ICCV 2025 CV4MS Workshop",
+    "description": "Mr. Hieu and Nam attended the ICCV 2025 CV4MS Workshop placed in Hawaii, USA.",
+    "date": "2025-11-01",
+    "category": "Conferences"
+  }
+]

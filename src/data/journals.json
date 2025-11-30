@@ -1,0 +1,1220 @@
+[
+    {
+        "id": "pub1",
+        "type": "journal",
+        "title": "Local Austenite Grain Size Distribution in Hot Bar Rolling of AISI 4135 Steel",
+        "authors": [
+            "Ho Won Lee^",
+            "Hyuck-Cheol Kwon",
+            "Yong-Taek Im",
+            "P. D. Hodgson",
+            "S. H. Zahiri"
+        ],
+        "journal": "ISIJ International",
+        "year": 2005,
+        "volume": "45",
+        "pages": "706-712",
+        "doi": "10.2355/isijinternational.45.706",
+        "featured": false
+    },
+    {
+        "id": "pub2",
+        "type": "journal",
+        "title": "Steady state finite element simulation of bar rolling processes based on rigid-viscoplastic approach",
+        "authors": [
+            "Soo-Young Kim",
+            "Ho Won Lee^",
+            "Ji-Hyeon Min",
+            "Yong-Taek Im"
+        ],
+        "journal": "International Journal for Numerical Methods in Engineering",
+        "year": 2005,
+        "volume": "63",
+        "pages": "1583-1603",
+        "doi": "10.1002/nme.1328",
+        "featured": false
+    },
+    {
+        "id": "pub3",
+        "type": "journal",
+        "title": "Numerical investigation of austenite grain size distribution in square-diamond pass hot bar rolling",
+        "authors": [
+            "Ho Won Lee^",
+            "Hyuck-Cheol Kwon",
+            "Yong-Taek Im",
+            "P.D. Hodgson"
+        ],
+        "journal": "Journal of Materials Processing Technology",
+        "year": 2007,
+        "volume": "191",
+        "pages": "114-118",
+        "doi": "10.1016/j.jmatprotec.2007.03.002",
+        "featured": false
+    },
+    {
+        "id": "pub4",
+        "type": "journal",
+        "title": "Instability map based on specific plastic work criterion for hot deformation",
+        "authors": [
+            "Ho Won Lee^",
+            "Hyuck-Cheol Kwon",
+            "Muhammad Awais",
+            "Yong-Taek Im"
+        ],
+        "journal": "Journal of Mechanical Science and Technology",
+        "year": 2007,
+        "volume": "21",
+        "pages": "1534-1540",
+        "doi": "10.1007/BF03177371",
+        "featured": false
+    },
+    {
+        "id": "pub5",
+        "type": "journal",
+        "title": "Plastic work approach for surface defect prediction in the hot bar rolling process",
+        "authors": [
+            "Muhammad Awais",
+            "Ho Won Lee^",
+            "Yong-Taek Im",
+            "Hyuck-Cheol Kwon",
+            "Sang-Min Byon",
+            "Hae-Doo Park"
+        ],
+        "journal": "Journal of Materials Processing Technology",
+        "year": 2008,
+        "volume": "201",
+        "pages": "73–78",
+        "doi": "",
+        "featured": false
+    },
+    {
+        "id": "pub6",
+        "type": "journal",
+        "title": "Processing map approach for surface defect prediction in the hot bar rolling",
+        "authors": [
+            "Hak-Young Kim",
+            "Hyuck-Cheol Kwon",
+            "Ho Won Lee^",
+            "Yong-Taek Im",
+            "Sang-Min Byon",
+            "Hae-Doo Park"
+        ],
+        "journal": "Journal of Materials Processing Technology",
+        "year": 2008,
+        "volume": "205",
+        "pages": "70-80",
+        "doi": "10.1016/j.jmatprotec.2007.11.099",
+        "featured": false
+    },
+    {
+        "id": "pub7",
+        "type": "journal",
+        "title": "Surface wrinkle defect of carbon steel in the hot bar rolling process",
+        "authors": [
+            "Hyuck-Cheol Kwon",
+            "Ho Won Lee^",
+            "Hak-Young Kim",
+            "Yong-Taek Im",
+            "Hae-Doo Park",
+            "Duk-Lak Lee"
+        ],
+        "journal": "Journal of Materials Processing Technology",
+        "year": 2009,
+        "volume": "209",
+        "pages": "4476–4483",
+        "doi": "",
+        "featured": false
+    },
+    {
+        "id": "pub8",
+        "type": "journal",
+        "title": "Numerical prediction of austenite grain size in a bar rolling process using an evolution model based on a hot compression test",
+        "authors": [
+            "Kyung-Hwan Jung",
+            "Ho Won Lee^",
+            "Yong-Taek Im"
+        ],
+        "journal": "Materials Science and Engineering: A",
+        "year": 2009,
+        "volume": "519",
+        "pages": "94–104",
+        "doi": "",
+        "featured": false
+    },
+    {
+        "id": "pub9",
+        "type": "journal",
+        "title": "Cellular Automata Modeling of Grain Coarsening and Refinement during the Dynamic Recrystallization of Pure Copper",
+        "authors": [
+            "Ho Won Lee^",
+            "Yong-Taek Im"
+        ],
+        "journal": "MATERIALS TRANSACTIONS",
+        "year": 2010,
+        "volume": "51",
+        "pages": "1614-1620",
+        "doi": "10.2320/matertrans.M2010116",
+        "featured": false
+    },
+    {
+        "id": "pub10",
+        "type": "journal",
+        "title": "A microstructure evolution model for numerical prediction of austenite grain size distribution",
+        "authors": [
+            "Kyung-Hwan Jung",
+            "Ho Won Lee^",
+            "Yong-Taek Im"
+        ],
+        "journal": "International Journal of Mechanical Sciences",
+        "year": 2010,
+        "volume": "52",
+        "pages": "1136-1144",
+        "doi": "10.1016/j.ijmecsci.2009.09.010",
+        "featured": false
+    },
+    {
+        "id": "pub11",
+        "type": "journal",
+        "title": "Numerical modeling of dynamic recrystallization during nonisothermal hot compression by cellular automata and finite element analysis",
+        "authors": [
+            "Ho Won Lee^",
+            "Yong-Taek Im"
+        ],
+        "journal": "International Journal of Mechanical Sciences",
+        "year": 2010,
+        "volume": "52",
+        "pages": "1277-1289",
+        "doi": "10.1016/j.ijmecsci.2010.06.003",
+        "featured": false
+    },
+    {
+        "id": "pub12",
+        "type": "journal",
+        "title": "Mesoscopic Modeling of Primary Recrystallization of AA1050 with Curvature-Driven Interface Migration Effect",
+        "authors": [
+            "Dong-Kyu Kim",
+            "Ho Won Lee^",
+            "Kyung-Hwan Jung",
+            "Yong-Taek Im"
+        ],
+        "journal": "MATERIALS TRANSACTIONS",
+        "year": 2013,
+        "volume": "54",
+        "pages": "81-89",
+        "doi": "10.2320/matertrans.M2012267",
+        "featured": false
+    },
+    {
+        "id": "pub13",
+        "type": "journal",
+        "title": "Adaptive characterization of recrystallization kinetics in IF steel by electron backscatter diffraction: ADAPTIVE CHARACTERIZATION OF RECRYSTALLIZATION KINETICS",
+        "authors": [
+            "Dong-Kyu Kim",
+            "Won-Woong Park",
+            "Ho Won Lee^",
+            "Seong-Hoon Kang",
+            "Yong-Taek Im"
+        ],
+        "journal": "Journal of Microscopy",
+        "year": 2013,
+        "volume": "252",
+        "pages": "204-216",
+        "doi": "10.1111/jmi.12082",
+        "featured": false
+    },
+    {
+        "id": "pub14",
+        "type": "journal",
+        "title": "Local and Global Stress–Strain Behaviors of Transformation-Induced Plasticity Steel Using the Combined Nanoindentation and Finite Element Analysis Method",
+        "authors": [
+            "Hyeok Jae Jeong",
+            "Nam Suk Lim",
+            "Bong Ho Lee",
+            "Chan Gyung Park",
+            "Sunghak Lee",
+            "Seong-Hoon Kang",
+            "Ho Won Lee^",
+            "Hyoung Seop Kim"
+        ],
+        "journal": "Metallurgical and Materials Transactions A",
+        "year": 2014,
+        "volume": "45",
+        "pages": "6008-6015",
+        "doi": "10.1007/s11661-014-2544-2",
+        "featured": false
+    },
+    {
+        "id": "pub15",
+        "type": "journal",
+        "title": "Prediction of microstructure evolution during hot forging using grain aggregate model for dynamic recrystallization",
+        "authors": [
+            "Ho Won Lee^",
+            "Seong-Hoon Kang",
+            "Youngseon Lee"
+        ],
+        "journal": "International Journal of Precision Engineering and Manufacturing",
+        "year": 2014,
+        "volume": "15",
+        "pages": "1055-1062",
+        "doi": "10.1007/s12541-014-0436-4",
+        "featured": false
+    },
+    {
+        "id": "pub16",
+        "type": "journal",
+        "title": "Evaluation of flow stress and damage index at large plastic strain by simulating tensile test of Al6061 plates with various grain sizes",
+        "authors": [
+            "Seong-Hoon Kang",
+            "Young-Seon Lee",
+            "Ho Won Lee^"
+        ],
+        "journal": "International Journal of Mechanical Sciences",
+        "year": 2014,
+        "volume": "80",
+        "pages": "54-61",
+        "doi": "10.1016/j.ijmecsci.2014.01.003",
+        "featured": false
+    },
+    {
+        "id": "pub17",
+        "type": "journal",
+        "title": "The effect of grain refinement by multi-pass continuous hybrid process on mechanical properties of low-carbon steel wires",
+        "authors": [
+            "Sun Kwang Hwang",
+            "Hyun Moo Baek",
+            "Yong-Taek Im",
+            "Il-Heon Son",
+            "Chul Min Bae",
+            "Ho Won Lee^"
+        ],
+        "journal": "Journal of Materials Processing Technology",
+        "year": 2014,
+        "volume": "214",
+        "pages": "1398-1407",
+        "doi": "10.1016/j.jmatprotec.2014.02.001",
+        "featured": false
+    },
+    {
+        "id": "pub18",
+        "type": "journal",
+        "title": "Three-dimensional crystal plasticity finite element analysis of microstructure and texture evolution during channel die compression of IF steel",
+        "authors": [
+            "Dong-Kyu Kim",
+            "Jae-Min Kim",
+            "Won-Woong Park",
+            "Ho Won Lee^",
+            "Yong-Taek Im",
+            "Yong-Shin Lee"
+        ],
+        "journal": "Computational Materials Science",
+        "year": 2015,
+        "volume": "100",
+        "pages": "52-60",
+        "doi": "10.1016/j.commatsci.2014.09.032",
+        "featured": false
+    },
+    {
+        "id": "pub19",
+        "type": "journal",
+        "title": "Frictional sensitivity and effect of surface roughness in boss and rib test",
+        "authors": [
+            "S.H. Kang",
+            "Y.S. Oh",
+            "H.W. Lee"
+        ],
+        "journal": "Tribology International",
+        "year": 2017,
+        "volume": "112",
+        "pages": "108-116",
+        "doi": "10.1016/j.triboint.2017.04.003",
+        "featured": false
+    },
+    {
+        "id": "pub20",
+        "type": "journal",
+        "title": "Interface-correlated bonding properties for a roll-bonded Ti/Al 2-ply sheet",
+        "authors": [
+            "Kwang Seok Lee",
+            "Seong Jun Bae",
+            "Ho Won Lee^",
+            "Seong Hoon Kang"
+        ],
+        "journal": "Materials Characterization",
+        "year": 2017,
+        "volume": "134",
+        "pages": "163-171",
+        "doi": "10.1016/j.matchar.2017.10.009",
+        "featured": false
+    },
+    {
+        "id": "pub21",
+        "type": "journal",
+        "title": "Characterization of glass viscosity with parallel plate and rotational viscometry",
+        "authors": [
+            "Youngnam Song",
+            "Chanhee Won",
+            "Seong-hoon Kang",
+            "Howon Lee",
+            "Sung-Jun Park",
+            "Sung Hyuk Park",
+            "Jonghun Yoon"
+        ],
+        "journal": "Journal of Non-Crystalline Solids",
+        "year": 2018,
+        "volume": "486",
+        "pages": "27-35",
+        "doi": "10.1016/j.jnoncrysol.2018.02.003",
+        "featured": false
+    },
+    {
+        "id": "pub22",
+        "type": "journal",
+        "title": "Microstructure and mechanical anisotropy of CoCrW alloy processed by selective laser melting",
+        "authors": [
+            "Ho Won Lee^",
+            "Kyung-Hwan Jung",
+            "Sun-Kwang Hwang",
+            "Seong-Hoon Kang",
+            "Dong-Kyu Kim"
+        ],
+        "journal": "Materials Science and Engineering: A",
+        "year": 2019,
+        "volume": "749",
+        "pages": "65-73",
+        "doi": "10.1016/j.msea.2019.02.013",
+        "featured": false
+    },
+    {
+        "id": "pub23",
+        "type": "journal",
+        "title": "Effect of ECAP on Change in Microstructure and Critical Current Density of Low Temperature Super-Conducting Monowire",
+        "authors": [
+            "Seon-Myung Park",
+            "Young-Seok Oh",
+            "Se-Jong Kim",
+            "Hee Rak Kim",
+            "Howon Lee",
+            "In Yong Moon",
+            "Duck-Young Hwang",
+            "Seong-Hoon Kang"
+        ],
+        "journal": "International Journal of Precision Engineering and Manufacturing",
+        "year": 2019,
+        "volume": "20",
+        "pages": "1563-1572",
+        "doi": "10.1007/s12541-019-00164-3",
+        "featured": false
+    },
+    {
+        "id": "pub24",
+        "type": "journal",
+        "title": "Development of a roll-to-roll hot imprinting process for superhydrophobic polytetrafluoroethylene surfaces",
+        "authors": [
+            "I Y Moon",
+            "H W Lee",
+            "Y S Oh",
+            "S J Kim",
+            "J H Kim",
+            "S H Kang"
+        ],
+        "journal": "Journal of Micromechanics and Microengineering",
+        "year": 2019,
+        "volume": "29",
+        "pages": "115003",
+        "doi": "10.1088/1361-6439/ab38e8",
+        "featured": false
+    },
+    {
+        "id": "pub25",
+        "type": "journal",
+        "title": "Characterization of microfibril development on PTFE surface during hot imprinting process and its application for oil–water separation",
+        "authors": [
+            "In Yong Moon",
+            "Ho Won Lee^",
+            "Young-Seok Oh",
+            "Se-Jong Kim",
+            "Seong-Hoon Kang"
+        ],
+        "journal": "International Journal of Advanced Manufacturing Technology",
+        "year": 2019,
+        "volume": "102",
+        "pages": "1871-1883",
+        "doi": "10.1007/s00170-019-03303-2",
+        "featured": false
+    },
+    {
+        "id": "pub26",
+        "type": "journal",
+        "title": "Effect of Quenching Tempering-Post Weld Heat Treatment on the Microstructure and Mechanical Properties of Laser-Arc Hybrid-Welded Boron Steel",
+        "authors": [
+            "Ho Won Lee^",
+            "Kwang Jae Yoo",
+            "Minh Tien Tran^",
+            "In Yong Moon",
+            "Young-Seok Oh",
+            "Seong-Hoon Kang",
+            "Dong-Kyu Kim"
+        ],
+        "journal": "Materials",
+        "year": 2019,
+        "volume": "12",
+        "pages": "2862",
+        "doi": "10.3390/ma12182862",
+        "featured": false
+    },
+    {
+        "id": "pub27",
+        "type": "journal",
+        "title": "Superhydrophobic Polymer Surface with Hierarchical Patterns Fabricated in Hot Imprinting Process",
+        "authors": [
+            "In Yong Moon",
+            "Bo Hyun Kim",
+            "Ho Won Lee^",
+            "Young-Seok Oh",
+            "Ji Hoon Kim",
+            "Seong-Hoon Kang"
+        ],
+        "journal": "International Journal of Precision Engineering and Manufacturing-Green Technology",
+        "year": 2020,
+        "volume": "7",
+        "pages": "493-503",
+        "doi": "10.1007/s40684-019-00094-5",
+        "featured": false
+    },
+    {
+        "id": "pub28",
+        "type": "journal",
+        "title": "Numerical simulation for dendrite growth in directional solidification using LBM-CA (cellular automata) coupled method",
+        "authors": [
+            "Wonjoo Lee",
+            "Yuhyeong Jeong",
+            "Jae-Wook Lee",
+            "Howon Lee",
+            "Seong-hoon Kang",
+            "Young-Min Kim",
+            "Jonghun Yoon"
+        ],
+        "journal": "Journal of Materials Science & Technology",
+        "year": 2020,
+        "volume": "49",
+        "pages": "15-24",
+        "doi": "10.1016/j.jmst.2020.01.047",
+        "featured": false
+    },
+    {
+        "id": "pub29",
+        "type": "journal",
+        "title": "Modelling continuous dynamic recrystallization of aluminum alloys based on the polycrystal plasticity approach",
+        "authors": [
+            "S.F. Chen",
+            "D.Y. Li",
+            "S.H. Zhang",
+            "H.N. Han",
+            "H.W. Lee",
+            "M.G. Lee"
+        ],
+        "journal": "International Journal of Plasticity",
+        "year": 2020,
+        "volume": "131",
+        "pages": "102710",
+        "doi": "10.1016/j.ijplas.2020.102710",
+        "featured": false
+    },
+    {
+        "id": "pub30",
+        "type": "journal",
+        "title": "Investigation of the Correlation between Initial Microstructure and Critical Current Density of Nb-46.5 wt%Ti Superconducting Material",
+        "authors": [
+            "In Yong Moon",
+            "Se-Jong Kim",
+            "Ho Won Lee^",
+            "Jaimyun Jung",
+            "Young-Seok Oh",
+            "Seong-Hoon Kang"
+        ],
+        "journal": "Metals",
+        "year": 2021,
+        "volume": "11",
+        "pages": "777",
+        "doi": "10.3390/met11050777",
+        "featured": false
+    },
+    {
+        "id": "pub31",
+        "type": "journal",
+        "title": "Analysis of the Region of Interest According to CNN Structure in Hierarchical Pattern Surface Inspection Using CAM",
+        "authors": [
+            "In Yong Moon",
+            "Ho Won Lee^",
+            "Se-Jong Kim",
+            "Young-Seok Oh",
+            "Jaimyun Jung",
+            "Seong-Hoon Kang"
+        ],
+        "journal": "Materials",
+        "year": 2021,
+        "volume": "14",
+        "pages": "2095",
+        "doi": "10.3390/ma14092095",
+        "featured": false
+    },
+    {
+        "id": "pub32",
+        "type": "journal",
+        "title": "Die Design for Extrusion Process of Titanium Seamless Tube Using Finite Element Analysis",
+        "authors": [
+            "Byung-Jin Choi",
+            "In Yong Moon",
+            "Young-Seok Oh",
+            "Seong-Hoon Kang",
+            "Se-Jong Kim",
+            "Jaimyun Jung",
+            "Ji-Hoon Kim",
+            "Dong-Kyu Kim",
+            "Ho Won Lee^"
+        ],
+        "journal": "Metals",
+        "year": 2021,
+        "volume": "11",
+        "pages": "1338",
+        "doi": "10.3390/met11091338",
+        "featured": false
+    },
+    {
+        "id": "pub33",
+        "type": "journal",
+        "title": "Effect of hot isostatic pressing on the cryogenic mechanical properties of CrCoNi medium entropy alloy processed by direct energy deposition",
+        "authors": [
+            "Minh Tien Tran^",
+            "Tri Hoang Nguyen",
+            "Dong-Kyu Kim",
+            "Wanchuck Woo",
+            "Shi-Hoon Choi",
+            "Ho Won Lee^",
+            "Huai Wang^",
+            "Jeong Gyun Kim"
+        ],
+        "journal": "Materials Science and Engineering: A",
+        "year": 2021,
+        "volume": "828",
+        "pages": "142110",
+        "doi": "10.1016/j.msea.2021.142110",
+        "featured": false
+    },
+    {
+        "id": "pub34",
+        "type": "journal",
+        "title": "Design of a Forming Process for Increasing the Contact Length of Corrugated Plates in Molten Carbonate Fuel Cells",
+        "authors": [
+            "Young-Seok Oh",
+            "In Yong Moon",
+            "Ho Won Lee^",
+            "Se-Jong Kim",
+            "Jaimyun Jung",
+            "Seong-Hoon Kang"
+        ],
+        "journal": "Metals",
+        "year": 2021,
+        "volume": "11",
+        "pages": "1112",
+        "doi": "10.3390/met11071112",
+        "featured": false
+    },
+    {
+        "id": "pub35",
+        "type": "journal",
+        "title": "Earing Reduction by Varying Blank Holding Force in Deep Drawing with Deep Neural Network",
+        "authors": [
+            "Minh Tien Tran^",
+            "Zhengtong Shan",
+            "Ho Won Lee^",
+            "Dong-Kyu Kim"
+        ],
+        "journal": "Metals",
+        "year": 2021,
+        "volume": "11",
+        "pages": "395",
+        "doi": "10.3390/met11030395",
+        "featured": false
+    },
+    {
+        "id": "pub36",
+        "type": "journal",
+        "title": "Formability improvement in multi-stage stamping of ultra-thin metallic bipolar plate for proton exchange membrane fuel cell",
+        "authors": [
+            "Minh Tien Tran^",
+            "Dae Ho Lee",
+            "Ho Won Lee^",
+            "Dong-Kyu Kim"
+        ],
+        "journal": "International Journal of Hydrogen Energy",
+        "year": 2022,
+        "volume": "47",
+        "pages": "40008-40025",
+        "doi": "10.1016/j.ijhydene.2022.09.163",
+        "featured": false
+    },
+    {
+        "id": "pub37",
+        "type": "journal",
+        "title": "Crystal plasticity finite element analysis of size effect on the formability of ultra-thin ferritic stainless steel sheet for fuel cell bipolar plate",
+        "authors": [
+            "Minh Tien Tran^",
+            "Huai Wang^",
+            "Ho Won Lee^",
+            "Dong-Kyu Kim"
+        ],
+        "journal": "International Journal of Plasticity",
+        "year": 2022,
+        "volume": "154",
+        "pages": "103298",
+        "doi": "10.1016/j.ijplas.2022.103298",
+        "featured": false
+    },
+    {
+        "id": "pub38",
+        "type": "journal",
+        "title": "Numerical simulation of dendritic growth and porosity evolution in solidification of Al-Cu alloy with lattice Boltzmann – Cellular automata method",
+        "authors": [
+            "Wonjoo Lee",
+            "Junho Bae",
+            "Howon Lee",
+            "Seong-hoon Kang",
+            "Jonghun Yoon"
+        ],
+        "journal": "Journal of Alloys and Compounds",
+        "year": 2022,
+        "volume": "929",
+        "pages": "167233",
+        "doi": "10.1016/j.jallcom.2022.167233",
+        "featured": false
+    },
+    {
+        "id": "pub39",
+        "type": "journal",
+        "title": "Predicting microstructural evolution based on deformation history of A230 alloy using a finite element method-assisted generative model",
+        "authors": [
+            "In Yong Moon",
+            "Jeyong Yu",
+            "Hi Won Jeong",
+            "Ho Won Lee^",
+            "Se-Jong Kim",
+            "Young-Seok Oh",
+            "Jaimyun Jung",
+            "Sehyeok Oh",
+            "Seong-Hoon Kang"
+        ],
+        "journal": "Materials Science and Engineering: A",
+        "year": 2022,
+        "volume": "854",
+        "pages": "143852",
+        "doi": "10.1016/j.msea.2022.143852",
+        "featured": false
+    },
+    {
+        "id": "pub40",
+        "type": "journal",
+        "title": "Evolution of Microstructure, Mechanical Properties and Residual Stress of a Cold Rolled Invar Sheet Due to Heat Treatment",
+        "authors": [
+            "Sung Jin Park",
+            "Seong-Hyeon Jo",
+            "Jung Gi Kim",
+            "Juntae Kim",
+            "Ryul Lee",
+            "Young-Seok Oh",
+            "Se-Jong Kim",
+            "Ho Won Lee^",
+            "Seong-Hoon Kang",
+            "Jaimyun Jung"
+        ],
+        "journal": "Metals",
+        "year": 2022,
+        "volume": "12",
+        "pages": "110",
+        "doi": "10.3390/met12010110",
+        "featured": false
+    },
+    {
+        "id": "pub41",
+        "type": "journal",
+        "title": "Predicting High Temperature Flow Stress of Nickel Alloy A230 Based on an Artificial Neural Network",
+        "authors": [
+            "In Yong Moon",
+            "Hi Won Jeong",
+            "Ho Won Lee^",
+            "Se-Jong Kim",
+            "Young-Seok Oh",
+            "Jaimyun Jung",
+            "Sehyeok Oh",
+            "Seong-Hoon Kang"
+        ],
+        "journal": "Metals",
+        "year": 2022,
+        "volume": "12",
+        "pages": "223",
+        "doi": "10.3390/met12020223",
+        "featured": false
+    },
+    {
+        "id": "pub42",
+        "type": "journal",
+        "title": "Superconducting MgB2 Wire Drawing Considering Anisotropic Hardening Behavior and Hydrostatic Effect",
+        "authors": [
+            "Young-Seok Oh",
+            "Ho Won Lee^",
+            "Kook-Chae Chung",
+            "Duck-Young Hwang",
+            "Seong-Hoon Kang",
+            "Jeong Whan Yoon"
+        ],
+        "journal": "Metals and Materials International",
+        "year": 2022,
+        "volume": "28",
+        "pages": "1697-1710",
+        "doi": "10.1007/s12540-021-01023-5",
+        "featured": false
+    },
+    {
+        "id": "pub43",
+        "type": "journal",
+        "title": "Modeling the Stress–Strain Curves and Dynamic Recrystallization of Nickel-Based A230 Alloy During Hot Deformation",
+        "authors": [
+            "Jeyong Yu",
+            "In Yong Moon",
+            "Hi Won Jeong",
+            "Ho Won Lee^",
+            "Ji Hoon Kim*",
+            "Seong-Hoon Kang*"
+        ],
+        "journal": "Metals and Materials International",
+        "year": 2022,
+        "volume": "28",
+        "pages": "3016-3032",
+        "doi": "10.1007/s12540-022-01194-9",
+        "featured": false
+    },
+    {
+        "id": "pub44",
+        "type": "journal",
+        "title": "Microstructure-dependent etching behavior of a partially recrystallized Invar alloy",
+        "authors": [
+            "Sung Jin Park",
+            "Seong-Hyeon Jo",
+            "Sehyeok Oh",
+            "Young-Seok Oh",
+            "Se-Jong Kim",
+            "Ho Won Lee^",
+            "Seong-Hoon Kang",
+            "Young Hoon Moon",
+            "Jaimyun Jung*"
+        ],
+        "journal": "Materials & Design",
+        "year": 2022,
+        "volume": "217",
+        "pages": "110631",
+        "doi": "10.1016/j.matdes.2022.110631",
+        "featured": false
+    },
+    {
+        "id": "pub45",
+        "type": "journal",
+        "title": "In-situ EBSD observation and simulation of free surface roughening and ductile failure in the ultra-thin ferritic stainless steel sheet",
+        "authors": [
+            "Minh Tien Tran^",
+            "Sun-Kwang Hwang",
+            "A Ra Jo",
+            "Ho Won Lee^",
+            "Dong-Kyu Kim*"
+        ],
+        "journal": "Materials Science and Engineering: A",
+        "year": 2023,
+        "volume": "883",
+        "pages": "145489",
+        "doi": "10.1016/j.msea.2023.145489",
+        "featured": false
+    },
+    {
+        "id": "pub46",
+        "type": "journal",
+        "title": "Correlation of cryogenic deformation mechanisms to excellent strength-ductility of CrCoNi medium entropy alloy processed by selective laser melting",
+        "authors": [
+            "Kyung-Hwan Jung",
+            "Minh Tien Tran^",
+            "Zhengtong Shan",
+            "Ho Won Lee^",
+            "Sun-Kwang Hwang",
+            "Hyung Giun Kim",
+            "Dong-Kyu Kim*"
+        ],
+        "journal": "Journal of Materials Research and Technology",
+        "year": 2023,
+        "volume": "22",
+        "pages": "2297-2315",
+        "doi": "10.1016/j.jmrt.2022.12.084",
+        "featured": false
+    },
+    {
+        "id": "pub47",
+        "type": "journal",
+        "title": "Interpretable machine learning-based analysis of mechanical properties of extruded Mg-Al-Zn-Mn-Ca-Y alloys",
+        "authors": [
+            "Joung Sik Suh*",
+            "Young Min Kim",
+            "Chang Dong Yim",
+            "Byeong-Chan Suh",
+            "Jun Ho Bae",
+            "Ho Won Lee^"
+        ],
+        "journal": "Journal of Alloys and Compounds",
+        "year": 2023,
+        "volume": "968",
+        "pages": "172007",
+        "doi": "10.1016/j.jallcom.2023.172007",
+        "featured": false
+    },
+    {
+        "id": "pub48",
+        "type": "journal",
+        "title": "Micromechanical properties and deformation behavior of the constituent phases in 3rd generation complex phase AHSS: In-situ neutron experiment and crystal plasticity simulation",
+        "authors": [
+            "Minh Tien Tran^",
+            "Xuan Minh Nguyen",
+            "Hyunki Kim",
+            "Hobyung Chae",
+            "Wanchuck Woo",
+            "Ho Won Lee^",
+            "Dong-Kyu Kim*"
+        ],
+        "journal": "International Journal of Plasticity",
+        "year": 2023,
+        "volume": "171",
+        "pages": "103812",
+        "doi": "10.1016/j.ijplas.2023.103812",
+        "featured": false
+    },
+    {
+        "id": "pub49",
+        "type": "journal",
+        "title": "Microstructure-Based Modeling of Deformation and Damage Behavior of Extruded and Additively Manufactured 316L Stainless Steels",
+        "authors": [
+            "Huai Wang^",
+            "Ho Won Lee",
+            "Minh Tien Tran^",
+            "Dong-Kyu Kim*"
+        ],
+        "journal": "Materials",
+        "year": 2024,
+        "volume": "17",
+        "pages": "2360",
+        "doi": "10.3390/ma17102360",
+        "featured": false
+    },
+    {
+        "id": "pub50",
+        "type": "journal",
+        "title": "Crystal Plasticity Finite Element Analyses on the Formability of AA6061 Aluminum Alloy with Different Ageing Treatments",
+        "authors": [
+            "Huai Wang^*",
+            "Ho Won Lee^*",
+            "Seong-Hoon Kang",
+            "Dong-Kyu Kim"
+        ],
+        "journal": "Metals",
+        "year": 2024,
+        "volume": "14",
+        "pages": "503",
+        "doi": "10.3390/met14050503",
+        "featured": false
+    },
+    {
+        "id": "pub51",
+        "type": "journal",
+        "title": "Robust detection of ductile fracture by acoustic emission data-driven unsupervised learning",
+        "authors": [
+            "Jong-Hyeok Kwon",
+            "Nhat-Tam Nguyen",
+            "Minh Tien Tran^",
+            "Ho Won Lee^",
+            "Ho Seon Joo",
+            "KiHo Rhee",
+            "Sung-Soo Park",
+            "Dong Wan Kim",
+            "Yong-Gyun Jeong",
+            "Dong-Kyu Kim*"
+        ],
+        "journal": "International Journal of Mechanical Sciences",
+        "year": 2024,
+        "volume": "277",
+        "pages": "109420",
+        "doi": "10.1016/j.ijmecsci.2024.109420",
+        "featured": false
+    },
+    {
+        "id": "pub52",
+        "type": "journal",
+        "title": "Ductile fracture locus under various deformation modes with negative-to-positive stress triaxiality",
+        "authors": [
+            "Jong-Hyeok Kwon",
+            "Jeong-Min Heo",
+            "Nhat-Tam Nguyen",
+            "Minh Tien Tran^",
+            "Ho Won Lee^",
+            "Seong-Hoon Kang",
+            "Ho Seon Joo",
+            "KiHo Rhee",
+            "Sung-Soo Park",
+            "Dong Wan Kim",
+            "Yong-Gyun Jeong",
+            "Dong-Kyu Kim*"
+        ],
+        "journal": "International Journal of Mechanical Sciences",
+        "year": 2024,
+        "volume": "279",
+        "pages": "109615",
+        "doi": "10.1016/j.ijmecsci.2024.109615",
+        "featured": false
+    },
+    {
+        "id": "pub53",
+        "type": "journal",
+        "title": "Efficient residual stress mitigation in additively manufactured 18Ni300 maraging steel",
+        "authors": [
+            "Zhengtong Shan",
+            "Minh Sang Pham",
+            "Minh Tien Tran^",
+            "Ji Seob An",
+            "Sun-Kwang Hwang",
+            "Ho Won Lee^",
+            "Dong-Kyu Kim"
+        ],
+        "journal": "International Journal of Mechanical Sciences",
+        "year": 2024,
+        "volume": "268",
+        "pages": "109055",
+        "doi": "10.1016/j.ijmecsci.2024.109055",
+        "featured": false
+    },
+    {
+        "id": "pub54",
+        "type": "journal",
+        "title": "Correlation between individual phase constitutive properties and plastic heterogeneities in advanced-high strength dual-phase steels",
+        "authors": [
+            "Minh Tien Tran^",
+            "Xuan Minh Nguyen",
+            "Hyunki Kim",
+            "Hobyung Chae",
+            "Wanchuck Woo",
+            "Ho Won Lee^",
+            "Young-Seok Oh",
+            "Seong-Hoon Kang",
+            "Dong-Kyu Kim*"
+        ],
+        "journal": "Materials Characterization",
+        "year": 2024,
+        "volume": "217",
+        "pages": "114356",
+        "doi": "10.1016/j.matchar.2024.114356",
+        "featured": false
+    },
+    {
+        "id": "pub55",
+        "type": "journal",
+        "title": "Exceptional cryogenic impact and fatigue properties of additively manufactured CrCoNi medium entropy alloy",
+        "authors": [
+            "Sun-Kwang Hwang",
+            "Minh Tien Tran^",
+            "Cong Hoang Dang",
+            "Jeong-Min Heo",
+            "Ho Won Lee^",
+            "Kyung-Hwan Jung",
+            "Dong-Kyu Kim*"
+        ],
+        "journal": "International Journal of Fatigue",
+        "year": 2025,
+        "volume": "193",
+        "pages": "108767",
+        "doi": "10.1016/j.ijfatigue.2024.108767",
+        "featured": false
+    },
+    {
+        "id": "pub58",
+        "type": "journal",
+        "title": "Multi-fidelity learning-based latent diffusion model for three-dimensional inverse microstructure design of dual phase steels",
+        "authors": [
+            "Jaimyun Jung",
+            "Sehyeok Oh",
+            "Hoheok Kim",
+            "Juwon Na",
+            "Seong Jun Bae",
+            "Chihun Lee",
+            "Se-Jong Kim",
+            "Ho Won Lee^*"
+        ],
+        "journal": "Materials & Design",
+        "year": 2025,
+        "volume": "258",
+        "pages": "114623",
+        "doi": "10.1016/j.matdes.2025.114623",
+        "featured": false
+    },
+    {
+        "id": "pub59",
+        "type": "journal",
+        "title": "Prediction of Forming Limit Diagram by Convolution Neural Networks and Crystal Plasticity Finite Element Method",
+        "authors": [
+            "Han-Jun Lee^",
+            "Jaimyun Jung",
+            "Sehyeok Oh",
+            "Dong-Kyu Kim",
+            "Ji Hoon Kim*",
+            "Ho Won Lee^*"
+        ],
+        "journal": "Korean Journal of Metals and Materials",
+        "year": 2025,
+        "volume": "63",
+        "pages": "542-552",
+        "doi": "10.3365/KJMM.2025.63.7.542",
+        "featured": false
+    },
+    {
+        "id": "pub60",
+        "type": "journal",
+        "title": "Adaptive capture-based cellular automata for addressing challenges in modeling grain growth competition in additive manufacturing",
+        "authors": [
+            "Zhengtong Shan",
+            "Ho Won Lee^",
+            "Dong-Kyu Kim*"
+        ],
+        "journal": "Additive Manufacturing",
+        "year": 2025,
+        "volume": "109",
+        "pages": "104908",
+        "doi": "10.1016/j.addma.2025.104908",
+        "featured": false
+    },
+    {
+        "id": "pub61",
+        "type": "journal",
+        "title": "Crystal plasticity modeling of ductile fracture locus in advanced high-strength steels",
+        "authors": [
+            "Minh Tien Tran^",
+            "Xuan Minh Nguyen",
+            "Jong-Hyeok Kwon",
+            "Hyunki Kim",
+            "Kyung-Hwan Jung",
+            "Ho Won Lee^",
+            "Seong-Hoon Kang",
+            "Dong-Kyu Kim*"
+        ],
+        "journal": "Results in Engineering",
+        "year": 2025,
+        "volume": "27",
+        "pages": "105720",
+        "doi": "10.1016/j.rineng.2025.105720",
+        "featured": false
+    },
+    {
+        "id": "pub62",
+        "type": "journal",
+        "title": "Physics-guided machine learning for forming-limit assessments of advanced high-strength steels",
+        "authors": [
+            "Nhat-Tam Nguyen",
+            "Minh Tien Tran^",
+            "Xuan Minh Nguyen",
+            "Ho Won Lee^",
+            "Seong-Hoon Kang",
+            "Young-Seok Oh",
+            "Hyunki Kim",
+            "Dong-Kyu Kim*"
+        ],
+        "journal": "International Journal of Mechanical Sciences",
+        "year": 2025,
+        "volume": "287",
+        "pages": "109959",
+        "doi": "10.1016/j.ijmecsci.2025.109959",
+        "featured": false
+    },
+    {
+        "id": "pub63",
+        "type": "journal",
+        "title": "Prediction of crater formation in a large pulsed electron beam (LPEB) irradiation process using deep learning",
+        "authors": [
+            "Mingi Oh+",
+            "Yonghoon Lee+",
+            "Hoheok Kim",
+            "Jaimyun Jung",
+            "Young-Seok Oh",
+            "Ho Won Lee^",
+            "Seong-Hoon Kang",
+            "Se-Jong Kim*",
+            "Jisoo Kim*",
+            "Sehyeok Oh*"
+        ],
+        "journal": "Journal of Alloys and Compounds",
+        "year": 2025,
+        "volume": "1010",
+        "pages": "177929",
+        "doi": "10.1016/j.jallcom.2024.177929",
+        "featured": false
+    },
+    {
+        "id": "pub64",
+        "type": "journal",
+        "title": "Additively manufactured SS316L hybrid-architected metamaterials with enhanced strength and energy absorption",
+        "authors": [
+            "Haoyue Wu",
+            "Dae-Seo Kwon",
+            "Wanghyun Yong",
+            "Hyomoon Joo",
+            "Kyung-Hwan Jung",
+            "Ho Won Lee^",
+            "Wen Chen",
+            "Dong-Kyu Kim*"
+        ],
+        "journal": "Thin-Walled Structures",
+        "year": 2026,
+        "volume": "218",
+        "pages": "114150",
+        "doi": "10.1016/j.tws.2025.114150",
+        "featured": false
+    },
+    {
+        "id": "pub66",
+        "type": "journal",
+        "title": "Parameter-aware high-fidelity microstructure generation using stable diffusion",
+        "authors": [
+            "Hoang Cuong Phan^",
+            "Minh Tien Tran^",
+            "Chihun Lee",
+            "Hoheok Kim",
+            "Sehyeok Oh",
+            "Dong-Kyu Kim",
+            "Ho Won Lee^*"
+        ],
+        "journal": "Advanced Engineering Informatics",
+        "year": 2026,
+        "volume": "69",
+        "pages": "104080",
+        "doi": "10.1016/j.aei.2025.104080",
+        "featured": false
+    },
+    {
+        "id": "pub67",
+        "type": "journal",
+        "title": "Microstructure-informed forming limits in aluminum alloys: Experiments and crystal plasticity simulations",
+        "authors": [
+            "Minh Tien Tran^",
+            "Han-Jun Lee^", 
+            "Hoang Cuong Phan^", 
+            "Seong-Hoon Kang",
+            "Dong-Kyu Kim",
+            "Ho Won Lee^*"
+        ],
+        "journal": "Materials Characterization",
+        "year": 2026,
+        "volume": "",
+        "pages": "115831",
+        "doi": "10.1016/j.matchar.2025.115831",
+        "featured": false
+    }
+]
