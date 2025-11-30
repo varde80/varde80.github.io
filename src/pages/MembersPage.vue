@@ -79,8 +79,8 @@ const showEmail = ref(false)
             :key="member.id"
             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
           >
-            <div class="h-52 bg-gray-100 flex items-center justify-center">
-              <img :src="getAssetUrl(member.image)" :alt="member.name" class="h-full object-contain" />
+            <div class="h-52 bg-gray-100 flex items-center justify-center overflow-hidden">
+              <img :src="getAssetUrl(member.image)" :alt="member.name" class="max-h-full max-w-full object-contain" />
             </div>
             <div class="p-4">
               <h3 class="font-semibold text-gray-900">{{ member.name }}</h3>
@@ -100,8 +100,8 @@ const showEmail = ref(false)
             :key="member.id"
             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
           >
-            <div class="h-52 bg-gray-100 flex items-center justify-center">
-              <img :src="getAssetUrl(member.image)" :alt="member.name" class="h-full object-contain" />
+            <div class="h-52 bg-gray-100 flex items-center justify-center overflow-hidden">
+              <img :src="getAssetUrl(member.image)" :alt="member.name" class="max-h-full max-w-full object-contain" />
             </div>
             <div class="p-4">
               <h3 class="font-semibold text-gray-900">{{ member.name }}</h3>
@@ -121,8 +121,8 @@ const showEmail = ref(false)
             :key="member.id"
             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
           >
-            <div class="h-52 bg-gray-100 flex items-center justify-center">
-              <img :src="getAssetUrl(member.image)" :alt="member.name" class="h-full object-contain" />
+            <div class="h-52 bg-gray-100 flex items-center justify-center overflow-hidden">
+              <img :src="getAssetUrl(member.image)" :alt="member.name" class="max-h-full max-w-full object-contain" />
             </div>
             <div class="p-4">
               <h3 class="font-semibold text-gray-900">{{ member.name }}</h3>
