@@ -4,8 +4,9 @@ import vue from '@vitejs/plugin-vue'
 import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
+// Base path: set VITE_BASE_PATH env variable or defaults to '/'
 export default defineConfig({
-  base: '/aimat-lab/',
+  base: process.env.VITE_BASE_PATH || '/',
   plugins: [vue(), tailwindcss()],
   resolve: {
     alias: {
