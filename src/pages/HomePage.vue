@@ -220,7 +220,7 @@ onUnmounted(() => {
         <div class="flex justify-between items-center mb-8">
           <h2 class="text-3xl font-bold text-gray-900">News</h2>
           <RouterLink
-            to="/gallery"
+            to="/news"
             class="text-blue-600 hover:text-blue-800 font-medium flex items-center"
           >
             View All
