@@ -32,6 +32,15 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          VITE_BASE_PATH: ${{ vars.VITE_BASE_PATH || '/' }}
+
+      # Remove empty CNAME file (only keep if custom domain is set)
+      - name: Configure custom domain
+        run: |
+          if [ ! -s ./dist/CNAME ]; then
+            rm -f ./dist/CNAME
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
