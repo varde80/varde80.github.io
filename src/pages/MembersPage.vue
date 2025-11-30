@@ -80,7 +80,7 @@ const showEmail = ref(false)
             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
           >
             <div class="h-80 bg-gray-100 flex items-center justify-center">
-              <img :src="getAssetUrl(member.image)" :alt="member.name" class="max-w-full max-h-full object-contain" />
+              <img :src="getAssetUrl(member.image)" :alt="member.name" class="h-full object-contain" />
             </div>
             <div class="p-4">
               <h3 class="font-semibold text-gray-900">{{ member.name }}</h3>
@@ -101,7 +101,7 @@ const showEmail = ref(false)
             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
           >
             <div class="h-60 bg-gray-100 flex items-center justify-center">
-              <img :src="getAssetUrl(member.image)" :alt="member.name" class="max-w-full max-h-full object-contain" />
+              <img :src="getAssetUrl(member.image)" :alt="member.name" class="h-full object-contain" />
             </div>
             <div class="p-4">
               <h3 class="font-semibold text-gray-900">{{ member.name }}</h3>
@@ -122,7 +122,7 @@ const showEmail = ref(false)
             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
           >
             <div class="h-60 bg-gray-100 flex items-center justify-center">
-              <img :src="getAssetUrl(member.image)" :alt="member.name" class="max-w-full max-h-full object-contain" />
+              <img :src="getAssetUrl(member.image)" :alt="member.name" class="h-full object-contain" />
             </div>
             <div class="p-4">
               <h3 class="font-semibold text-gray-900">{{ member.name }}</h3>
