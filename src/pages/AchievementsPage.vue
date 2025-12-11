@@ -104,7 +104,7 @@ const filteredPublications = computed(() => {
               <span class="text-sm font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded self-start">{{ pub.year }}</span>
               
               <!-- Highlight Image -->
-              <div v-if="pub.highlightImage" class="flex-shrink-0 mr-2">
+             <div v-if="pub.highlightImage" class="flex-shrink-0 mr-2">
                 <img :src="pub.highlightImage" :alt="pub.title" class="w-auto h-full max-w-[12rem] rounded-lg shadow-sm border border-gray-100 object-contain" />
               </div>
 
