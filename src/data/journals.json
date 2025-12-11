@@ -15,7 +15,8 @@
         "volume": "45",
         "pages": "706-712",
         "doi": "10.2355/isijinternational.45.706",
-        "featured": false
+        "featured": false,
+        "highlightImage": "/aimat_logo.png"
     },
     {
         "id": "pub2",
@@ -1204,8 +1205,8 @@
         "title": "Microstructure-informed forming limits in aluminum alloys: Experiments and crystal plasticity simulations",
         "authors": [
             "Minh Tien Tran^",
-            "Han-Jun Lee^", 
-            "Hoang Cuong Phan^", 
+            "Han-Jun Lee^",
+            "Hoang Cuong Phan^",
             "Seong-Hoon Kang",
             "Dong-Kyu Kim",
             "Ho Won Lee^*"
