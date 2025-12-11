@@ -100,12 +100,12 @@ const filteredPublications = computed(() => {
             :key="pub.id"
             class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
           >
-            <div class="flex items-start gap-4">
-              <span class="text-sm font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded">{{ pub.year }}</span>
+            <div class="flex gap-4">
+              <span class="text-sm font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded self-start">{{ pub.year }}</span>
               
               <!-- Highlight Image -->
               <div v-if="pub.highlightImage" class="flex-shrink-0 mr-2">
-                <img :src="pub.highlightImage" :alt="pub.title" class="w-32 h-auto rounded-lg shadow-sm border border-gray-100 object-contain" />
+                <img :src="pub.highlightImage" :alt="pub.title" class="w-auto h-full max-w-[12rem] rounded-lg shadow-sm border border-gray-100 object-contain" />
               </div>
 
               <div class="flex-1">
