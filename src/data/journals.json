@@ -1197,7 +1197,8 @@
         "volume": "69",
         "pages": "104080",
         "doi": "10.1016/j.aei.2025.104080",
-        "featured": false
+        "featured": false,
+        "highlightImage": "/images/publications/pub66.jpg"
     },
     {
         "id": "pub67",
@@ -1217,6 +1218,6 @@
         "pages": "115831",
         "doi": "10.1016/j.matchar.2025.115831",
         "featured": false,
-        "highlightImage": "/images/publications/agent.png"
+        "highlightImage": "/images/publications/pub67.jpg"
     }
 ]
