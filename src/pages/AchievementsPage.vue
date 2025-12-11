@@ -102,6 +102,12 @@ const filteredPublications = computed(() => {
           >
             <div class="flex items-start gap-4">
               <span class="text-sm font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded">{{ pub.year }}</span>
+              
+              <!-- Highlight Image -->
+              <div v-if="pub.highlightImage" class="flex-shrink-0 mr-2">
+                <img :src="pub.highlightImage" :alt="pub.title" class="w-32 h-auto rounded-lg shadow-sm border border-gray-100 object-contain" />
+              </div>
+
               <div class="flex-1">
                 <h3 class="font-medium text-gray-900 mb-2">{{ pub.title }}</h3>
                 <p class="text-sm text-gray-600 mb-2">
@@ -127,11 +133,7 @@ const filteredPublications = computed(() => {
                   DOI: {{ pub.doi }}
                 </a>
                 
-                <!-- Highlight Image -->
-                <div v-if="pub.highlightImage" class="mt-4">
-                  <img :src="pub.highlightImage" :alt="pub.title" class="max-w-full h-auto max-h-48 rounded-lg shadow-sm border border-gray-100 object-contain" />
-                </div>
-                
+
                 <!-- Legend inside card -->
                 <div v-if="pub.authors.some(a => a.includes('+'))" class="flex gap-4 mt-3 text-xs text-gray-500 border-t pt-2">
                   <div class="flex items-center">
