@@ -13,6 +13,7 @@ threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3)
 
 const gallerySlides = galleryData
   .filter(item => new Date(item.date) >= threeMonthsAgo)
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
   .flatMap(item =>
     item.images.map(image => ({
       image,
