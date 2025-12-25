@@ -17,8 +17,9 @@ const categories = computed(() => {
 })
 
 const filteredImages = computed(() => {
-  if (!selectedCategory.value) return images.value
-  return images.value.filter(img => img.category === selectedCategory.value)
+  const sorted = [...images.value].sort((a, b) => new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime())
+  if (!selectedCategory.value) return sorted
+  return sorted.filter(img => img.category === selectedCategory.value)
 })
 
 const openModal = (image: GalleryImage) => {
@@ -70,7 +71,7 @@ onUnmounted(() => {
 <template>
   <div class="py-12 bg-gray-50 min-h-screen">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-4xl font-bold text-gray-900 text-center mb-4">Gallery</h1>
+      <h1 class="text-4xl font-bold text-gray-900 text-center mb-4">News</h1>
       <p class="text-lg text-gray-600 text-center mb-12">Explore photos from our lab activities and events.</p>
 
       <!-- Category Filter -->
