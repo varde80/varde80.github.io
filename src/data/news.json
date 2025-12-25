@@ -29,5 +29,20 @@
     "description": "Congratulations! Dr. Trans’s paper, 'Microstructure-informed forming limits in aluminum alloys: Experiments and crystal plasticity simulations,' has been accepted by Mater. Charact.",
     "date": "2025-11-26",
     "category": "Paper Alerts"
+  },
+  {
+    "id": "g4",
+    "images": [
+      "/images/news/MRM2025_1.jpg",      
+      "/images/news/MRM2025_2.jpg",   
+      "/images/news/MRM2025_3.jpg",   
+      "/images/news/MRM2025_4.jpg",   
+      "/images/news/MRM2025_5.jpg",   
+      "/images/news/MRM2025_6.jpg"   
+    ],
+    "title": "Materials Research Meeting (MRM) 2025",
+    "description": "Dr. Tran and Mr. Cuong attended the Materials Research Meeting (MRM) 2025 held in Yokohama, Japan.",
+    "date": "2025-12-08",
+    "category": "Conferences"
   }
 ]
