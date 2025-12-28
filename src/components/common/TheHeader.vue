@@ -11,6 +11,7 @@ const navItems = [
   { name: 'Research', path: '/research' },
   { name: 'Facilities', path: '/facilities' },
   { name: 'Publications', path: '/achievements' },
+  { name: 'Software', path: '/software' },
   { name: 'News', path: '/news' },
   { name: 'Contact', path: '/contact' }
 ]

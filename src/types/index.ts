@@ -93,6 +93,15 @@ export interface GalleryImage {
   category?: string
 }
 
+// Software types
+export interface Software {
+  id: string
+  name: string
+  description: string
+  github: string
+  tags?: string[]
+}
+
 // Contact types
 export interface ContactInfo {
   address: string

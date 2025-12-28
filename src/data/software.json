@@ -1,0 +1,9 @@
+[
+  {
+    "id": "sw1",
+    "name": "Sample Project",
+    "description": "A sample software project description. Replace this with your actual project.",
+    "github": "https://github.com/example/sample-project",
+    "tags": ["Python", "Machine Learning"]
+  }
+]
