@@ -4,6 +4,7 @@
     "name": "Sample Project",
     "description": "A sample software project description. Replace this with your actual project.",
     "github": "https://github.com/example/sample-project",
+    "image": "/images/software/sample.png",
     "tags": ["Python", "Machine Learning"]
   }
 ]

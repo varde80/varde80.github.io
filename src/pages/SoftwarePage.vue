@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import softwareData from '../data/software.json'
 import type { Software } from '../types'
+import { getAssetUrl } from '../utils/assets'
 
 const software = ref<Software[]>(softwareData as Software[])
 </script>
@@ -22,6 +23,14 @@ const software = ref<Software[]>(softwareData as Software[])
           rel="noopener noreferrer"
           class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow group"
         >
+          <!-- Image -->
+          <div v-if="item.image" class="aspect-video bg-gray-100 overflow-hidden">
+            <img
+              :src="getAssetUrl(item.image)"
+              :alt="item.name"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
           <div class="p-6">
             <div class="flex items-center mb-3">
               <svg class="w-6 h-6 text-gray-700 mr-2" fill="currentColor" viewBox="0 0 24 24">

@@ -99,6 +99,7 @@ export interface Software {
   name: string
   description: string
   github: string
+  image?: string
   tags?: string[]
 }
 
