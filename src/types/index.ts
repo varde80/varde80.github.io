@@ -112,10 +112,10 @@ export interface BilingualText {
 export interface Project {
   id: string
   title: BilingualText
-  description: BilingualText
   period: BilingualText
   role: BilingualText
   fundingAgency: BilingualText
+  fundingAmount?: BilingualText
   status: 'ongoing' | 'completed'
 }
 

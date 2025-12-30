@@ -44,14 +44,8 @@ const sortedProjects = computed(() => {
               </span>
             </div>
 
-            <!-- Description -->
-            <div class="mb-4">
-              <p class="text-gray-700">{{ project.description.en }}</p>
-              <p class="text-gray-500 text-sm mt-1">{{ project.description.ko }}</p>
-            </div>
-
             <!-- Project Details -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-gray-100">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-gray-100">
               <!-- Period -->
               <div>
                 <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Period / 연구기간</p>
@@ -68,9 +62,16 @@ const sortedProjects = computed(() => {
 
               <!-- Funding Agency -->
               <div>
-                <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Funding / 펀딩기관</p>
+                <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Funding Agency / 펀딩기관</p>
                 <p class="text-gray-800 font-medium">{{ project.fundingAgency.en }}</p>
                 <p class="text-gray-500 text-sm">{{ project.fundingAgency.ko }}</p>
+              </div>
+
+              <!-- Funding Amount -->
+              <div v-if="project.fundingAmount">
+                <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Budget / 연구비</p>
+                <p class="text-gray-800 font-medium">{{ project.fundingAmount.en }}</p>
+                <p class="text-gray-500 text-sm">{{ project.fundingAmount.ko }}</p>
               </div>
             </div>
           </div>
