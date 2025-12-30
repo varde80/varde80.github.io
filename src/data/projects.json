@@ -1,0 +1,50 @@
+[
+  {
+    "id": "proj1",
+    "title": {
+      "ko": "샘플 프로젝트",
+      "en": "Sample Project"
+    },
+    "description": {
+      "ko": "샘플 프로젝트 설명입니다. 실제 프로젝트 정보로 교체해주세요.",
+      "en": "This is a sample project description. Please replace with your actual project."
+    },
+    "period": {
+      "ko": "2024.01 - 현재",
+      "en": "2024.01 - Present"
+    },
+    "role": {
+      "ko": "연구책임자",
+      "en": "Principal Investigator"
+    },
+    "fundingAgency": {
+      "ko": "한국연구재단",
+      "en": "National Research Foundation of Korea"
+    },
+    "status": "ongoing"
+  },
+  {
+    "id": "proj2",
+    "title": {
+      "ko": "완료된 샘플 프로젝트",
+      "en": "Completed Sample Project"
+    },
+    "description": {
+      "ko": "완료된 프로젝트 설명입니다.",
+      "en": "This is a completed project description."
+    },
+    "period": {
+      "ko": "2022.03 - 2023.12",
+      "en": "2022.03 - 2023.12"
+    },
+    "role": {
+      "ko": "공동연구원",
+      "en": "Co-Investigator"
+    },
+    "fundingAgency": {
+      "ko": "산업통상자원부",
+      "en": "Ministry of Trade, Industry and Energy"
+    },
+    "status": "completed"
+  }
+]

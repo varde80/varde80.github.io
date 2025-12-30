@@ -103,6 +103,22 @@ export interface Software {
   tags?: string[]
 }
 
+// Project types
+export interface BilingualText {
+  ko: string
+  en: string
+}
+
+export interface Project {
+  id: string
+  title: BilingualText
+  description: BilingualText
+  period: BilingualText
+  role: BilingualText
+  fundingAgency: BilingualText
+  status: 'ongoing' | 'completed'
+}
+
 // Contact types
 export interface ContactInfo {
   address: string
