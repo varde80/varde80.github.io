@@ -52,6 +52,7 @@ export interface Publication {
   featured?: boolean
   impactFactor?: number | string
   highlightImage?: string
+  status?: string
 }
 
 // Facility types
