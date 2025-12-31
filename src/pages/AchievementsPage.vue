@@ -4,6 +4,7 @@ import journalsData from '../data/journals.json'
 import conferencesData from '../data/conferences.json'
 import IFData from '../data/IF.json'
 import type { Publication } from '../types'
+import { getAssetUrl } from '../utils/assets'
 
 // Sort journals: preprints first (by status), then by id descending
 const journals = ref<Publication[]>((journalsData as Publication[]).sort((a, b) => {
@@ -121,7 +122,7 @@ const getYearOrStatus = (pub: Publication) => {
 
               <!-- Highlight Image -->
               <div v-if="pub.highlightImage" class="flex-shrink-0 mr-2">
-                <img :src="pub.highlightImage" :alt="pub.title" class="w-auto h-full max-w-[12rem] rounded-lg shadow-sm border border-gray-100 object-contain" />
+                <img :src="getAssetUrl(pub.highlightImage)" :alt="pub.title" class="w-auto h-full max-w-[12rem] rounded-lg shadow-sm border border-gray-100 object-contain" />
               </div>
 
               <div class="flex-1">

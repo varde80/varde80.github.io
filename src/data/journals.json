@@ -1274,15 +1274,16 @@
         "status": "Preprint",
         "highlightImage": "/images/publications/prep3.tif",
         "featured": false
-    },
+    },    
     {
-        "id": "prep4",
+        "id": "prep5",
         "type": "journal",
-        "title": "Multi-fidelity physics-inspired graph neural networks for efficient structure–property linkage in polycrystalline metals",
+        "title": "Deep learning framework for prediction of stress field and triaxiality in dual-phase steels with varying martensite fractions",
         "authors": [
             "Minh Tien Tran^",
             "Hoang Cuong Phan^",
-            "Seong-Hoon Kang",
+            "Hoang-Hai-Nam Nguyen^",
+            "Hyunki Kim",            
             "Dong-Kyu Kim",
             "Ho Won Lee^*"
         ],
