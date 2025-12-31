@@ -1274,5 +1274,21 @@
         "status": "Preprint",
         "highlightImage": "/images/publications/prep3.tif",
         "featured": false
+    },
+    {
+        "id": "prep4",
+        "type": "journal",
+        "title": "Multi-fidelity physics-inspired graph neural networks for efficient structure–property linkage in polycrystalline metals",
+        "authors": [
+            "Minh Tien Tran^",
+            "Hoang Cuong Phan^",
+            "Seong-Hoon Kang",
+            "Dong-Kyu Kim",
+            "Ho Won Lee^*"
+        ],
+        "journal": "submitted",
+        "year": 2025,        
+        "status": "Submitted",        
+        "featured": false
     }
-]
+] 
