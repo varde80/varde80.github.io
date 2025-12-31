@@ -1235,6 +1235,7 @@
         "year": 2024,
         "doi": "10.2139/ssrn.5045111",
         "status": "Preprint",
+        "highlightImage": "/images/publications/prep1.png",
         "featured": false
     },
     {
@@ -1271,6 +1272,7 @@
         "year": 2025,
         "doi": "10.2139/ssrn.5991040",
         "status": "Preprint",
+        "highlightImage": "/images/publications/prep3.tif",
         "featured": false
     }
 ]
