@@ -5,12 +5,23 @@ import type { Project } from '../types'
 
 const projects = ref<Project[]>(projectsData as Project[])
 
-const sortedProjects = computed(() => {
-  return [...projects.value].sort((a, b) => {
-    if (a.status === 'ongoing' && b.status === 'completed') return -1
-    if (a.status === 'completed' && b.status === 'ongoing') return 1
-    return 0
-  })
+const isPrincipalInvestigator = (project: Project) => {
+  const role = project.role.ko.toLowerCase()
+  return role.includes('책임') || role.includes('pi')
+}
+
+const sortByStatus = (a: Project, b: Project) => {
+  if (a.status === 'ongoing' && b.status === 'completed') return -1
+  if (a.status === 'completed' && b.status === 'ongoing') return 1
+  return 0
+}
+
+const piProjects = computed(() => {
+  return projects.value.filter(isPrincipalInvestigator).sort(sortByStatus)
+})
+
+const participatingProjects = computed(() => {
+  return projects.value.filter(p => !isPrincipalInvestigator(p)).sort(sortByStatus)
 })
 </script>
 
@@ -20,58 +31,128 @@ const sortedProjects = computed(() => {
       <h1 class="text-4xl font-bold text-gray-900 text-center mb-4">Projects</h1>
       <p class="text-lg text-gray-600 text-center mb-12">Research projects in our lab.</p>
 
-      <!-- Projects List -->
-      <div class="space-y-6">
-        <div
-          v-for="project in sortedProjects"
-          :key="project.id"
-          class="bg-white rounded-lg shadow-md overflow-hidden"
-        >
-          <div class="p-6">
-            <!-- Header with Title and Status Badge -->
-            <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
-              <div>
-                <h3 class="text-xl font-bold text-gray-900">{{ project.title.en }}</h3>
-                <p class="text-lg text-gray-600">{{ project.title.ko }}</p>
+      <!-- PI/Co-PI Projects -->
+      <div v-if="piProjects.length > 0" class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <span class="bg-blue-600 text-white px-3 py-1 rounded-lg mr-3 text-sm">PI</span>
+          As Principal Investigator / 연구책임자
+        </h2>
+        <div class="space-y-6">
+          <div
+            v-for="project in piProjects"
+            :key="project.id"
+            class="bg-white rounded-lg shadow-md overflow-hidden border-l-4 border-blue-500"
+          >
+            <div class="p-6">
+              <!-- Header with Title and Status Badge -->
+              <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+                <div>
+                  <h3 class="text-xl font-bold text-gray-900">{{ project.title.en }}</h3>
+                  <p class="text-lg text-gray-600">{{ project.title.ko }}</p>
+                </div>
+                <span
+                  class="px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap"
+                  :class="project.status === 'ongoing'
+                    ? 'bg-green-100 text-green-700'
+                    : 'bg-gray-100 text-gray-600'"
+                >
+                  {{ project.status === 'ongoing' ? 'Ongoing' : 'Completed' }}
+                </span>
               </div>
-              <span
-                class="px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap"
-                :class="project.status === 'ongoing'
-                  ? 'bg-green-100 text-green-700'
-                  : 'bg-gray-100 text-gray-600'"
-              >
-                {{ project.status === 'ongoing' ? 'Ongoing' : 'Completed' }}
-              </span>
+
+              <!-- Project Details -->
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-gray-100">
+                <!-- Period -->
+                <div>
+                  <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Period / 연구기간</p>
+                  <p class="text-gray-800 font-medium">{{ project.period.en }}</p>
+                  <p class="text-gray-500 text-sm">{{ project.period.ko }}</p>
+                </div>
+
+                <!-- Role -->
+                <div>
+                  <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Role / 역할</p>
+                  <p class="text-gray-800 font-medium">{{ project.role.en }}</p>
+                  <p class="text-gray-500 text-sm">{{ project.role.ko }}</p>
+                </div>
+
+                <!-- Funding Agency -->
+                <div>
+                  <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Funding Agency / 펀딩기관</p>
+                  <p class="text-gray-800 font-medium">{{ project.fundingAgency.en }}</p>
+                  <p class="text-gray-500 text-sm">{{ project.fundingAgency.ko }}</p>
+                </div>
+
+                <!-- Funding Amount -->
+                <div v-if="project.fundingAmount">
+                  <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Budget / 연구비</p>
+                  <p class="text-gray-800 font-medium">{{ project.fundingAmount.en }}</p>
+                  <p class="text-gray-500 text-sm">{{ project.fundingAmount.ko }}</p>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
 
-            <!-- Project Details -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-gray-100">
-              <!-- Period -->
-              <div>
-                <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Period / 연구기간</p>
-                <p class="text-gray-800 font-medium">{{ project.period.en }}</p>
-                <p class="text-gray-500 text-sm">{{ project.period.ko }}</p>
+      <!-- Participating Projects -->
+      <div v-if="participatingProjects.length > 0">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <span class="bg-gray-500 text-white px-3 py-1 rounded-lg mr-3 text-sm">Co-I</span>
+          As Participating Researcher / 참여연구원
+        </h2>
+        <div class="space-y-6">
+          <div
+            v-for="project in participatingProjects"
+            :key="project.id"
+            class="bg-white rounded-lg shadow-md overflow-hidden border-l-4 border-gray-400"
+          >
+            <div class="p-6">
+              <!-- Header with Title and Status Badge -->
+              <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+                <div>
+                  <h3 class="text-xl font-bold text-gray-900">{{ project.title.en }}</h3>
+                  <p class="text-lg text-gray-600">{{ project.title.ko }}</p>
+                </div>
+                <span
+                  class="px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap"
+                  :class="project.status === 'ongoing'
+                    ? 'bg-green-100 text-green-700'
+                    : 'bg-gray-100 text-gray-600'"
+                >
+                  {{ project.status === 'ongoing' ? 'Ongoing' : 'Completed' }}
+                </span>
               </div>
 
-              <!-- Role -->
-              <div>
-                <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Role / 역할</p>
-                <p class="text-gray-800 font-medium">{{ project.role.en }}</p>
-                <p class="text-gray-500 text-sm">{{ project.role.ko }}</p>
-              </div>
+              <!-- Project Details -->
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-gray-100">
+                <!-- Period -->
+                <div>
+                  <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Period / 연구기간</p>
+                  <p class="text-gray-800 font-medium">{{ project.period.en }}</p>
+                  <p class="text-gray-500 text-sm">{{ project.period.ko }}</p>
+                </div>
 
-              <!-- Funding Agency -->
-              <div>
-                <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Funding Agency / 펀딩기관</p>
-                <p class="text-gray-800 font-medium">{{ project.fundingAgency.en }}</p>
-                <p class="text-gray-500 text-sm">{{ project.fundingAgency.ko }}</p>
-              </div>
+                <!-- Role -->
+                <div>
+                  <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Role / 역할</p>
+                  <p class="text-gray-800 font-medium">{{ project.role.en }}</p>
+                  <p class="text-gray-500 text-sm">{{ project.role.ko }}</p>
+                </div>
 
-              <!-- Funding Amount -->
-              <div v-if="project.fundingAmount">
-                <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Budget / 연구비</p>
-                <p class="text-gray-800 font-medium">{{ project.fundingAmount.en }}</p>
-                <p class="text-gray-500 text-sm">{{ project.fundingAmount.ko }}</p>
+                <!-- Funding Agency -->
+                <div>
+                  <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Funding Agency / 펀딩기관</p>
+                  <p class="text-gray-800 font-medium">{{ project.fundingAgency.en }}</p>
+                  <p class="text-gray-500 text-sm">{{ project.fundingAgency.ko }}</p>
+                </div>
+
+                <!-- Funding Amount -->
+                <div v-if="project.fundingAmount">
+                  <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Budget / 연구비</p>
+                  <p class="text-gray-800 font-medium">{{ project.fundingAmount.en }}</p>
+                  <p class="text-gray-500 text-sm">{{ project.fundingAmount.ko }}</p>
+                </div>
               </div>
             </div>
           </div>
