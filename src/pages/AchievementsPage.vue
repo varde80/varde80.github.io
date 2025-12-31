@@ -122,7 +122,7 @@ const getYearOrStatus = (pub: Publication) => {
 
               <!-- Highlight Image -->
               <div v-if="pub.highlightImage" class="flex-shrink-0 mr-2">
-                <img :src="getAssetUrl(pub.highlightImage)" :alt="pub.title" class="w-auto h-full max-w-[12rem] rounded-lg shadow-sm border border-gray-100 object-contain" />
+                <img :src="getAssetUrl(pub.highlightImage)" :alt="pub.title" class="max-w-[12rem] max-h-[8rem] rounded-lg shadow-sm border border-gray-100 object-contain" />
               </div>
 
               <div class="flex-1">
