@@ -1161,6 +1161,26 @@
     {
         "id": "pub64",
         "type": "journal",
+        "title": "Microstructure-informed forming limits in aluminum alloys: Experiments and crystal plasticity simulations",
+        "authors": [
+            "Minh Tien Tran^",
+            "Han-Jun Lee^",
+            "Hoang Cuong Phan^",
+            "Seong-Hoon Kang",
+            "Dong-Kyu Kim",
+            "Ho Won Lee^*"
+        ],
+        "journal": "Materials Characterization",
+        "year": 2025,
+        "volume": "",
+        "pages": "115831",
+        "doi": "10.1016/j.matchar.2025.115831",
+        "featured": false,
+        "highlightImage": "/images/publications/pub67-2.jpg"
+    },
+    {
+        "id": "pub65",
+        "type": "journal",
         "title": "Additively manufactured SS316L hybrid-architected metamaterials with enhanced strength and energy absorption",
         "authors": [
             "Haoyue Wu",
@@ -1199,25 +1219,6 @@
         "doi": "10.1016/j.aei.2025.104080",
         "featured": false,
         "highlightImage": "/images/publications/pub66.jpg"
-    },
-    {
-        "id": "pub67",
-        "type": "journal",
-        "title": "Microstructure-informed forming limits in aluminum alloys: Experiments and crystal plasticity simulations",
-        "authors": [
-            "Minh Tien Tran^",
-            "Han-Jun Lee^",
-            "Hoang Cuong Phan^",
-            "Seong-Hoon Kang",
-            "Dong-Kyu Kim",
-            "Ho Won Lee^*"
-        ],
-        "journal": "Materials Characterization",
-        "year": 2025,
-        "volume": "",
-        "pages": "115831",
-        "doi": "10.1016/j.matchar.2025.115831",
-        "featured": false,
-        "highlightImage": "/images/publications/pub67-2.jpg"
     }
+    
 ]
