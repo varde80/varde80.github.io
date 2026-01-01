@@ -20,22 +20,13 @@
       "ko": "우주항공용 3D 프린팅 소재 데이터 구축",
       "en": "AI-Enabled Virtual Engineering Platform for Aerospace Metal Additive Manufacturing with Integrated Experimental and Simulation Databases"
     },
-    "period": {
-      "ko": "2025.05 - 2029.12",
-      "en": "2025.05 - 2029.12"
-    },
+    "period": "2025.05 - 2029.12",
     "role": {
       "ko": "참여기관 연구책임자",
       "en": "Co-PI"
     },
-    "fundingAgency": {
-      "ko": "KIAT (산업통상자원부)",
-      "en": "KIAT (MOTIE)"
-    },
-    "fundingAmount": {
-      "ko": "12억원",
-      "en": "1.2B KRW"
-    },
+    "fundingAgency": "KIAT (MOTIE)",
+    "fundingAmount": "1.2B KRW",
     "status": "ongoing"
   },
   {
@@ -44,22 +35,13 @@
       "ko": "데이터 기반 철자원 분류 및 품질 판정 기술 개발",
       "en": "Development of Data-Driven Iron Resource Classification and Quality Evaluation Technologies"
     },
-    "period": {
-      "ko": "2024.07 - 2027.12",
-      "en": "2024.07 - 2027.12"
-    },
+    "period": "2024.07 - 2027.12",
     "role": {
       "ko": "공동연구책임자",
       "en": "Co-PI"
     },
-    "fundingAgency": {
-      "ko": "KEIT (산업통상자원부)",
-      "en": "KEIT (MOTIE)"
-    },
-    "fundingAmount": {
-      "ko": "5.2억원",
-      "en": "0.52B KRW"
-    },
+    "fundingAgency": "KEIT (MOTIE)",
+    "fundingAmount": "0.52B KRW",
     "status": "ongoing"
   },
   {
@@ -68,22 +50,13 @@
       "ko": "금속소재 제조디지털혁신 플랫폼 구축",
       "en": "Development of a Digital Innovation Platform for Metal Materials Manufacturing"
     },
-    "period": {
-      "ko": "2022.07 - 2026.12",
-      "en": "2022.07 - 2026.12"
-    },
+    "period": "2022.07 - 2026.12",
     "role": {
       "ko": "연구책임자",
       "en": "PI"
     },
-    "fundingAgency": {
-      "ko": "KIAT (산업통상자원부)",
-      "en": "KIAT (MOTIE)"
-    },
-    "fundingAmount": {
-      "ko": "232억원",
-      "en": "23.2B KRW"
-    },
+    "fundingAgency": "KIAT (MOTIE)",
+    "fundingAmount": "23.2B KRW",
     "status": "ongoing"
   },
   {
@@ -92,18 +65,12 @@
       "ko": "데이터 및 머신러닝 기술을 활용한 차세대 원자력용 비철 금속 소재 허브 구축",
       "en": "Construction of Nonferrous Metal Material Hub for Next-generation Nuclear Power Plant Based on Data and Machine Learning Technologies"
     },
-    "period": {
-      "ko": "2025.04 - 2029.12",
-      "en": "2025.04 - 2029.12"
-    },
+    "period": "2025.04 - 2029.12",
     "role": {
-      "ko": "참여연구원",
+      "ko": "공동연구원",
       "en": "Co-Investigator"
     },
-    "fundingAgency": {
-      "ko": "NRF (과학기술정보통신부)",
-      "en": "NRF (MSIT)"
-    },
+    "fundingAgency": "NRF (MSIT)",
     "status": "ongoing"
   },
   {
@@ -112,18 +79,13 @@
       "ko": "연구데이터 관리 시스템 개발",
       "en": "Development of a Research Data Management System"
     },
-    "period": {
-      "ko": "2024.01 - 2024.12",
-      "en": "2024.01 - 2024.12"
-    },
+    "period": "2024.01 - 2024.12",
     "role": {
       "ko": "연구책임자",
       "en": "PI"
     },
-    "fundingAgency": {
-      "ko": "과학기술정보통신부",
-      "en": "MSIT"
-    },
+    "fundingAgency": "MSIT",
+    "fundingAmount": "0.97B KRW",
     "status": "completed"
   },
   {
@@ -132,22 +94,13 @@
       "ko": "남방자원 활용 1.2 이하 (x10⁻⁶) 저열팽창 인바합금 제조기술",
       "en": "Manufacturing Technology for Low Thermal Expansion Invar Alloys (CTE ≤ 1.2 × 10⁻⁶) Using Southern Hemisphere Resources"
     },
-    "period": {
-      "ko": "2020.04 - 2025.03",
-      "en": "2020.04 - 2025.03"
-    },
+    "period": "2020.04 - 2025.03",
     "role": {
       "ko": "공동연구책임자",
       "en": "Co-PI"
     },
-    "fundingAgency": {
-      "ko": "KEIT (산업통상자원부)",
-      "en": "KEIT (MOTIE)"
-    },
-    "fundingAmount": {
-      "ko": "9.7억원",
-      "en": "0.97B KRW"
-    },
+    "fundingAgency": "KEIT (MOTIE)",
+    "fundingAmount": "0.97B KRW",
     "status": "completed"
   },
   {
@@ -156,22 +109,13 @@
       "ko": "UI기반 신소재·공정설계 어플리케이션 개발 및 활용 지원",
       "en": "Development and Deployment Support of a UI-Based Application for Novel Materials and Process Design"
     },
-    "period": {
-      "ko": "2019.04 - 2020.12",
-      "en": "2019.04 - 2020.12"
-    },
+    "period": "2019.04 - 2020.12",
     "role": {
       "ko": "연구책임자",
       "en": "PI"
     },
-    "fundingAgency": {
-      "ko": "과학기술정보통신부",
-      "en": "MSIT"
-    },
-    "fundingAmount": {
-      "ko": "18.45억원",
-      "en": "1.845B KRW"
-    },
+    "fundingAgency": "MSIT",
+    "fundingAmount": "1.85B KRW",
     "status": "completed"
   },
   {
@@ -180,22 +124,13 @@
       "ko": "금속소재 가상공학 플랫폼 구축",
       "en": "Development of a Virtual Engineering Platform for Metal Materials"
     },
-    "period": {
-      "ko": "2017.07 - 2022.06",
-      "en": "2017.07 - 2022.06"
-    },
+    "period": "2017.07 - 2022.06",
     "role": {
       "ko": "연구책임자",
       "en": "PI"
     },
-    "fundingAgency": {
-      "ko": "KIAT (산업통상자원부)",
-      "en": "KIAT (MOTIE)"
-    },
-    "fundingAmount": {
-      "ko": "133억원",
-      "en": "13.3B KRW"
-    },
+    "fundingAgency": "KIAT (MOTIE)",
+    "fundingAmount": "13.3B KRW",
     "status": "completed"
   },
   {
@@ -204,18 +139,13 @@
       "ko": "외경 100mm이하급 타이타늄 튜브제조를 위한 공정단축형 주조-압출 복합 성형기술 개발",
       "en": "Development of Integrated Manufacturing Process of Casting-Extrusion for Titanium Tube below 100 mm Outer Diameter"
     },
-    "period": {
-      "ko": "2016.07 - 2019.09",
-      "en": "2016.07 - 2019.09"
-    },
+    "period": "2016.07 - 2019.09",
     "role": {
       "ko": "공동연구책임자",
       "en": "Co-PI"
     },
-    "fundingAgency": {
-      "ko": "KEIT (산업통상자원부)",
-      "en": "KEIT (MOTIE)"
-    },
+    "fundingAgency": "KEIT (MOTIE)",
+    "fundingAmount": "0.62B KRW",
     "status": "completed"
   },
   {
@@ -224,22 +154,392 @@
       "ko": "확률론적 CAFEM 기반 다단위 미세조직 예측 기술",
       "en": "Development of a Probabilistic CAFEM-Based Multi-Scale Microstructure Prediction Method"
     },
-    "period": {
-      "ko": "2012.01 - 2012.12",
-      "en": "2012.01 - 2012.12"
-    },
+    "period": "2012.01 - 2012.12",
     "role": {
       "ko": "연구책임자",
       "en": "PI"
     },
-    "fundingAgency": {
-      "ko": "지식경제부",
-      "en": "MKE"
+    "fundingAgency": "MKE",
+    "fundingAmount": "89M KRW",
+    "status": "completed"
+  },
+  {
+    "id": "proj12",
+    "title": {
+      "ko": "멀티모달 인공지능활용 소재연구혁신 기술 개발",
+      "en": "Development of Innovative Material Research Technology Utilizing Multimodal Artificial Intelligence"
     },
-    "fundingAmount": {
-      "ko": "0.89억원",
-      "en": "89M KRW"
+    "period": "2026.01 - 2027.12",
+    "role": {
+      "ko": "공동연구원",
+      "en": "Co-Investigator"
     },
+    "fundingAgency": "MSIT",
+    "status": "ongoing"
+  },
+  {
+    "id": "proj38",
+    "title": {
+      "ko": "멀티모달 인공지능활용 소재연구혁신 기술 개발",
+      "en": "Development of Innovative Material Research Technology Utilizing Multimodal Artificial Intelligence"
+    },
+    "period": "2025.01 - 2025.12",
+    "role": {
+      "ko": "연구책임자",
+      "en": "PI"
+    },
+    "fundingAgency": "MSIT",
+    "fundingAmount": "1.84B KRW",
+    "status": "completed"
+  },
+  {
+    "id": "proj13",
+    "title": {
+      "ko": "인공지능기술 및 데이터를 활용한 우주항공용 초내열 비철 금속소재의 HUB구축",
+      "en": "Establishment of an Aerospace Superalloys HUB with Materials Database-Driven Artificial Intelligence Technology"
+    },
+    "period": "2024.07 - 2028.12",
+    "role": {
+      "ko": "공동연구원",
+      "en": "Co-Investigator"
+    },
+    "fundingAgency": "NRF (MSIT)",
+    "status": "ongoing"
+  },
+  {
+    "id": "proj14",
+    "title": {
+      "ko": "소재 및 공정개발 적용을 위한 데이터 기반 인공지능 기술 개발",
+      "en": "Data-Driven AI Development for Material and Process Design Application"
+    },
+    "period": "2021.01 - 2023.12",
+    "role": {
+      "ko": "참여연구원",
+      "en": "Participant"
+    },
+    "fundingAgency": "MSIT",
+    "status": "completed"
+  },
+  {
+    "id": "proj15",
+    "title": {
+      "ko": "전기수소차용 250%이상 국부후육화 무용접 중공 드라이브 샤프트 성형 기술 개발",
+      "en": "Forging Technology Development of Locally Thickened and Nonwelded Hollow Drive Shaft for EV and FCEV"
+    },
+    "period": "2020.05 - 2022.12",
+    "role": {
+      "ko": "참여연구원",
+      "en": "Participant"
+    },
+    "fundingAgency": "KEIT (MOTIE)",
+    "status": "completed"
+  },
+  {
+    "id": "proj16",
+    "title": {
+      "ko": "650급 내환경성 초내열합금 및 블레이드 제조 기술 개발",
+      "en": "Development of Environment-Resistant 650-Class Superalloys and Blade Manufacturing Technology"
+    },
+    "period": "2020.04 - 2023.12",
+    "role": {
+      "ko": "참여연구원",
+      "en": "Participant"
+    },
+    "fundingAgency": "KEIT (MOTIE)",
+    "status": "completed"
+  },
+  {
+    "id": "proj17",
+    "title": {
+      "ko": "AI를 이용한 소재 데이터 분석 및 물성 예측 기술 개발",
+      "en": "Development of Material Data Analysis and Property Prediction Technology Using AI"
+    },
+    "period": "2020.01 - 2020.12",
+    "role": {
+      "ko": "공동연구원",
+      "en": "Co-Investigator"
+    },
+    "fundingAgency": "NST (MSIT)",
+    "status": "completed"
+  },
+  {
+    "id": "proj18",
+    "title": {
+      "ko": "750급 Ni계 초내열합금 무계목 튜브 제조기술 개발",
+      "en": "Development of Manufacturing Technology of Ni-Base Superalloy Seamless Tube for 750°C Steam Turbine"
+    },
+    "period": "2019.04 - 2020.12",
+    "role": {
+      "ko": "참여연구원",
+      "en": "Participant"
+    },
+    "fundingAgency": "KEIT (MOTIE)",
+    "status": "completed"
+  },
+  {
+    "id": "proj19",
+    "title": {
+      "ko": "방위산업 장갑차용 seat frame 로봇 용접자동화를 위한 jig 설계 및 제작 기술 개발",
+      "en": "Design and Fabrication of Welding Jig for Seat Frame of Armored Vehicle"
+    },
+    "period": "2019.04 - 2019.12",
+    "role": {
+      "ko": "참여연구원",
+      "en": "Participant"
+    },
+    "fundingAgency": "MSIT",
+    "status": "completed"
+  },
+  {
+    "id": "proj20",
+    "title": {
+      "ko": "기계학습 기반 소재 개발 인프라 구축",
+      "en": "Construction and Application of Materials Data Infrastructure Based on Machine Learning"
+    },
+    "period": "2018.01 - 2018.12",
+    "role": {
+      "ko": "공동연구원",
+      "en": "Co-Investigator"
+    },
+    "fundingAgency": "MSIT",
+    "status": "completed"
+  },
+  {
+    "id": "proj21",
+    "title": {
+      "ko": "CO2 저감을 위한 미래 친환경 자동차용 경량 소재 개발",
+      "en": "Development of Lightweight Materials for Future Eco-Friendly Vehicles for CO2 Reduction"
+    },
+    "period": "2017.01 - 2017.12",
+    "role": {
+      "ko": "참여연구원",
+      "en": "Participant"
+    },
+    "fundingAgency": "MSIP",
+    "status": "completed"
+  },
+  {
+    "id": "proj22",
+    "title": {
+      "ko": "IT·모바일기기용 성형성·접합력 동시 향상 이종금속 소재·부품 제조 기술",
+      "en": "Manufacturing Technology for Dissimilar Metal Materials with Enhanced Formability and Bonding Strength for IT/Mobile Devices"
+    },
+    "period": "2016.01 - 2017.12",
+    "role": {
+      "ko": "공동연구원",
+      "en": "Co-Investigator"
+    },
+    "fundingAgency": "MSIP",
+    "status": "completed"
+  },
+  {
+    "id": "proj23",
+    "title": {
+      "ko": "친환경 자동차용 경량금속 소재 부품 제조공정 기술 개발",
+      "en": "Development of Manufacturing Process Technology for Lightweight Metal Components for Eco-Friendly Vehicles"
+    },
+    "period": "2016.01 - 2016.12",
+    "role": {
+      "ko": "공동연구원",
+      "en": "Co-Investigator"
+    },
+    "fundingAgency": "MSIP",
+    "status": "completed"
+  },
+  {
+    "id": "proj24",
+    "title": {
+      "ko": "2020년 CO2 규제 대응을 위한 비출력 130 kW/L급 가솔린 엔진용 초경량(경량화 지수 0.55이하) 피스톤 개발기술 개발",
+      "en": "Development of Ultra-Lightweight Piston (Weight Index ≤0.55) for 130 kW/L Gasoline Engine to Meet 2020 CO2 Regulations"
+    },
+    "period": "2015.07 - 2016.06",
+    "role": {
+      "ko": "참여연구원",
+      "en": "Participant"
+    },
+    "fundingAgency": "KIAT (MSS)",
+    "status": "completed"
+  },
+  {
+    "id": "proj25",
+    "title": {
+      "ko": "초전도 의료·전력기기 적용을 위한 임계전류 특성이 우수한 6km급 MgB2 초전도 선재 및 코일 개발",
+      "en": "Development of MgB2 Wire and Coil with High Critical Current and Long Length for Superconducting Medical/Electric Power Equipment"
+    },
+    "period": "2015.06 - 2020.05",
+    "role": {
+      "ko": "참여연구원",
+      "en": "Participant"
+    },
+    "fundingAgency": "KEIT (MOTIE)",
+    "status": "completed"
+  },
+  {
+    "id": "proj26",
+    "title": {
+      "ko": "경량금속소재 성형접합 실용화기술 개발",
+      "en": "Development of Practical Forming and Joining Technology for Lightweight Metal Materials"
+    },
+    "period": "2015.01 - 2015.12",
+    "role": {
+      "ko": "참여연구원",
+      "en": "Participant"
+    },
+    "fundingAgency": "MSIP",
+    "status": "completed"
+  },
+  {
+    "id": "proj27",
+    "title": {
+      "ko": "가변 단면 튜브 적용 경량화율 30%이상의 770mm급 일체형 장구동축 복합성형기술 개발",
+      "en": "Development of Forming Technology for Lightweight Integrated Drive Shaft Assembly Using Variable Cross-Section Tube"
+    },
+    "period": "2014.06 - 2018.05",
+    "role": {
+      "ko": "공동연구원",
+      "en": "Co-Investigator"
+    },
+    "fundingAgency": "KEIT (MOTIE)",
+    "status": "completed"
+  },
+  {
+    "id": "proj28",
+    "title": {
+      "ko": "펄스 전류 인가 마그네슘 소재거동 분석 및 성형성 향상기술 개발",
+      "en": "Analysis of Magnesium Material Behavior Under Pulsed Current and Development of Formability Enhancement Technology"
+    },
+    "period": "2013.12 - 2014.12",
+    "role": {
+      "ko": "참여연구원",
+      "en": "Participant"
+    },
+    "fundingAgency": "MOTIE",
+    "status": "completed"
+  },
+  {
+    "id": "proj29",
+    "title": {
+      "ko": "대면적(8700㎠급) 용융탄산염 연료전지 분리판용 상용 집전체 개발",
+      "en": "Development of Commercial Current Collector for Large-Area (8700cm² Class) Molten Carbonate Fuel Cell Separator"
+    },
+    "period": "2013.12 - 2015.11",
+    "role": {
+      "ko": "참여연구원",
+      "en": "Participant"
+    },
+    "fundingAgency": "TIPA (MSS)",
+    "status": "completed"
+  },
+  {
+    "id": "proj30",
+    "title": {
+      "ko": "전산재료공학 기반 소재 공정 융합설계 기술개발",
+      "en": "Development of Computational Materials Engineering-Based Integrated Material and Process Design Technology"
+    },
+    "period": "2013.01 - 2014.12",
+    "role": {
+      "ko": "공동연구원",
+      "en": "Co-Investigator"
+    },
+    "fundingAgency": "MKE/MSIP",
+    "status": "completed"
+  },
+  {
+    "id": "proj31",
+    "title": {
+      "ko": "미세조직 기반 멀티 스케일 모델링 및 유한요소해석 기술개발",
+      "en": "Development of Microstructure-Based Multi-Scale Modeling and Finite Element Analysis Technology"
+    },
+    "period": "2013.01 - 2014.12",
+    "role": {
+      "ko": "공동연구원",
+      "en": "Co-Investigator"
+    },
+    "fundingAgency": "MKE",
+    "status": "completed"
+  },
+  {
+    "id": "proj32",
+    "title": {
+      "ko": "미래형 자동차용 고효율 Air-Conditioning System 융합설계 및 제조기술 개발",
+      "en": "Development of Integrated Design and Manufacturing Technology for High-Efficiency Air-Conditioning Systems for Future Vehicles"
+    },
+    "period": "2012.07 - 2015.06",
+    "role": {
+      "ko": "참여연구원",
+      "en": "Participant"
+    },
+    "fundingAgency": "MKE",
+    "status": "completed"
+  },
+  {
+    "id": "proj33",
+    "title": {
+      "ko": "Flow forming 및 Roll die forming에 의한 치형 부품의 경량 일체화 성형 기반 기술",
+      "en": "Integrated Forming Processes Development of Lightweight Gear Parts Using Flow Forming and Roll Die Forming"
+    },
+    "period": "2012.06 - 2014.05",
+    "role": {
+      "ko": "참여연구원",
+      "en": "Participant"
+    },
+    "fundingAgency": "KEIT (MKE)",
+    "status": "completed"
+  },
+  {
+    "id": "proj34",
+    "title": {
+      "ko": "1GPa급 이형단면 자동차 차체부품용 일체화 점진성형 기술개발",
+      "en": "Development of In-Lined Incremental Forming Technologies for 1GPa-Class Automotive Body Parts with Variable Cross-Section"
+    },
+    "period": "2012.06 - 2013.05",
+    "role": {
+      "ko": "참여연구원",
+      "en": "Participant"
+    },
+    "fundingAgency": "KEIT (MOTIE)",
+    "status": "completed"
+  },
+  {
+    "id": "proj35",
+    "title": {
+      "ko": "다기능 친환경 저융점 접합 소재 설계 기술",
+      "en": "Design Technology for Multi-Functional Eco-Friendly Low-Melting-Point Joining Materials"
+    },
+    "period": "2012.06 - 2013.05",
+    "role": {
+      "ko": "참여연구원",
+      "en": "Participant"
+    },
+    "fundingAgency": "KEIT (MKE)",
+    "status": "completed"
+  },
+  {
+    "id": "proj36",
+    "title": {
+      "ko": "금속압연기용 주조재 및 단조재 워크롤",
+      "en": "Cast and Forged Work Rolls for Metal Rolling Mills"
+    },
+    "period": "2012.06 - 2013.05",
+    "role": {
+      "ko": "참여연구원",
+      "en": "Participant"
+    },
+    "fundingAgency": "KEIT (MKE)",
+    "status": "completed"
+  },
+  {
+    "id": "proj37",
+    "title": {
+      "ko": "경량금속소재의 성형 및 접합기술과 수치해석기술",
+      "en": "Forming and Joining Technology and Numerical Analysis Technology for Lightweight Metal Materials"
+    },
+    "period": "2012.01 - 2014.12",
+    "role": {
+      "ko": "참여연구원",
+      "en": "Participant"
+    },
+    "fundingAgency": "MKE/MSIP",
     "status": "completed"
   }
 ]

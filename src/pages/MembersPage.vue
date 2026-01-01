@@ -70,19 +70,60 @@ const activeTab = ref<'professor' | 'members'>('professor')
                   </p>
                 </div>
 
-                <p class="text-gray-700 mb-6">{{ professor.bio }}</p>
-
-                <div class="flex flex-col md:flex-row gap-6">
-                  <div class="md:w-[35%]">
-                    <h4 class="font-semibold text-gray-900 mb-2">Education</h4>
-                    <ul class="text-sm text-gray-600 space-y-1">
-                      <li v-for="(edu, index) in professor.education" :key="index">{{ edu }}</li>
+                <div class="space-y-6">
+                  <!-- Education -->
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-3 flex items-center">
+                      <span class="w-1 h-5 bg-blue-600 rounded mr-2"></span>
+                      Education
+                    </h4>
+                    <ul class="text-sm text-gray-600 space-y-2 ml-3">
+                      <li v-for="(edu, index) in professor.education" :key="index" class="flex">
+                        <span class="text-blue-400 mr-2">•</span>
+                        <span>{{ edu }}</span>
+                      </li>
                     </ul>
                   </div>
-                  <div class="md:w-[65%]">
-                    <h4 class="font-semibold text-gray-900 mb-2">Experience</h4>
-                    <ul class="text-sm text-gray-600 space-y-1">
-                      <li v-for="(exp, index) in professor.experience" :key="index">{{ exp }}</li>
+
+                  <!-- Experience -->
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-3 flex items-center">
+                      <span class="w-1 h-5 bg-blue-600 rounded mr-2"></span>
+                      Experience
+                    </h4>
+                    <ul class="text-sm space-y-2 ml-3">
+                      <li v-for="(exp, index) in professor.experience" :key="index" class="flex">
+                        <span :class="exp.includes('Present') ? 'text-blue-600' : 'text-blue-400'" class="mr-2">•</span>
+                        <span :class="exp.includes('Present') ? 'text-gray-900 font-medium' : 'text-gray-600'">{{ exp }}</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Grants and Awards -->
+                  <div v-if="professor['Grants and Awards']">
+                    <h4 class="font-semibold text-gray-900 mb-3 flex items-center">
+                      <span class="w-1 h-5 bg-blue-600 rounded mr-2"></span>
+                      Grants and Awards
+                    </h4>
+                    <ul class="text-sm text-gray-600 space-y-2 ml-3">
+                      <li v-for="(award, index) in professor['Grants and Awards']" :key="index" class="flex">
+                        <span class="text-blue-400 mr-2">•</span>
+                        <span>{{ award }}</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Professional Activities -->
+                  <div v-if="professor['Professional Activities/Memberships']">
+                    <h4 class="font-semibold text-gray-900 mb-3 flex items-center">
+                      <span class="w-1 h-5 bg-blue-600 rounded mr-2"></span>
+                      Professional Activities
+                    </h4>
+                    <ul class="text-sm text-gray-600 space-y-2 ml-3">
+                      <li v-for="(activity, index) in professor['Professional Activities/Memberships']" :key="index" class="flex">
+                        <span class="text-blue-400 mr-2">•</span>
+                        <span>{{ activity }}</span>
+                      </li>
                     </ul>
                   </div>
                 </div>
