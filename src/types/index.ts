@@ -5,9 +5,11 @@ export interface Professor {
   email: string
   phone?: string
   image: string
-  bio: string
+  bio?: string
   education: string[]
   experience: string[]
+  "Grants and Awards"?: string[]
+  "Professional Activities/Memberships"?: string[]
 }
 
 export interface Member {
