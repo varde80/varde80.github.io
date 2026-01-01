@@ -63,7 +63,18 @@
       "institution": "KAIST Mechanical Engineering Institute"
     }
   ],
-  "Grants and Awards": [    
+  "Research Interests": [
+    "AI for Materials and Materials Processing",
+    "Materials and Manufacturing-Specialized VLMs and AI Agents",
+    "Crystal Plasticity Finite Element Modeling (CPFEM)",
+    "Physics-Informed Machine Learning for Materials",
+    "Microstructure Generation using Generative AI (Diffusion Models, GANs)",
+    "Multi-scale Modeling of Metallic Materials",
+    "Deep Learning for Materials Property Prediction",
+    "Metal Forming Process Simulation and Optimization",
+    "Additive Manufacturing Process Modeling"
+  ],
+  "Honors and Awards": [    
     "Young Engineer Awards, Korean Society of Technology of plasticity, 2017.10",
     "Achievement Award, Korea Institute of Materials Science, 2017.4",
     "Best post paper Awards, Korean Society of Technology of plasticity, 2012.5",
@@ -82,7 +93,8 @@
     "Member of Korea Society for Technology of Plasticity (KSTP)",
     "Member of Korea Society of Mechanical Engineers (KSME)",
     "Member of The Korean Society of Precision Engineering (KSPE)",
-    "Member of Korean Artificial intelligence Association (KAIA)"
+    "Member of Korean Artificial intelligence Association (KAIA)",
+    "Reviewer for Computational Materials Science, Engineering Applications of Artificial Intelligence, Engineering Fracture Mechanics, International Journals Engineering fracture mechanics, International Journal of Mechanical Sciences, International Journal of Plasticity, Materialia, Materials & Design, Results in Physics, Theoretical and Applied Fracture Mechanics, etc."
   ]
 
 }

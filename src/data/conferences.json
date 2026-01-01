@@ -9,10 +9,7 @@
             "Ho Won Lee^*"
         ],
         "journal": "International Conferece on Computer Vision (ICCV) 2025, Computer Vision for Materials Science(CV4MS) Workshop",
-        "year": 2025,
-        "volume": "",
-        "pages": "",
-        "doi": "",
+        "year": 2025,        
         "link": "https://openaccess.thecvf.com/content/ICCV2025W/CV4MS/papers/Nguyen_MatSSL_Robust_Self-Supervised_Representation_Learning_for_Metallographic_Image_Segmentation_ICCVW_2025_paper.pdf",
         "featured": false
     }
