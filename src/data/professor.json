@@ -5,17 +5,62 @@
   "phone": "+82-55-280-3843",
   "image": "/images/members/professor.jpeg",  
   "education": [
-    "Ph.D., Mechnical Engneering, KAIST, 2003.3-2010.1",
-    "B.S., Mechnical Engneering, KAIST, 1998.3-2003.2"
+    {
+      "degree": "Ph.D.",
+      "field": "Mechanical Engineering",
+      "institution": "KAIST",
+      "period": "2003.3-2010.1",
+      "thesis": "Prediction of Microstructure by Multi-scale Modeling of Recrystallization based on Cellular Automata and Finite Element Method",
+      "advisor": "Prof. Yong-Taek Im"
+    },
+    {
+      "degree": "B.S.",
+      "field": "Mechanical Engineering",
+      "institution": "KAIST",
+      "period": "1998.3-2003.2"
+    }
   ],
   "experience": [
-    "Director, Materials Data & Analysis Research Division, Korea Institute of Materials Science, 2024.6-Present",
-    "Professor, University of Science and Technology, 2023.3-Present",
-    "Principal Researcher, Korea Institute of Materials Science, 2011.12-Present",
-    "Visiting Researcher, ICAMS, Ruhr-Universität Bochum, Germany, 2013.4–2013.6",
-    "Postdoctoral Researcher, KAIST Mechnical Engneering Institute, 2011.8-2011.12",
-    "Scientist, Max-Planck-Institut für Eisenforschung, Germany, 2010.9-2011.8",
-    "Postdoctoral Researcher, KAIST Mechnical Engneering Institute, 2010.2-2010.8"
+    {
+      "period": "2024.6-Present",
+      "position": "Director",
+      "institution": "Materials Data & Analysis Research Division, Korea Institute of Materials Science"
+    },
+    {
+      "period": "2023.3-Present",
+      "position": "Professor",
+      "institution": "University of Science and Technology"
+    },
+    {
+      "period": "2019.4-Present",
+      "position": "Principal Researcher",
+      "institution": "Korea Institute of Materials Science"
+    },
+    {
+      "period": "2011.12-2019.3",
+      "position": "Senior Researcher",
+      "institution": "Korea Institute of Materials Science"
+    },
+    {
+      "period": "2013.4-2013.6",
+      "position": "Visiting Researcher",
+      "institution": "ICAMS, Ruhr-Universität Bochum, Germany"
+    },
+    {
+      "period": "2011.8-2011.12",
+      "position": "Postdoctoral Researcher",
+      "institution": "KAIST Mechanical Engineering Institute"
+    },
+    {
+      "period": "2010.9-2011.8",
+      "position": "Scientist",
+      "institution": "Max-Planck-Institut für Eisenforschung, Germany"
+    },
+    {
+      "period": "2010.2-2010.8",
+      "position": "Postdoctoral Researcher",
+      "institution": "KAIST Mechanical Engineering Institute"
+    }
   ],
   "Grants and Awards": [    
     "Young Engineer Awards, Korean Society of Technology of plasticity, 2017.10",

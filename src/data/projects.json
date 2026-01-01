@@ -91,8 +91,8 @@
   {
     "id": "proj7",
     "title": {
-      "ko": "남방자원 활용 1.2 이하 (x10⁻⁶) 저열팽창 인바합금 제조기술",
-      "en": "Manufacturing Technology for Low Thermal Expansion Invar Alloys (CTE ≤ 1.2 × 10⁻⁶) Using Southern Hemisphere Resources"
+      "ko": "남방자원 활용 1.2 이하 (x10-6) 저열팽창 인바합금 제조기술",
+      "en": "Manufacturing Technology for Low Thermal Expansion Invar Alloys (CTE <= 1.2 x 10^-6) Using Southern Hemisphere Resources"
     },
     "period": "2020.04 - 2025.03",
     "role": {
@@ -195,7 +195,7 @@
   {
     "id": "proj13",
     "title": {
-      "ko": "인공지능기술 및 데이터를 활용한 우주항공용 초내열 비철 금속소재의 HUB구축",
+      "ko": "인공지능 기술 및 데이터를 활용한 우주항공용 초내열 비철 금속소재의 HUB구축",
       "en": "Establishment of an Aerospace Superalloys HUB with Materials Database-Driven Artificial Intelligence Technology"
     },
     "period": "2024.07 - 2028.12",
@@ -266,7 +266,7 @@
     "id": "proj18",
     "title": {
       "ko": "750급 Ni계 초내열합금 무계목 튜브 제조기술 개발",
-      "en": "Development of Manufacturing Technology of Ni-Base Superalloy Seamless Tube for 750°C Steam Turbine"
+      "en": "Development of Manufacturing Technology of Ni-Base Superalloy Seamless Tube for 750C Steam Turbine"
     },
     "period": "2019.04 - 2020.12",
     "role": {
@@ -419,8 +419,8 @@
   {
     "id": "proj29",
     "title": {
-      "ko": "대면적(8700㎠급) 용융탄산염 연료전지 분리판용 상용 집전체 개발",
-      "en": "Development of Commercial Current Collector for Large-Area (8700cm² Class) Molten Carbonate Fuel Cell Separator"
+      "ko": "대면적(8700cm2급) 용융탄산염 연료전지 분리판용 상용 집전체 개발",
+      "en": "Development of Commercial Current Collector for Large-Area (8700 cm2 Class) Molten Carbonate Fuel Cell Separator"
     },
     "period": "2013.12 - 2015.11",
     "role": {

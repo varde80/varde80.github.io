@@ -234,34 +234,39 @@ def create_header_table(professor):
     """Create the header with dark background, photo, and affiliation."""
     styles = create_styles()
 
-    # Name styling: "Ho Won" regular, "Lee" bold italic
-    name_parts = professor["name"].split()
-    if len(name_parts) >= 2:
-        first_name = " ".join(name_parts[:-1])
-        last_name = name_parts[-1]
-        name_html = f'{first_name} <b><i>{last_name}</i></b>'
-    else:
-        name_html = f'<b>{professor["name"]}</b>'
+    # Name styling: regular font
+    name_html = professor["name"]
 
     # Current affiliations (extract Director position only)
     affiliation_line1 = ""
     affiliation_line2 = ""
     for exp in professor.get("experience", []):
-        if "Director" in exp and ("Present" in exp or "present" in exp):
-            parts = exp.split(", ")
-            if len(parts) >= 3:
-                affiliation_line1 = parts[0]  # Director
-                affiliation_line2 = f"{parts[1]}, {parts[2]}"  # Division, Institution
+        if isinstance(exp, dict):
+            # New object format
+            position = exp.get("position", "")
+            institution = exp.get("institution", "")
+            period = exp.get("period", "")
+            if "Director" in position and ("Present" in period or "present" in period):
+                affiliation_line1 = position
+                affiliation_line2 = institution
                 break
+        else:
+            # Legacy string format
+            if "Director" in exp and ("Present" in exp or "present" in exp):
+                parts = exp.split(", ")
+                if len(parts) >= 3:
+                    affiliation_line1 = parts[0]  # Director
+                    affiliation_line2 = f"{parts[1]}, {parts[2]}"  # Division, Institution
+                    break
 
     # Name style
     name_style = ParagraphStyle(
         name='HeaderName',
         fontName='Helvetica',
-        fontSize=28,
+        fontSize=18,
         textColor=white,
         alignment=TA_LEFT,
-        leading=32,
+        leading=22,
         spaceAfter=4,
     )
 
@@ -503,6 +508,18 @@ def generate_cv():
     styles = create_styles()
     story = []
 
+    # === CV TITLE ===
+    cv_title_style = ParagraphStyle(
+        name='CVTitle',
+        fontName='Helvetica-Bold',
+        fontSize=22,
+        textColor=NAVY,
+        alignment=TA_CENTER,
+        spaceAfter=6,
+    )
+    story.append(Paragraph("CURRICULUM VITAE", cv_title_style))
+    story.append(Spacer(1, 12))
+
     # === HEADER ===
     story.append(create_header_table(professor))
     story.append(Spacer(1, 4))
@@ -511,29 +528,31 @@ def generate_cv():
     story.append(HRFlowable(width="100%", thickness=2, color=NAVY, spaceAfter=8))
 
     # === SUMMARY ===
-    pub_count = len([j for j in journals if not j.get('status')])
     summary_text = professor.get("bio", "")
     if summary_text:
-        summary_text += f" Published {pub_count} peer-reviewed journal articles."
-    else:
-        summary_text = f"Published {pub_count} peer-reviewed journal articles."
-    story.append(Paragraph(summary_text, styles['Summary']))
+        story.append(Paragraph(summary_text, styles['Summary']))
 
     # === PROFESSIONAL EXPERIENCE ===
     story.append(SectionHeader("Professional Experience", "◆"))
     story.append(Spacer(1, 8))
 
     for exp in professor["experience"]:
-        # Parse experience string: "Position, Institution, Period"
-        parts = exp.split(", ")
-        if len(parts) >= 3:
-            position = parts[0]
-            institution = ", ".join(parts[1:-1])
-            period = parts[-1]
+        if isinstance(exp, dict):
+            # New object format
+            position = exp.get("position", "")
+            institution = exp.get("institution", "")
+            period = exp.get("period", "")
         else:
-            position = exp
-            institution = ""
-            period = ""
+            # Legacy string format: "Position, Institution, Period"
+            parts = exp.split(", ")
+            if len(parts) >= 3:
+                position = parts[0]
+                institution = ", ".join(parts[1:-1])
+                period = parts[-1]
+            else:
+                position = exp
+                institution = ""
+                period = ""
 
         # Use parse_date_range for proper date formatting with months
         date_display = parse_date_range(period)
@@ -552,25 +571,49 @@ def generate_cv():
     story.append(Spacer(1, 8))
 
     for edu in professor["education"]:
-        # Parse: "Degree, Field, Institution, Year"
-        parts = edu.split(", ")
-        if len(parts) >= 3:
-            degree = parts[0]
-            field_inst = ", ".join(parts[1:-1])
-            year = parts[-1]
-        else:
-            degree = edu
-            field_inst = ""
-            year = ""
+        if isinstance(edu, dict):
+            # New object format
+            degree = edu.get("degree", "")
+            field = edu.get("field", "")
+            institution = edu.get("institution", "")
+            period = edu.get("period", "")
+            thesis = edu.get("thesis", "")
+            advisor = edu.get("advisor", "")
 
-        year_match = re.search(r'(\d{4})', year)
-        date_display = year_match.group(1) if year_match else ""
+            title = f"{degree}, {field}, {institution}"
+
+            # Thesis and advisor as subtitle
+            subtitle = None
+            description = None
+            if thesis:
+                if advisor:
+                    subtitle = f"{thesis} ({advisor})"
+                else:
+                    subtitle = thesis
+
+            year_match = re.search(r'(\d{4})', period)
+            date_display = year_match.group(1) if year_match else ""
+        else:
+            # Legacy string format: "Degree, Field, Institution, Year"
+            parts = edu.split(", ")
+            if len(parts) >= 3:
+                title = parts[0]
+                subtitle = ", ".join(parts[1:-1])
+                year = parts[-1]
+            else:
+                title = edu
+                subtitle = ""
+                year = ""
+
+            description = None
+            year_match = re.search(r'(\d{4})', year)
+            date_display = year_match.group(1) if year_match else ""
 
         story.append(create_timeline_entry(
             date_display,
-            degree,
-            field_inst if field_inst else None,
-            None,
+            title,
+            subtitle if subtitle else None,
+            description,
             styles
         ))
 
@@ -740,84 +783,71 @@ def generate_cv():
     story.append(SectionHeader("Research Projects", "◆"))
     story.append(Spacer(1, 8))
 
-    # Separate ongoing and completed projects
-    ongoing = [p for p in projects if p.get('status') == 'ongoing']
-    completed = [p for p in projects if p.get('status') == 'completed']
+    # Separate ongoing and completed projects, sort by year (newest first)
+    def get_project_start_year(proj):
+        period = proj['period'].get('en', proj['period']) if isinstance(proj['period'], dict) else proj['period']
+        match = re.search(r'(\d{4})', period)
+        return int(match.group(1)) if match else 0
 
-    def format_project_period(period_str):
-        """Convert period like '2026.01 - 2030.12' to '`26.1~`30.12' format."""
-        # Extract year.month patterns
-        date_pattern = r'(\d{4})\.(\d{1,2})'
-        matches = re.findall(date_pattern, period_str)
-        if len(matches) >= 2:
-            start_year, start_month = matches[0]
-            end_year, end_month = matches[1]
-            return f"`{start_year[2:]}.{int(start_month)}~`{end_year[2:]}.{int(end_month)}"
-        elif len(matches) == 1:
-            start_year, start_month = matches[0]
-            return f"`{start_year[2:]}.{int(start_month)}~"
-        return period_str
+    ongoing = sorted([p for p in projects if p.get('status') == 'ongoing'], key=get_project_start_year, reverse=True)
+    completed = sorted([p for p in projects if p.get('status') == 'completed'], key=get_project_start_year, reverse=True)
 
+    # Compact project style
+    project_style = ParagraphStyle(
+        name='ProjectCompact',
+        fontName='Helvetica',
+        fontSize=9,
+        textColor=black,
+        alignment=TA_LEFT,
+        leading=12,
+        spaceBefore=2,
+        spaceAfter=3,
+    )
+
+    def format_project_line(proj):
+        """Create a compact one-line project entry."""
+        title_en = proj['title'].get('en', proj['title']) if isinstance(proj['title'], dict) else proj['title']
+        title_ko = proj['title'].get('ko', '') if isinstance(proj['title'], dict) else ''
+        period = proj['period'].get('en', proj['period']) if isinstance(proj['period'], dict) else proj['period']
+        role = proj['role'].get('en', proj['role']) if isinstance(proj['role'], dict) else proj['role']
+        agency = proj['fundingAgency'].get('en', proj['fundingAgency']) if isinstance(proj['fundingAgency'], dict) else proj['fundingAgency']
+        amount = ''
+        if proj.get('fundingAmount'):
+            amount = proj['fundingAmount'].get('en', proj['fundingAmount']) if isinstance(proj['fundingAmount'], dict) else proj['fundingAmount']
+
+        # Role color (PI and Co-PI both blue)
+        role_hex = '#2563eb' if role.upper() in ['PI', 'CO-PI'] else '#6b7280'
+
+        # Shorten year format: 2021.01 => 21.01, and replace " - " with "~"
+        def shorten_period(p):
+            p = re.sub(r'(\d{4})\.', lambda m: m.group(1)[2:] + '.', p)
+            p = p.replace(' - ', ' ~ ')
+            return p
+        period = shorten_period(period)
+
+        # Format: Title (Korean) | Period | Agency | Role | Budget - all in one line
+        line = f'{title_en}'
+        if title_ko:
+            line += f' <font face="{KOREAN_FONT_NAME}" color="#718096">({title_ko})</font>'
+        line += f' | {period} | {agency} |'
+        line += f' <font color="{role_hex}"><b>{role}</b></font>'
+        if amount:
+            line += f' | <font color="#2563eb">{amount}</font>'
+
+        return line
+
+    # Ongoing Projects
     if ongoing:
-        story.append(Paragraph("<b>Ongoing Projects</b>", styles['Subsection']))
+        story.append(Paragraph(f"<b>Ongoing Projects</b> ({len(ongoing)})", styles['Subsection']))
         for proj in ongoing:
-            title_en = proj['title'].get('en', proj['title']) if isinstance(proj['title'], dict) else proj['title']
-            title_ko = proj['title'].get('ko', '') if isinstance(proj['title'], dict) else ''
-            period = proj['period'].get('en', proj['period']) if isinstance(proj['period'], dict) else proj['period']
-            role = proj['role'].get('en', proj['role']) if isinstance(proj['role'], dict) else proj['role']
-            agency = proj['fundingAgency'].get('en', proj['fundingAgency']) if isinstance(proj['fundingAgency'], dict) else proj['fundingAgency']
+            story.append(Paragraph(format_project_line(proj), project_style))
 
-            # Format period
-            period_fmt = format_project_period(period)
-
-            # Bold the role if PI or Co-PI
-            role_upper = role.upper()
-            is_pi = role_upper == 'PI' or role_upper == 'CO-PI'
-            role_display = f"<b>{role}</b>" if is_pi else role
-
-            # Build project text: Title (Korean) funded by Agency, Role (`period`) Amount
-            proj_text = f"• {title_en}"
-            if title_ko:
-                proj_text += f' (<font face="{KOREAN_FONT_NAME}">{title_ko}</font>)'
-            proj_text += f" funded by {agency}, {role_display} ({period_fmt})"
-
-            # Add funding amount for PI or Co-PI
-            if is_pi and proj.get('fundingAmount'):
-                amount = proj['fundingAmount'].get('en', proj['fundingAmount']) if isinstance(proj['fundingAmount'], dict) else proj['fundingAmount']
-                proj_text += f" {amount}"
-
-            story.append(Paragraph(proj_text, styles['Publication']))
-
+    # Completed Projects
     if completed:
         story.append(Spacer(1, 4))
-        story.append(Paragraph("<b>Completed Projects</b>", styles['Subsection']))
+        story.append(Paragraph(f"<b>Completed Projects</b> ({len(completed)})", styles['Subsection']))
         for proj in completed:
-            title_en = proj['title'].get('en', proj['title']) if isinstance(proj['title'], dict) else proj['title']
-            title_ko = proj['title'].get('ko', '') if isinstance(proj['title'], dict) else ''
-            period = proj['period'].get('en', proj['period']) if isinstance(proj['period'], dict) else proj['period']
-            role = proj['role'].get('en', proj['role']) if isinstance(proj['role'], dict) else proj['role']
-            agency = proj['fundingAgency'].get('en', proj['fundingAgency']) if isinstance(proj['fundingAgency'], dict) else proj['fundingAgency']
-
-            # Format period
-            period_fmt = format_project_period(period)
-
-            # Bold the role if PI or Co-PI
-            role_upper = role.upper()
-            is_pi = role_upper == 'PI' or role_upper == 'CO-PI'
-            role_display = f"<b>{role}</b>" if is_pi else role
-
-            # Build project text: Title (Korean) funded by Agency, Role (`period`) Amount
-            proj_text = f"• {title_en}"
-            if title_ko:
-                proj_text += f' (<font face="{KOREAN_FONT_NAME}">{title_ko}</font>)'
-            proj_text += f" funded by {agency}, {role_display} ({period_fmt})"
-
-            # Add funding amount for PI or Co-PI
-            if is_pi and proj.get('fundingAmount'):
-                amount = proj['fundingAmount'].get('en', proj['fundingAmount']) if isinstance(proj['fundingAmount'], dict) else proj['fundingAmount']
-                proj_text += f" {amount}"
-
-            story.append(Paragraph(proj_text, styles['Publication']))
+            story.append(Paragraph(format_project_line(proj), project_style))
 
     # Build PDF
     doc.build(story)

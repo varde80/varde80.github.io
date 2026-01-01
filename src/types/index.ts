@@ -1,4 +1,19 @@
 // Member types
+export interface Education {
+  degree: string
+  field: string
+  institution: string
+  period: string
+  thesis?: string
+  advisor?: string
+}
+
+export interface Experience {
+  period: string
+  position: string
+  institution: string
+}
+
 export interface Professor {
   name: string
   title: string
@@ -6,8 +21,8 @@ export interface Professor {
   phone?: string
   image: string
   bio?: string
-  education: string[]
-  experience: string[]
+  education: Education[]
+  experience: Experience[]
   "Grants and Awards"?: string[]
   "Professional Activities/Memberships"?: string[]
 }

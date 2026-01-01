@@ -77,10 +77,19 @@ const activeTab = ref<'professor' | 'members'>('professor')
                       <span class="w-1 h-5 bg-blue-600 rounded mr-2"></span>
                       Education
                     </h4>
-                    <ul class="text-sm text-gray-600 space-y-2 ml-3">
-                      <li v-for="(edu, index) in professor.education" :key="index" class="flex">
-                        <span class="text-blue-400 mr-2">•</span>
-                        <span>{{ edu }}</span>
+                    <ul class="text-sm text-gray-600 space-y-3 ml-3">
+                      <li v-for="(edu, index) in professor.education" :key="index">
+                        <div class="flex">
+                          <span class="text-blue-400 mr-2">•</span>
+                          <div>
+                            <span class="font-medium text-gray-900">{{ edu.degree }}, {{ edu.field }}</span>
+                            <span class="text-gray-600">, {{ edu.institution }}, {{ edu.period }}</span>
+                            <div v-if="edu.thesis" class="text-gray-500 text-xs mt-1 ml-8">
+                              {{ edu.thesis }}
+                              <span v-if="edu.advisor">({{ edu.advisor }})</span>
+                            </div>
+                          </div>
+                        </div>
                       </li>
                     </ul>
                   </div>
@@ -93,8 +102,10 @@ const activeTab = ref<'professor' | 'members'>('professor')
                     </h4>
                     <ul class="text-sm space-y-2 ml-3">
                       <li v-for="(exp, index) in professor.experience" :key="index" class="flex">
-                        <span :class="exp.includes('Present') ? 'text-blue-600' : 'text-blue-400'" class="mr-2">•</span>
-                        <span :class="exp.includes('Present') ? 'text-gray-900 font-medium' : 'text-gray-600'">{{ exp }}</span>
+                        <span :class="exp.period.includes('Present') ? 'text-blue-600' : 'text-blue-400'" class="mr-2">•</span>
+                        <span :class="exp.period.includes('Present') ? 'text-gray-900 font-medium' : 'text-gray-600'">
+                          {{ exp.period }}, {{ exp.position }}, {{ exp.institution }}
+                        </span>
                       </li>
                     </ul>
                   </div>
