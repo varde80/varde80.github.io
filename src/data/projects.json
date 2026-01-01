@@ -5,22 +5,13 @@
       "ko": "금속소재 조성・공정 자동설계용 초거대 AI 서비스 개발",
       "en": "Foundation Model-Based AI Service for Automated Design and Optimization of Metal Materials and Manufacturing Processes"
     },
-    "period": {
-      "ko": "2026.01 - 2030.12",
-      "en": "2026.01 - 2030.12"
-    },
+    "period": "2026.01 - 2030.12",
     "role": {
       "ko": "연구책임자",
       "en": "PI"
     },
-    "fundingAgency": {
-      "ko": "NST (과학기술정보통신부)",
-      "en": "NST (MSIT)"
-    },
-    "fundingAmount": {
-      "ko": "305억원",
-      "en": "30.5B KRW"
-    },
+    "fundingAgency": "NST (MSIT)",
+    "fundingAmount": "30.5B KRW",    
     "status": "ongoing"
   },
   {

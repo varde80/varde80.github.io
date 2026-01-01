@@ -16,32 +16,22 @@ const activeTab = ref<'professor' | 'members'>('professor')
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 class="text-4xl font-bold text-gray-900 text-center mb-8">Members</h1>
 
-      <!-- Tab Navigation -->
-      <div class="flex justify-center mb-8">
-        <div class="inline-flex rounded-lg border border-gray-200 bg-white p-1">
-          <button
-            @click="activeTab = 'professor'"
-            :class="[
-              'px-6 py-2 text-sm font-medium rounded-md transition-colors',
-              activeTab === 'professor'
-                ? 'bg-blue-600 text-white'
-                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-            ]"
-          >
-            Professor
-          </button>
-          <button
-            @click="activeTab = 'members'"
-            :class="[
-              'px-6 py-2 text-sm font-medium rounded-md transition-colors',
-              activeTab === 'members'
-                ? 'bg-blue-600 text-white'
-                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-            ]"
-          >
-            Lab Members
-          </button>
-        </div>
+      <!-- Tabs -->
+      <div class="flex justify-center mb-8 gap-4">
+        <button
+          @click="activeTab = 'professor'"
+          class="px-6 py-2 rounded-full font-medium text-sm transition-colors shadow-sm"
+          :class="activeTab === 'professor' ? 'bg-blue-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'"
+        >
+          Professor
+        </button>
+        <button
+          @click="activeTab = 'members'"
+          class="px-6 py-2 rounded-full font-medium text-sm transition-colors shadow-sm"
+          :class="activeTab === 'members' ? 'bg-blue-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'"
+        >
+          Lab Members
+        </button>
       </div>
 
       <!-- Professor Tab -->
@@ -106,7 +96,7 @@ const activeTab = ref<'professor' | 'members'>('professor')
       <div v-if="activeTab === 'members'">
         <!-- Researchers -->
         <section v-if="members.researchers.length > 0" class="mb-16">
-          <h2 class="text-2xl font-bold text-gray-800 mb-8 border-b-2 border-blue-600 pb-2">Researchers</h2>
+          <h2 class="text-2xl font-bold text-gray-800 mb-8 border-b-2 border-blue-600 pb-2">Postdoctoral Researchers</h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             <div
               v-for="member in members.researchers"
