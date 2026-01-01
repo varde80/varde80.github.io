@@ -14,7 +14,7 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: '/research',
-    name: 'Research',
+    name: 'Research Areas',
     component: () => import('../pages/ResearchPage.vue')
   },
   {

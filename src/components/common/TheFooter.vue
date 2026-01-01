@@ -26,7 +26,7 @@ const currentYear = new Date().getFullYear()
             </li>
             <li>
               <RouterLink to="/research" class="text-gray-400 hover:text-white transition-colors">
-                Research
+                Research Areas
               </RouterLink>
             </li>
             <li>

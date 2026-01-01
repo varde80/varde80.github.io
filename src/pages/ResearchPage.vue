@@ -10,7 +10,7 @@ const research = ref<ResearchArea[]>(researchData as ResearchArea[])
 <template>
   <div class="py-12 bg-gray-50 min-h-screen">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-4xl font-bold text-gray-900 text-center mb-4">Research</h1>
+      <h1 class="text-4xl font-bold text-gray-900 text-center mb-4">Research Areas</h1>
       <p class="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
         We focus on developing deep learning models essential for materials and processing, integrating experimental data from autonomous labs with simulation data based on computational materials science.
       </p>

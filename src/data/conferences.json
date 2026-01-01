@@ -1,5 +1,58 @@
 [
     {
+        "id": "conf4",
+        "type": "conference",
+        "title": "Crystal Plasticity Analysis of Microstructure Effect on Formability of AA5052 Aluminum Alloys",
+        "authors": [
+            "Minh Tien Tran^",
+            "Han-Jun Lee^",
+            "Hoang Cuong Phan^",
+            "Hoang Hai Nam Nguyen^",
+            "Dong-Kyu Kim",
+            "Ho Won Lee^*"
+        ],
+        "Conference Name": "TMS Specialty Congress 2025, 8th World Congress on Integrated Computational Materials Engineering (ICME 2025)",
+        "year": 2025,
+        "start date": "2025.6.15",
+        "end date": "2025.6.19",
+        "Venue": "Anaheim, California, USA",
+        "featured": false
+    },
+    {
+        "id": "conf3",
+        "type": "conference",
+        "title": "Synthetic Microstructure Generation and Prediction Using Stable Diffusion",
+        "authors": [
+            "Hoang Cuong Phan^",
+            "Hoheok Kim",
+            "Sehyeok Oh",
+            "Ho Won Lee^*"
+        ],
+        "Conference Name": "TMS Specialty Congress 2025, 3rd World Congress on Artificial Intelligence in Materials & Manufacturing (AIM 2025)",
+        "year": 2025,
+        "start date": "2025.6.15",
+        "end date": "2025.6.19",
+        "Venue": "Anaheim, California, USA",
+        "featured": false
+    },
+    {
+        "id": "conf2",
+        "type": "conference",
+        "title": "Metallographic Image and Mask Generation Based on Denoising Diffusion Probabilistic Models for Improving Metallographic Image Segmentation",
+        "authors": [
+            "Hoang Hai Nam Nguyen^",
+            "Juwon Na",
+            "Ho Won Lee^*",
+            "Jaimyun Jung"
+        ],
+        "Conference Name": "TMS Specialty Congress 2025, 3rd World Congress on Artificial Intelligence in Materials & Manufacturing (AIM 2025)",
+        "year": 2025,
+        "start date": "2025.6.15",
+        "end date": "2025.6.19",
+        "Venue": "Anaheim, California, USA",
+        "featured": false
+    },
+    {
         "id": "conf1",
         "type": "conference",
         "title": "MatSSL: Robust Self-Supervised Representation Learning for Metallographic Image Segmentation",
@@ -8,8 +61,11 @@
             "Phan Nguyen Duc Hieu^+",
             "Ho Won Lee^*"
         ],
-        "journal": "International Conferece on Computer Vision (ICCV) 2025, Computer Vision for Materials Science(CV4MS) Workshop",
-        "year": 2025,        
+        "Conference Name": "International Conference on Computer Vision (ICCV) 2025, Computer Vision for Materials Science (CV4MS) Workshop",
+        "year": 2025,
+        "start date": "2025.10.19",
+        "end date": "2025.10.20",
+        "Venue": "Honolulu, Hawaii, USA",
         "link": "https://openaccess.thecvf.com/content/ICCV2025W/CV4MS/papers/Nguyen_MatSSL_Robust_Self-Supervised_Representation_Learning_for_Metallographic_Image_Segmentation_ICCVW_2025_paper.pdf",
         "featured": false
     }
