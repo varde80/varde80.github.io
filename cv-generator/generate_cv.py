@@ -536,6 +536,28 @@ def generate_cv():
     if summary_text:
         story.append(Paragraph(summary_text, styles['Summary']))
 
+    # === RESEARCH INTERESTS ===
+    if professor.get("Research Interests"):
+        story.append(SectionHeader("Research Interests", "◈"))
+        story.append(Spacer(1, 8))
+
+        interest_style = ParagraphStyle(
+            name='Interest',
+            fontName='Helvetica',
+            fontSize=9,
+            textColor=black,
+            alignment=TA_LEFT,
+            leading=12,
+            spaceBefore=2,
+            spaceAfter=2,
+            leftIndent=12,
+            firstLineIndent=-7,
+        )
+        for interest in professor["Research Interests"]:
+            story.append(Paragraph(f"•&nbsp;&nbsp;{interest}", interest_style))
+
+        story.append(Spacer(1, 6))
+
     # === PROFESSIONAL EXPERIENCE ===
     story.append(SectionHeader("Professional Experience", "◆"))
     story.append(Spacer(1, 8))
