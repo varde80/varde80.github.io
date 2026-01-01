@@ -104,7 +104,7 @@ const activeTab = ref<'professor' | 'members'>('professor')
                       <li v-for="(exp, index) in professor.experience" :key="index" class="flex">
                         <span :class="exp.period.includes('Present') ? 'text-blue-600' : 'text-blue-400'" class="mr-2">•</span>
                         <span :class="exp.period.includes('Present') ? 'text-gray-900 font-medium' : 'text-gray-600'">
-                          {{ exp.period }}, {{ exp.position }}, {{ exp.institution }}
+                          {{ exp.period }}, {{ exp.position }}, {{ exp.Department ? exp.Department + ', ' : '' }}{{ exp.institution }}
                         </span>
                       </li>
                     </ul>

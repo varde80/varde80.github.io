@@ -248,7 +248,11 @@ def create_header_table(professor):
             period = exp.get("period", "")
             if "Director" in position and ("Present" in period or "present" in period):
                 affiliation_line1 = position
-                affiliation_line2 = institution
+                department = exp.get("Department", "")
+                if department:
+                    affiliation_line2 = f"{department}<br/>{institution}"
+                else:
+                    affiliation_line2 = institution.replace(", ", "<br/>")
                 break
         else:
             # Legacy string format
@@ -540,18 +544,24 @@ def generate_cv():
         if isinstance(exp, dict):
             # New object format
             position = exp.get("position", "")
+            department = exp.get("Department", "")
             institution = exp.get("institution", "")
             period = exp.get("period", "")
+            # Combine department and institution with line break
+            if department:
+                subtitle = f"{department}<br/>{institution}"
+            else:
+                subtitle = institution
         else:
             # Legacy string format: "Position, Institution, Period"
             parts = exp.split(", ")
             if len(parts) >= 3:
                 position = parts[0]
-                institution = ", ".join(parts[1:-1])
+                subtitle = ", ".join(parts[1:-1])
                 period = parts[-1]
             else:
                 position = exp
-                institution = ""
+                subtitle = ""
                 period = ""
 
         # Use parse_date_range for proper date formatting with months
@@ -560,7 +570,7 @@ def generate_cv():
         story.append(create_timeline_entry(
             date_display,
             position,
-            institution if institution else None,
+            subtitle if subtitle else None,
             None,
             styles
         ))
@@ -657,8 +667,20 @@ def generate_cv():
         story.append(SectionHeader("Professional Activities", "●"))
         story.append(Spacer(1, 8))
 
+        activity_style = ParagraphStyle(
+            name='Activity',
+            fontName='Helvetica',
+            fontSize=9,
+            textColor=black,
+            alignment=TA_LEFT,
+            leading=12,
+            spaceBefore=2,
+            spaceAfter=2,
+            leftIndent=12,
+            firstLineIndent=-7,
+        )
         for activity in professor["Professional Activities/Memberships"]:
-            story.append(Paragraph(f"• {activity}", styles['Publication']))
+            story.append(Paragraph(f"•&nbsp;&nbsp;{activity}", activity_style))
 
     # === PUBLICATIONS ===
     story.append(Spacer(1, 6))
@@ -738,7 +760,7 @@ def generate_cv():
     for year in years:
         year_pubs = [p for p in published_journals if p['year'] == year]
         story.append(Spacer(1, 2))
-        story.append(Paragraph(f"<b>{year}</b>", styles['ItemDesc']))
+        story.append(Paragraph(f"<b><font size='10'>{year}</font></b>", styles['ItemDesc']))
 
         for pub in year_pubs:
             authors = format_authors(pub['authors'])
@@ -802,6 +824,23 @@ def generate_cv():
         leading=12,
         spaceBefore=2,
         spaceAfter=3,
+        leftIndent=12,
+        firstLineIndent=-7,
+    )
+
+    # Highlighted project style (for PI/Co-PI)
+    project_highlight_style = ParagraphStyle(
+        name='ProjectHighlight',
+        fontName='Helvetica',
+        fontSize=9,
+        textColor=black,
+        alignment=TA_LEFT,
+        leading=12,
+        spaceBefore=2,
+        spaceAfter=3,
+        leftIndent=12,
+        firstLineIndent=-7,
+        backColor=HexColor('#f0f4f8'),
     )
 
     def format_project_line(proj):
@@ -826,7 +865,7 @@ def generate_cv():
         period = shorten_period(period)
 
         # Format: Title (Korean) | Period | Agency | Role | Budget - all in one line
-        line = f'{title_en}'
+        line = f'•&nbsp;&nbsp;{title_en}'
         if title_ko:
             line += f' <font face="{KOREAN_FONT_NAME}" color="#718096">({title_ko})</font>'
         line += f' | {period} | {agency} |'
@@ -836,18 +875,24 @@ def generate_cv():
 
         return line
 
+    def is_pi_or_copi(proj):
+        role = proj['role'].get('en', proj['role']) if isinstance(proj['role'], dict) else proj['role']
+        return role.upper() in ['PI', 'CO-PI']
+
     # Ongoing Projects
     if ongoing:
         story.append(Paragraph(f"<b>Ongoing Projects</b> ({len(ongoing)})", styles['Subsection']))
         for proj in ongoing:
-            story.append(Paragraph(format_project_line(proj), project_style))
+            style = project_highlight_style if is_pi_or_copi(proj) else project_style
+            story.append(Paragraph(format_project_line(proj), style))
 
     # Completed Projects
     if completed:
         story.append(Spacer(1, 4))
         story.append(Paragraph(f"<b>Completed Projects</b> ({len(completed)})", styles['Subsection']))
         for proj in completed:
-            story.append(Paragraph(format_project_line(proj), project_style))
+            style = project_highlight_style if is_pi_or_copi(proj) else project_style
+            story.append(Paragraph(format_project_line(proj), style))
 
     # Build PDF
     doc.build(story)

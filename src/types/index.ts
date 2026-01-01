@@ -11,6 +11,7 @@ export interface Education {
 export interface Experience {
   period: string
   position: string
+  Department?: string
   institution: string
 }
 
