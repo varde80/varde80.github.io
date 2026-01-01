@@ -119,6 +119,7 @@ export interface Software {
   github: string
   image?: string
   tags?: string[]
+  year?: string
 }
 
 // Project types

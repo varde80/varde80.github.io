@@ -1,10 +1,11 @@
 [
   {
     "id": "sw1",
-    "name": "Sample Project",
-    "description": "A sample software project description. Replace this with your actual project.",
-    "github": "https://github.com/example/sample-project",
-    "image": "/images/software/sample.png",
-    "tags": ["Python", "Machine Learning"]
+    "name": "MatSSL",
+    "description": "Robust Self-Supervised Representation Learning for Metallographic Image Segmentation",
+    "year": "2025",
+    "github": "https://github.com/duchieuphan2k1/MatSSL",
+    "image": "/images/software/matssl.png",
+    "tags": ["Python","Self-Supervised Learning","Semantic Segmentation"]
   }
 ]
