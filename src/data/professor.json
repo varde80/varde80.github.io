@@ -1,0 +1,42 @@
+{
+  "name": "Ho Won Lee",
+  "title": "Professor",
+  "email": "h.lee@kims.re.kr",
+  "phone": "+82-55-280-3843",
+  "image": "/images/members/professor.jpeg",  
+  "education": [
+    "Ph.D., Mechnical Engneering, KAIST, 2003.3-2010.1",
+    "B.S., Mechnical Engneering, KAIST, 1998.3-2003.2"
+  ],
+  "experience": [
+    "Director, Materials Data & Analysis Research Division, Korea Institute of Materials Science, 2024.6-Present",
+    "Professor, University of Science and Technology, 2023.3-Present",
+    "Principal Researcher, Korea Institute of Materials Science, 2011.12-Present",
+    "Visiting Researcher, ICAMS, Ruhr-Universität Bochum, Germany, 2013.4–2013.6",
+    "Postdoctoral Researcher, KAIST Mechnical Engneering Institute, 2011.8-2011.12",
+    "Scientist, Max-Planck-Institut für Eisenforschung, Germany, 2010.9-2011.8",
+    "Postdoctoral Researcher, KAIST Mechnical Engneering Institute, 2010.2-2010.8"
+  ],
+  "Grants and Awards": [    
+    "Young Engineer Awards, Korean Society of Technology of plasticity, 2017.10",
+    "Achievement Award, Korea Institute of Materials Science, 2017.4",
+    "Best post paper Awards, Korean Society of Technology of plasticity, 2012.5",
+    "Max-Plank Scholarship, 2010.9-2011.8, Max-Planck-Institut für Eisenforschung, Düsseldorf, Germany",
+    "Excellent Teaching Assistant Award, Department of Mechanical Engineering, KAIST, 2005.9"
+  ],
+  "Professional Activities/Memberships": [
+    "Editorial Board, The Korean Society for Technology of Plasticity (KSTP)",
+    "Committee member of crystallographic texture in the Korean Institute of Metals and Materials (KIM)",
+    "Committee member of Computational mechanics of Processing in the Korean Society for Technology of Plasticity (KSTP)",
+    "Committee member of Forging in the Korean Society for Technology of Plasticity (KSTP)",
+    "Local organizing committee, The 7th Asian Materials Data Symposium, Daegu, Korea, 2023",
+    "Local organizing committee,International Cold Forging Group 48th Plenary Meeting, Daejeon, Korea, 2015",    
+    "Conference Secretary, International Conferences on Advances in Materials and Processing Technologies (AMPT), 2007",
+    "Member of The Korean Institute of Metals and Materials (KIM)",
+    "Member of Korea Society for Technology of Plasticity (KSTP)",
+    "Member of Korea Society of Mechanical Engineers (KSME)",
+    "Member of The Korean Society of Precision Engineering (KSPE)",
+    "Member of Korean Artificial intelligence Association (KAIA)"
+  ]
+
+}

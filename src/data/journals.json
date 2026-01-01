@@ -6,7 +6,7 @@
         "authors": [
             "Ho Won Lee^",
             "Hyuck-Cheol Kwon",
-            "Yong-Taek Im",
+            "Yong-Taek Im*",
             "P. D. Hodgson",
             "S. H. Zahiri"
         ],
@@ -26,7 +26,7 @@
             "Soo-Young Kim",
             "Ho Won Lee^",
             "Ji-Hyeon Min",
-            "Yong-Taek Im"
+            "Yong-Taek Im*"
         ],
         "journal": "International Journal for Numerical Methods in Engineering",
         "year": 2005,
@@ -42,7 +42,7 @@
         "authors": [
             "Ho Won Lee^",
             "Hyuck-Cheol Kwon",
-            "Yong-Taek Im",
+            "Yong-Taek Im*",
             "P.D. Hodgson"
         ],
         "journal": "Journal of Materials Processing Technology",
@@ -60,7 +60,7 @@
             "Ho Won Lee^",
             "Hyuck-Cheol Kwon",
             "Muhammad Awais",
-            "Yong-Taek Im"
+            "Yong-Taek Im*"
         ],
         "journal": "Journal of Mechanical Science and Technology",
         "year": 2007,
@@ -76,7 +76,7 @@
         "authors": [
             "Muhammad Awais",
             "Ho Won Lee^",
-            "Yong-Taek Im",
+            "Yong-Taek Im*",
             "Hyuck-Cheol Kwon",
             "Sang-Min Byon",
             "Hae-Doo Park"
@@ -96,7 +96,7 @@
             "Hak-Young Kim",
             "Hyuck-Cheol Kwon",
             "Ho Won Lee^",
-            "Yong-Taek Im",
+            "Yong-Taek Im*",
             "Sang-Min Byon",
             "Hae-Doo Park"
         ],
@@ -115,7 +115,7 @@
             "Hyuck-Cheol Kwon",
             "Ho Won Lee^",
             "Hak-Young Kim",
-            "Yong-Taek Im",
+            "Yong-Taek Im*",
             "Hae-Doo Park",
             "Duk-Lak Lee"
         ],
@@ -133,7 +133,7 @@
         "authors": [
             "Kyung-Hwan Jung",
             "Ho Won Lee^",
-            "Yong-Taek Im"
+            "Yong-Taek Im*"
         ],
         "journal": "Materials Science and Engineering: A",
         "year": 2009,
@@ -148,7 +148,7 @@
         "title": "Cellular Automata Modeling of Grain Coarsening and Refinement during the Dynamic Recrystallization of Pure Copper",
         "authors": [
             "Ho Won Lee^",
-            "Yong-Taek Im"
+            "Yong-Taek Im*"
         ],
         "journal": "MATERIALS TRANSACTIONS",
         "year": 2010,
@@ -164,7 +164,7 @@
         "authors": [
             "Kyung-Hwan Jung",
             "Ho Won Lee^",
-            "Yong-Taek Im"
+            "Yong-Taek Im*"
         ],
         "journal": "International Journal of Mechanical Sciences",
         "year": 2010,
@@ -179,7 +179,7 @@
         "title": "Numerical modeling of dynamic recrystallization during nonisothermal hot compression by cellular automata and finite element analysis",
         "authors": [
             "Ho Won Lee^",
-            "Yong-Taek Im"
+            "Yong-Taek Im*"
         ],
         "journal": "International Journal of Mechanical Sciences",
         "year": 2010,
@@ -196,7 +196,7 @@
             "Dong-Kyu Kim",
             "Ho Won Lee^",
             "Kyung-Hwan Jung",
-            "Yong-Taek Im"
+            "Yong-Taek Im*"
         ],
         "journal": "MATERIALS TRANSACTIONS",
         "year": 2013,
@@ -214,7 +214,7 @@
             "Won-Woong Park",
             "Ho Won Lee^",
             "Seong-Hoon Kang",
-            "Yong-Taek Im"
+            "Yong-Taek Im*"  
         ],
         "journal": "Journal of Microscopy",
         "year": 2013,
@@ -235,7 +235,7 @@
             "Sunghak Lee",
             "Seong-Hoon Kang",
             "Ho Won Lee^",
-            "Hyoung Seop Kim"
+            "Hyoung Seop Kim*"
         ],
         "journal": "Metallurgical and Materials Transactions A",
         "year": 2014,
@@ -250,7 +250,7 @@
         "title": "Prediction of microstructure evolution during hot forging using grain aggregate model for dynamic recrystallization",
         "authors": [
             "Ho Won Lee^",
-            "Seong-Hoon Kang",
+            "Seong-Hoon Kang*",
             "Youngseon Lee"
         ],
         "journal": "International Journal of Precision Engineering and Manufacturing",
@@ -267,7 +267,7 @@
         "authors": [
             "Seong-Hoon Kang",
             "Young-Seon Lee",
-            "Ho Won Lee^"
+            "Ho Won Lee^*"
         ],
         "journal": "International Journal of Mechanical Sciences",
         "year": 2014,
@@ -283,7 +283,7 @@
         "authors": [
             "Sun Kwang Hwang",
             "Hyun Moo Baek",
-            "Yong-Taek Im",
+            "Yong-Taek Im*",
             "Il-Heon Son",
             "Chul Min Bae",
             "Ho Won Lee^"
@@ -304,7 +304,7 @@
             "Jae-Min Kim",
             "Won-Woong Park",
             "Ho Won Lee^",
-            "Yong-Taek Im",
+            "Yong-Taek Im*",
             "Yong-Shin Lee"
         ],
         "journal": "Computational Materials Science",
@@ -321,7 +321,7 @@
         "authors": [
             "S.H. Kang",
             "Y.S. Oh",
-            "H.W. Lee"
+            "H.W. Lee^*"
         ],
         "journal": "Tribology International",
         "year": 2017,
@@ -335,7 +335,7 @@
         "type": "journal",
         "title": "Interface-correlated bonding properties for a roll-bonded Ti/Al 2-ply sheet",
         "authors": [
-            "Kwang Seok Lee",
+            "Kwang Seok Lee*",
             "Seong Jun Bae",
             "Ho Won Lee^",
             "Seong Hoon Kang"
@@ -358,7 +358,7 @@
             "Howon Lee",
             "Sung-Jun Park",
             "Sung Hyuk Park",
-            "Jonghun Yoon"
+            "Jonghun Yoon*"
         ],
         "journal": "Journal of Non-Crystalline Solids",
         "year": 2018,
@@ -376,7 +376,7 @@
             "Kyung-Hwan Jung",
             "Sun-Kwang Hwang",
             "Seong-Hoon Kang",
-            "Dong-Kyu Kim"
+            "Dong-Kyu Kim*"
         ],
         "journal": "Materials Science and Engineering: A",
         "year": 2019,
@@ -397,7 +397,7 @@
             "Howon Lee",
             "In Yong Moon",
             "Duck-Young Hwang",
-            "Seong-Hoon Kang"
+            "Seong-Hoon Kang*"
         ],
         "journal": "International Journal of Precision Engineering and Manufacturing",
         "year": 2019,
@@ -412,11 +412,11 @@
         "title": "Development of a roll-to-roll hot imprinting process for superhydrophobic polytetrafluoroethylene surfaces",
         "authors": [
             "I Y Moon",
-            "H W Lee",
+            "Ho Won Lee^",
             "Y S Oh",
             "S J Kim",
             "J H Kim",
-            "S H Kang"
+            "S H Kang*"
         ],
         "journal": "Journal of Micromechanics and Microengineering",
         "year": 2019,
@@ -434,7 +434,7 @@
             "Ho Won Lee^",
             "Young-Seok Oh",
             "Se-Jong Kim",
-            "Seong-Hoon Kang"
+            "Seong-Hoon Kang*"
         ],
         "journal": "International Journal of Advanced Manufacturing Technology",
         "year": 2019,
@@ -454,7 +454,7 @@
             "In Yong Moon",
             "Young-Seok Oh",
             "Seong-Hoon Kang",
-            "Dong-Kyu Kim"
+            "Dong-Kyu Kim*"
         ],
         "journal": "Materials",
         "year": 2019,
@@ -473,7 +473,7 @@
             "Ho Won Lee^",
             "Young-Seok Oh",
             "Ji Hoon Kim",
-            "Seong-Hoon Kang"
+            "Seong-Hoon Kang*"
         ],
         "journal": "International Journal of Precision Engineering and Manufacturing-Green Technology",
         "year": 2020,
@@ -493,7 +493,7 @@
             "Howon Lee",
             "Seong-hoon Kang",
             "Young-Min Kim",
-            "Jonghun Yoon"
+            "Jonghun Yoon*"
         ],
         "journal": "Journal of Materials Science & Technology",
         "year": 2020,
@@ -511,8 +511,8 @@
             "D.Y. Li",
             "S.H. Zhang",
             "H.N. Han",
-            "H.W. Lee",
-            "M.G. Lee"
+            "H.W. Lee^",
+            "M.G. Lee*"
         ],
         "journal": "International Journal of Plasticity",
         "year": 2020,
@@ -531,7 +531,7 @@
             "Ho Won Lee^",
             "Jaimyun Jung",
             "Young-Seok Oh",
-            "Seong-Hoon Kang"
+            "Seong-Hoon Kang*"
         ],
         "journal": "Metals",
         "year": 2021,
@@ -550,7 +550,7 @@
             "Se-Jong Kim",
             "Young-Seok Oh",
             "Jaimyun Jung",
-            "Seong-Hoon Kang"
+            "Seong-Hoon Kang*"
         ],
         "journal": "Materials",
         "year": 2021,
@@ -572,7 +572,7 @@
             "Jaimyun Jung",
             "Ji-Hoon Kim",
             "Dong-Kyu Kim",
-            "Ho Won Lee^"
+            "Ho Won Lee^*"
         ],
         "journal": "Metals",
         "year": 2021,
@@ -588,7 +588,7 @@
         "authors": [
             "Minh Tien Tran^",
             "Tri Hoang Nguyen",
-            "Dong-Kyu Kim",
+            "Dong-Kyu Kim*",
             "Wanchuck Woo",
             "Shi-Hoon Choi",
             "Ho Won Lee^",
@@ -612,7 +612,7 @@
             "Ho Won Lee^",
             "Se-Jong Kim",
             "Jaimyun Jung",
-            "Seong-Hoon Kang"
+            "Seong-Hoon Kang*"
         ],
         "journal": "Metals",
         "year": 2021,
@@ -646,7 +646,7 @@
             "Minh Tien Tran^",
             "Dae Ho Lee",
             "Ho Won Lee^",
-            "Dong-Kyu Kim"
+            "Dong-Kyu Kim*"
         ],
         "journal": "International Journal of Hydrogen Energy",
         "year": 2022,
@@ -663,7 +663,7 @@
             "Minh Tien Tran^",
             "Huai Wang^",
             "Ho Won Lee^",
-            "Dong-Kyu Kim"
+            "Dong-Kyu Kim*"
         ],
         "journal": "International Journal of Plasticity",
         "year": 2022,
@@ -681,7 +681,7 @@
             "Junho Bae",
             "Howon Lee",
             "Seong-hoon Kang",
-            "Jonghun Yoon"
+            "Jonghun Yoon*"
         ],
         "journal": "Journal of Alloys and Compounds",
         "year": 2022,
@@ -703,7 +703,7 @@
             "Young-Seok Oh",
             "Jaimyun Jung",
             "Sehyeok Oh",
-            "Seong-Hoon Kang"
+            "Seong-Hoon Kang*"
         ],
         "journal": "Materials Science and Engineering: A",
         "year": 2022,
@@ -726,7 +726,7 @@
             "Se-Jong Kim",
             "Ho Won Lee^",
             "Seong-Hoon Kang",
-            "Jaimyun Jung"
+            "Jaimyun Jung*"
         ],
         "journal": "Metals",
         "year": 2022,
@@ -747,7 +747,7 @@
             "Young-Seok Oh",
             "Jaimyun Jung",
             "Sehyeok Oh",
-            "Seong-Hoon Kang"
+            "Seong-Hoon Kang*"
         ],
         "journal": "Metals",
         "year": 2022,
@@ -765,8 +765,8 @@
             "Ho Won Lee^",
             "Kook-Chae Chung",
             "Duck-Young Hwang",
-            "Seong-Hoon Kang",
-            "Jeong Whan Yoon"
+            "Seong-Hoon Kang*",
+            "Jeong Whan Yoon*"
         ],
         "journal": "Metals and Materials International",
         "year": 2022,

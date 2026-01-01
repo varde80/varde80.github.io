@@ -21,7 +21,6 @@ export interface Member {
 }
 
 export interface MembersData {
-  professor: Professor
   researchers: Member[]
   phdStudents: Member[]
   msStudents: Member[]

@@ -1,24 +1,4 @@
 {
-  "professor": {
-    "name": "Ho Won Lee",
-    "title": "Professor",
-    "email": "h.lee@kims.re.kr",
-    "phone": "+82-55-280-3843",
-    "image": "/images/members/professor.jpeg",
-    "bio": "Our research focuses on utilizing the deep learning to discover novel materials with enhanced properties and to optimize materials processing.",
-    "education": [
-      "Ph.D., Mechnical Engneering, KAIST, 2010",
-      "B.S., Mechnical Engneering, KAIST, 2003"
-    ],
-    "experience": [
-      "Professor, University of Science and Technology, 2023.3-Present",
-      "Director, Materials Data and Analysis Research Division, Korea Institute of Materials Science, 2024.6-Present",
-      "Pricipal Researcher, Korea Institute of Materials Science, 2011.12-Present",
-      "Postdoctoral Researcher, KAIST Mechnical Engneering Institute, 2011.8-2011.12",
-      "Scientist, Max-Planck Institut fuer Eisenforschong, Germany, 2010.9-2011.8",
-      "Postdoctoral Researcher, KAIST Mechnical Engneering Institute, 2010.2-2010.8"
-    ]
-  },
   "researchers": [
     {
       "id": "r1",

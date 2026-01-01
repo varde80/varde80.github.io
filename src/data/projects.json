@@ -2,176 +2,124 @@
   {
     "id": "proj1",
     "title": {
-      "ko": "(R&D)우주항공용 3D 프린팅 소재 데이터 구축",
-      "en": "AI-Enabled Virtual Engineering Platform for Aerospace Metal Additive Manufacturing"
+      "ko": "금속소재 조성・공정 자동설계용 초거대 AI 서비스 개발",
+      "en": "Foundation Model-Based AI Service for Automated Design and Optimization of Metal Materials and Manufacturing Processes"
     },
     "period": {
-      "ko": "2025.05 - 2025.12",
-      "en": "2025.05 - 2025.12"
+      "ko": "2026.01 - 2030.12",
+      "en": "2026.01 - 2030.12"
     },
     "role": {
       "ko": "연구책임자",
-      "en": "Principal Investigator"
+      "en": "PI"
     },
     "fundingAgency": {
-      "ko": "산업통상자원부",
-      "en": "Ministry of Trade, Industry and Energy"
+      "ko": "NST (과학기술정보통신부)",
+      "en": "NST (MSIT)"
     },
     "fundingAmount": {
-      "ko": "2.2억원",
-      "en": "220M KRW"
+      "ko": "305억원",
+      "en": "30.5B KRW"
     },
     "status": "ongoing"
   },
   {
     "id": "proj2",
     "title": {
-      "ko": "금속소재 패터디지털트윈 플랫폼 구축",
-      "en": "Metal Materials Pattern Digital Twin Platform Development"
+      "ko": "우주항공용 3D 프린팅 소재 데이터 구축",
+      "en": "AI-Enabled Virtual Engineering Platform for Aerospace Metal Additive Manufacturing with Integrated Experimental and Simulation Databases"
     },
     "period": {
-      "ko": "2025.01 - 2025.12",
-      "en": "2025.01 - 2025.12"
+      "ko": "2025.05 - 2029.12",
+      "en": "2025.05 - 2029.12"
     },
     "role": {
-      "ko": "연구책임자",
-      "en": "Principal Investigator"
+      "ko": "참여기관 연구책임자",
+      "en": "Co-PI"
     },
     "fundingAgency": {
-      "ko": "산업통상자원부",
-      "en": "Ministry of Trade, Industry and Energy"
+      "ko": "KIAT (산업통상자원부)",
+      "en": "KIAT (MOTIE)"
     },
     "fundingAmount": {
-      "ko": "24.4억원",
-      "en": "2.44B KRW"
+      "ko": "12억원",
+      "en": "1.2B KRW"
     },
     "status": "ongoing"
   },
   {
     "id": "proj3",
     "title": {
-      "ko": "딥러닝 기반 멀티샷 분류 및 물성 모형 기술개발",
-      "en": "Deep Learning-based Multi-shot Classification and Property Modeling Technology Development"
+      "ko": "데이터 기반 철자원 분류 및 품질 판정 기술 개발",
+      "en": "Development of Data-Driven Iron Resource Classification and Quality Evaluation Technologies"
     },
     "period": {
-      "ko": "2025.01 - 2025.12",
-      "en": "2025.01 - 2025.12"
+      "ko": "2024.07 - 2027.12",
+      "en": "2024.07 - 2027.12"
     },
     "role": {
-      "ko": "연구책임자",
-      "en": "Principal Investigator"
+      "ko": "공동연구책임자",
+      "en": "Co-PI"
     },
     "fundingAgency": {
-      "ko": "산업통상자원부",
-      "en": "Ministry of Trade, Industry and Energy"
+      "ko": "KEIT (산업통상자원부)",
+      "en": "KEIT (MOTIE)"
     },
     "fundingAmount": {
-      "ko": "1.76억원",
-      "en": "176M KRW"
+      "ko": "5.2억원",
+      "en": "0.52B KRW"
     },
     "status": "ongoing"
   },
   {
     "id": "proj4",
     "title": {
-      "ko": "금속소재 패터디지털트윈 플랫폼 구축(1단계,1/3)",
-      "en": "Metal Materials Pattern Digital Twin Platform Development (Phase 1)"
+      "ko": "금속소재 제조디지털혁신 플랫폼 구축",
+      "en": "Development of a Digital Innovation Platform for Metal Materials Manufacturing"
     },
     "period": {
-      "ko": "2022.07 - 2012.31",
-      "en": "2022.07 - 2012.31"
+      "ko": "2022.07 - 2026.12",
+      "en": "2022.07 - 2026.12"
     },
     "role": {
       "ko": "연구책임자",
-      "en": "Principal Investigator"
+      "en": "PI"
     },
     "fundingAgency": {
-      "ko": "산업통상자원부",
-      "en": "Ministry of Trade, Industry and Energy"
+      "ko": "KIAT (산업통상자원부)",
+      "en": "KIAT (MOTIE)"
     },
     "fundingAmount": {
-      "ko": "13.88억원",
-      "en": "1.388B KRW"
+      "ko": "232억원",
+      "en": "23.2B KRW"
     },
     "status": "ongoing"
   },
   {
     "id": "proj5",
     "title": {
-      "ko": "전기수소차용 250Mpa이상 국부복원율 부품형 고효율 드라이브샤프트 사이트조인트 생산 기술 개발",
-      "en": "Development of High-efficiency Driveshaft Side Joint Production Technology for Electric Hydrogen Vehicles"
+      "ko": "데이터 및 머신러닝 기술을 활용한 차세대 원자력용 비철 금속 소재 허브 구축",
+      "en": "Construction of Nonferrous Metal Material Hub for Next-generation Nuclear Power Plant Based on Data and Machine Learning Technologies"
     },
     "period": {
-      "ko": "2022.01 - 2021.12",
-      "en": "2022.01 - 2021.12"
+      "ko": "2025.04 - 2029.12",
+      "en": "2025.04 - 2029.12"
     },
     "role": {
       "ko": "참여연구원",
       "en": "Co-Investigator"
     },
     "fundingAgency": {
-      "ko": "산업통상자원부",
-      "en": "Ministry of Trade, Industry and Energy"
-    },
-    "fundingAmount": {
-      "ko": "1.6억원",
-      "en": "160M KRW"
+      "ko": "NRF (과학기술정보통신부)",
+      "en": "NRF (MSIT)"
     },
     "status": "ongoing"
   },
   {
     "id": "proj6",
     "title": {
-      "ko": "금속소재 가상실험플랫폼 운영(4/5)",
-      "en": "Metal Materials Virtual Experiment Platform Operation"
-    },
-    "period": {
-      "ko": "2021.01 - 2024.06",
-      "en": "2021.01 - 2024.06"
-    },
-    "role": {
-      "ko": "연구책임자",
-      "en": "Principal Investigator"
-    },
-    "fundingAgency": {
-      "ko": "산업통상자원부",
-      "en": "Ministry of Trade, Industry and Energy"
-    },
-    "fundingAmount": {
-      "ko": "16.48억원",
-      "en": "1.648B KRW"
-    },
-    "status": "completed"
-  },
-  {
-    "id": "proj7",
-    "title": {
-      "ko": "소재 및 공정실험 제품화 파일럿 플랜트 지원사업 기술 개발",
-      "en": "Materials and Process Experiment Product Pilot Plant Support Project"
-    },
-    "period": {
-      "ko": "2021.01 - 2021.12",
-      "en": "2021.01 - 2021.12"
-    },
-    "role": {
-      "ko": "연구책임자",
-      "en": "Principal Investigator"
-    },
-    "fundingAgency": {
-      "ko": "산업통상자원부",
-      "en": "Ministry of Trade, Industry and Energy"
-    },
-    "fundingAmount": {
-      "ko": "14.44억원",
-      "en": "1.444B KRW"
-    },
-    "status": "completed"
-  },
-  {
-    "id": "proj8",
-    "title": {
-      "ko": "연구데이터 관리 시스템 개발(1/3)",
-      "en": "Research Data Management System Development"
+      "ko": "연구데이터 관리 시스템 개발",
+      "en": "Development of a Research Data Management System"
     },
     "period": {
       "ko": "2024.01 - 2024.12",
@@ -179,351 +127,127 @@
     },
     "role": {
       "ko": "연구책임자",
-      "en": "Principal Investigator"
+      "en": "PI"
     },
     "fundingAgency": {
       "ko": "과학기술정보통신부",
-      "en": "Ministry of Science and ICT"
+      "en": "MSIT"
+    },
+    "status": "completed"
+  },
+  {
+    "id": "proj7",
+    "title": {
+      "ko": "남방자원 활용 1.2 이하 (x10⁻⁶) 저열팽창 인바합금 제조기술",
+      "en": "Manufacturing Technology for Low Thermal Expansion Invar Alloys (CTE ≤ 1.2 × 10⁻⁶) Using Southern Hemisphere Resources"
+    },
+    "period": {
+      "ko": "2020.04 - 2025.03",
+      "en": "2020.04 - 2025.03"
+    },
+    "role": {
+      "ko": "공동연구책임자",
+      "en": "Co-PI"
+    },
+    "fundingAgency": {
+      "ko": "KEIT (산업통상자원부)",
+      "en": "KEIT (MOTIE)"
     },
     "fundingAmount": {
-      "ko": "9.68억원",
-      "en": "968M KRW"
+      "ko": "9.7억원",
+      "en": "0.97B KRW"
+    },
+    "status": "completed"
+  },
+  {
+    "id": "proj8",
+    "title": {
+      "ko": "UI기반 신소재·공정설계 어플리케이션 개발 및 활용 지원",
+      "en": "Development and Deployment Support of a UI-Based Application for Novel Materials and Process Design"
+    },
+    "period": {
+      "ko": "2019.04 - 2020.12",
+      "en": "2019.04 - 2020.12"
+    },
+    "role": {
+      "ko": "연구책임자",
+      "en": "PI"
+    },
+    "fundingAgency": {
+      "ko": "과학기술정보통신부",
+      "en": "MSIT"
+    },
+    "fundingAmount": {
+      "ko": "18.45억원",
+      "en": "1.845B KRW"
     },
     "status": "completed"
   },
   {
     "id": "proj9",
     "title": {
-      "ko": "자동차용 경량소재 가상실험 플랫폼 구축(1/3)",
-      "en": "Virtual Experiment Platform for Lightweight Automotive Materials"
+      "ko": "금속소재 가상공학 플랫폼 구축",
+      "en": "Development of a Virtual Engineering Platform for Metal Materials"
     },
     "period": {
-      "ko": "2018.05 - 2021.02",
-      "en": "2018.05 - 2021.02"
+      "ko": "2017.07 - 2022.06",
+      "en": "2017.07 - 2022.06"
     },
     "role": {
-      "ko": "참여연구원",
-      "en": "Co-Investigator"
+      "ko": "연구책임자",
+      "en": "PI"
     },
     "fundingAgency": {
-      "ko": "산업통상자원부",
-      "en": "Ministry of Trade, Industry and Energy"
+      "ko": "KIAT (산업통상자원부)",
+      "en": "KIAT (MOTIE)"
     },
     "fundingAmount": {
-      "ko": "6억원",
-      "en": "600M KRW"
+      "ko": "133억원",
+      "en": "13.3B KRW"
     },
     "status": "completed"
   },
   {
     "id": "proj10",
     "title": {
-      "ko": "자동차용 경량신소재 플랫폼 통합기술 개발",
-      "en": "Integrated Platform Technology for Lightweight Automotive Materials"
+      "ko": "외경 100mm이하급 타이타늄 튜브제조를 위한 공정단축형 주조-압출 복합 성형기술 개발",
+      "en": "Development of Integrated Manufacturing Process of Casting-Extrusion for Titanium Tube below 100 mm Outer Diameter"
     },
     "period": {
-      "ko": "2017.07 - 2017.04",
-      "en": "2017.07 - 2017.04"
+      "ko": "2016.07 - 2019.09",
+      "en": "2016.07 - 2019.09"
     },
     "role": {
-      "ko": "연구책임자",
-      "en": "Principal Investigator"
+      "ko": "공동연구책임자",
+      "en": "Co-PI"
     },
     "fundingAgency": {
-      "ko": "산업통상자원부",
-      "en": "Ministry of Trade, Industry and Energy"
-    },
-    "fundingAmount": {
-      "ko": "1.8억원",
-      "en": "180M KRW"
+      "ko": "KEIT (산업통상자원부)",
+      "en": "KEIT (MOTIE)"
     },
     "status": "completed"
   },
   {
     "id": "proj11",
     "title": {
-      "ko": "IT 모바일기기용 원천분말/분말합금 및 성형기기 소재/부품 제조 기술 개발(2/3)",
-      "en": "Source Powder/Powder Alloy and Forming Equipment Materials/Parts Manufacturing Technology for IT Mobile Devices"
+      "ko": "확률론적 CAFEM 기반 다단위 미세조직 예측 기술",
+      "en": "Development of a Probabilistic CAFEM-Based Multi-Scale Microstructure Prediction Method"
     },
     "period": {
-      "ko": "2021.01 - 2017.12",
-      "en": "2021.01 - 2017.12"
-    },
-    "role": {
-      "ko": "참여연구원",
-      "en": "Co-Investigator"
-    },
-    "fundingAgency": {
-      "ko": "미래창조과학부",
-      "en": "Ministry of Science, ICT and Future Planning"
-    },
-    "fundingAmount": {
-      "ko": "0.41억원",
-      "en": "41M KRW"
-    },
-    "status": "completed"
-  },
-  {
-    "id": "proj12",
-    "title": {
-      "ko": "자동차용 경량화 및 Nds기준식 사용성 공통활용 기술(2/5)",
-      "en": "Automotive Lightweighting and Nds Standard Usability Common Utilization Technology"
-    },
-    "period": {
-      "ko": "2021.01 - 2017.12",
-      "en": "2021.01 - 2017.12"
+      "ko": "2012.01 - 2012.12",
+      "en": "2012.01 - 2012.12"
     },
     "role": {
       "ko": "연구책임자",
-      "en": "Principal Investigator"
-    },
-    "fundingAgency": {
-      "ko": "미래창조과학부",
-      "en": "Ministry of Science, ICT and Future Planning"
-    },
-    "fundingAmount": {
-      "ko": "2.19억원",
-      "en": "219M KRW"
-    },
-    "status": "completed"
-  },
-  {
-    "id": "proj13",
-    "title": {
-      "ko": "철강 100mm이하급 디타이트 튜브제조를 위한 공정디지털화 추적소재 특성 성형기술 개발(1/4)",
-      "en": "Process Digitalization for Steel Sub-100mm Tight Tube Manufacturing"
-    },
-    "period": {
-      "ko": "2016.07 - 2016.12",
-      "en": "2016.07 - 2016.12"
-    },
-    "role": {
-      "ko": "연구책임자",
-      "en": "Principal Investigator"
-    },
-    "fundingAgency": {
-      "ko": "산업통상자원부",
-      "en": "Ministry of Trade, Industry and Energy"
-    },
-    "fundingAmount": {
-      "ko": "1억원",
-      "en": "100M KRW"
-    },
-    "status": "completed"
-  },
-  {
-    "id": "proj14",
-    "title": {
-      "ko": "자동차 세이핑용 고강도 지료소재오스 가공기술 개발(2/2)",
-      "en": "High-strength Material Processing Technology for Automotive Shaping"
-    },
-    "period": {
-      "ko": "2016.06 - 2017.05",
-      "en": "2016.06 - 2017.05"
-    },
-    "role": {
-      "ko": "참여연구원",
-      "en": "Co-Investigator"
-    },
-    "fundingAgency": {
-      "ko": "산업통상자원부",
-      "en": "Ministry of Trade, Industry and Energy"
-    },
-    "fundingAmount": {
-      "ko": "2.46억원",
-      "en": "246M KRW"
-    },
-    "status": "completed"
-  },
-  {
-    "id": "proj15",
-    "title": {
-      "ko": "차량용 자동차용 고효율 Air-Conditioning System 융용용체 제조기술개발(1/2)",
-      "en": "High-efficiency Air-Conditioning System Solution Manufacturing Technology for Vehicles"
-    },
-    "period": {
-      "ko": "2016.01 - 2016.12",
-      "en": "2016.01 - 2016.12"
-    },
-    "role": {
-      "ko": "참여연구원",
-      "en": "Co-Investigator"
-    },
-    "fundingAgency": {
-      "ko": "미래창조과학부",
-      "en": "Ministry of Science, ICT and Future Planning"
-    },
-    "fundingAmount": {
-      "ko": "1.17억원",
-      "en": "117M KRW"
-    },
-    "status": "completed"
-  },
-  {
-    "id": "proj16",
-    "title": {
-      "ko": "치량형 자동차용 금속유조오스 기술 개발(2/2)",
-      "en": "Metal Flow Control Technology for Precision Automotive Applications"
-    },
-    "period": {
-      "ko": "2016.01 - 2016.12",
-      "en": "2016.01 - 2016.12"
-    },
-    "role": {
-      "ko": "연구책임자",
-      "en": "Principal Investigator"
-    },
-    "fundingAgency": {
-      "ko": "미래창조과학부",
-      "en": "Ministry of Science, ICT and Future Planning"
-    },
-    "fundingAmount": {
-      "ko": "10.28억원",
-      "en": "1.028B KRW"
-    },
-    "status": "completed"
-  },
-  {
-    "id": "proj17",
-    "title": {
-      "ko": "미래형 차동자용 고효율 Air-Conditioning System 융용용체 제조기술개발(1/2)",
-      "en": "Future Vehicle High-efficiency Air-Conditioning System Manufacturing Technology"
-    },
-    "period": {
-      "ko": "2014.07 - 2015.06",
-      "en": "2014.07 - 2015.06"
-    },
-    "role": {
-      "ko": "참여연구원",
-      "en": "Co-Investigator"
+      "en": "PI"
     },
     "fundingAgency": {
       "ko": "지식경제부",
-      "en": "Ministry of Knowledge Economy"
+      "en": "MKE"
     },
     "fundingAmount": {
-      "ko": "2.98억원",
-      "en": "298M KRW"
-    },
-    "status": "completed"
-  },
-  {
-    "id": "proj18",
-    "title": {
-      "ko": "가벼 더존 복합 적용 결합점용 30%이상의 770MPa급 압연 맞대기 양극 전극 제품개발(1/5)",
-      "en": "Development of 770MPa Grade Rolled Butt-welded Electrode Products"
-    },
-    "period": {
-      "ko": "2014.01 - 2014.12",
-      "en": "2014.01 - 2014.12"
-    },
-    "role": {
-      "ko": "참여연구원",
-      "en": "Co-Investigator"
-    },
-    "fundingAgency": {
-      "ko": "산업통상자원부",
-      "en": "Ministry of Trade, Industry and Energy"
-    },
-    "fundingAmount": {
-      "ko": "2.1억원",
-      "en": "210M KRW"
-    },
-    "status": "completed"
-  },
-  {
-    "id": "proj19",
-    "title": {
-      "ko": "경량금속소재의 연를 복합 외기기가의 수치해석/하중(3/3)",
-      "en": "Numerical Analysis of Lightweight Metal Composite External Equipment"
-    },
-    "period": {
-      "ko": "2014.01 - 2014.12",
-      "en": "2014.01 - 2014.12"
-    },
-    "role": {
-      "ko": "연구책임자",
-      "en": "Principal Investigator"
-    },
-    "fundingAgency": {
-      "ko": "미래창조과학부",
-      "en": "Ministry of Science, ICT and Future Planning"
-    },
-    "fundingAmount": {
-      "ko": "19.71억원",
-      "en": "1.971B KRW"
-    },
-    "status": "completed"
-  },
-  {
-    "id": "proj20",
-    "title": {
-      "ko": "뷰스트 천이 마그네슘합금 고집적화 조전 접합성 연결양산화 기술개발(3/3)",
-      "en": "High-integration Magnesium Alloy Junction Bonding Mass Production Technology"
-    },
-    "period": {
-      "ko": "2013.12 - 2014.12",
-      "en": "2013.12 - 2014.12"
-    },
-    "role": {
-      "ko": "참여연구원",
-      "en": "Co-Investigator"
-    },
-    "fundingAgency": {
-      "ko": "산업통상자원부",
-      "en": "Ministry of Trade, Industry and Energy"
-    },
-    "fundingAmount": {
-      "ko": "4.85억원",
-      "en": "485M KRW"
-    },
-    "status": "completed"
-  },
-  {
-    "id": "proj21",
-    "title": {
-      "ko": "Flow forming 및 Roll die forming에 의한 치물 부품의 결정 일체화된 성형 기술 개발(2/2)",
-      "en": "Crystal Integrated Forming Technology Development through Flow Forming and Roll Die Forming"
-    },
-    "period": {
-      "ko": "2013.01 - 2013.12",
-      "en": "2013.01 - 2013.12"
-    },
-    "role": {
-      "ko": "연구책임자",
-      "en": "Principal Investigator"
-    },
-    "fundingAgency": {
-      "ko": "지식경제부",
-      "en": "Ministry of Knowledge Economy"
-    },
-    "fundingAmount": {
-      "ko": "1.7억원",
-      "en": "170M KRW"
-    },
-    "status": "completed"
-  },
-  {
-    "id": "proj22",
-    "title": {
-      "ko": "미래형 자동차용 고효율 Air-Conditioning System 융용용체 제조기술개발(1/2)",
-      "en": "Future Vehicle Air-Conditioning System Manufacturing R&D"
-    },
-    "period": {
-      "ko": "2012.07 - 2013.06",
-      "en": "2012.07 - 2013.06"
-    },
-    "role": {
-      "ko": "연구책임자",
-      "en": "Principal Investigator"
-    },
-    "fundingAgency": {
-      "ko": "지식경제부",
-      "en": "Ministry of Knowledge Economy"
-    },
-    "fundingAmount": {
-      "ko": "4.65억원",
-      "en": "465M KRW"
+      "ko": "0.89억원",
+      "en": "89M KRW"
     },
     "status": "completed"
   }
