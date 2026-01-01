@@ -60,7 +60,8 @@ export interface Publication {
   type?: 'journal' | 'conference'
   title: string
   authors: string[]
-  journal: string
+  journal?: string
+  "Conference Name"?: string
   year: number
   volume?: string
   pages?: string
@@ -70,6 +71,9 @@ export interface Publication {
   impactFactor?: number | string
   highlightImage?: string
   status?: string
+  "start date"?: string
+  "end date"?: string
+  Venue?: string
 }
 
 // Facility types

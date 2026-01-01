@@ -325,11 +325,11 @@ const conferencesByYear = computed(() => {
                 </p>
                 <div class="text-sm">
                   <div class="text-blue-600 font-medium mb-1">
-                    {{ (pub as any)['Conference Name'] || pub.journal }}
+                    {{ pub['Conference Name'] || pub.journal }}
                   </div>
-                  <div v-if="(pub as any)['Venue']" class="text-gray-500 text-xs mb-1">
-                    {{ (pub as any)['Venue'] }}
-                    <span v-if="(pub as any)['start date']"> · {{ (pub as any)['start date'] }} - {{ (pub as any)['end date'] }}</span>
+                  <div v-if="pub['Venue']" class="text-gray-500 text-xs mb-1">
+                    {{ pub['Venue'] }}
+                    <span v-if="pub['start date']"> · {{ pub['start date'] }} - {{ pub['end date'] }}</span>
                   </div>
                   <a v-if="pub.link" :href="pub.link" target="_blank" class="text-gray-500 hover:text-blue-600 transition-colors inline-flex items-center">
                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
