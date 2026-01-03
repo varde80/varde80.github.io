@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 CV Generator for AIMAT Lab Website
-Generates a professional PDF CV with modern design.
+Generates a professional PDF and Word CV with modern design.
 """
 
 import json
@@ -10,6 +10,7 @@ from datetime import datetime
 from pathlib import Path
 
 from reportlab.lib.pagesizes import A4
+
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import cm, mm
 from reportlab.lib.colors import HexColor, white, black
@@ -69,10 +70,11 @@ def load_json(filename):
 
 class SectionHeader(Flowable):
     """Custom flowable for section headers with icon."""
-    def __init__(self, text, icon_char="●"):
+    def __init__(self, text, icon_char="●", subtitle=None):
         Flowable.__init__(self)
         self.text = text
         self.icon_char = icon_char
+        self.subtitle = subtitle
         self.width = 17*cm
         self.height = 1.2*cm
 
@@ -90,6 +92,13 @@ class SectionHeader(Flowable):
         self.canv.setFillColor(NAVY)
         self.canv.setFont("Helvetica-Bold", 13)
         self.canv.drawString(1.2*cm, 0.25*cm, self.text.upper())
+
+        # Draw subtitle if present (lighter color)
+        if self.subtitle:
+            title_width = self.canv.stringWidth(self.text.upper(), "Helvetica-Bold", 13)
+            self.canv.setFillColor(LIGHT_GRAY)
+            self.canv.setFont("Helvetica", 11)
+            self.canv.drawString(1.2*cm + title_width + 0.2*cm, 0.25*cm, self.subtitle)
 
 
 class TimelineItem(Flowable):
@@ -448,7 +457,7 @@ def abbreviate_name(full_name):
 
 
 def format_authors(authors, highlight_name="Ho Won Lee"):
-    """Format author list, highlighting the professor's name and corresponding author."""
+    """Format author list, highlighting the professor's name. Only show * for Ho Won Lee if corresponding."""
     formatted = []
     for author in authors:
         is_corresponding = '*' in author
@@ -456,15 +465,14 @@ def format_authors(authors, highlight_name="Ho Won Lee"):
         abbrev_name = abbreviate_name(clean_name)
 
         if highlight_name.lower() in clean_name.lower():
+            # Only show * for Ho Won Lee when he is corresponding author
             if is_corresponding:
                 formatted.append(f"<b>{abbrev_name}</b><super>*</super>")
             else:
                 formatted.append(f"<b>{abbrev_name}</b>")
         else:
-            if is_corresponding:
-                formatted.append(f"{abbrev_name}<super>*</super>")
-            else:
-                formatted.append(abbrev_name)
+            # Other authors: don't show * marker
+            formatted.append(abbrev_name)
     return ", ".join(formatted)
 
 
@@ -562,7 +570,19 @@ def generate_cv():
     story.append(SectionHeader("Professional Experience", "◆"))
     story.append(Spacer(1, 8))
 
-    for exp in professor["experience"]:
+    # Sort experience by start year (newest first)
+    def get_exp_start_year(exp):
+        if isinstance(exp, dict):
+            period = exp.get("period", "")
+        else:
+            parts = exp.split(", ")
+            period = parts[-1] if parts else ""
+        match = re.search(r'(\d{4})', period)
+        return int(match.group(1)) if match else 0
+
+    sorted_experience = sorted(professor["experience"], key=get_exp_start_year, reverse=True)
+
+    for exp in sorted_experience:
         if isinstance(exp, dict):
             # New object format
             position = exp.get("position", "")
@@ -623,8 +643,14 @@ def generate_cv():
                 else:
                     subtitle = thesis
 
-            year_match = re.search(r'(\d{4})', period)
-            date_display = year_match.group(1) if year_match else ""
+            # Extract start and end years from period like "2003.3-2010.1"
+            year_matches = re.findall(r'(\d{4})', period)
+            if len(year_matches) >= 2:
+                date_display = f"{year_matches[0]} - {year_matches[1]}"
+            elif len(year_matches) == 1:
+                date_display = year_matches[0]
+            else:
+                date_display = ""
         else:
             # Legacy string format: "Degree, Field, Institution, Year"
             parts = edu.split(", ")
@@ -706,14 +732,23 @@ def generate_cv():
 
     # === PUBLICATIONS ===
     story.append(Spacer(1, 6))
-    story.append(SectionHeader("Publications", "■"))
+    story.append(SectionHeader("Publications", "■", subtitle="(2024-2026)"))
     story.append(Spacer(1, 4))
-    story.append(Paragraph('<font size="8" color="#718096">* Shaded entries indicate first author or corresponding author publications.</font>', styles['ItemDesc']))
-    story.append(Spacer(1, 6))
+    pub_note_style = ParagraphStyle(
+        name='PubNote',
+        fontName='Helvetica',
+        fontSize=8,
+        textColor=LIGHT_GRAY,
+        alignment=TA_RIGHT,
+    )
+    story.append(Paragraph('* Shaded entries indicate first author or corresponding author publications.', pub_note_style))
+
+    # Filter publications from 2024 onwards only
+    recent_journals = [j for j in journals if j.get('year', 0) >= 2024]
 
     # Separate preprint/submitted and published
-    preprint_submitted = [j for j in journals if j.get('status', '').lower() in ['submitted', 'preprint']]
-    published_journals = [j for j in journals if not j.get('status')]
+    preprint_submitted = [j for j in recent_journals if j.get('status', '').lower() in ['submitted', 'preprint']]
+    published_journals = [j for j in recent_journals if not j.get('status')]
 
     def get_sort_key(x):
         year = -x['year']
@@ -721,62 +756,42 @@ def generate_cv():
         num = -int(match.group()) if match else 0
         return (year, num)
 
-    # Preprint & Submitted section
-    if preprint_submitted:
-        preprint_submitted.sort(key=get_sort_key)
-        story.append(Paragraph(f"<b>In Submission</b> ({len(preprint_submitted)})", styles['Subsection']))
-
-        for i, pub in enumerate(preprint_submitted, 1):
-            authors = format_authors(pub['authors'])
-            title = pub['title']
-            journal = pub['journal']
-            status = 'Submitted'  # Always show as Submitted
-
-            # Add IF info right after journal name
-            if_info = ""
-            if journal in if_data:
-                if_info = f" ({if_data[journal]})"
-
-            # Check if journal name should be skipped (status, preprint, etc.)
-            skip_journal = (
-                journal.lower() == status.lower() or
-                'preprint' in journal.lower() or
-                journal.lower() in ['submitted', 'ssrn', 'arxiv']
-            )
-            if skip_journal:
-                # Only show status once
-                text = f"{i}. {authors}, \"{title}\", {status}."
-            else:
-                # Format journal and IF info
-                journal_if = f'<i>{journal}</i><font color="#2563eb">{if_info}</font>' if if_info else f'<i>{journal}</i>'
-                text = f"{i}. {authors}, \"{title}\", {journal_if}, {status}."
-
-            # Add DOI link if available (with source name like SSRN, arXiv, etc.)
-            if pub.get('doi'):
-                doi = pub['doi']
-                doi_url = f"https://doi.org/{doi}"
-                # Determine link text based on DOI source
-                if 'ssrn' in doi.lower():
-                    link_text = 'SSRN'
-                elif 'arxiv' in doi.lower():
-                    link_text = 'arXiv'
-                else:
-                    link_text = 'DOI'
-                text += f' <font color="#2563eb"><link href="{doi_url}">[{link_text}]</link></font>'
-
-            # Use highlighted style if first author or corresponding
-            style_name = 'PublicationHighlight' if is_first_or_corresponding(pub['authors']) else 'Publication'
-            story.append(Paragraph(text, styles[style_name]))
-
-        story.append(Spacer(1, 4))
-
     # Published journals grouped by year
     published_journals.sort(key=get_sort_key)
 
     # Get unique years
     years = sorted(set(pub['year'] for pub in published_journals), reverse=True)
 
-    story.append(Paragraph(f"<b>Journal Articles</b> (Total: {len(published_journals)})", styles['Subsection']))
+    # Count corresponding author and co-author publications
+    def is_corresponding_author(authors, name="Ho Won Lee"):
+        if not authors:
+            return False
+        for author in authors:
+            if '*' in author:
+                clean_name = author.replace('^', '').replace('*', '').replace('+', '')
+                if name.lower() in clean_name.lower():
+                    return True
+        return False
+
+    journal_corresponding = sum(1 for pub in published_journals if is_corresponding_author(pub['authors']))
+    journal_coauthor = len(published_journals) - journal_corresponding
+
+    submitted_corresponding = sum(1 for pub in preprint_submitted if is_corresponding_author(pub['authors']))
+    submitted_coauthor = len(preprint_submitted) - submitted_corresponding
+
+    def format_pub_stats(total, corresponding, coauthor):
+        """Format publication statistics, omitting zero values."""
+        parts = [f"Total: {total}"]
+        if corresponding > 0:
+            parts.append(f"Corresponding: {corresponding}")
+        if coauthor > 0:
+            parts.append(f"Co-Author: {coauthor}")
+        return ", ".join(parts)
+
+    # Journal Articles section (first)
+    story.append(Spacer(1, 4))
+    journal_stats = format_pub_stats(len(published_journals), journal_corresponding, journal_coauthor)
+    story.append(Paragraph(f"<b>Journal Articles</b> ({journal_stats})", styles['Subsection']))
 
     pub_number = 1
     for year in years:
@@ -822,19 +837,101 @@ def generate_cv():
             story.append(Paragraph(text, styles[style_name]))
             pub_number += 1
 
-    # === RESEARCH PROJECTS ===
-    story.append(Spacer(1, 6))
-    story.append(SectionHeader("Research Projects", "◆"))
-    story.append(Spacer(1, 8))
+    # In Submission section (after Journal Articles)
+    if preprint_submitted:
+        story.append(Spacer(1, 4))
+        preprint_submitted.sort(key=get_sort_key)
+        submitted_stats = format_pub_stats(len(preprint_submitted), submitted_corresponding, submitted_coauthor)
+        story.append(Paragraph(f"<b>In Submission</b> ({submitted_stats})", styles['Subsection']))
 
+        for i, pub in enumerate(preprint_submitted, 1):
+            authors = format_authors(pub['authors'])
+            title = pub['title']
+            journal = pub['journal']
+            status = 'Submitted'  # Always show as Submitted
+
+            # Add IF info right after journal name
+            if_info = ""
+            if journal in if_data:
+                if_info = f" ({if_data[journal]})"
+
+            # Check if journal name should be skipped (status, preprint, etc.)
+            skip_journal = (
+                journal.lower() == status.lower() or
+                'preprint' in journal.lower() or
+                journal.lower() in ['submitted', 'ssrn', 'arxiv']
+            )
+            if skip_journal:
+                # Only show status once
+                text = f"{i}. {authors}, \"{title}\", {status}."
+            else:
+                # Format journal and IF info
+                journal_if = f'<i>{journal}</i><font color="#2563eb">{if_info}</font>' if if_info else f'<i>{journal}</i>'
+                text = f"{i}. {authors}, \"{title}\", {journal_if}, {status}."
+
+            # Add DOI link if available (with source name like SSRN, arXiv, etc.)
+            if pub.get('doi'):
+                doi = pub['doi']
+                doi_url = f"https://doi.org/{doi}"
+                # Determine link text based on DOI source
+                if 'ssrn' in doi.lower():
+                    link_text = 'SSRN'
+                elif 'arxiv' in doi.lower():
+                    link_text = 'arXiv'
+                else:
+                    link_text = 'DOI'
+                text += f' <font color="#2563eb"><link href="{doi_url}">[{link_text}]</link></font>'
+
+            # Use highlighted style if first author or corresponding
+            style_name = 'PublicationHighlight' if is_first_or_corresponding(pub['authors']) else 'Publication'
+            story.append(Paragraph(text, styles[style_name]))
+
+    # === RESEARCH GRANTS ===
     # Separate ongoing and completed projects, sort by year (newest first)
+    # Only include projects where role is PI or Co-PI
     def get_project_start_year(proj):
         period = proj['period'].get('en', proj['period']) if isinstance(proj['period'], dict) else proj['period']
         match = re.search(r'(\d{4})', period)
         return int(match.group(1)) if match else 0
 
-    ongoing = sorted([p for p in projects if p.get('status') == 'ongoing'], key=get_project_start_year, reverse=True)
-    completed = sorted([p for p in projects if p.get('status') == 'completed'], key=get_project_start_year, reverse=True)
+    def is_pi_role(proj):
+        role = proj['role'].get('en', proj['role']) if isinstance(proj['role'], dict) else proj['role']
+        return role.upper() in ['PI', 'CO-PI']
+
+    def get_funding_amount_billion(proj):
+        """Extract funding amount in billions from project."""
+        if not proj.get('fundingAmount'):
+            return 0.0
+        amount_str = proj['fundingAmount'].get('en', proj['fundingAmount']) if isinstance(proj['fundingAmount'], dict) else proj['fundingAmount']
+        match = re.search(r'([\d.]+)B', amount_str)
+        if match:
+            try:
+                return float(match.group(1))
+            except ValueError:
+                return 0.0
+        return 0.0
+
+    # Filter: PI/Co-PI role and funding >= 0.1B KRW (1억원)
+    pi_projects = [p for p in projects if is_pi_role(p) and get_funding_amount_billion(p) >= 0.1]
+    ongoing = sorted([p for p in pi_projects if p.get('status') == 'ongoing'], key=get_project_start_year, reverse=True)
+    completed = sorted([p for p in pi_projects if p.get('status') == 'completed'], key=get_project_start_year, reverse=True)
+
+    # Calculate total funding amount and date range
+    total_funding = sum(get_funding_amount_billion(p) for p in pi_projects)
+    earliest_year = min(get_project_start_year(p) for p in pi_projects) if pi_projects else 0
+    total_funding_str = f"{total_funding:.1f}B KRW since {earliest_year}" if total_funding > 0 else ""
+
+    story.append(Spacer(1, 6))
+    story.append(SectionHeader("Research Grants", "◆", subtitle=f"({total_funding_str})" if total_funding_str else None))
+    story.append(Spacer(1, 4))
+    grant_note_style = ParagraphStyle(
+        name='GrantNote',
+        fontName='Helvetica',
+        fontSize=8,
+        textColor=LIGHT_GRAY,
+        alignment=TA_RIGHT,
+    )
+    story.append(Paragraph('* Shaded entries indicate grants with funding ≥ 10B KRW.', grant_note_style))
 
     # Compact project style
     project_style = ParagraphStyle(
@@ -897,30 +994,47 @@ def generate_cv():
 
         return line
 
-    def is_pi_or_copi(proj):
-        role = proj['role'].get('en', proj['role']) if isinstance(proj['role'], dict) else proj['role']
-        return role.upper() in ['PI', 'CO-PI']
+    def is_large_grant(proj):
+        """Check if funding amount is >= 10B KRW."""
+        if not proj.get('fundingAmount'):
+            return False
+        amount_str = proj['fundingAmount'].get('en', proj['fundingAmount']) if isinstance(proj['fundingAmount'], dict) else proj['fundingAmount']
+        # Parse amount like "30.5B KRW" -> 30.5
+        match = re.search(r'([\d.]+)B', amount_str)
+        if match:
+            try:
+                amount = float(match.group(1))
+                return amount >= 10
+            except ValueError:
+                return False
+        return False
+
+    # Calculate subtotals
+    ongoing_total = sum(get_funding_amount_billion(p) for p in ongoing)
+    completed_total = sum(get_funding_amount_billion(p) for p in completed)
 
     # Ongoing Projects
     if ongoing:
-        story.append(Paragraph(f"<b>Ongoing Projects</b> ({len(ongoing)})", styles['Subsection']))
+        ongoing_total_str = f"({ongoing_total:.1f}B KRW)" if ongoing_total > 0 else ""
+        story.append(Paragraph(f"<b>Ongoing Grants</b> {ongoing_total_str}", styles['Subsection']))
         for proj in ongoing:
-            style = project_highlight_style if is_pi_or_copi(proj) else project_style
+            style = project_highlight_style if is_large_grant(proj) else project_style
             story.append(Paragraph(format_project_line(proj), style))
 
-    # Completed Projects
+    # Completed Grants
     if completed:
         story.append(Spacer(1, 4))
-        story.append(Paragraph(f"<b>Completed Projects</b> ({len(completed)})", styles['Subsection']))
+        completed_total_str = f"({completed_total:.1f}B KRW)" if completed_total > 0 else ""
+        story.append(Paragraph(f"<b>Completed Grants</b> {completed_total_str}", styles['Subsection']))
         for proj in completed:
-            style = project_highlight_style if is_pi_or_copi(proj) else project_style
+            style = project_highlight_style if is_large_grant(proj) else project_style
             story.append(Paragraph(format_project_line(proj), style))
 
     # Build PDF
     doc.build(story)
-    print(f"CV generated successfully: {output_path}")
+    print(f"PDF CV generated successfully: {output_path}")
     return output_path
 
 
 if __name__ == "__main__":
-    generate_cv()
+    generate_cv()  # Generate PDF
