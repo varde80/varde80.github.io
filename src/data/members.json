@@ -49,5 +49,16 @@
       "year": 2024
     }
   ],
+  "Intern": [
+    {
+      "id": "int1",
+      "name": "Byeong Se Choi",
+      "position": "Intern",
+      "email": "",
+      "image": "/images/members/Choi.jpg",
+      "research": "",
+      "year": 2026
+    }
+  ],
   "alumni": []
 }

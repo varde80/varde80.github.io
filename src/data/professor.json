@@ -33,15 +33,10 @@
       "institution": "University of Science and Technology (UST)"
     },
     {
-      "period": "2019.4-Present",
-      "position": "Principal Researcher",
+      "period": "2011.12-Present",
+      "position": "Principal/Senior Researcher",
       "institution": "Korea Institute of Materials Science (KIMS)"
-    },
-    {
-      "period": "2011.12-2019.3",
-      "position": "Senior Researcher",
-      "institution": "Korea Institute of Materials Science (KIMS)"
-    },
+    },    
     {
       "period": "2013.4-2013.6",
       "position": "Visiting Researcher",
@@ -64,14 +59,13 @@
     }
   ],
   "Research Interests": [
-    "AI for Materials and Materials Processing",
+    "AI for Materials and Manufacturing",
     "Materials and Manufacturing-Specialized VLMs and AI Agents",
     "Deep Learning for Materials Property Prediction",
-    "Physics-Informed Machine Learning for Materials",    
-    "Microstructure Generation using Generative AI (Diffusion Models, GANs)",
-    "Multi-scale Modeling of Metallic Materials",
-    "Crystal Plasticity Finite Element Modeling (CPFEM)",
-    "Metal Forming & Additive ManufacturingProcess Simulation and Optimization"    
+    "Physics-Informed Machine Learning for Manufacturing",    
+    "Synthetic Microstructure Generation using Generative AI (Diffusion Models, GANs)",
+    "Multi-scale Modeling of Metallic Materials",    
+    "Metal Forming & Additive Manufacturing Process Simulation and Optimization"    
   ],
   "Honors and Awards": [    
     "Young Engineer Awards, Korean Society of Technology of plasticity, 2017.10",
@@ -92,8 +86,7 @@
     "Member of Korea Society for Technology of Plasticity (KSTP)",
     "Member of Korea Society of Mechanical Engineers (KSME)",
     "Member of The Korean Society of Precision Engineering (KSPE)",
-    "Member of Korean Artificial intelligence Association (KAIA)",
-    "Reviewer for Computational Materials Science, Engineering Applications of Artificial Intelligence, Engineering Fracture Mechanics, International Journals Engineering fracture mechanics, International Journal of Mechanical Sciences, International Journal of Plasticity, Materialia, Materials & Design, Results in Physics, Theoretical and Applied Fracture Mechanics, etc."
+    "Member of Korean Artificial intelligence Association (KAIA)"    
   ]
 
 }
