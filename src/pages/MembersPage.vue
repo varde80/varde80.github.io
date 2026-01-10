@@ -209,6 +209,27 @@ const activeTab = ref<'professor' | 'members'>('professor')
           </div>
         </section>
 
+        <!-- Intern -->
+        <section v-if="members.Intern.length > 0" class="mb-16">
+          <h2 class="text-2xl font-bold text-gray-800 mb-8 border-b-2 border-blue-600 pb-2">Intern</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div
+              v-for="member in members.Intern"
+              :key="member.id"
+              class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+            >
+              <div class="h-52 bg-gray-100 flex items-center justify-center overflow-hidden">
+                <img :src="getAssetUrl(member.image)" :alt="member.name" class="max-h-full max-w-full object-contain" />
+              </div>
+              <div class="p-4">
+                <h3 class="font-semibold text-gray-900">{{ member.name }}</h3>
+                <p class="text-sm text-blue-600 mt-1">{{ member.position }}</p>
+                <p v-if="member.research" class="text-sm text-gray-600 mt-2">{{ member.research }}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- Alumni -->
         <section v-if="members.alumni.length > 0">
           <h2 class="text-2xl font-bold text-gray-800 mb-8 border-b-2 border-blue-600 pb-2">Alumni</h2>
