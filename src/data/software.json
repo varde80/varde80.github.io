@@ -6,6 +6,25 @@
     "year": "2025",
     "github": "https://github.com/duchieuphan2k1/MatSSL",
     "image": "/images/software/matssl.png",
-    "tags": ["Python","Self-Supervised Learning","Semantic Segmentation"]
+    "tags": [
+      "Python",
+      "Self-Supervised Learning",
+      "Semantic Segmentation"
+    ]
+  },
+  {
+    "id": "sw2",
+    "name": "PF-DiffSeg",
+    "description": "Diffusion-based pipelines for paired image + mask generation based on phase-fraction and segmentation training with synthetic augmentations",
+    "year": "2025",
+    "github": "https://github.com/aimat-ust/PF-DiffSeg.git",
+    "image": "/images/software/PFDiffSeg.png",
+    "tags": [
+      "Python",
+      "Synthetic Microstructure",
+      "Image-Mask Pair Generation",
+      "Diffusion",
+      "Semantic Segmentation"
+    ]
   }
 ]

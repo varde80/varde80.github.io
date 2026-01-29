@@ -19,8 +19,65 @@ const allMemberNames = computed(() => {
   members.researchers.forEach(m => names.push(m.name))
   members.phdStudents.forEach(m => names.push(m.name))
   members.msStudents.forEach(m => names.push(m.name))
+  members.Intern.forEach(m => names.push(m.name))
   return names
 })
+
+// Check if any lab member is first author or corresponding author
+const hasLabMemberAsFirstOrCorresponding = (pub: Publication): boolean => {
+  const authors = pub.authors
+  if (!authors || authors.length === 0) return false
+
+  // Helper to check if Ho Won Lee is corresponding author
+  const isHoWonLeeCorresponding = (): boolean => {
+    for (const author of authors) {
+      if (author && author.includes('*')) {
+        const cleanName = author.replace(/[*+^]/g, '').trim().toLowerCase()
+        if (cleanName.includes('ho') && cleanName.includes('won') && cleanName.includes('lee')) {
+          return true
+        }
+      }
+    }
+    return false
+  }
+
+  // Check first author
+  const firstAuthor = authors[0]
+  if (firstAuthor) {
+    const cleanFirst = firstAuthor.replace(/[*+^]/g, '').trim().toLowerCase()
+
+    // Special case: Minh Tien Tran - only count if Ho Won Lee is corresponding
+    if (cleanFirst.includes('minh') && cleanFirst.includes('tien') && cleanFirst.includes('tran')) {
+      if (isHoWonLeeCorresponding()) {
+        return true
+      }
+      // Don't return true for Minh Tien Tran without Ho Won Lee as corresponding
+    } else {
+      // Other lab members as first author
+      for (const memberName of allMemberNames.value) {
+        const nameParts = memberName.toLowerCase().split(' ')
+        if (nameParts.every(part => cleanFirst.includes(part))) {
+          return true
+        }
+      }
+    }
+  }
+
+  // Check corresponding author (marked with *)
+  for (const author of authors) {
+    if (author && author.includes('*')) {
+      const cleanName = author.replace(/[*+^]/g, '').trim().toLowerCase()
+      for (const memberName of allMemberNames.value) {
+        const nameParts = memberName.toLowerCase().split(' ')
+        if (nameParts.every(part => cleanName.includes(part))) {
+          return true
+        }
+      }
+    }
+  }
+
+  return false
+}
 
 // Selected member filter (null = show all)
 const selectedMember = ref<string | null>(null)
@@ -239,7 +296,8 @@ const conferencesByYear = computed(() => {
             <div
               v-for="pub in yearGroup.publications"
               :key="pub.id"
-              class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
+              class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border-l-4"
+              :class="hasLabMemberAsFirstOrCorresponding(pub) ? 'border-blue-500' : 'border-transparent'"
             >
               <div class="flex gap-4">
                 <!-- Highlight Image -->
