@@ -214,7 +214,7 @@
             "Won-Woong Park",
             "Ho Won Lee^",
             "Seong-Hoon Kang",
-            "Yong-Taek Im*"  
+            "Yong-Taek Im*"
         ],
         "journal": "Journal of Microscopy",
         "year": 2013,
@@ -1221,6 +1221,45 @@
         "highlightImage": "/images/publications/pub66.jpg"
     },
     {
+        "id": "pub67",
+        "type": "journal",
+        "title": "Physics-informed deep operator network for formability evaluation of dual-phase steels",
+        "authors": [
+            "N. T. N.T. Nguyen",
+            "X.M. Nguyen",
+            "T.H. Nguyen",
+            "H. Lee^",
+            "S.H. Kang",
+            "Y.S. Oh",
+            "D.-K. Kim"
+        ],
+        "journal": "International Journal of Mechanical Sciences",
+        "year": 2026,
+        "status": "In Press",
+        "featured": false
+    },
+    {
+        "id": "pub68",
+        "type": "journal",
+        "title": "Strain rate inhomogeneity, plastic instability and ductile fracture in advanced high-strength steels",
+        "authors": [
+            "M.T. Tran^",
+            "X.M. Nguyen",
+            "J.-H. Kwon",
+            "D.-S. Kwon",
+            "J.-M. Heo",
+            "H. Kim",
+            "K.-H. Jung",
+            "H.W. Lee^",
+            "S.H. Kang",
+            "D.-K. Kim*"
+        ],
+        "journal": "Engineering Fracture Mechanics",
+        "year": 2026,
+        "status": "In Press",
+        "featured": false
+    },
+    {
         "id": "prep1",
         "type": "journal",
         "title": "Synthetic Microstructure Generation Using Diffusion Transformers",
@@ -1274,23 +1313,23 @@
         "status": "Preprint",
         "highlightImage": "/images/publications/prep3.tif",
         "featured": false
-    },    
+    },
     {
         "id": "prep4",
         "type": "journal",
         "title": "Multi-fidelity physics-inspired graph neural networks for efficient structure–property linkage in polycrystalline metals",
         "authors": [
             "Minh Tien Tran^",
-            "Hoang Cuong Phan^",            
-            "Seong-Hoon Kang",            
+            "Hoang Cuong Phan^",
+            "Seong-Hoon Kang",
             "Dong-Kyu Kim",
             "Ho Won Lee^*"
         ],
         "journal": "submitted",
-        "year": 2025,        
-        "status": "Submitted",        
+        "year": 2025,
+        "status": "Submitted",
         "featured": false
-    },        
+    },
     {
         "id": "prep5",
         "type": "journal",
@@ -1299,13 +1338,13 @@
             "Minh Tien Tran^",
             "Hoang Cuong Phan^",
             "Hoang-Hai-Nam Nguyen^",
-            "Hyunki Kim",            
+            "Hyunki Kim",
             "Dong-Kyu Kim",
             "Ho Won Lee^*"
         ],
         "journal": "submitted",
-        "year": 2025,        
-        "status": "Submitted",        
+        "year": 2025,
+        "status": "Submitted",
         "featured": false
     }
-] 
+]
