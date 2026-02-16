@@ -147,16 +147,29 @@ const filteredConferences = computed(() => {
   return conferences.value
 })
 
+// Separate In Press from filtered journals
+const inPress = computed(() => {
+  return filteredJournals.value
+    .filter(p => (p as any).status === 'In Press')
+    .sort((a, b) => {
+      // Sort by ID is usually fine, or year
+      const idA = parseInt(a.id.replace(/[^0-9]/g, ''))
+      const idB = parseInt(b.id.replace(/[^0-9]/g, ''))
+      return idB - idA
+    })
+})
+
 // Separate preprint/submitted from published journals
 const inSubmission = computed(() => {
   return filteredJournals.value
-    .filter(p => (p as any).status)
+    .filter(p => (p as any).status === 'Submitted')
     .sort((a, b) => {
       const idA = parseInt(a.id.replace(/[^0-9]/g, ''))
       const idB = parseInt(b.id.replace(/[^0-9]/g, ''))
       return idB - idA
     })
 })
+
 
 // Published journals grouped by year (newest first)
 const publishedByYear = computed(() => {
@@ -247,6 +260,56 @@ const conferencesByYear = computed(() => {
               v-for="pub in inSubmission"
               :key="pub.id"
               class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border-l-4 border-orange-400"
+            >
+              <div class="flex gap-4">
+                <div class="flex-1">
+                  <div class="flex items-start justify-between gap-2 mb-2">
+                    <h3 class="font-medium text-gray-900">{{ pub.title }}</h3>
+                    <span
+                      v-if="selectedMember && getRoleBadge(getAuthorRole(pub, selectedMember))"
+                      class="text-xs px-2 py-0.5 rounded-full whitespace-nowrap"
+                      :class="getRoleBadge(getAuthorRole(pub, selectedMember))?.class"
+                    >
+                      {{ getRoleBadge(getAuthorRole(pub, selectedMember))?.text }}
+                    </span>
+                  </div>
+                  <p class="text-sm text-gray-600 mb-2">
+                    <span v-for="(author, index) in pub.authors" :key="index">
+                      <span :class="{ 'font-bold': author.includes('^') }">{{ author.replace(/[*+^]/g, '') }}</span><sup v-if="author.includes('+')" class="text-blue-600">†</sup><sup v-if="author.includes('*')" class="text-blue-600">*</sup><span v-if="index < pub.authors.length - 1">, </span>
+                    </span>
+                  </p>
+                  <p class="text-sm">
+                    <span class="text-blue-600 font-medium">{{ pub.journal }}</span>
+                    <span v-if="IFData[pub.journal as keyof typeof IFData]" class="text-blue-600 font-normal ml-1">({{ IFData[pub.journal as keyof typeof IFData] }})</span>
+                  </p>
+                  <a
+                    v-if="pub.doi"
+                    :href="`https://doi.org/${pub.doi}`"
+                    target="_blank"
+                    class="inline-flex items-center text-sm text-gray-500 hover:text-blue-600 mt-2"
+                  >
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    DOI: {{ pub.doi }}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- In Press Section -->
+        <div v-if="inPress.length > 0">
+          <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+            <span class="bg-indigo-500 text-white px-3 py-1 rounded-full mr-3 text-sm">In Press</span>
+            {{ inPress.length }} papers
+          </h2>
+          <div class="space-y-4">
+            <div
+              v-for="pub in inPress"
+              :key="pub.id"
+              class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border-l-4 border-indigo-400"
             >
               <div class="flex gap-4">
                 <div class="flex-1">

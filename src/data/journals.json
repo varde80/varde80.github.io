@@ -1346,5 +1346,18 @@
         "year": 2025,
         "status": "Submitted",
         "featured": false
+    },
+    {
+        "id": "press1",
+        "type": "journal",
+        "title": "Machine learning-based microstructure prediction in hot rolling process",
+        "authors": [
+            "Test Author",
+            "Ho Won Lee^*"
+        ],
+        "journal": "In Press Journal",
+        "year": 2025,
+        "status": "In Press",
+        "featured": false
     }
 ]
