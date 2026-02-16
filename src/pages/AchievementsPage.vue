@@ -162,7 +162,7 @@ const inPress = computed(() => {
 // Separate preprint/submitted from published journals
 const inSubmission = computed(() => {
   return filteredJournals.value
-    .filter(p => (p as any).status === 'Submitted')
+    .filter(p => (p as any).status === 'Submitted' || (p as any).status === 'Preprint')
     .sort((a, b) => {
       const idA = parseInt(a.id.replace(/[^0-9]/g, ''))
       const idB = parseInt(b.id.replace(/[^0-9]/g, ''))
