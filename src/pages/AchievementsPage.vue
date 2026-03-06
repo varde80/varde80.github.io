@@ -147,10 +147,10 @@ const filteredConferences = computed(() => {
   return conferences.value
 })
 
-// Separate In Press from filtered journals
+// Separate In Press / Accepted from filtered journals
 const inPress = computed(() => {
   return filteredJournals.value
-    .filter(p => (p as any).status === 'In Press')
+    .filter(p => (p as any).status === 'In Press' || (p as any).status === 'accepted')
     .sort((a, b) => {
       // Sort by ID is usually fine, or year
       const idA = parseInt(a.id.replace(/[^0-9]/g, ''))
