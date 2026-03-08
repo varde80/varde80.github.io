@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import journalsData from '../data/journals.json'
+import preprintsData from '../data/preprints.json'
 import conferencesData from '../data/conferences.json'
 import membersData from '../data/members.json'
 import professorData from '../data/professor.json'
@@ -9,6 +10,7 @@ import type { Publication, MembersData, Professor } from '../types'
 import { getAssetUrl } from '../utils/assets'
 
 const journals = ref<Publication[]>(journalsData as Publication[])
+const preprints = ref<Publication[]>(preprintsData as Publication[])
 const conferences = ref<Publication[]>(conferencesData as Publication[])
 const members = membersData as MembersData
 const professor = professorData as Professor
@@ -159,15 +161,16 @@ const inPress = computed(() => {
     })
 })
 
-// Separate preprint/submitted from published journals
+// Preprints / submitted from separate preprints.json
 const inSubmission = computed(() => {
-  return filteredJournals.value
-    .filter(p => (p as any).status === 'Submitted' || (p as any).status === 'Preprint')
-    .sort((a, b) => {
-      const idA = parseInt(a.id.replace(/[^0-9]/g, ''))
-      const idB = parseInt(b.id.replace(/[^0-9]/g, ''))
-      return idB - idA
-    })
+  const filtered = selectedMember.value
+    ? preprints.value.filter(p => hasMember(p, selectedMember.value!))
+    : preprints.value
+  return filtered.sort((a, b) => {
+    const idA = parseInt(a.id.replace(/[^0-9]/g, ''))
+    const idB = parseInt(b.id.replace(/[^0-9]/g, ''))
+    return idB - idA
+  })
 })
 
 
