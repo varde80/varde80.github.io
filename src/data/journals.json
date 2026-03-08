@@ -1296,7 +1296,7 @@
         "featured": false
     },
     {
-        "id": "prep3",
+        "id": "pub69",
         "type": "journal",
         "title": "Prediction of elastic modulus, Poisson's ratio, and phase volume fraction from XRD pattern in high-elasticity aluminum alloys for casting using deep learning",
         "authors": [
@@ -1347,4 +1347,21 @@
         "status": "Submitted",
         "featured": false
     }
-]
+,{
+        "id": "pub70",
+        "type": "journal",
+        "title": "Machine learning–driven prediction of mechanical properties in heat treated L-PBF Ti-6Al-4V from microstructural images",
+        "authors": [
+            "Chanwoo Park",
+            "Wonjoo Lee",
+            "Ho Won Lee^",
+            "Seong-Hoon Kang",
+            "Jonghun Yoon"
+        ],
+        "journal": "Materials & Design",
+        "year": 2026,
+        "pages": "115798",
+        "doi": "10.1016/j.matdes.2026.115798",
+        "featured": false
+    }
+    ]
