@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import softwareData from '../data/software.json'
 import type { Software } from '../types'
 import { getAssetUrl } from '../utils/assets'
 
-const software = ref<Software[]>(softwareData as Software[])
+const allSoftware = ref<Software[]>(softwareData as Software[])
+const software = computed(() => allSoftware.value.filter(s => !s.hidden))
 </script>
 
 <template>

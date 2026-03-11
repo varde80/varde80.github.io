@@ -27,7 +27,8 @@
       "Diffusion",
       "Semantic Segmentation"
     ],
-    "developers": ["Hoang Hai Nam Nguyen"]
+    "developers": ["Hoang Hai Nam Nguyen"],
+    "hidden": true
   },
   {
     "id": "sw3",

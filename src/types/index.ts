@@ -126,6 +126,7 @@ export interface Software {
   tags?: string[]
   year?: string
   developers?: string[]
+  hidden?: boolean
 }
 
 // Project types
