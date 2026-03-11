@@ -43,7 +43,13 @@ const software = ref<Software[]>(softwareData as Software[])
                 {{ item.year }}
               </span>
             </div>
-            <p class="text-gray-600 text-sm mb-4">{{ item.description }}</p>
+            <p class="text-gray-600 text-sm mb-3">{{ item.description }}</p>
+            <p v-if="item.developers && item.developers.length > 0" class="text-xs text-gray-500 mb-3 flex items-center">
+              <svg class="w-3.5 h-3.5 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+              {{ item.developers.join(', ') }}
+            </p>
             <div v-if="item.tags && item.tags.length > 0" class="flex flex-wrap gap-2">
               <span
                 v-for="tag in item.tags"

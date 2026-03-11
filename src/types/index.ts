@@ -125,6 +125,7 @@ export interface Software {
   image?: string
   tags?: string[]
   year?: string
+  developers?: string[]
 }
 
 // Project types

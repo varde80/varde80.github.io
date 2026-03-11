@@ -10,7 +10,8 @@
       "Python",
       "Self-Supervised Learning",
       "Semantic Segmentation"
-    ]
+    ],
+    "developers": ["Hoang Hai Nam Nguyen","Phan Nguyen Duc Hieu"]
   },
   {
     "id": "sw2",
@@ -25,7 +26,8 @@
       "Image-Mask Pair Generation",
       "Diffusion",
       "Semantic Segmentation"
-    ]
+    ],
+    "developers": ["Hoang Hai Nam Nguyen"]
   },
   {
     "id": "sw3",
@@ -40,7 +42,8 @@
       "DreamBooth",
       "LoRA",
       "Synthetic Microstructure"
-    ]
+    ],
+    "developers": ["Hoang Cuong Phan"]
   },
   {
     "id": "sw4",
@@ -54,6 +57,7 @@
       "U-Net",
       "Semantic Segmentation",
       "Microstructure"
-    ]
+    ],
+    "developers": ["Hoang Cuong Phan"]
   }
 ]
