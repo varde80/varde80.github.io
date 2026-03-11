@@ -26,5 +26,34 @@
       "Diffusion",
       "Semantic Segmentation"
     ]
+  },
+  {
+    "id": "sw3",
+    "name": "SD3.5-DreamBooth-LoRA",
+    "description": "Parameter-aware Stable Diffusion 3.5 fine-tuning (DreamBooth+LoRA) for controllable microstructure image generation with continuous and categorical process variable conditioning",
+    "year": "2026",
+    "github": "https://github.com/tuyencuong/sd35-dreambooth-lora-param-aware",
+    "image": "/images/software/sd35-dreambooth-lora.png",
+    "tags": [
+      "Python",
+      "Stable Diffusion",
+      "DreamBooth",
+      "LoRA",
+      "Synthetic Microstructure"
+    ]
+  },
+  {
+    "id": "sw4",
+    "name": "Microstructure-SegNet",
+    "description": "Unified semantic segmentation pipeline for microstructure validation on UHCS and Aachen datasets using U-Net with VGG-16 encoder and efficient channel attention",
+    "year": "2026",
+    "github": "https://github.com/tuyencuong/Semantic-segmentation-on-UHCS-and-Aachen",
+    "image": "/images/software/semantic-seg-uhcs-aachen.png",
+    "tags": [
+      "Python",
+      "U-Net",
+      "Semantic Segmentation",
+      "Microstructure"
+    ]
   }
 ]
