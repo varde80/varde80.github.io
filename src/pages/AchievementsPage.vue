@@ -331,9 +331,10 @@ const conferencesByYear = computed(() => {
                       <span :class="{ 'font-bold': author.includes('^') }">{{ author.replace(/[*+^]/g, '') }}</span><sup v-if="author.includes('+')" class="text-blue-600">†</sup><sup v-if="author.includes('*')" class="text-blue-600">*</sup><span v-if="index < pub.authors.length - 1">, </span>
                     </span>
                   </p>
-                  <p class="text-sm">
+                  <p class="text-sm flex items-center gap-2 flex-wrap">
                     <span class="text-blue-600 font-medium">{{ pub.journal }}</span>
-                    <span v-if="IFData[pub.journal as keyof typeof IFData]" class="text-blue-600 font-normal ml-1">({{ IFData[pub.journal as keyof typeof IFData] }})</span>
+                    <span v-if="IFData[pub.journal as keyof typeof IFData]" class="text-blue-600 font-normal">({{ IFData[pub.journal as keyof typeof IFData] }})</span>
+                    <span v-if="(pub as any).status === 'accepted'" class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">Accepted</span>
                   </p>
                   <a
                     v-if="pub.doi"
