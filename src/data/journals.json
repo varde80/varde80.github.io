@@ -1289,12 +1289,28 @@
             "Wonjoo Lee",
             "Ho Won Lee^",
             "Seong-Hoon Kang",
-            "Jonghun Yoon"
+            "Jonghun Yoon*"
         ],
         "journal": "Materials & Design",
         "year": 2026,
         "pages": "115798",
         "doi": "10.1016/j.matdes.2026.115798",
+        "featured": false
+    },
+    {
+        "id": "pub71",
+        "type": "journal",
+        "title": "Synthetic microstructure generation using diffusion transformers with a structure-preserving overlap-crop augmentation",
+        "authors": [
+            "Hoang Cuong Phan^",
+            "Minh Tien Tran^",
+            "Sehyeok Oh",
+            "Dong-Kyu Kim",
+            "Ho Won Lee^*"
+        ],
+        "journal": "Engineering Applications of Artificial Intelligence",
+        "year": 2026,        
+        "status": "accepted",        
         "featured": false
     }
     ]

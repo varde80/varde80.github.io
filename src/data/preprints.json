@@ -1,22 +1,5 @@
 [
-    {
-        "id": "prep1",
-        "type": "journal",
-        "title": "Synthetic Microstructure Generation Using Diffusion Transformers",
-        "authors": [
-            "Hoang Cuong Phan^",
-            "Minh Tien Tran^",
-            "Sehyeok Oh",
-            "Dong-Kyu Kim",
-            "Ho Won Lee^*"
-        ],
-        "journal": "SSRN preprint",
-        "year": 2024,
-        "doi": "10.2139/ssrn.5045111",
-        "status": "Preprint",
-        "highlightImage": "/images/publications/prep1.png",
-        "featured": false
-    },
+    
     {
         "id": "prep2",
         "type": "journal",
