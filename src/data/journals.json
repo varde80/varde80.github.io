@@ -1278,6 +1278,7 @@
         "year": 2026,
         "pages": "187234",
         "doi": "10.1016/j.jallcom.2026.187234",
+        "highlightImage": "/images/publications/2026_jalcom_Oh.png",
         "featured": false
     },
     {
@@ -1312,6 +1313,7 @@
         "year": 2026,    
         "pages": "114543",
         "doi": "10.1016/j.engappai.2026.114543",    
+        "highlightImage": "/images/publications/2026_EAAI_Cuong.png",
         "featured": false
     }
     ]
