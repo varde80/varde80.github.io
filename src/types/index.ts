@@ -75,6 +75,7 @@ export interface Publication {
   "start date"?: string
   "end date"?: string
   Venue?: string
+  scope?: 'domestic' | 'international'
 }
 
 // Facility types

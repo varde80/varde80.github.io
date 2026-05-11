@@ -16,7 +16,8 @@
         "start date": "2025.6.15",
         "end date": "2025.6.19",
         "Venue": "Anaheim, California, USA",
-        "featured": false
+        "featured": false,
+        "scope": "international"
     },
     {
         "id": "conf3",
@@ -33,7 +34,8 @@
         "start date": "2025.6.15",
         "end date": "2025.6.19",
         "Venue": "Anaheim, California, USA",
-        "featured": false
+        "featured": false,
+        "scope": "international"
     },
     {
         "id": "conf2",
@@ -50,7 +52,8 @@
         "start date": "2025.6.15",
         "end date": "2025.6.19",
         "Venue": "Anaheim, California, USA",
-        "featured": false
+        "featured": false,
+        "scope": "international"
     },
     {
         "id": "conf1",
@@ -67,7 +70,8 @@
         "end date": "2025.10.20",
         "Venue": "Honolulu, Hawaii, USA",
         "link": "https://openaccess.thecvf.com/content/ICCV2025W/CV4MS/papers/Nguyen_MatSSL_Robust_Self-Supervised_Representation_Learning_for_Metallographic_Image_Segmentation_ICCVW_2025_paper.pdf",
-        "featured": false
+        "featured": false,
+        "scope": "international"
     },
     {
         "id": "conf5",
@@ -87,7 +91,8 @@
         "start date": "2026.4.28",
         "end date": "2026.4.30",
         "Venue": "Jeju International Convention Center, Jeju, Korea",
-        "featured": false
+        "featured": false,
+        "scope": "domestic"
     },
     {
         "id": "conf6",
@@ -106,7 +111,8 @@
         "start date": "2026.4.28",
         "end date": "2026.4.30",
         "Venue": "Jeju International Convention Center, Jeju, Korea",
-        "featured": false
+        "featured": false,
+        "scope": "domestic"
     },
     {
         "id": "conf7",
@@ -125,7 +131,8 @@
         "start date": "2026.4.28",
         "end date": "2026.4.30",
         "Venue": "Jeju International Convention Center, Jeju, Korea",
-        "featured": false
+        "featured": false,
+        "scope": "domestic"
     },
     {
         "id": "conf8",
@@ -141,7 +148,8 @@
         "start date": "2026.4.28",
         "end date": "2026.4.30",
         "Venue": "Jeju International Convention Center, Jeju, Korea",
-        "featured": false
+        "featured": false,
+        "scope": "domestic"
     },
     {
         "id": "conf9",
@@ -159,7 +167,8 @@
         "start date": "2026.4.28",
         "end date": "2026.4.30",
         "Venue": "Jeju International Convention Center, Jeju, Korea",
-        "featured": false
+        "featured": false,
+        "scope": "domestic"
     },
     {
         "id": "conf10",
@@ -176,7 +185,8 @@
         "start date": "2026.4.28",
         "end date": "2026.4.30",
         "Venue": "Jeju International Convention Center, Jeju, Korea",
-        "featured": false
+        "featured": false,
+        "scope": "domestic"
     },
     {
         "id": "conf11",
@@ -191,7 +201,8 @@
         "start date": "2026.4.28",
         "end date": "2026.4.30",
         "Venue": "Jeju International Convention Center, Jeju, Korea",
-        "featured": false
+        "featured": false,
+        "scope": "domestic"
     },
     {
         "id": "conf12",
@@ -209,7 +220,8 @@
         "start date": "2026.4.28",
         "end date": "2026.4.30",
         "Venue": "Jeju International Convention Center, Jeju, Korea",
-        "featured": false
+        "featured": false,
+        "scope": "domestic"
     },
     {
         "id": "conf13",
@@ -230,6 +242,7 @@
         "start date": "2026.4.28",
         "end date": "2026.4.30",
         "Venue": "Jeju International Convention Center, Jeju, Korea",
-        "featured": false
+        "featured": false,
+        "scope": "domestic"
     }
 ]

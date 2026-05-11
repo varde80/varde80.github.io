@@ -449,8 +449,15 @@ const conferencesByYear = computed(() => {
                   </span>
                 </p>
                 <div class="text-sm">
-                  <div class="text-blue-600 font-medium mb-1">
-                    {{ pub['Conference Name'] || pub.journal }}
+                  <div class="text-blue-600 font-medium mb-1 flex items-center flex-wrap gap-2">
+                    <span>{{ pub['Conference Name'] || pub.journal }}</span>
+                    <span
+                      v-if="pub.scope"
+                      class="text-xs px-2 py-0.5 rounded-full whitespace-nowrap font-medium"
+                      :class="pub.scope === 'international' ? 'bg-indigo-100 text-indigo-700' : 'bg-emerald-100 text-emerald-700'"
+                    >
+                      {{ pub.scope === 'international' ? 'International' : 'Domestic' }}
+                    </span>
                   </div>
                   <div v-if="pub['Venue']" class="text-gray-500 text-xs mb-1">
                     {{ pub['Venue'] }}
