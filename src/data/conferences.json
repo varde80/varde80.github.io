@@ -72,7 +72,7 @@
     {
         "id": "conf5",
         "type": "conference",
-        "title": "내열성과 내식성을 동시에 만족하는 신개념 페라이트계 합금 설계",
+        "title": "내열성과 내식성을 동시에 만족하는 신개념 페라이트계 합금 설계 (Design of a Novel Ferritic Alloy Simultaneously Satisfying Heat and Corrosion Resistance)",
         "authors": [
             "Garam Lim",
             "Sanghoon Shim",
@@ -92,7 +92,7 @@
     {
         "id": "conf6",
         "type": "conference",
-        "title": "딥러닝을 이용한 철강 소재 열처리 공정–미세조직–기계적 물성 연계 모델링 기법 개발",
+        "title": "딥러닝을 이용한 철강 소재 열처리 공정–미세조직–기계적 물성 연계 모델링 기법 개발 (Development of Deep Learning-Based Modeling Methodology Linking Heat Treatment Process–Microstructure–Mechanical Properties for Steel Materials)",
         "authors": [
             "Hoheok Kim",
             "Sehyeok Oh",
@@ -111,7 +111,7 @@
     {
         "id": "conf7",
         "type": "conference",
-        "title": "데이터 기반 실시간 열연코일 냉각 거동 예측 및 최적 배치 추천 시스템",
+        "title": "데이터 기반 실시간 열연코일 냉각 거동 예측 및 최적 배치 추천 시스템 (Data-driven Real-time Prediction of Hot-rolled Coil Cooling Behavior and Optimal Placement Recommendation System)",
         "authors": [
             "Chihun Lee*",
             "Ho Won Lee^",
@@ -214,7 +214,7 @@
     {
         "id": "conf13",
         "type": "conference",
-        "title": "실험계획법과 인공지능을 활용한 초내열합금 개발",
+        "title": "실험계획법과 인공지능을 활용한 초내열합금 개발 (Development of Superalloys Using Design of Experiments and Artificial Intelligence)",
         "authors": [
             "Daewon Yoon*",
             "Youngsoo Yoo",
