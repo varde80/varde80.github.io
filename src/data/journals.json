@@ -1341,13 +1341,14 @@
         "title": "Modeling the relationship between tempering process-microstructure-property of steel using deep learning",
         "authors": [
             "Jun Woo Kang",
-            "Hoheok Kim a 1",
-            "Sehyeok Oh a",
+            "Hoheok Kim",
+            "Sehyeok Oh",
             "Jaimyun Jung",
             "Sang Hyun Oh",
             "Young-Seok Oh",
             "Junseok Yoon",
-            "Se-Jong Kim"," Ho Won Lee",
+            "Se-Jong Kim",
+            "Ho Won Lee^",
             "Ji Hoon Kim",
             "Seong-Hoon Kang"
         ],
