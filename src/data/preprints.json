@@ -20,15 +20,17 @@
     {
         "id": "prep4",
         "type": "journal",
-        "title": "Multi-fidelity physics-inspired graph neural networks for efficient structure–property linkage in polycrystalline metals",
+        "title": "Multi-fidelity physics-guided graph neural networks for predicting structure–property relationships in polycrystalline metals",
         "authors": [
             "Minh Tien Tran^",
             "Hoang Cuong Phan^",
+            "Jaimyun Jung",
+            "Se-Jong Kim",
             "Seong-Hoon Kang",
             "Dong-Kyu Kim",
             "Ho Won Lee^*"
         ],
-        "journal": "submitted",
+        "journal": "Materials & Design",
         "year": 2025,
         "status": "Submitted",
         "featured": false
@@ -49,5 +51,26 @@
         "year": 2025,
         "status": "Submitted",
         "featured": false
+    },
+    {
+        "id": "prep6",
+        "type": "journal",
+        "title": "    Quantifying microstructure- and loading-path-dependent heterogeneity using crystal plasticity simulations",
+        "authors": [
+            "Minh Tien Tran^",
+            "Moo-Yeong Joo^"
+            "Hoang Cuong Phan^",
+            "Se-Jong Kim",
+            "Dong-Kyu Kim",            
+            "Seong-Hoon Kang",
+            "Ho Won Lee^*"
+        ],
+        "journal": "International Journal of Mechanical Sciences",
+        "year": 2026,
+        "status": "Submitted",
+        "featured": false
     }
+
+
+
 ]
