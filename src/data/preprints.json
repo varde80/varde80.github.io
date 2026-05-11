@@ -30,7 +30,7 @@
             "Dong-Kyu Kim",
             "Ho Won Lee^*"
         ],
-        "journal": "Materials & Design",
+        "journal": "submitted",
         "year": 2025,
         "status": "Submitted",
         "featured": false
@@ -55,7 +55,7 @@
     {
         "id": "prep6",
         "type": "journal",
-        "title": "    Quantifying microstructure- and loading-path-dependent heterogeneity using crystal plasticity simulations",
+        "title": "Quantifying microstructure- and loading-path-dependent heterogeneity using crystal plasticity simulations",
         "authors": [
             "Minh Tien Tran^",
             "Moo-Yeong Joo^",
@@ -65,12 +65,46 @@
             "Seong-Hoon Kang",
             "Ho Won Lee^*"
         ],
-        "journal": "International Journal of Mechanical Sciences",
+        "journal": "submitted",
         "year": 2026,
         "status": "Submitted",
         "featured": false
+    },
+    {
+        "id": "prep7",
+        "type": "journal",
+        "title": "Enhancing Metallographic Segmentation by data augmentation using Phase-Fraction-Guided Joint Image–Mask Diffusion",
+        "authors": [
+            "Hoang Hai Nam Nguyen^",
+            "Minh Tien Tran^",
+            "Se-Jong Kim",
+            "Hoheok Kim",
+            "Seong-Hoon Kang",
+            "Ho Won Lee^*"
+        ],
+        "journal": "In preperation",
+        "year": 2026,
+        "status": "In preperation",
+        "featured": false
+    },
+    {
+        "id": "prep8",
+        "type": "journal",
+        "title": "ReFract: Projection-aware diffusion with cross-domain attention for noise-robust EBSD pattern restoration and crystallographic indexing",
+        "authors": [
+            "Hoang Hai Nam Nguyen^",                
+            "Chihun Lee",
+            "Jaimyun  Jung",
+            "Eun Young Kim",
+            "Kyung Song",
+            "Seong-Hoon Kang",
+            "Ho Won Lee^*"
+        ],
+        "journal": "In preperation",
+        "year": 2026,
+        "status": "In preperation",
+        "featured": false
     }
-
 
 
 ]
