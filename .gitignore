@@ -25,3 +25,8 @@ dist-ssr
 
 # CV Generator output
 cv-generator/output/
+
+rawdata/
+_workspace/
+.claude/
+CLAUDE.md

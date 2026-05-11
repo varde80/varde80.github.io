@@ -68,5 +68,168 @@
         "Venue": "Honolulu, Hawaii, USA",
         "link": "https://openaccess.thecvf.com/content/ICCV2025W/CV4MS/papers/Nguyen_MatSSL_Robust_Self-Supervised_Representation_Learning_for_Metallographic_Image_Segmentation_ICCVW_2025_paper.pdf",
         "featured": false
+    },
+    {
+        "id": "conf5",
+        "type": "conference",
+        "title": "내열성과 내식성을 동시에 만족하는 신개념 페라이트계 합금 설계",
+        "authors": [
+            "Garam Lim",
+            "Sanghoon Shim",
+            "Hyunjoon Kwon",
+            "Jaekil Jung",
+            "Kian Song",
+            "Hyejeong Jang",
+            "Ho Won Lee^"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Institute of Metals and Materials (KIM) 2026",
+        "year": 2026,
+        "start date": "2026.4.28",
+        "end date": "2026.4.30",
+        "Venue": "Jeju International Convention Center, Jeju, Korea",
+        "featured": false
+    },
+    {
+        "id": "conf6",
+        "type": "conference",
+        "title": "딥러닝을 이용한 철강 소재 열처리 공정–미세조직–기계적 물성 연계 모델링 기법 개발",
+        "authors": [
+            "Hoheok Kim",
+            "Sehyeok Oh",
+            "Jaimyun Jung",
+            "Se-Jong Kim",
+            "Ho Won Lee^",
+            "Seong-Hoon Kang*"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Institute of Metals and Materials (KIM) 2026",
+        "year": 2026,
+        "start date": "2026.4.28",
+        "end date": "2026.4.30",
+        "Venue": "Jeju International Convention Center, Jeju, Korea",
+        "featured": false
+    },
+    {
+        "id": "conf7",
+        "type": "conference",
+        "title": "데이터 기반 실시간 열연코일 냉각 거동 예측 및 최적 배치 추천 시스템",
+        "authors": [
+            "Chihun Lee*",
+            "Ho Won Lee^",
+            "Sehyeok Oh",
+            "Hoheok Kim",
+            "Jaimyun Jung",
+            "Se-Jong Kim"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Institute of Metals and Materials (KIM) 2026",
+        "year": 2026,
+        "start date": "2026.4.28",
+        "end date": "2026.4.30",
+        "Venue": "Jeju International Convention Center, Jeju, Korea",
+        "featured": false
+    },
+    {
+        "id": "conf8",
+        "type": "conference",
+        "title": "Physics-Guided Diffusion Model for EBSD Pattern Quality Improvement",
+        "authors": [
+            "Chi-hun Lee",
+            "Hoang Hai Nam Nguyen^",
+            "Ho Won Lee^*"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Institute of Metals and Materials (KIM) 2026",
+        "year": 2026,
+        "start date": "2026.4.28",
+        "end date": "2026.4.30",
+        "Venue": "Jeju International Convention Center, Jeju, Korea",
+        "featured": false
+    },
+    {
+        "id": "conf9",
+        "type": "conference",
+        "title": "Transformer-enabled surrogate model for efficient prediction of mechanical behavior under complex loading paths",
+        "authors": [
+            "Mooyeong Joo^",
+            "Minh Tien Tran^",
+            "Sehyeok Oh",
+            "Seongjun Bae",
+            "Ho Won Lee^*"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Institute of Metals and Materials (KIM) 2026",
+        "year": 2026,
+        "start date": "2026.4.28",
+        "end date": "2026.4.30",
+        "Venue": "Jeju International Convention Center, Jeju, Korea",
+        "featured": false
+    },
+    {
+        "id": "conf10",
+        "type": "conference",
+        "title": "Token-Level Parameter Encoding in Stable Diffusion for Process-Conditioned Microstructure Synthesis",
+        "authors": [
+            "Hoang Cuong Phan^",
+            "Chihun Lee",
+            "Hoheok Kim",
+            "Ho Won Lee^*"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Institute of Metals and Materials (KIM) 2026",
+        "year": 2026,
+        "start date": "2026.4.28",
+        "end date": "2026.4.30",
+        "Venue": "Jeju International Convention Center, Jeju, Korea",
+        "featured": false
+    },
+    {
+        "id": "conf11",
+        "type": "conference",
+        "title": "AWLab: Autonomous Multi-Agent Closed-Loop Inverse Design Framework for Hybrid Architected Metamaterials",
+        "authors": [
+            "Nguyen Duc Hieu Phan^",
+            "Ho Won Lee^*"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Institute of Metals and Materials (KIM) 2026",
+        "year": 2026,
+        "start date": "2026.4.28",
+        "end date": "2026.4.30",
+        "Venue": "Jeju International Convention Center, Jeju, Korea",
+        "featured": false
+    },
+    {
+        "id": "conf12",
+        "type": "conference",
+        "title": "Physics-guided Graph Neural Networks for Data-efficient Prediction of Structure-property Relationship in Polycrystal Metals",
+        "authors": [
+            "Minh Tien Tran^",
+            "Jaimyun Jung",
+            "Se-Jong Kim",
+            "Seong-Hoon Kang",
+            "Ho Won Lee^*"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Institute of Metals and Materials (KIM) 2026",
+        "year": 2026,
+        "start date": "2026.4.28",
+        "end date": "2026.4.30",
+        "Venue": "Jeju International Convention Center, Jeju, Korea",
+        "featured": false
+    },
+    {
+        "id": "conf13",
+        "type": "conference",
+        "title": "실험계획법과 인공지능을 활용한 초내열합금 개발",
+        "authors": [
+            "Daewon Yoon*",
+            "Youngsoo Yoo",
+            "Heewon Jeong",
+            "Sungmoon Seo",
+            "Hyungsu Lee",
+            "Ho Won Lee^",
+            "Jaimyun Jung",
+            "Yunseok Choi"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Institute of Metals and Materials (KIM) 2026",
+        "year": 2026,
+        "start date": "2026.4.28",
+        "end date": "2026.4.30",
+        "Venue": "Jeju International Convention Center, Jeju, Korea",
+        "featured": false
     }
 ]
