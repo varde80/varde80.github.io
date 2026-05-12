@@ -733,5 +733,131 @@
         "Venue": "Jeju Shinhwa World Landing Convention Center, Jeju, Korea",
         "featured": false,
         "scope": "domestic"
+    },
+    {
+        "id": "conf39",
+        "type": "conference",
+        "title": "칼슘 첨가 마그네슘 합금의 기계적 특성 및 이를 이용한 윈도우레귤레이터 연속 성형 (Mechanical properties of calcium-added magnesium alloy and its continuous forming for window regulator)",
+        "authors": [
+            "Se-Jong Kim",
+            "Ki-Han Kim",
+            "Sung-Jun Bae",
+            "Seong-Hoon Kang",
+            "Ho Won Lee^",
+            "Young-Seok Oh",
+            "Won-Don Han",
+            "Bae-Hoon Jung",
+            "Young-Sun Lee"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Institute of Metals and Materials (KIM) 2019",
+        "year": 2019,
+        "start date": "2019.4.24",
+        "end date": "2019.4.26",
+        "Venue": "Changwon Convention Center, Changwon, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf40",
+        "type": "conference",
+        "title": "Mechanical properties and microstructure of additively manufactured CrCoNi medium entropy alloy at cryogenic temperature",
+        "authors": [
+            "Hoang Nguyen Tri",
+            "Minh Tien Tran^",
+            "Dong-Kyu Kim",
+            "Ho Won Lee^",
+            "Wanchuck Woo",
+            "Shi-Hoon Choi"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Institute of Metals and Materials (KIM) 2021",
+        "year": 2021,
+        "start date": "2021.4.28",
+        "end date": "2021.4.30",
+        "Venue": "Welli Hilli Park, Hoengseong, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf41",
+        "type": "conference",
+        "title": "딥러닝을 이용한 광학 미세조직 결함 보정 (Defect Correction of Optical Microstructure Images Using Deep Learning)",
+        "authors": [
+            "Se-Jong Kim",
+            "Seong-Hoon Kang",
+            "Jae-Myeon Jeong",
+            "Ho Won Lee^",
+            "Sehyeok Oh",
+            "Young-Seok Oh",
+            "Juwon Na",
+            "Seungchul Lee"
+        ],
+        "Conference Name": "Fall Annual Conference of the Korean Institute of Metals and Materials (KIM) 2021",
+        "year": 2021,
+        "start date": "2021.10.20",
+        "end date": "2021.10.22",
+        "Venue": "Jeju International Convention Center, Jeju, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf42",
+        "type": "conference",
+        "title": "Micromechanical Deformation and Failure Behavior of Ultra-thin Steel Sheet: In-situ EBSD and Crystal Plasticity Simulation",
+        "authors": [
+            "Minh Tien Tran^",
+            "Sun-Kwang Hwang",
+            "Ho Won Lee^",
+            "Dong-Kyu Kim"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Institute of Metals and Materials (KIM) 2022",
+        "year": 2022,
+        "start date": "2022.4.27",
+        "end date": "2022.4.29",
+        "Venue": "Changwon Convention Center, Changwon, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf43",
+        "type": "conference",
+        "title": "인공지능 및 이미지 처리를 활용한 알루미늄 주조상의 정량적 분석 (Quantitative Analysis of Aluminum Cast Phases Using Artificial Intelligence and Image Processing)",
+        "authors": [
+            "Se-Jong Kim",
+            "Young-Hee Cho",
+            "Seong-Hoon Kang",
+            "Ho Won Lee^",
+            "Young-Seok Oh",
+            "Sehyeok Oh",
+            "Jae-Myeon Jeong",
+            "Hoheok Kim",
+            "In-Yong Moon"
+        ],
+        "Conference Name": "Fall Annual Conference of the Korean Institute of Metals and Materials (KIM) 2022",
+        "year": 2022,
+        "start date": "2022.10.26",
+        "end date": "2022.10.28",
+        "Venue": "Jeju International Convention Center, Jeju, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf44",
+        "type": "conference",
+        "title": "Mg-Al-Zn-Mn-Ca-Y 합금의 기계적 물성에 대한 해석 가능한 기계 학습 기반 분석 (Interpretable Machine Learning-Based Analysis of Mechanical Properties of Mg-Al-Zn-Mn-Ca-Y Alloys)",
+        "authors": [
+            "Jong-Sik Seo",
+            "Young-Min Kim",
+            "Chang-Dong Im",
+            "Byeong-Chan Suh",
+            "Jun-Ho Bae",
+            "Ho Won Lee^"
+        ],
+        "Conference Name": "Fall Annual Conference of the Korean Institute of Metals and Materials (KIM) 2023",
+        "year": 2023,
+        "start date": "2023.10.25",
+        "end date": "2023.10.27",
+        "Venue": "Daegu Convention Center (EXCO), Daegu, Korea",
+        "featured": false,
+        "scope": "domestic"
     }
 ]
