@@ -859,5 +859,300 @@
         "Venue": "Daegu Convention Center (EXCO), Daegu, Korea",
         "featured": false,
         "scope": "domestic"
+    },
+    {
+        "id": "conf45",
+        "type": "conference",
+        "title": "열간압연 온도와 NbTi 초전도 선재의 임계전류밀도 상관관계 분석 연구 (Effect of Temperature Conditions in Hot Rolling of NbTi on Superconducting Properties)",
+        "authors": [
+            "Hee-Rak Kim",
+            "Young-Seok Oh",
+            "Se-Jong Kim",
+            "Ho Won Lee^",
+            "Ji-Hoon Kim",
+            "Seong-Hoon Kang"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2019",
+        "year": 2019,
+        "start date": "2019.5.9",
+        "end date": "2019.5.10",
+        "Venue": null,
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf46",
+        "type": "conference",
+        "title": "초소수성 PTFE표면 제작을 위한 롤투롤 임프린팅 공정 연구 (Investigation of roll-to-roll hot imprinting process for superhydrophobic PTFE surface)",
+        "authors": [
+            "In-Yong Moon",
+            "Ho Won Lee^",
+            "Young-Seok Oh",
+            "Se-Jong Kim",
+            "Seong-Hoon Kang"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2019",
+        "year": 2019,
+        "start date": "2019.5.9",
+        "end date": "2019.5.10",
+        "Venue": null,
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf47",
+        "type": "conference",
+        "title": "CA기법을 활용한 응고합금의 미세조직 예측 해석 (Cellular automata method for prediction of the microstructure in binary alloy during solidification)",
+        "authors": [
+            "Won-Joo Lee",
+            "Yu-Hyung Jeong",
+            "Seong-Hoon Kang",
+            "Ho Won Lee^",
+            "Jae-Wook Lee",
+            "Jong-Hun Yoon"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2019",
+        "year": 2019,
+        "start date": "2019.5.9",
+        "end date": "2019.5.10",
+        "Venue": null,
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf48",
+        "type": "conference",
+        "title": "공기층 이미지를 이용한 소수성 알루미늄 표면의 젖음 상태 평가 (Wetting state evaluation of hydrophobic aluminum surface using air layer images)",
+        "authors": [
+            "In-Yong Moon",
+            "Ho Won Lee^",
+            "Young-Seok Oh",
+            "Se-Jong Kim",
+            "Seong-Hoon Kang"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2020",
+        "year": 2020,
+        "start date": "2020.6.25",
+        "end date": "2020.6.26",
+        "Venue": null,
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf49",
+        "type": "conference",
+        "title": "NbTi소재를 이용한 초기 공정 온도 및 변형량에 따른 초전도 특성에의 영향 (Effect of initial process temperature and strain on superconducting properties using NbTi material)",
+        "authors": [
+            "In-Yong Moon",
+            "Hee-Rak Kim",
+            "Ho Won Lee^",
+            "Young-Seok Oh",
+            "Se-Jong Kim",
+            "Jae-Myeon Jeong",
+            "Seong-Hoon Kang"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2020",
+        "year": 2020,
+        "start date": "2020.6.25",
+        "end date": "2020.6.26",
+        "Venue": null,
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf50",
+        "type": "conference",
+        "title": "EBSD를 활용한 초기 공정 조건에 따른 Nb-46.5wt%Ti 소재의 미세 조직 분석 및 초전도 특성 영향 평가 (Analysis of microstructure of Nb-46.5%Ti according to initial process conditions using EBSD and evaluation of influence on superconducting properties)",
+        "authors": [
+            "In-Yong Moon",
+            "Ho Won Lee^",
+            "Young-Seok Oh",
+            "Se-Jong Kim",
+            "Jae-Myeon Jeong",
+            "Seong-Hoon Kang"
+        ],
+        "Conference Name": "Fall Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2020",
+        "year": 2020,
+        "start date": "2020.10.15",
+        "end date": "2020.10.16",
+        "Venue": null,
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf51",
+        "type": "conference",
+        "title": "분말충진밀도가 MgB2 선재의 초전도 성능에 미치는 영향 (Effect of powder filling density on superconducting performance of MgB2 wire)",
+        "authors": [
+            "Young-Seok Oh",
+            "Ho Won Lee^",
+            "Se-Jong Kim",
+            "Jae-Myeon Jeong",
+            "Kuk-Chae Jeong",
+            "Deok-Young Hwang",
+            "Seong-Hoon Kang"
+        ],
+        "Conference Name": "Fall Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2020",
+        "year": 2020,
+        "start date": "2020.10.15",
+        "end date": "2020.10.16",
+        "Venue": null,
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf52",
+        "type": "conference",
+        "title": "공기층에 의한 마찰 감소 특성 적용을 위한 표면 패터닝 공법 개발 및 평가 (Development of surface patterning process for application of drag reduction characteristics caused by air layer)",
+        "authors": [
+            "In-Yong Moon",
+            "Ho Won Lee^",
+            "Young-Seok Oh",
+            "Se-Jong Kim",
+            "Seong-Hoon Kang"
+        ],
+        "Conference Name": "Fall Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2020",
+        "year": 2020,
+        "start date": "2020.10.15",
+        "end date": "2020.10.16",
+        "Venue": null,
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf53",
+        "type": "conference",
+        "title": "고체-유체 접촉각 예측을 위한 Lattice Boltzmann method 기반 Droplet 시뮬레이션 (Droplet simulation for predicting the contact angle between solid-fluid phases based on Lattice Boltzmann method)",
+        "authors": [
+            "Won-Joo Lee",
+            "Van Doi Truong",
+            "Thong Phi Nguyen",
+            "Yu-Hyung Jeong",
+            "Hyeong-Gyu Kim",
+            "Ho Won Lee^",
+            "Seong-Hoon Kang",
+            "Jong-Hun Yoon"
+        ],
+        "Conference Name": "Fall Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2020",
+        "year": 2020,
+        "start date": "2020.10.15",
+        "end date": "2020.10.16",
+        "Venue": null,
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf54",
+        "type": "conference",
+        "title": "해석 가능한 컨벌루션 신경망을 사용한 계층적 패턴 표면의 결함 검사 (Defect Inspection of Hierarchical Pattern Surfaces using Interpretable Convolutional Neural Network with Class Activation Maps)",
+        "authors": [
+            "In-Yong Moon",
+            "Ho Won Lee^",
+            "Se-Jong Kim",
+            "Young-Seok Oh",
+            "Jae-Myeon Jeong",
+            "Seong-Hoon Kang"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2021",
+        "year": 2021,
+        "start date": "2021.5.13",
+        "end date": "2021.5.14",
+        "Venue": "Sono Calm Yeosu Hotel, Yeosu, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf55",
+        "type": "conference",
+        "title": "재료 설계를 위한 구속 조건의 데이터 기반 정량화 (Data driven quantification of constraints for materials design)",
+        "authors": [
+            "Jae-Myeon Jeong",
+            "Young-Seok Oh",
+            "Se-Jong Kim",
+            "Ho Won Lee^",
+            "Seong-Hoon Kang"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2021",
+        "year": 2021,
+        "start date": "2021.5.13",
+        "end date": "2021.5.14",
+        "Venue": "Sono Calm Yeosu Hotel, Yeosu, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf56",
+        "type": "conference",
+        "title": "인공지능 기반 연료전지 금속 분리판 다단성형공정 최적화 (Optimization of multi-stage forming process of metal bipolar plate for PEM fuel cell by artificial intelligence)",
+        "authors": [
+            "Dae-Ho Lee",
+            "Minh Tien Tran^",
+            "Ho Won Lee^",
+            "Dong-Kyu Kim"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2021",
+        "year": 2021,
+        "start date": "2021.5.13",
+        "end date": "2021.5.14",
+        "Venue": "Sono Calm Yeosu Hotel, Yeosu, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf57",
+        "type": "conference",
+        "title": "심층 신경망을 이용한 딥 드로잉 공정에서 블랭크 홀딩력이 이어링 감소에 미치는 영향 연구 (Study on effect of varying blank holding force on earing reduction in deep drawing with deep neural network)",
+        "authors": [
+            "Minh Tien Tran^",
+            "Zhengtong Shan",
+            "Ho Won Lee^",
+            "Dong-Kyu Kim"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2021",
+        "year": 2021,
+        "start date": "2021.5.13",
+        "end date": "2021.5.14",
+        "Venue": "Sono Calm Yeosu Hotel, Yeosu, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf58",
+        "type": "conference",
+        "title": "금속 재료 데이터베이스 구축을 위한 실험 데이터 자동 분석 및 DB 구축 플랫폼 개발 (Development of automatic processing and analysis platform for experimental data to build a metal material database)",
+        "authors": [
+            "Se-Jong Kim",
+            "Jae-Myeon Jeong",
+            "In-Yong Moon",
+            "Young-Seok Oh",
+            "Ho Won Lee^",
+            "Seong-Hoon Kang"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2021",
+        "year": 2021,
+        "start date": "2021.5.13",
+        "end date": "2021.5.14",
+        "Venue": "Sono Calm Yeosu Hotel, Yeosu, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf59",
+        "type": "conference",
+        "title": "응고합금 수지상정 성장 예측을 위한 LBM-CA 시뮬레이션 개발 (Cellular automata lattice Boltzmann model for prediction of dendrite morphology)",
+        "authors": [
+            "Won-Joo Lee",
+            "Van Doi Truong",
+            "Ho Won Lee^",
+            "Seong-Hoon Kang",
+            "Jong-Hun Yoon"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2021",
+        "year": 2021,
+        "start date": "2021.5.13",
+        "end date": "2021.5.14",
+        "Venue": "Sono Calm Yeosu Hotel, Yeosu, Korea",
+        "featured": false,
+        "scope": "domestic"
     }
 ]
