@@ -244,5 +244,95 @@
         "Venue": "Jeju International Convention Center, Jeju, Korea",
         "featured": false,
         "scope": "domestic"
+    },
+    {
+        "id": "conf14",
+        "type": "conference",
+        "title": "기계 및 재료 공정의 인공지능 적용 (Applications of AI to mechanical/materials processing)",
+        "authors": [
+            "Sehyeok Oh",
+            "Ho Won Lee^*"
+        ],
+        "Conference Name": "2025년 실용인공지능 컨퍼런스 (AAiCON2025) (Applied Artificial Intelligence Conference 2025)",
+        "year": 2025,
+        "start date": "2025.7.3",
+        "end date": "2025.7.4",
+        "Venue": "Korea Institute of Machinery & Materials (KIMM), Daejeon, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf15",
+        "type": "conference",
+        "title": "금속 현미경 미세조직 이미지 상 구분을 위한 효율적인 이미지 및 마스크 쌍 증강 (Efficient Image and mask pair Augmentation for Metallograph Image Segmentation via Denoising Diffusion)",
+        "authors": [
+            "Hoang Hai Nam Nguyen^",
+            "Minh Tien Tran^",
+            "Seongjun Bae",
+            "Se-Jong Kim",
+            "Ho Won Lee^*"
+        ],
+        "Conference Name": "2025년 실용인공지능 컨퍼런스 (AAiCON2025) (Applied Artificial Intelligence Conference 2025)",
+        "year": 2025,
+        "start date": "2025.7.3",
+        "end date": "2025.7.4",
+        "Venue": "Korea Institute of Machinery & Materials (KIMM), Daejeon, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf16",
+        "type": "conference",
+        "title": "3D ResNet 기반 집합조직 정보 활용 판재 성형 한계도 예측 모델 개발 (Development of a FLD Prediction Model Using 3D ResNet and Texture Data)",
+        "authors": [
+            "Han-Jun Lee^",
+            "Jaimyun Jung",
+            "Dong-Kyu Kim",
+            "Ji Hoon Kim",
+            "Ho Won Lee^*"
+        ],
+        "Conference Name": "2025년 실용인공지능 컨퍼런스 (AAiCON2025) (Applied Artificial Intelligence Conference 2025)",
+        "year": 2025,
+        "start date": "2025.7.3",
+        "end date": "2025.7.4",
+        "Venue": "Korea Institute of Machinery & Materials (KIMM), Daejeon, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf17",
+        "type": "conference",
+        "title": "미세조직 역설계를 위한 잠재 확산 모델 개발 (Development of a Latent Diffusion Model for Microstructure Design)",
+        "authors": [
+            "Jaimyun Jung",
+            "Se-Jong Kim",
+            "Ho Won Lee^"
+        ],
+        "Conference Name": "2025년 실용인공지능 컨퍼런스 (AAiCON2025) (Applied Artificial Intelligence Conference 2025)",
+        "year": 2025,
+        "start date": "2025.7.3",
+        "end date": "2025.7.4",
+        "Venue": "Korea Institute of Machinery & Materials (KIMM), Daejeon, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf18",
+        "type": "conference",
+        "title": "Stable Diffusion모델을 이용한 공정 조건에 따른 금속 소재 미세조직 예측 (Process-Conditioned Microstructure Prediction with Fine-Tuned Stable Diffusion)",
+        "authors": [
+            "Hoang Cuong Phan^",
+            "Minh Tien Tran^",
+            "Hoheok Kim",
+            "Sehyeok Oh",
+            "Ho Won Lee^*"
+        ],
+        "Conference Name": "2025년 실용인공지능 컨퍼런스 (AAiCON2025) (Applied Artificial Intelligence Conference 2025)",
+        "year": 2025,
+        "start date": "2025.7.3",
+        "end date": "2025.7.4",
+        "Venue": "Korea Institute of Machinery & Materials (KIMM), Daejeon, Korea",
+        "featured": false,
+        "scope": "domestic"
     }
 ]
