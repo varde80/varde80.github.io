@@ -334,5 +334,203 @@
         "Venue": "Korea Institute of Machinery & Materials (KIMM), Daejeon, Korea",
         "featured": false,
         "scope": "domestic"
+    },
+    {
+        "id": "conf19",
+        "type": "conference",
+        "title": "Prediction of elastic modulus, Poisson's ratio, and phase volume fraction from XRD patterns in high-elasticity aluminum casting alloys using deep learning models",
+        "authors": [
+            "Sehyeok Oh",
+            "Yoon-Ho Lee",
+            "Mingi Oh",
+            "Young-Hee Cho",
+            "Sang-Ik Lee",
+            "Jaimyun Jung",
+            "Ho Won Lee^"
+        ],
+        "Conference Name": "Fall Annual Conference of the Korean Institute of Metals and Materials (KIM) 2024",
+        "year": 2024,
+        "start date": "2024.10.28",
+        "end date": "2024.10.30",
+        "Venue": "Alpensia Convention Center, Pyeongchang, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf20",
+        "type": "conference",
+        "title": "Synthetic microstructure generation using diffusion transformers",
+        "authors": [
+            "Hoang Cuong Phan^",
+            "Minh Tien Tran^",
+            "Sehyeok Oh",
+            "Ho Won Lee^"
+        ],
+        "Conference Name": "Fall Annual Conference of the Korean Institute of Metals and Materials (KIM) 2024",
+        "year": 2024,
+        "start date": "2024.10.28",
+        "end date": "2024.10.30",
+        "Venue": "Alpensia Convention Center, Pyeongchang, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf21",
+        "type": "conference",
+        "title": "Improving Metallographic Image Segmentation of Carbon Steel via Self-supervised Learning",
+        "authors": [
+            "Hoang Hai Nam Nguyen^",
+            "Hoheok Kim",
+            "Ho Won Lee^"
+        ],
+        "Conference Name": "Fall Annual Conference of the Korean Institute of Metals and Materials (KIM) 2024",
+        "year": 2024,
+        "start date": "2024.10.28",
+        "end date": "2024.10.30",
+        "Venue": "Alpensia Convention Center, Pyeongchang, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf22",
+        "type": "conference",
+        "title": "스트레칭-벤딩 변형모드의 균형을 갖는 하이브리드 격자구조 메타물질 (Hybrid architectured metamaterial with balanced stretch-bending deformation modes)",
+        "authors": [
+            "Haoyue Wu",
+            "Jong-Hyeok Kwon",
+            "Dae-Seo Kwon",
+            "Jeong-Min Heo",
+            "Kyung-Hwan Jung",
+            "Ho Won Lee^",
+            "Dong-Kyu Kim"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2025",
+        "year": 2025,
+        "start date": "2025.5.22",
+        "end date": "2025.5.23",
+        "Venue": "Grand Mercure Ambassador Hotel, Changwon, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf23",
+        "type": "conference",
+        "title": "실시간 음향방출 및 중성자 회절 기반 B4C/AA6061 복합재의 미시역학적 손상 기구 규명 (Unveiling micromechanical damage mechanism in B₄C/AA6061 composite by in situ acoustic emission and neutron diffraction)",
+        "authors": [
+            "Jong-Hyeok Kwon",
+            "Jeong-Min Heo",
+            "Dae-Seo Kwon",
+            "Ho Won Lee^",
+            "Seungchan Cho",
+            "Hobyung Chae",
+            "Wanchuck Woo",
+            "Dong-Kyu Kim"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2025",
+        "year": 2025,
+        "start date": "2025.5.22",
+        "end date": "2025.5.23",
+        "Venue": "Grand Mercure Ambassador Hotel, Changwon, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf24",
+        "type": "conference",
+        "title": "미세조직 역설계를 위한 다중충실도 데이터 기반 잠재 확산 모델 학습 방법 (Multi-fidelity data based training of latent diffusion model for inverse microstructure design)",
+        "authors": [
+            "Jaimyun Jung",
+            "Sehyeok Oh",
+            "Hoheok Kim",
+            "Juwon Na",
+            "Se-Jong Kim",
+            "Ho Won Lee^"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2025",
+        "year": 2025,
+        "start date": "2025.5.22",
+        "end date": "2025.5.23",
+        "Venue": "Grand Mercure Ambassador Hotel, Changwon, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf25",
+        "type": "conference",
+        "title": "대면적 전자빔 공정에서 발생하는 크레이터의 형성 최소화를 위한 GAN 기반 예측 모델 개발 (Deep learning-based prediction of crater formation in a large pulsed electron beam (LPEB) irradiation process)",
+        "authors": [
+            "Mingi Oh",
+            "Junseok Yoon",
+            "Young-Seok Oh",
+            "Seong-Hoon Kang",
+            "Ho Won Lee^",
+            "Jisoo Kim",
+            "Sehyeok Oh"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2025",
+        "year": 2025,
+        "start date": "2025.5.22",
+        "end date": "2025.5.23",
+        "Venue": "Grand Mercure Ambassador Hotel, Changwon, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf26",
+        "type": "conference",
+        "title": "Micromechanical Damage Mechanisms in B4C/AA6061 Composite: In Situ Acoustic Emission and Neutron Diffraction",
+        "authors": [
+            "Jong-Hyeok Kwon",
+            "Ho Won Lee^",
+            "Seungchan Cho",
+            "Hobyung Chae",
+            "Wanchuck Woo",
+            "Dong-Kyu Kim"
+        ],
+        "Conference Name": "Fall Annual Conference of the Korean Institute of Metals and Materials (KIM) 2025",
+        "year": 2025,
+        "start date": "2025.10.29",
+        "end date": "2025.10.31",
+        "Venue": "Kim Daejung Convention Center, Gwangju, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf27",
+        "type": "conference",
+        "title": "Generation of microstructures in high-elasticity aluminum casting alloys using a diffusion-based GAN architecture",
+        "authors": [
+            "Junyong Choi",
+            "Young-Hee Cho",
+            "Jaimyun Jung",
+            "Sehyeok Oh",
+            "Ho Won Lee^"
+        ],
+        "Conference Name": "Fall Annual Conference of the Korean Institute of Metals and Materials (KIM) 2025",
+        "year": 2025,
+        "start date": "2025.10.29",
+        "end date": "2025.10.31",
+        "Venue": "Kim Daejung Convention Center, Gwangju, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf28",
+        "type": "conference",
+        "title": "미세조직 이미지 기반 열처리된 L-PBF Ti-6Al-4V의 인장 특성 예측 (Prediction of tensile properties of heat-treated L-PBF Ti-6Al-4V using microstructural image)",
+        "authors": [
+            "Chan-Woo Park",
+            "Won-Ju Lee",
+            "Ho Won Lee^",
+            "Seong-Hoon Kang",
+            "Jong-Hun Yoon"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2026",
+        "year": 2026,
+        "start date": "2026.4.15",
+        "end date": "2026.4.17",
+        "Venue": "Wyndham Grand Busan, Busan, Korea",
+        "featured": false,
+        "scope": "domestic"
     }
 ]
