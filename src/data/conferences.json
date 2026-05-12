@@ -532,5 +532,206 @@
         "Venue": "Wyndham Grand Busan, Busan, Korea",
         "featured": false,
         "scope": "domestic"
+    },
+    {
+        "id": "conf29",
+        "type": "conference",
+        "title": "합성곱 인공 신경망 기반 비지도 학습을 이용한 철강 미세조직 자동 분류 (Automatic segmentation of microstructural images of steels using unsupervised learning with convolutional neural networks)",
+        "authors": [
+            "Hoheok Kim",
+            "Sehyeok Oh",
+            "Jaimyun Jung",
+            "Young-Seok Oh",
+            "Se-Jong Kim",
+            "Ho Won Lee^",
+            "Seong-Hoon Kang",
+            "Junya Inoue"
+        ],
+        "Conference Name": "Fall Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2022",
+        "year": 2022,
+        "start date": "2022.12.1",
+        "end date": "2022.12.2",
+        "Venue": "Sono Calm Resort, Jeju, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf30",
+        "type": "conference",
+        "title": "딥 러닝 기반 대면적 전자빔 크레이터 예측 모델 개발 (Development of a deep-learning-based large pulsed electron beam (LPEB) crater prediction model)",
+        "authors": [
+            "Mingi Oh",
+            "Yonghoon Lee",
+            "Jaimyun Jung",
+            "Hoheok Kim",
+            "Young-Seok Oh",
+            "Se-Jong Kim",
+            "Ho Won Lee^",
+            "Seong-Hoon Kang",
+            "Jisoo Kim",
+            "Sehyeok Oh"
+        ],
+        "Conference Name": "Fall Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2022",
+        "year": 2022,
+        "start date": "2022.12.1",
+        "end date": "2022.12.2",
+        "Venue": "Sono Calm Resort, Jeju, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf31",
+        "type": "conference",
+        "title": "딥러닝과 결정소성 유한요소해석을 이용한 성형한계도 예측 (Prediction of forming limit diagram by Deep learning and crystal plasticity finite element method)",
+        "authors": [
+            "Han-Jun Lee^",
+            "Dong-Kyu Kim",
+            "Ho Won Lee^"
+        ],
+        "Conference Name": "Fall Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2022",
+        "year": 2022,
+        "start date": "2022.12.1",
+        "end date": "2022.12.2",
+        "Venue": "Sono Calm Resort, Jeju, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf32",
+        "type": "conference",
+        "title": "전자빔 용해 공정 미세조직 예측을 위한 LBM-CA 모델 (Numerical simulation for predicting the microstructure of electron beam melting process)",
+        "authors": [
+            "Won-Joo Lee",
+            "Yuhyung Jeong",
+            "Seungbum Jang",
+            "Sungje Kim",
+            "Hyun-Kyo Lim",
+            "Ho Won Lee^",
+            "Seong-Hoon Kang",
+            "Yong-Taek Hyun",
+            "Jonghun Yoon"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2023",
+        "year": 2023,
+        "start date": "2023.5.18",
+        "end date": "2023.5.19",
+        "Venue": "Lakai Sandpine Resort, Gangneung, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf33",
+        "type": "conference",
+        "title": "냉간 압조용 강선의 응력삼축비 의존 성형성 평가 (Evaluation of stress triaxiality-dependent formability for cold heading quality steel wire)",
+        "authors": [
+            "Jong-Hyeok Kwon",
+            "Ho-Sun Joo",
+            "Ho Won Lee^",
+            "Ki-Ho Rhee",
+            "Sung-Soo Park",
+            "Yong-Gyun Jung",
+            "Dong-Kyu Kim"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2023",
+        "year": 2023,
+        "start date": "2023.5.18",
+        "end date": "2023.5.19",
+        "Venue": "Lakai Sandpine Resort, Gangneung, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf34",
+        "type": "conference",
+        "title": "집합조직 활용 성형한계도 예측 합성곱 신경망 모델 개발 (Development of Convolutional Neural Network for Predicting Forming Limit Diagrams from Crystallographic Texture)",
+        "authors": [
+            "Han-Jun Lee^",
+            "Dong-Kyu Kim",
+            "Ji-Hoon Kim",
+            "Ho Won Lee^"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2023",
+        "year": 2023,
+        "start date": "2023.5.18",
+        "end date": "2023.5.19",
+        "Venue": "Lakai Sandpine Resort, Gangneung, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf35",
+        "type": "conference",
+        "title": "음향방출 신호 비지도학습을 통한 냉간압조용 선재의 응력삼축비에 따른 성형한계선도 구축 (Construction of ductile fracture locus depending on stress triaxiality of CHQ steel wires via unsupervised learning of acoustic emission signal)",
+        "authors": [
+            "Jong-Hyeok Kwon",
+            "Jeong-Min Heo",
+            "Nhat-Tam Nguyen",
+            "Minh Tien Tran^",
+            "Ho Won Lee^",
+            "Dong-Kyu Kim"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2024",
+        "year": 2024,
+        "start date": "2024.5.23",
+        "end date": "2024.5.24",
+        "Venue": "Seoul Olympic Parktel, Seoul, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf36",
+        "type": "conference",
+        "title": "재료 물성 예측을 위한 압입 시험 데이터의 딥러닝 기반 분석 (Deep Learning-Based Analysis of Indentation Test Data for Predicting Material Properties)",
+        "authors": [
+            "Seong-Eun An",
+            "Yong-Nam Kim",
+            "Young-Seok Oh",
+            "Ji-Hoon Kim",
+            "Ho Won Lee^"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2024",
+        "year": 2024,
+        "start date": "2024.5.23",
+        "end date": "2024.5.24",
+        "Venue": "Seoul Olympic Parktel, Seoul, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf37",
+        "type": "conference",
+        "title": "3차원 ResNet을 활용한 집합조직 기반 성형 한계도 예측 시스템 개발 (Development of a Forming Limit Diagram Prediction System based on Crystalline Texture using 3D Residual Network)",
+        "authors": [
+            "Han-Jun Lee^",
+            "Dong-Kyu Kim",
+            "Ji-Hoon Kim",
+            "Ho Won Lee^"
+        ],
+        "Conference Name": "Spring Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2024",
+        "year": 2024,
+        "start date": "2024.5.23",
+        "end date": "2024.5.24",
+        "Venue": "Seoul Olympic Parktel, Seoul, Korea",
+        "featured": false,
+        "scope": "domestic"
+    },
+    {
+        "id": "conf38",
+        "type": "conference",
+        "title": "Ti-6Al-4V 합금의 주조 미세조직 성장 모사 LBM-CA 모델 (Lattice Boltzmann - Cellular Automata Model for Prediction of Microstructural Evolution of Ti-6Al-4V Alloy)",
+        "authors": [
+            "Won-Joo Lee",
+            "Yong-Taek Hyun",
+            "Ho Won Lee^",
+            "Seong-Hoon Kang",
+            "Jonghun Yoon"
+        ],
+        "Conference Name": "Fall Annual Conference of the Korean Society for Technology of Plasticity (KSTP) 2024",
+        "year": 2024,
+        "start date": "2024.10.17",
+        "end date": "2024.10.18",
+        "Venue": "Jeju Shinhwa World Landing Convention Center, Jeju, Korea",
+        "featured": false,
+        "scope": "domestic"
     }
 ]
