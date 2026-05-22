@@ -18,24 +18,6 @@
         "featured": false
     },
     {
-        "id": "prep4",
-        "type": "journal",
-        "title": "Multi-fidelity physics-guided graph neural networks for predicting structure–property relationships in polycrystalline metals",
-        "authors": [
-            "Minh Tien Tran^",
-            "Hoang Cuong Phan^",
-            "Jaimyun Jung",
-            "Se-Jong Kim",
-            "Seong-Hoon Kang",
-            "Dong-Kyu Kim",
-            "Ho Won Lee^*"
-        ],
-        "journal": "submitted",
-        "year": 2025,
-        "status": "Submitted",
-        "featured": false
-    },
-    {
         "id": "prep5",
         "type": "journal",
         "title": "Deep learning framework for prediction of stress field and triaxiality in dual-phase steels with varying martensite fractions",

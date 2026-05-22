@@ -1357,5 +1357,22 @@
         "pages": "114246",
         "doi": "10.1016/j.commatsci.2025.114246",    
         "featured": false
+    },
+    {
+        "id": "pub74",
+        "type": "journal",
+        "title": "Multi-fidelity physics-guided graph neural networks for predicting structure–property relationships in polycrystalline metals",
+        "authors": [
+            "Minh Tien Tran^",
+            "Hoang Cuong Phan^",
+            "Jaimyun Jung",
+            "Se-Jong Kim",
+            "Seong-Hoon Kang",
+            "Ho Won Lee^*"
+        ],
+        "journal": "Materials & Design",
+        "year": 2026,
+        "status": "accepted",
+        "featured": false
     }
     ]
