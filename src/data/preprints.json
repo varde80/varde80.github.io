@@ -55,7 +55,7 @@
     {
         "id": "prep7",
         "type": "journal",
-        "title": "Enhancing Metallographic Segmentation by data augmentation using Phase-Fraction-Guided Joint Image–Mask Diffusion",
+        "title": "Unified Generation of Micrograph-Mask Pairs via Phase-Fraction-Guided Diffusion for Metallographic Segmentation in Small-Data Regimes",
         "authors": [
             "Hoang Hai Nam Nguyen^",
             "Minh Tien Tran^",
@@ -64,20 +64,21 @@
             "Seong-Hoon Kang",
             "Ho Won Lee^*"
         ],
-        "journal": "In preperation",
+        "journal": "submitted",
         "year": 2026,
-        "status": "In preperation",
+        "status": "submitted",
         "featured": false
     },
     {
         "id": "prep8",
         "type": "journal",
-        "title": "ReFract: Projection-aware diffusion with cross-domain attention for noise-robust EBSD pattern restoration and crystallographic indexing",
+        "title": "ReFract: Projection-aware diffusion models with cross-domain attention for noise-robust electron backscatter diffraction pattern restoration and crystallographic indexing",
         "authors": [
             "Hoang Hai Nam Nguyen^",                
             "Chihun Lee",
             "Jaimyun  Jung",
             "Eun Young Kim",
+            "Sangwon Lee",
             "Kyung Song",
             "Seong-Hoon Kang",
             "Ho Won Lee^*"
