@@ -1378,5 +1378,29 @@
         "doi": "10.1016/j.matdes.2026.116310",
         "highlightImage": "/images/publications/2026_JMADE_Tran.jpg",
         "featured": false
+    },
+    {
+        "id": "pub75",
+        "type": "journal",
+        "title": "Unsupervised learning-based segmentation of microstructures in hot forged and heat-treated TiAl alloys",
+        "authors": [
+            "Sang Hyun Oh",
+            "Hoheok Kim",
+            "Young-Seok Oh",
+            "Sehyeok Oh",
+            "Junseok Yoon",
+            "Jaimyun Jung",
+            "Jee Hyuk Ahn",
+            "Se-Jong Kim",
+            "Ho Won Lee^",
+            "Ji Hoon Kim",
+            "Seong-Hoon Kang"
+        ],
+        "journal": "Journal of Materials Research and Technology",
+        "year": 2026,
+        "volume": "42",
+        "pages": "12031-12041",
+        "doi": "10.1016/j.jmrt.2026.06.041",
+        "featured": false
     }
     ]
