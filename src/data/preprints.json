@@ -19,24 +19,6 @@
         "featured": false
     },
     {
-        "id": "prep6",
-        "type": "journal",
-        "title": "Quantifying microstructure- and loading-path-dependent heterogeneity using crystal plasticity simulations",
-        "authors": [
-            "Minh Tien Tran^",
-            "Moo-Yeong Joo^",
-            "Hoang Cuong Phan^",
-            "Se-Jong Kim",
-            "Dong-Kyu Kim",            
-            "Seong-Hoon Kang",
-            "Ho Won Lee^*"
-        ],
-        "journal": "submitted",
-        "year": 2026,
-        "status": "Submitted",
-        "featured": false
-    },
-    {
         "id": "prep7",
         "type": "journal",
         "title": "Unified Generation of Micrograph-Mask Pairs via Phase-Fraction-Guided Diffusion for Metallographic Segmentation in Small-Data Regimes",
@@ -48,7 +30,7 @@
             "Seong-Hoon Kang",
             "Ho Won Lee^*"
         ],
-        "journal": "submitted",
+        "journal": "International Journal of Mechanical Sciences",
         "year": 2026,
         "status": "submitted",
         "featured": false

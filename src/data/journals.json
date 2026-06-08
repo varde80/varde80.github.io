@@ -1402,5 +1402,23 @@
         "pages": "12031-12041",
         "doi": "10.1016/j.jmrt.2026.06.041",
         "featured": false
+    },
+    {
+        "id": "pub76",
+        "type": "journal",
+        "title": "Quantifying microstructure- and deformation-mode-dependent heterogeneity using crystal plasticity simulations",
+        "authors": [
+            "Minh Tien Tran^",
+            "Moo-Yeong Joo^",
+            "Hoang Cuong Phan^",
+            "Se-Jong Kim",
+            "Dong-Kyu Kim",            
+            "Seong-Hoon Kang",
+            "Ho Won Lee^*"
+        ],
+        "journal": "International Journal of Mechanical Sciences",
+        "year": 2026,
+        "status": "accepted",
+        "featured": false
     }
     ]
