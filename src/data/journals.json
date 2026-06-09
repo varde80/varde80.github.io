@@ -1421,6 +1421,23 @@
         "pages": "111818",
         "doi": "10.1016/j.ijmecsci.2026.111818",
         "highlightImage": "/images/publications/2026_IJMS_Tran.jpg",
+        "featured": false        
+    },
+    {
+        "id": "pub77",
+        "type": "journal",
+        "title": "Deep learning-based crystal plasticity analysis of stress field and triaxiality in dual-phase steels with varying martensite fractions",
+        "authors": [
+            "Minh Tien Tran^",
+            "Hoang Cuong Phan^",
+            "Hoang Hai Nam Nguyen^",
+            "Hyunki Kim",
+            "Dong-Kyu Kim",
+            "Ho Won Lee^*"
+        ],
+        "journal": "Enginring with Computers",
+        "year": 2026,
+        "status": "Accepted",
         "featured": false
     }
     ]
