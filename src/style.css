@@ -1,7 +1,83 @@
 @import "tailwindcss";
 
+@theme {
+  /* Brand (blue) — anchors the original #0066cc/#3b82f6 palette */
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-300: #93c5fd;
+  --color-brand-400: #60a5fa;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
+  --color-brand-900: #1e3a8a;
+
+  /* Accent (violet) — the purple half of the tech gradient */
+  --color-accent-100: #ede9fe;
+  --color-accent-300: #c4b5fd;
+  --color-accent-400: #a78bfa;
+  --color-accent-500: #8b5cf6;
+  --color-accent-600: #7c3aed;
+  --color-accent-700: #6d28d9;
+
+  /* Dark navy surfaces for hero/header/footer */
+  --color-navy-800: #16213a;
+  --color-navy-900: #0d1528;
+  --color-navy-950: #070d1c;
+
+  /* Warm highlight — retained from the legacy #F0980C, used sparingly */
+  --color-highlight-500: #f0980c;
+
+  --font-sans: "Pretendard Variable", Pretendard, system-ui, -apple-system, sans-serif;
+
+  --shadow-glow: 0 0 24px 0 rgb(124 58 237 / 0.25);
+  --ease-lift: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer components {
+  /* Gradient text for headings on dark surfaces */
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-400 to-accent-400 bg-clip-text text-transparent;
+  }
+
+  /* Stronger gradient for headings on light surfaces */
+  .gradient-text-strong {
+    @apply bg-gradient-to-r from-brand-600 to-accent-600 bg-clip-text text-transparent;
+  }
+
+  /* Primary call-to-action button */
+  .btn-gradient {
+    @apply inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-600 to-accent-600 px-6 py-2.5 font-semibold text-white transition duration-300 hover:shadow-glow hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-offset-2;
+  }
+
+  /* Glassmorphism card on light backgrounds */
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/40 rounded-2xl shadow-sm;
+  }
+
+  /* Glassmorphism card on navy backgrounds */
+  .glass-card-dark {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  /* Shared focus ring for interactive elements */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2;
+  }
+}
+
+/* Hover lift, suppressed for users who prefer reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  .card-lift {
+    transition: transform 0.3s var(--ease-lift), box-shadow 0.3s var(--ease-lift);
+  }
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+}
+
 :root {
-  font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.5;
   font-weight: 400;
 }
