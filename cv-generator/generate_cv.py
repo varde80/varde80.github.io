@@ -1,31 +1,39 @@
 #!/usr/bin/env python3
 """
 CV Generator for AIMAT Lab Website
-Generates a professional PDF and Word CV with modern design.
+Generates professional bilingual (English/Korean) PDF CVs with modern design.
 """
 
 import json
+import os
 import re
+import sys
 from datetime import datetime
 from pathlib import Path
 
 from reportlab.lib.pagesizes import A4
 
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.lib.units import cm, mm
+from reportlab.lib.units import cm
 from reportlab.lib.colors import HexColor, white, black
 from reportlab.platypus import (
     SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle,
-    HRFlowable, KeepTogether, Flowable, Image
+    HRFlowable, Flowable, Image
 )
 from reportlab.lib.enums import TA_LEFT, TA_CENTER, TA_RIGHT, TA_JUSTIFY
-from reportlab.pdfgen import canvas
-from reportlab.lib import colors
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
-# Register Korean font
-import os
+# ---------------------------------------------------------------------------
+# Korean fonts
+# ---------------------------------------------------------------------------
+# Two registrations are needed:
+#  - 'KoreanFont' (single weight): used by the English CV for parenthesized
+#    Korean project titles.
+#  - 'KFont'/'KFont-Bold' family: used by the Korean CV body, which needs a
+#    true bold weight. NanumSquareNeo renders both Hangul and Latin well;
+#    falls back to NanumGothic, then the single-weight KoreanFont, then
+#    Helvetica.
 KOREAN_FONT_PATHS = [
     "/System/Library/Fonts/AppleSDGothicNeo.ttc",  # macOS
     "/System/Library/Fonts/Supplemental/AppleGothic.ttf",  # macOS alternative
@@ -33,43 +41,60 @@ KOREAN_FONT_PATHS = [
     "C:/Windows/Fonts/malgun.ttf",  # Windows
 ]
 
-KOREAN_FONT_NAME = "Helvetica"  # Default fallback
-for font_path in KOREAN_FONT_PATHS:
-    if os.path.exists(font_path):
-        try:
-            if font_path.endswith('.ttc'):
-                pdfmetrics.registerFont(TTFont('KoreanFont', font_path, subfontIndex=0))
-            else:
-                pdfmetrics.registerFont(TTFont('KoreanFont', font_path))
-            KOREAN_FONT_NAME = "KoreanFont"
-            break
-        except:
-            continue
-
-# Register a Korean font family with a true bold weight for the Korean CV body.
-# NanumSquareNeo (TrueType, multiple weights) renders both Hangul and Latin well.
-# Falls back to the single-weight KoreanFont, then Helvetica.
 HOME = os.path.expanduser("~")
 KFONT_CANDIDATES = [
     (HOME + "/Library/Fonts/NanumSquareNeo-bRg.ttf", HOME + "/Library/Fonts/NanumSquareNeo-cBd.ttf"),
     ("/Library/Fonts/NanumSquareNeo-bRg.ttf", "/Library/Fonts/NanumSquareNeo-cBd.ttf"),
     ("/Library/Fonts/NanumGothic.ttf", "/Library/Fonts/NanumGothicBold.ttf"),
 ]
-KFONT = KOREAN_FONT_NAME          # regular Korean font name (fallback)
-KFONT_BOLD = KOREAN_FONT_NAME     # bold Korean font name (fallback)
-for reg_path, bold_path in KFONT_CANDIDATES:
-    if os.path.exists(reg_path) and os.path.exists(bold_path):
-        try:
-            pdfmetrics.registerFont(TTFont('KFont', reg_path))
-            pdfmetrics.registerFont(TTFont('KFont-Bold', bold_path))
-            pdfmetrics.registerFontFamily(
-                'KFont', normal='KFont', bold='KFont-Bold',
-                italic='KFont', boldItalic='KFont-Bold')
-            KFONT = 'KFont'
-            KFONT_BOLD = 'KFont-Bold'
-            break
-        except Exception:
-            continue
+
+# Fallback font names until ensure_fonts_registered() runs.
+KOREAN_FONT_NAME = "Helvetica"  # single-weight Korean font
+KFONT = "Helvetica"             # Korean family, regular
+KFONT_BOLD = "Helvetica"        # Korean family, bold
+_FONTS_REGISTERED = False
+
+
+def _try_register_font(name, path, subfont_index=None):
+    """Register a single TTF/TTC font; return True on success."""
+    try:
+        if subfont_index is not None:
+            pdfmetrics.registerFont(TTFont(name, path, subfontIndex=subfont_index))
+        else:
+            pdfmetrics.registerFont(TTFont(name, path))
+        return True
+    except Exception as e:
+        print(f"warning: could not register font {path}: {e}", file=sys.stderr)
+        return False
+
+
+def ensure_fonts_registered():
+    """Idempotently register Korean fonts and update the module-level font
+    names. Registration is lazy so importing this module has no side effects."""
+    global KOREAN_FONT_NAME, KFONT, KFONT_BOLD, _FONTS_REGISTERED
+    if _FONTS_REGISTERED:
+        return
+    _FONTS_REGISTERED = True
+
+    for font_path in KOREAN_FONT_PATHS:
+        if os.path.exists(font_path):
+            subfont = 0 if font_path.endswith('.ttc') else None
+            if _try_register_font('KoreanFont', font_path, subfont):
+                KOREAN_FONT_NAME = "KoreanFont"
+                break
+
+    KFONT = KOREAN_FONT_NAME
+    KFONT_BOLD = KOREAN_FONT_NAME
+    for reg_path, bold_path in KFONT_CANDIDATES:
+        if os.path.exists(reg_path) and os.path.exists(bold_path):
+            if (_try_register_font('KFont', reg_path)
+                    and _try_register_font('KFont-Bold', bold_path)):
+                pdfmetrics.registerFontFamily(
+                    'KFont', normal='KFont', bold='KFont-Bold',
+                    italic='KFont', boldItalic='KFont-Bold')
+                KFONT = 'KFont'
+                KFONT_BOLD = 'KFont-Bold'
+                break
 
 
 # Paths
@@ -79,18 +104,70 @@ OUTPUT_DIR = SCRIPT_DIR / "output"
 
 # Colors
 NAVY = HexColor('#2d3748')
-DARK_NAVY = HexColor('#1a202c')
 ACCENT = HexColor('#4a5568')
-LIGHT_GRAY = HexColor('#718096')
-BULLET_COLOR = HexColor('#2d3748')
-BLUE_600 = HexColor('#2563eb')  # Tailwind blue-600 for journal/IF highlight
+LIGHT_GRAY_HEX = '#718096'
+LIGHT_GRAY = HexColor(LIGHT_GRAY_HEX)
+LINK_BLUE = '#2563eb'        # Tailwind blue-600 for journal/IF text and links
+HIGHLIGHT_BG = '#f0f4f8'     # shaded background for first/corresponding entries
+ROLE_GRAY = '#6b7280'        # non-PI role label
+HEADER_TEXT_HEX = '#e2e8f0'  # light text on the navy header band
 
 
 def load_json(filename):
     """Load JSON data from the data directory."""
     filepath = DATA_DIR / filename
+    if not filepath.exists():
+        print(f"error: data file not found: {filepath}", file=sys.stderr)
+        sys.exit(1)
     with open(filepath, 'r', encoding='utf-8') as f:
         return json.load(f)
+
+
+def load_cv_data():
+    """Load and bundle all CV data files."""
+    return {
+        'professor': load_json("professor.json"),
+        'journals': load_json("journals.json"),
+        'projects': load_json("projects.json"),
+        'if_data': load_json("IF.json"),
+    }
+
+
+KO_REQUIRED_KEYS = [
+    'name', 'header_title', 'header_org', 'experience', 'education',
+    'Research Interests', 'Honors and Awards',
+    'Professional Activities/Memberships',
+]
+
+
+def validate_inputs(data, lang):
+    """Fail loudly on structurally broken data instead of silently rendering
+    an incomplete CV."""
+    errors = []
+    professor = data['professor']
+    for key in ['name', 'email', 'phone', 'experience', 'education']:
+        if not professor.get(key):
+            errors.append(f"professor.json: missing required key '{key}'")
+    for pub in data['journals']:
+        for key in ['year', 'id', 'authors', 'title', 'journal']:
+            if key not in pub:
+                errors.append(f"journals.json: entry {pub.get('id', '?')} missing '{key}'")
+    for proj in data['projects']:
+        for key in ['title', 'period', 'role']:
+            if key not in proj:
+                errors.append(f"projects.json: entry missing '{key}': {str(proj)[:60]}")
+    if lang == 'ko':
+        kod = professor.get('ko')
+        if not kod:
+            errors.append("professor.json: Korean CV requires a 'ko' key")
+        else:
+            for key in KO_REQUIRED_KEYS:
+                if key not in kod:
+                    errors.append(f"professor.json: 'ko' missing '{key}'")
+    if errors:
+        for err in errors:
+            print(f"error: {err}", file=sys.stderr)
+        sys.exit(1)
 
 
 def ko_sanitize(text):
@@ -146,69 +223,6 @@ LABELS = {
         'since': '이후',
     },
 }
-
-# Korean translations for the professor record (data files are English-only).
-# Lists are index-aligned with src/data/professor.json.
-KO_PROFESSOR = {
-    'name': '이호원',
-    'header_title': '소재 AI 전략연구단장',
-    'header_org': '한국재료연구원 (KIMS)',
-    # keyed by professor["experience"][i]["period"] (robust against re-sorting)
-    'experience': {
-        '2026.4-Present': {'position': '소재 AI 전략연구단장', 'org': '한국재료연구원 (KIMS)'},
-        '2023.3-Present': {'position': '교수', 'org': '과학기술연합대학원대학교 (UST)'},
-        '2011.12-Present': {'position': '책임연구원', 'org': '한국재료연구원 (KIMS)'},
-        '2024.6-2026.4': {'position': '재료데이터분석연구본부장', 'org': '한국재료연구원 (KIMS)'},
-        '2013.4-2013.6': {'position': '방문연구원', 'org': '독일 보훔대학교 ICAMS'},
-        '2011.8-2011.12': {'position': '박사후연구원', 'org': 'KAIST 기계기술연구소'},
-        '2010.9-2011.8': {'position': '과학자', 'org': '독일 막스플랑크 철강연구소'},
-        '2010.2-2010.8': {'position': '박사후연구원', 'org': 'KAIST 기계기술연구소'},
-    },
-    # keyed by professor["education"][i]["period"]
-    'education': {
-        '2003.3-2010.1': {'degree': '공학박사', 'field': '기계공학', 'institution': '한국과학기술원 (KAIST)', 'advisor': '임용택 교수'},
-        '1998.3-2003.2': {'degree': '공학사', 'field': '기계공학', 'institution': '한국과학기술원 (KAIST)'},
-    },
-    # index-aligned with professor["Research Interests"]
-    'Research Interests': [
-        '소재·제조 분야 인공지능',
-        '소재·제조 특화 시각언어모델(VLM) 및 AI 에이전트',
-        '소재 물성 예측을 위한 딥러닝',
-        '제조공정을 위한 물리기반 기계학습',
-        '생성형 AI(확산모델, GAN)를 활용한 미세조직 합성',
-        '금속소재 멀티스케일 모델링',
-        '금속 성형 및 적층제조 공정 시뮬레이션·최적화',
-    ],
-    # Fallback only — the live data lives in src/data/professor.json -> "ko".
-    'Honors and Awards': [
-        {'name': '신진기술상', 'org': '한국소성가공학회', 'year': '2017'},
-        {'name': '공로상', 'org': '한국재료연구원', 'year': '2017'},
-        {'name': '학술대회우수논문상', 'org': '한국소성가공학회', 'year': '2012'},
-        {'name': 'Max-Planck Scholarship', 'org': '독일 막스플랑크 철강연구소', 'year': '2010'},
-        {'name': '우수 조교상', 'org': 'KAIST 기계공학과', 'year': '2005'},
-    ],
-    # index-aligned with professor["Professional Activities/Memberships"]
-    'Professional Activities/Memberships': [
-        'Discover Metals (Springer Nature) 편집위원',
-        '한국소성가공학회 편집위원',
-        '대한금속·재료학회 국제협력위원회 위원',
-        '대한금속·재료학회 AI소재분과 위원',
-        '대한금속·재료학회 집합조직분과 위원',
-        '한국소성가공학회 공정전산해석분과 위원',
-        '한국소성가공학회 단조분과 위원',
-        '제9회 아시아 소재데이터 심포지엄 조직위원 (서울, 2026)',
-        '제12회 멀티스케일 재료 모델링 국제학술대회 지역조직위원 (제주, 2026)',
-        '제7회 아시아 소재데이터 심포지엄 지역조직위원 (대구, 2023)',
-        '국제냉간단조그룹(ICFG) 제48차 총회 지역조직위원 (대전, 2015)',
-        'AMPT 국제학술대회 사무국 (2007)',
-        '대한금속·재료학회 정회원',
-        '한국소성가공학회 정회원',
-        '대한기계학회 정회원',
-        '한국정밀공학회 정회원',
-        '한국인공지능학회 정회원',
-    ],
-}
-
 
 class SectionHeader(Flowable):
     """Custom flowable for section headers with icon."""
@@ -378,7 +392,7 @@ def create_styles(lang='en'):
         leading=12,
         spaceBefore=2,
         spaceAfter=4,
-        backColor=HexColor('#f0f4f8'),
+        backColor=HexColor(HIGHLIGHT_BG),
         leftIndent=10,
         firstLineIndent=-10,
     ))
@@ -403,7 +417,7 @@ def create_header_table(professor, lang='en'):
     styles = create_styles(lang)
     base = KFONT if ko else 'Helvetica'
     L = LABELS[lang]
-    kod = professor.get('ko') or KO_PROFESSOR  # Korean data from professor.json
+    kod = professor.get('ko') or {}  # Korean overlay from professor.json
 
     # Name styling: regular font
     name_html = kod['name'] if ko else professor["name"]
@@ -454,7 +468,7 @@ def create_header_table(professor, lang='en'):
         name='HeaderAffiliation',
         fontName=base,
         fontSize=9,
-        textColor=HexColor('#e2e8f0'),
+        textColor=HexColor(HEADER_TEXT_HEX),
         alignment=TA_LEFT,
         leading=12,
         spaceAfter=6,
@@ -477,7 +491,8 @@ def create_header_table(professor, lang='en'):
     if image_path.exists():
         try:
             prof_image = Image(str(image_path), width=2.5*cm, height=3.2*cm)
-        except:
+        except Exception as e:
+            print(f"warning: could not load profile image {image_path}: {e}", file=sys.stderr)
             prof_image = Spacer(1, 1)
     else:
         prof_image = Spacer(1, 1)
@@ -563,7 +578,28 @@ def create_timeline_entry(date_text, title, subtitle=None, description=None, sty
     return entry_table
 
 
-def parse_date_range(period_str):
+def extract_years(text):
+    """All 4-digit years found in a string."""
+    return re.findall(r'(\d{4})', text or "")
+
+
+def first_year(text):
+    """First 4-digit year in a string as int, or 0 (used for sorting)."""
+    years = extract_years(text)
+    return int(years[0]) if years else 0
+
+
+def format_year_range(period):
+    """Education-style year display: 'Y0 - Y1', 'Y0', or ''."""
+    years = extract_years(period)
+    if len(years) >= 2:
+        return f"{years[0]} - {years[1]}"
+    if len(years) == 1:
+        return years[0]
+    return ""
+
+
+def format_period_range(period_str):
     """Parse date range string and return formatted display.
 
     Handles formats like:
@@ -666,31 +702,95 @@ def is_first_or_corresponding(authors, name="Ho Won Lee"):
     if name.lower() in first_author.lower():
         return True
 
-    # Check corresponding author (marked with *)
-    for author in authors:
+    return is_corresponding_author(authors, name)
+
+
+def is_corresponding_author(authors, name="Ho Won Lee"):
+    """Check if the name is marked (*) as corresponding author."""
+    for author in authors or []:
         if '*' in author:
             clean_name = author.replace('^', '').replace('*', '').replace('+', '')
             if name.lower() in clean_name.lower():
                 return True
-
     return False
+
+
+def pick(value, lang='en'):
+    """Return value[lang] for {'en':.., 'ko':..} bilingual dicts, else value itself."""
+    return value.get(lang, value) if isinstance(value, dict) else value
+
+
+def doi_link_markup(doi):
+    """Blue [DOI]/[SSRN]/[arXiv] link markup for a DOI string."""
+    doi_url = f"https://doi.org/{doi}"
+    if 'ssrn' in doi.lower():
+        link_text = 'SSRN'
+    elif 'arxiv' in doi.lower():
+        link_text = 'arXiv'
+    else:
+        link_text = 'DOI'
+    return f' <font color="{LINK_BLUE}"><link href="{doi_url}">[{link_text}]</link></font>'
+
+
+def journal_with_if(journal, if_data):
+    """Italic journal name, with blue impact-factor info when known."""
+    if journal in if_data:
+        return f'<i>{journal}</i><font color="{LINK_BLUE}"> ({if_data[journal]})</font>'
+    return f'<i>{journal}</i>'
+
+
+def get_pub_sort_key(pub):
+    """Sort newest year first, then highest id number first."""
+    match = re.search(r'\d+', pub['id'])
+    num = -int(match.group()) if match else 0
+    return (-pub['year'], num)
+
+
+def is_pi_role(proj):
+    return pick(proj['role']).upper() in ['PI', 'CO-PI']
+
+
+def get_project_start_year(proj):
+    return first_year(pick(proj['period']))
+
+
+def get_funding_amount_billion(proj):
+    """Extract funding amount in billions of KRW from a project."""
+    if not proj.get('fundingAmount'):
+        return 0.0
+    amount_str = pick(proj['fundingAmount'])
+    match = re.search(r'([\d.]+)B', amount_str)
+    if match:
+        try:
+            return float(match.group(1))
+        except ValueError:
+            return 0.0
+    return 0.0
+
+
+def is_large_grant(proj):
+    """Grants with funding >= 10B KRW get the shaded highlight."""
+    return get_funding_amount_billion(proj) >= 10
 
 
 def generate_cv(lang='en'):
     """Generate the CV PDF in the given language ('en' or 'ko')."""
+    ensure_fonts_registered()
     OUTPUT_DIR.mkdir(exist_ok=True)
     ko = (lang == 'ko')
     L = LABELS[lang]
 
     # Load data
-    professor = load_json("professor.json")
-    journals = load_json("journals.json")
-    projects = load_json("projects.json")
-    if_data = load_json("IF.json")
+    data = load_cv_data()
+    validate_inputs(data, lang)
+    professor = data['professor']
+    journals = data['journals']
+    projects = data['projects']
+    if_data = data['if_data']
 
-    # Korean content lives in professor.json under "ko" (fallback to the
-    # in-module KO_PROFESSOR default if the JSON has not been populated yet).
-    kod = professor.get('ko') or KO_PROFESSOR
+    # Korean content lives in professor.json under "ko"; validate_inputs
+    # guarantees its presence in ko mode.
+    kod = professor.get('ko') or {}
 
     # Setup document
     suffix = "_KR" if ko else ""
@@ -763,8 +863,7 @@ def generate_cv(lang='en'):
         else:
             parts = exp.split(", ")
             period = parts[-1] if parts else ""
-        match = re.search(r'(\d{4})', period)
-        return int(match.group(1)) if match else 0
+        return first_year(period)
 
     sorted_experience = sorted(professor["experience"], key=get_exp_start_year, reverse=True)
 
@@ -800,8 +899,8 @@ def generate_cv(lang='en'):
                 subtitle = ""
                 period = ""
 
-        # Use parse_date_range for proper date formatting with months
-        date_display = parse_date_range(period)
+        # Use format_period_range for proper date formatting with months
+        date_display = format_period_range(period)
 
         story.append(create_timeline_entry(
             date_display,
@@ -846,13 +945,7 @@ def generate_cv(lang='en'):
                 subtitle = f"지도교수: {advisor}"
 
             # Extract start and end years from period like "2003.3-2010.1"
-            year_matches = re.findall(r'(\d{4})', period)
-            if len(year_matches) >= 2:
-                date_display = f"{year_matches[0]} - {year_matches[1]}"
-            elif len(year_matches) == 1:
-                date_display = year_matches[0]
-            else:
-                date_display = ""
+            date_display = format_year_range(period)
         else:
             # Legacy string format: "Degree, Field, Institution, Year"
             parts = edu.split(", ")
@@ -866,8 +959,8 @@ def generate_cv(lang='en'):
                 year = ""
 
             description = None
-            year_match = re.search(r'(\d{4})', year)
-            date_display = year_match.group(1) if year_match else ""
+            legacy_years = extract_years(year)
+            date_display = legacy_years[0] if legacy_years else ""
 
         story.append(create_timeline_entry(
             date_display,
@@ -907,8 +1000,8 @@ def generate_cv(lang='en'):
                     institution = ", ".join(award_parts[1:]) if len(award_parts) > 1 else ""
 
                     # Extract year for display
-                    year_match = re.search(r'(\d{4})', date_str)
-                    date_display = year_match.group(1) if year_match else ""
+                    award_years = extract_years(date_str)
+                    date_display = award_years[0] if award_years else ""
 
                     story.append(create_timeline_entry(
                         date_display,
@@ -959,29 +1052,13 @@ def generate_cv(lang='en'):
     preprint_submitted = [j for j in recent_journals if j.get('status', '').lower() in ['submitted', 'preprint']]
     published_journals = [j for j in recent_journals if not j.get('status')]
 
-    def get_sort_key(x):
-        year = -x['year']
-        match = re.search(r'\d+', x['id'])
-        num = -int(match.group()) if match else 0
-        return (year, num)
-
     # Published journals grouped by year
-    published_journals.sort(key=get_sort_key)
+    published_journals.sort(key=get_pub_sort_key)
 
     # Get unique years
     years = sorted(set(pub['year'] for pub in published_journals), reverse=True)
 
     # Count corresponding author and co-author publications
-    def is_corresponding_author(authors, name="Ho Won Lee"):
-        if not authors:
-            return False
-        for author in authors:
-            if '*' in author:
-                clean_name = author.replace('^', '').replace('*', '').replace('+', '')
-                if name.lower() in clean_name.lower():
-                    return True
-        return False
-
     journal_corresponding = sum(1 for pub in published_journals if is_corresponding_author(pub['authors']))
     journal_coauthor = len(published_journals) - journal_corresponding
 
@@ -1011,12 +1088,6 @@ def generate_cv(lang='en'):
         for pub in year_pubs:
             authors = format_authors(pub['authors'])
             title = pub['title']
-            journal = pub['journal']
-
-            # Add IF info right after journal name
-            if_info = ""
-            if journal in if_data:
-                if_info = f" ({if_data[journal]})"
 
             vol_info = ""
             if pub.get('volume'):
@@ -1024,22 +1095,10 @@ def generate_cv(lang='en'):
             if pub.get('pages'):
                 vol_info += f", {pub['pages']}"
 
-            # Format journal and IF info with blue color
-            journal_if = f'<i>{journal}</i><font color="#2563eb">{if_info}</font>' if if_info else f'<i>{journal}</i>'
+            journal_if = journal_with_if(pub['journal'], if_data)
             text = f"{pub_number}. {authors}, \"{title}\", {journal_if}{vol_info}."
-
-            # Add DOI link if available (with source name like SSRN, arXiv, etc.)
             if pub.get('doi'):
-                doi = pub['doi']
-                doi_url = f"https://doi.org/{doi}"
-                # Determine link text based on DOI source
-                if 'ssrn' in doi.lower():
-                    link_text = 'SSRN'
-                elif 'arxiv' in doi.lower():
-                    link_text = 'arXiv'
-                else:
-                    link_text = 'DOI'
-                text += f' <font color="#2563eb"><link href="{doi_url}">[{link_text}]</link></font>'
+                text += doi_link_markup(pub['doi'])
 
             # Use highlighted style if first author or corresponding
             style_name = 'PublicationHighlight' if is_first_or_corresponding(pub['authors']) else 'Publication'
@@ -1049,7 +1108,7 @@ def generate_cv(lang='en'):
     # In Submission section (after Journal Articles)
     if preprint_submitted:
         story.append(Spacer(1, 4))
-        preprint_submitted.sort(key=get_sort_key)
+        preprint_submitted.sort(key=get_pub_sort_key)
         submitted_stats = format_pub_stats(len(preprint_submitted), submitted_corresponding, submitted_coauthor)
         story.append(Paragraph(f"<b>{L['in_submission']}</b> ({submitted_stats})", styles['Subsection']))
 
@@ -1059,12 +1118,7 @@ def generate_cv(lang='en'):
             journal = pub['journal']
             status = L['submitted']  # Always show as Submitted/투고 중
 
-            # Add IF info right after journal name
-            if_info = ""
-            if journal in if_data:
-                if_info = f" ({if_data[journal]})"
-
-            # Check if journal name should be skipped (status, preprint, etc.)
+            # Skip the journal name when it just restates the status/preprint server
             skip_journal = (
                 journal.lower() == status.lower() or
                 'preprint' in journal.lower() or
@@ -1074,52 +1128,18 @@ def generate_cv(lang='en'):
                 # Only show status once
                 text = f"{i}. {authors}, \"{title}\", {status}."
             else:
-                # Format journal and IF info
-                journal_if = f'<i>{journal}</i><font color="#2563eb">{if_info}</font>' if if_info else f'<i>{journal}</i>'
-                text = f"{i}. {authors}, \"{title}\", {journal_if}, {status}."
+                text = f"{i}. {authors}, \"{title}\", {journal_with_if(journal, if_data)}, {status}."
 
-            # Add DOI link if available (with source name like SSRN, arXiv, etc.)
             if pub.get('doi'):
-                doi = pub['doi']
-                doi_url = f"https://doi.org/{doi}"
-                # Determine link text based on DOI source
-                if 'ssrn' in doi.lower():
-                    link_text = 'SSRN'
-                elif 'arxiv' in doi.lower():
-                    link_text = 'arXiv'
-                else:
-                    link_text = 'DOI'
-                text += f' <font color="#2563eb"><link href="{doi_url}">[{link_text}]</link></font>'
+                text += doi_link_markup(pub['doi'])
 
             # Use highlighted style if first author or corresponding
             style_name = 'PublicationHighlight' if is_first_or_corresponding(pub['authors']) else 'Publication'
             story.append(Paragraph(text, styles[style_name]))
 
     # === RESEARCH GRANTS ===
-    # Separate ongoing and completed projects, sort by year (newest first)
-    # Only include projects where role is PI or Co-PI
-    def get_project_start_year(proj):
-        period = proj['period'].get('en', proj['period']) if isinstance(proj['period'], dict) else proj['period']
-        match = re.search(r'(\d{4})', period)
-        return int(match.group(1)) if match else 0
-
-    def is_pi_role(proj):
-        role = proj['role'].get('en', proj['role']) if isinstance(proj['role'], dict) else proj['role']
-        return role.upper() in ['PI', 'CO-PI']
-
-    def get_funding_amount_billion(proj):
-        """Extract funding amount in billions from project."""
-        if not proj.get('fundingAmount'):
-            return 0.0
-        amount_str = proj['fundingAmount'].get('en', proj['fundingAmount']) if isinstance(proj['fundingAmount'], dict) else proj['fundingAmount']
-        match = re.search(r'([\d.]+)B', amount_str)
-        if match:
-            try:
-                return float(match.group(1))
-            except ValueError:
-                return 0.0
-        return 0.0
-
+    # Separate ongoing and completed projects, sort by year (newest first).
+    # Only include projects where role is PI or Co-PI.
     # Filter: PI/Co-PI role and funding >= 0.1B KRW (1억원)
     pi_projects = [p for p in projects if is_pi_role(p) and get_funding_amount_billion(p) >= 0.1]
     ongoing = sorted([p for p in pi_projects if p.get('status') == 'ongoing'], key=get_project_start_year, reverse=True)
@@ -1180,22 +1200,22 @@ def generate_cv(lang='en'):
         spaceAfter=3,
         leftIndent=12,
         firstLineIndent=-7,
-        backColor=HexColor('#f0f4f8'),
+        backColor=HexColor(HIGHLIGHT_BG),
     )
 
     def format_project_line(proj):
         """Create a compact one-line project entry."""
-        title_en = proj['title'].get('en', proj['title']) if isinstance(proj['title'], dict) else proj['title']
+        title_en = pick(proj['title'])
         title_ko = proj['title'].get('ko', '') if isinstance(proj['title'], dict) else ''
         if ko:
             title_ko = ko_sanitize(title_ko)
-        period = proj['period'].get('en', proj['period']) if isinstance(proj['period'], dict) else proj['period']
-        role = proj['role'].get('en', proj['role']) if isinstance(proj['role'], dict) else proj['role']
-        agency = proj['fundingAgency'].get('en', proj['fundingAgency']) if isinstance(proj['fundingAgency'], dict) else proj['fundingAgency']
+        period = pick(proj['period'])
+        role = pick(proj['role'])
+        agency = pick(proj['fundingAgency'])
 
         # Role color (PI and Co-PI both blue) and localized label
         role_upper = role.upper()
-        role_hex = '#2563eb' if role_upper in ['PI', 'CO-PI'] else '#6b7280'
+        role_hex = LINK_BLUE if role_upper in ['PI', 'CO-PI'] else ROLE_GRAY
         if ko:
             role_label = {'PI': '연구책임', 'CO-PI': '공동연구'}.get(role_upper, role)
         else:
@@ -1220,28 +1240,13 @@ def generate_cv(lang='en'):
         else:
             line = f'•&nbsp;&nbsp;{title_en}'
             if title_ko:
-                line += f' <font face="{KOREAN_FONT_NAME}" color="#718096">({title_ko})</font>'
+                line += f' <font face="{KOREAN_FONT_NAME}" color="{LIGHT_GRAY_HEX}">({title_ko})</font>'
         line += f' | {period} | {agency} |'
         line += f' <font color="{role_hex}"><b>{role_label}</b></font>'
         if amount:
-            line += f' | <font color="#2563eb">{amount}</font>'
+            line += f' | <font color="{LINK_BLUE}">{amount}</font>'
 
         return line
-
-    def is_large_grant(proj):
-        """Check if funding amount is >= 10B KRW."""
-        if not proj.get('fundingAmount'):
-            return False
-        amount_str = proj['fundingAmount'].get('en', proj['fundingAmount']) if isinstance(proj['fundingAmount'], dict) else proj['fundingAmount']
-        # Parse amount like "30.5B KRW" -> 30.5
-        match = re.search(r'([\d.]+)B', amount_str)
-        if match:
-            try:
-                amount = float(match.group(1))
-                return amount >= 10
-            except ValueError:
-                return False
-        return False
 
     # Calculate subtotals
     ongoing_total = sum(get_funding_amount_billion(p) for p in ongoing)
