@@ -52,7 +52,11 @@ const routes: RouteRecordRaw[] = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  scrollBehavior() {
+  scrollBehavior(to) {
+    if (to.hash) {
+      // Offset for the sticky header so anchored sections aren't hidden under it
+      return { el: to.hash, top: 80, behavior: 'smooth' }
+    }
     return { top: 0 }
   }
 })
