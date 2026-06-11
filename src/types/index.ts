@@ -161,6 +161,22 @@ export interface Project {
   status: 'ongoing' | 'completed'
 }
 
+// UI types
+export type BadgeVariant =
+  | 'solid-warning'
+  | 'solid-accent'
+  | 'solid-gradient'
+  | 'soft-purple'
+  | 'soft-green'
+  | 'soft-gray'
+  | 'soft-indigo'
+  | 'soft-emerald'
+
+export interface RoleBadge {
+  text: string
+  variant: BadgeVariant
+}
+
 // Contact types
 export interface ContactInfo {
   address: string

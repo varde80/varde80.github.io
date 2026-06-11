@@ -6,8 +6,11 @@ import conferencesData from '../data/conferences.json'
 import membersData from '../data/members.json'
 import professorData from '../data/professor.json'
 import IFData from '../data/IF.json'
-import type { Publication, MembersData, Professor } from '../types'
-import { getAssetUrl } from '../utils/assets'
+import type { Publication, MembersData, Professor, RoleBadge } from '../types'
+import PageHero from '../components/common/PageHero.vue'
+import FilterPill from '../components/ui/FilterPill.vue'
+import BaseBadge from '../components/ui/BaseBadge.vue'
+import PublicationCard from '../components/publications/PublicationCard.vue'
 
 const journals = ref<Publication[]>(journalsData as Publication[])
 const preprints = ref<Publication[]>(preprintsData as Publication[])
@@ -118,20 +121,32 @@ const getAuthorRole = (pub: Publication, memberName: string): 'corresponding' | 
   return null
 }
 
-const getRoleBadge = (role: string | null) => {
+const getRoleBadge = (role: string | null): RoleBadge | null => {
   switch (role) {
     case 'corresponding':
-      return { text: 'Corresponding', class: 'bg-purple-100 text-purple-700' }
+      return { text: 'Corresponding', variant: 'soft-purple' }
     case 'first':
-      return { text: 'First Author', class: 'bg-green-100 text-green-700' }
+      return { text: 'First Author', variant: 'soft-green' }
     case 'co-author':
-      return { text: 'Co-Author', class: 'bg-gray-100 text-gray-600' }
+      return { text: 'Co-Author', variant: 'soft-gray' }
     default:
       return null
   }
 }
 
+const roleBadgeFor = (pub: Publication): RoleBadge | null =>
+  selectedMember.value ? getRoleBadge(getAuthorRole(pub, selectedMember.value)) : null
+
+const impactFactorFor = (pub: Publication): string | undefined =>
+  pub.journal ? (IFData as Record<string, string>)[pub.journal] : undefined
+
 const activeTab = ref<'journals' | 'conferences'>('journals')
+
+const byIdDesc = (a: Publication, b: Publication) => {
+  const idA = parseInt(a.id.replace(/[^0-9]/g, ''))
+  const idB = parseInt(b.id.replace(/[^0-9]/g, ''))
+  return idB - idA
+}
 
 // Filter journals by selected member
 const filteredJournals = computed(() => {
@@ -152,13 +167,8 @@ const filteredConferences = computed(() => {
 // Separate In Press / Accepted from filtered journals
 const inPress = computed(() => {
   return filteredJournals.value
-    .filter(p => (p as any).status === 'In Press' || (p as any).status === 'accepted')
-    .sort((a, b) => {
-      // Sort by ID is usually fine, or year
-      const idA = parseInt(a.id.replace(/[^0-9]/g, ''))
-      const idB = parseInt(b.id.replace(/[^0-9]/g, ''))
-      return idB - idA
-    })
+    .filter(p => p.status === 'In Press' || p.status === 'accepted')
+    .sort(byIdDesc)
 })
 
 // Preprints / submitted from separate preprints.json
@@ -166,27 +176,16 @@ const inSubmission = computed(() => {
   const filtered = selectedMember.value
     ? preprints.value.filter(p => hasMember(p, selectedMember.value!))
     : preprints.value
-  return filtered.sort((a, b) => {
-    const idA = parseInt(a.id.replace(/[^0-9]/g, ''))
-    const idB = parseInt(b.id.replace(/[^0-9]/g, ''))
-    return idB - idA
-  })
+  return filtered.sort(byIdDesc)
 })
-
 
 // Published journals grouped by year (newest first)
 const publishedByYear = computed(() => {
-  const published = filteredJournals.value.filter(p => !(p as any).status)
+  const published = filteredJournals.value.filter(p => !p.status)
   const years = [...new Set(published.map(p => p.year))].sort((a, b) => b - a)
   return years.map(year => ({
     year,
-    publications: published
-      .filter(p => p.year === year)
-      .sort((a, b) => {
-        const idA = parseInt(a.id.replace(/[^0-9]/g, ''))
-        const idB = parseInt(b.id.replace(/[^0-9]/g, ''))
-        return idB - idA
-      })
+    publications: published.filter(p => p.year === year).sort(byIdDesc)
   }))
 })
 
@@ -195,292 +194,117 @@ const conferencesByYear = computed(() => {
   const years = [...new Set(filteredConferences.value.map(p => p.year))].sort((a, b) => b - a)
   return years.map(year => ({
     year,
-    publications: filteredConferences.value
-      .filter(p => p.year === year)
-      .sort((a, b) => {
-        const idA = parseInt(a.id.replace(/[^0-9]/g, ''))
-        const idB = parseInt(b.id.replace(/[^0-9]/g, ''))
-        return idB - idA
-      })
+    publications: filteredConferences.value.filter(p => p.year === year).sort(byIdDesc)
   }))
 })
-
 </script>
 
 <template>
-  <div class="py-12 bg-gray-50 min-h-screen">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-4xl font-bold text-gray-900 text-center mb-12">Publications</h1>
-
+  <div class="bg-gray-50 min-h-screen">
+    <PageHero title="Publications" subtitle="Journal articles and conference presentations from AIMAT Lab.">
       <!-- Tabs -->
-      <div class="flex justify-center mb-8 gap-4">
-        <button
-          @click="activeTab = 'journals'"
-          class="px-6 py-2 rounded-full font-medium text-sm transition-colors shadow-sm"
-          :class="activeTab === 'journals' ? 'bg-blue-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'"
-        >
+      <div class="flex flex-wrap mt-8 gap-4">
+        <FilterPill :active="activeTab === 'journals'" @click="activeTab = 'journals'">
           Journals
-        </button>
-        <button
-          @click="activeTab = 'conferences'"
-          class="px-6 py-2 rounded-full font-medium text-sm transition-colors shadow-sm"
-          :class="activeTab === 'conferences' ? 'bg-blue-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'"
-        >
+        </FilterPill>
+        <FilterPill :active="activeTab === 'conferences'" @click="activeTab = 'conferences'">
           Conferences
-        </button>
+        </FilterPill>
       </div>
 
       <!-- Member Filter -->
-      <div class="flex justify-center mb-8 gap-2 flex-wrap">
-        <button
-          @click="selectedMember = null"
-          class="px-4 py-1.5 rounded-full font-medium text-xs transition-colors shadow-sm"
-          :class="!selectedMember ? 'bg-green-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'"
-        >
+      <div class="flex flex-wrap mt-4 gap-2">
+        <FilterPill size="sm" :active="!selectedMember" @click="selectedMember = null">
           All
-        </button>
-        <button
+        </FilterPill>
+        <FilterPill
           v-for="name in allMemberNames"
           :key="name"
+          size="sm"
+          :active="selectedMember === name"
           @click="selectedMember = name"
-          class="px-4 py-1.5 rounded-full font-medium text-xs transition-colors shadow-sm"
-          :class="selectedMember === name ? 'bg-green-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'"
         >
           {{ name }}
-        </button>
+        </FilterPill>
       </div>
+    </PageHero>
 
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <!-- Journals -->
       <div v-if="activeTab === 'journals'" class="space-y-8">
         <!-- In Submission Section -->
-        <div v-if="inSubmission.length > 0">
-          <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-            <span class="bg-orange-500 text-white px-3 py-1 rounded-full mr-3 text-sm">In Submission</span>
+        <section v-if="inSubmission.length > 0">
+          <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-3">
+            <BaseBadge variant="solid-warning" size="md">In Submission</BaseBadge>
             {{ inSubmission.length }} papers
           </h2>
           <div class="space-y-4">
-            <div
+            <PublicationCard
               v-for="pub in inSubmission"
               :key="pub.id"
-              class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border-l-4 border-orange-400"
-            >
-              <div class="flex gap-4">
-                <div class="flex-1">
-                  <div class="flex items-start justify-between gap-2 mb-2">
-                    <h3 class="font-medium text-gray-900">{{ pub.title }}</h3>
-                    <span
-                      v-if="selectedMember && getRoleBadge(getAuthorRole(pub, selectedMember))"
-                      class="text-xs px-2 py-0.5 rounded-full whitespace-nowrap"
-                      :class="getRoleBadge(getAuthorRole(pub, selectedMember))?.class"
-                    >
-                      {{ getRoleBadge(getAuthorRole(pub, selectedMember))?.text }}
-                    </span>
-                  </div>
-                  <p class="text-sm text-gray-600 mb-2">
-                    <span v-for="(author, index) in pub.authors" :key="index">
-                      <span :class="{ 'font-bold': author.includes('^') }">{{ author.replace(/[*+^]/g, '') }}</span><sup v-if="author.includes('+')" class="text-blue-600">†</sup><sup v-if="author.includes('*')" class="text-blue-600">*</sup><span v-if="index < pub.authors.length - 1">, </span>
-                    </span>
-                  </p>
-                  <p class="text-sm">
-                    <span class="text-blue-600 font-medium">{{ pub.journal }}</span>
-                    <span v-if="IFData[pub.journal as keyof typeof IFData]" class="text-blue-600 font-normal ml-1">({{ IFData[pub.journal as keyof typeof IFData] }})</span>
-                  </p>
-                  <a
-                    v-if="pub.doi"
-                    :href="`https://doi.org/${pub.doi}`"
-                    target="_blank"
-                    class="inline-flex items-center text-sm text-gray-500 hover:text-blue-600 mt-2"
-                  >
-                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                    DOI: {{ pub.doi }}
-                  </a>
-                </div>
-              </div>
-            </div>
+              :pub="pub"
+              accent="submission"
+              :impact-factor="impactFactorFor(pub)"
+              :role-badge="roleBadgeFor(pub)"
+            />
           </div>
-        </div>
+        </section>
 
         <!-- In Press Section -->
-        <div v-if="inPress.length > 0">
-          <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-            <span class="bg-indigo-500 text-white px-3 py-1 rounded-full mr-3 text-sm">In Press</span>
+        <section v-if="inPress.length > 0">
+          <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-3">
+            <BaseBadge variant="solid-accent" size="md">In Press</BaseBadge>
             {{ inPress.length }} papers
           </h2>
           <div class="space-y-4">
-            <div
+            <PublicationCard
               v-for="pub in inPress"
               :key="pub.id"
-              class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border-l-4 border-indigo-400"
-            >
-              <div class="flex gap-4">
-                <div class="flex-1">
-                  <div class="flex items-start justify-between gap-2 mb-2">
-                    <h3 class="font-medium text-gray-900">{{ pub.title }}</h3>
-                    <span
-                      v-if="selectedMember && getRoleBadge(getAuthorRole(pub, selectedMember))"
-                      class="text-xs px-2 py-0.5 rounded-full whitespace-nowrap"
-                      :class="getRoleBadge(getAuthorRole(pub, selectedMember))?.class"
-                    >
-                      {{ getRoleBadge(getAuthorRole(pub, selectedMember))?.text }}
-                    </span>
-                  </div>
-                  <p class="text-sm text-gray-600 mb-2">
-                    <span v-for="(author, index) in pub.authors" :key="index">
-                      <span :class="{ 'font-bold': author.includes('^') }">{{ author.replace(/[*+^]/g, '') }}</span><sup v-if="author.includes('+')" class="text-blue-600">†</sup><sup v-if="author.includes('*')" class="text-blue-600">*</sup><span v-if="index < pub.authors.length - 1">, </span>
-                    </span>
-                  </p>
-                  <p class="text-sm">
-                    <span class="text-blue-600 font-medium">{{ pub.journal }}</span>
-                    <span v-if="IFData[pub.journal as keyof typeof IFData]" class="text-blue-600 font-normal ml-1">({{ IFData[pub.journal as keyof typeof IFData] }})</span>
-                    <span v-if="(pub as any).status === 'accepted'" class="text-blue-600 font-medium">, accepted</span>
-                  </p>
-                  <a
-                    v-if="pub.doi"
-                    :href="`https://doi.org/${pub.doi}`"
-                    target="_blank"
-                    class="inline-flex items-center text-sm text-gray-500 hover:text-blue-600 mt-2"
-                  >
-                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                    DOI: {{ pub.doi }}
-                  </a>
-                </div>
-              </div>
-            </div>
+              :pub="pub"
+              accent="inpress"
+              :impact-factor="impactFactorFor(pub)"
+              :role-badge="roleBadgeFor(pub)"
+            />
           </div>
-        </div>
+        </section>
 
         <!-- Published by Year -->
-        <div v-for="yearGroup in publishedByYear" :key="yearGroup.year">
-          <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-            <span class="bg-blue-600 text-white px-3 py-1 rounded-full mr-3 text-sm">{{ yearGroup.year }}</span>
+        <section v-for="yearGroup in publishedByYear" :key="yearGroup.year">
+          <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-3">
+            <BaseBadge variant="solid-gradient" size="md">{{ yearGroup.year }}</BaseBadge>
             {{ yearGroup.publications.length }} papers
           </h2>
           <div class="space-y-4">
-            <div
+            <PublicationCard
               v-for="pub in yearGroup.publications"
               :key="pub.id"
-              class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border-l-4"
-              :class="hasLabMemberAsFirstOrCorresponding(pub) ? 'border-blue-500' : 'border-transparent'"
-            >
-              <div class="flex gap-4">
-                <!-- Highlight Image -->
-                <div v-if="pub.highlightImage" class="flex-shrink-0 mr-2">
-                  <img :src="getAssetUrl(pub.highlightImage)" :alt="pub.title" class="max-w-[12rem] max-h-[8rem] rounded-lg shadow-sm border border-gray-100 object-contain" />
-                </div>
-
-                <div class="flex-1">
-                  <div class="flex items-start justify-between gap-2 mb-2">
-                    <h3 class="font-medium text-gray-900">{{ pub.title }}</h3>
-                    <span
-                      v-if="selectedMember && getRoleBadge(getAuthorRole(pub, selectedMember))"
-                      class="text-xs px-2 py-0.5 rounded-full whitespace-nowrap"
-                      :class="getRoleBadge(getAuthorRole(pub, selectedMember))?.class"
-                    >
-                      {{ getRoleBadge(getAuthorRole(pub, selectedMember))?.text }}
-                    </span>
-                  </div>
-                  <p class="text-sm text-gray-600 mb-2">
-                    <span v-for="(author, index) in pub.authors" :key="index">
-                      <span :class="{ 'font-bold': author.includes('^') }">{{ author.replace(/[*+^]/g, '') }}</span><sup v-if="author.includes('+')" class="text-blue-600">†</sup><sup v-if="author.includes('*')" class="text-blue-600">*</sup><span v-if="index < pub.authors.length - 1">, </span>
-                    </span>
-                  </p>
-                  <p class="text-sm">
-                    <span class="text-blue-600 font-medium">{{ pub.journal }}</span>
-                    <span v-if="pub.volume" class="text-gray-500">, {{ pub.volume }}</span>
-                    <span v-if="pub.pages" class="text-gray-500">, {{ pub.pages }}</span>
-                    <span v-if="IFData[pub.journal as keyof typeof IFData]" class="text-blue-600 font-normal ml-1">({{ IFData[pub.journal as keyof typeof IFData] }})</span>
-                  </p>
-                  <a
-                    v-if="pub.doi"
-                    :href="`https://doi.org/${pub.doi}`"
-                    target="_blank"
-                    class="inline-flex items-center text-sm text-gray-500 hover:text-blue-600 mt-2"
-                  >
-                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                    DOI: {{ pub.doi }}
-                  </a>
-
-                  <!-- Legend inside card -->
-                  <div v-if="pub.authors.some((a: string) => a.includes('+'))" class="flex gap-4 mt-3 text-xs text-gray-500 border-t pt-2">
-                    <div class="flex items-center">
-                      <sup class="text-blue-600 mr-1">†</sup> Equally contributed
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+              :pub="pub"
+              accent="published"
+              :highlighted="hasLabMemberAsFirstOrCorresponding(pub)"
+              :impact-factor="impactFactorFor(pub)"
+              :role-badge="roleBadgeFor(pub)"
+            />
           </div>
-        </div>
+        </section>
       </div>
 
       <!-- Conferences -->
       <div v-if="activeTab === 'conferences'" class="space-y-8">
-        <div v-for="yearGroup in conferencesByYear" :key="yearGroup.year">
-          <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-            <span class="bg-blue-600 text-white px-3 py-1 rounded-full mr-3 text-sm">{{ yearGroup.year }}</span>
+        <section v-for="yearGroup in conferencesByYear" :key="yearGroup.year">
+          <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-3">
+            <BaseBadge variant="solid-gradient" size="md">{{ yearGroup.year }}</BaseBadge>
             {{ yearGroup.publications.length }} papers
           </h2>
           <div class="space-y-4">
-            <div
+            <PublicationCard
               v-for="pub in yearGroup.publications"
               :key="pub.id"
-              class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
-            >
-              <div class="flex-1">
-                <div class="flex items-start justify-between gap-2 mb-2">
-                  <h3 class="font-medium text-gray-900">{{ pub.title }}</h3>
-                  <span
-                    v-if="selectedMember && getRoleBadge(getAuthorRole(pub, selectedMember))"
-                    class="text-xs px-2 py-0.5 rounded-full whitespace-nowrap"
-                    :class="getRoleBadge(getAuthorRole(pub, selectedMember))?.class"
-                  >
-                    {{ getRoleBadge(getAuthorRole(pub, selectedMember))?.text }}
-                  </span>
-                </div>
-                <p class="text-sm text-gray-600 mb-2">
-                  <span v-for="(author, index) in pub.authors" :key="index">
-                    <span :class="{ 'font-bold': author.includes('^') }">{{ author.replace(/[*+^]/g, '') }}</span><sup v-if="author.includes('+')" class="text-blue-600">†</sup><sup v-if="author.includes('*')" class="text-blue-600">*</sup><span v-if="index < pub.authors.length - 1">, </span>
-                  </span>
-                </p>
-                <div class="text-sm">
-                  <div class="text-blue-600 font-medium mb-1 flex items-center flex-wrap gap-2">
-                    <span>{{ pub['Conference Name'] || pub.journal }}</span>
-                    <span
-                      v-if="pub.scope"
-                      class="text-xs px-2 py-0.5 rounded-full whitespace-nowrap font-medium"
-                      :class="pub.scope === 'international' ? 'bg-indigo-100 text-indigo-700' : 'bg-emerald-100 text-emerald-700'"
-                    >
-                      {{ pub.scope === 'international' ? 'International' : 'Domestic' }}
-                    </span>
-                  </div>
-                  <div v-if="pub['Venue']" class="text-gray-500 text-xs mb-1">
-                    {{ pub['Venue'] }}
-                    <span v-if="pub['start date']"> · {{ pub['start date'] }} - {{ pub['end date'] }}</span>
-                  </div>
-                  <a v-if="pub.link" :href="pub.link" target="_blank" class="text-gray-500 hover:text-blue-600 transition-colors inline-flex items-center">
-                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                    Link
-                  </a>
-                </div>
-
-                <!-- Legend inside card -->
-                <div v-if="pub.authors.some((a: string) => a.includes('+'))" class="flex gap-4 mt-3 text-xs text-gray-500 border-t pt-2">
-                  <div class="flex items-center">
-                    <sup class="text-blue-600 mr-1">†</sup> Equally contributed
-                  </div>
-                </div>
-              </div>
-            </div>
+              :pub="pub"
+              kind="conference"
+              :role-badge="roleBadgeFor(pub)"
+            />
           </div>
-        </div>
+        </section>
       </div>
     </div>
   </div>
