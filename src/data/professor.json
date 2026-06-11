@@ -97,7 +97,61 @@
     "Member of Korea Society for Technology of Plasticity (KSTP)",
     "Member of Korea Society of Mechanical Engineers (KSME)",
     "Member of The Korean Society of Precision Engineering (KSPE)",
-    "Member of Korean Artificial intelligence Association (KAIA)"    
-  ]
-
+    "Member of Korean Artificial intelligence Association (KAIA)"
+  ],
+  "ko": {
+    "name": "이호원",
+    "title": "소재 AI 전략연구단장",
+    "header_title": "소재 AI 전략연구단장",
+    "header_org": "한국재료연구원 (KIMS)",
+    "experience": {
+      "2026.4-Present": { "position": "소재 AI 전략연구단장", "org": "한국재료연구원 (KIMS)" },
+      "2023.3-Present": { "position": "교수", "org": "과학기술연합대학원대학교 (UST)" },
+      "2011.12-Present": { "position": "책임연구원", "org": "한국재료연구원 (KIMS)" },
+      "2024.6-2026.4": { "position": "재료데이터·분석연구본부장", "org": "한국재료연구원 (KIMS)" },
+      "2013.4-2013.6": { "position": "방문연구원", "org": "독일 보훔대학교 ICAMS" },
+      "2011.8-2011.12": { "position": "박사후연구원", "org": "KAIST 기계기술연구소" },
+      "2010.9-2011.8": { "position": "과학자", "org": "독일 막스플랑크 철연구소" },
+      "2010.2-2010.8": { "position": "박사후연구원", "org": "KAIST 기계기술연구소" }
+    },
+    "education": {
+      "2003.3-2010.1": { "degree": "공학박사", "field": "기계공학", "institution": "한국과학기술원 (KAIST)", "advisor": "임용택 교수" },
+      "1998.3-2003.2": { "degree": "공학사", "field": "기계공학", "institution": "한국과학기술원 (KAIST)" }
+    },
+    "Research Interests": [
+      "소재 및 제조 분야 인공지능 활용 기술",
+      "소재·제조 특화 시각언어모델(VLM) 및 AI 에이전트",
+      "소재 물성 예측을 위한 딥러닝 기술",
+      "제조공정을 위한 물리기반 기계학습 기술",
+      "생성형 AI(확산모델, GAN)를 활용한 미세조직 합성 및 증강 기술",
+      "금속소재 멀티스케일 모델링",
+      "금속 성형 및 적층제조 공정 시뮬레이션·최적화"
+    ],
+    "Honors and Awards": [
+      { "name": "신진기술상", "org": "한국소성가공학회", "year": "2017" },
+      { "name": "공로상", "org": "한국재료연구원", "year": "2017" },
+      { "name": "학술대회 우수논문상", "org": "한국소성가공학회", "year": "2012" },
+      { "name": "Max-Planck Scholarship", "org": "독일 막스플랑크 철강연구소", "year": "2010" },
+      { "name": "우수 조교상", "org": "KAIST 기계공학과", "year": "2005" }
+    ],
+    "Professional Activities/Memberships": [
+      "Discover Metals (Springer Nature) 편집위원",      
+      "한국소성가공학회 편집위원",
+      "대한금속·재료학회 국제위원회 위원",
+      "대한금속·재료학회 인공지능재료과학 분과위원회 간사위원",
+      "대한금속·재료학회 집합조직 분과위원회 간사위원",
+      "한국소성가공학회 공정계산역학부문 위원",
+      "한국소성가공학회 단조부문 위원",              
+      "제9회 아시아 소재데이터 심포지엄 (Asian Materials Data Symposium, AMDS) 조직위원, 서울, 2026",
+      "제12회 멀티스케일 재료 모델링 (Multiscale Materials Modeling, MMM12) 국제학술대회 지역 조직위원, 제주, 2026",
+      "제7회 아시아 소재데이터 심포지엄 (Asian Materials Data Symposium, AMDS) 지역 조직위원, 대구, 2023",
+      "제48차 국제 냉간 단조그룹 (International Cold Forging Group, ICFG) 총회 지역조직위원 ,대전, 2015",
+      "국제 재료 및 가공 (Advances in Materials and Processing Technologies, AMPT) 국제학술대회 비서, 2007",
+      "대한금속·재료학회 정회원",
+      "한국소성가공학회 정회원",
+      "대한기계학회 정회원",
+      "한국정밀공학회 정회원",
+      "한국인공지능학회 정회원"
+    ]
+  }
 }

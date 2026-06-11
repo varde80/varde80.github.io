@@ -46,6 +46,31 @@ for font_path in KOREAN_FONT_PATHS:
         except:
             continue
 
+# Register a Korean font family with a true bold weight for the Korean CV body.
+# NanumSquareNeo (TrueType, multiple weights) renders both Hangul and Latin well.
+# Falls back to the single-weight KoreanFont, then Helvetica.
+HOME = os.path.expanduser("~")
+KFONT_CANDIDATES = [
+    (HOME + "/Library/Fonts/NanumSquareNeo-bRg.ttf", HOME + "/Library/Fonts/NanumSquareNeo-cBd.ttf"),
+    ("/Library/Fonts/NanumSquareNeo-bRg.ttf", "/Library/Fonts/NanumSquareNeo-cBd.ttf"),
+    ("/Library/Fonts/NanumGothic.ttf", "/Library/Fonts/NanumGothicBold.ttf"),
+]
+KFONT = KOREAN_FONT_NAME          # regular Korean font name (fallback)
+KFONT_BOLD = KOREAN_FONT_NAME     # bold Korean font name (fallback)
+for reg_path, bold_path in KFONT_CANDIDATES:
+    if os.path.exists(reg_path) and os.path.exists(bold_path):
+        try:
+            pdfmetrics.registerFont(TTFont('KFont', reg_path))
+            pdfmetrics.registerFont(TTFont('KFont-Bold', bold_path))
+            pdfmetrics.registerFontFamily(
+                'KFont', normal='KFont', bold='KFont-Bold',
+                italic='KFont', boldItalic='KFont-Bold')
+            KFONT = 'KFont'
+            KFONT_BOLD = 'KFont-Bold'
+            break
+        except Exception:
+            continue
+
 
 # Paths
 SCRIPT_DIR = Path(__file__).parent
@@ -68,17 +93,143 @@ def load_json(filename):
         return json.load(f)
 
 
+def ko_sanitize(text):
+    """Replace punctuation glyphs missing from the Korean CV font (NanumSquareNeo)
+    with supported equivalents so they don't render as tofu boxes."""
+    if not text:
+        return text
+    return (text
+            .replace('・', '·')   # ・ KATAKANA MIDDLE DOT -> · MIDDLE DOT
+            .replace('ㆍ', '·'))   # ㆍ HANGUL ARAEA -> · MIDDLE DOT
+
+
+# ---------------------------------------------------------------------------
+# Bilingual labels and Korean content
+# ---------------------------------------------------------------------------
+LABELS = {
+    'en': {
+        'cv_title': 'CURRICULUM VITAE',
+        'phone': 'Phone', 'email': 'E-mail',
+        'research_interests': 'Research Interests',
+        'experience': 'Professional Experience',
+        'education': 'Education',
+        'awards': 'Honors and Awards',
+        'activities': 'Professional Activities',
+        'publications': 'Publications',
+        'pub_note': '* Shaded entries indicate first author or corresponding author publications.',
+        'journal_articles': 'Journal Articles',
+        'in_submission': 'In Submission',
+        'total': 'Total', 'corresponding': 'Corresponding', 'coauthor': 'Co-Author',
+        'submitted': 'Submitted',
+        'grants': 'Research Grants',
+        'grant_note': '* Shaded entries indicate grants with funding ≥ 10B KRW.',
+        'ongoing': 'Ongoing Grants', 'completed': 'Completed Grants',
+        'since': 'since',
+    },
+    'ko': {
+        'cv_title': '이력서',
+        'phone': '전화', 'email': '이메일',
+        'research_interests': '연구 분야',
+        'experience': '주요 경력',
+        'education': '학력',
+        'awards': '수상 경력',
+        'activities': '학회 및 대외 활동',
+        'publications': '연구 논문',
+        'pub_note': '* 음영 표시는 제1저자 또는 교신저자 논문입니다.',
+        'journal_articles': '학술지 논문',
+        'in_submission': '투고 중',
+        'total': '총', 'corresponding': '교신저자', 'coauthor': '공저자',
+        'submitted': '투고 중',
+        'grants': '연구 과제',
+        'grant_note': '* 음영 표시는 100억 원 이상 과제입니다.',
+        'ongoing': '진행 중 과제', 'completed': '완료 과제',
+        'since': '이후',
+    },
+}
+
+# Korean translations for the professor record (data files are English-only).
+# Lists are index-aligned with src/data/professor.json.
+KO_PROFESSOR = {
+    'name': '이호원',
+    'header_title': '소재 AI 전략연구단장',
+    'header_org': '한국재료연구원 (KIMS)',
+    # keyed by professor["experience"][i]["period"] (robust against re-sorting)
+    'experience': {
+        '2026.4-Present': {'position': '소재 AI 전략연구단장', 'org': '한국재료연구원 (KIMS)'},
+        '2023.3-Present': {'position': '교수', 'org': '과학기술연합대학원대학교 (UST)'},
+        '2011.12-Present': {'position': '책임연구원', 'org': '한국재료연구원 (KIMS)'},
+        '2024.6-2026.4': {'position': '재료데이터분석연구본부장', 'org': '한국재료연구원 (KIMS)'},
+        '2013.4-2013.6': {'position': '방문연구원', 'org': '독일 보훔대학교 ICAMS'},
+        '2011.8-2011.12': {'position': '박사후연구원', 'org': 'KAIST 기계기술연구소'},
+        '2010.9-2011.8': {'position': '과학자', 'org': '독일 막스플랑크 철강연구소'},
+        '2010.2-2010.8': {'position': '박사후연구원', 'org': 'KAIST 기계기술연구소'},
+    },
+    # keyed by professor["education"][i]["period"]
+    'education': {
+        '2003.3-2010.1': {'degree': '공학박사', 'field': '기계공학', 'institution': '한국과학기술원 (KAIST)', 'advisor': '임용택 교수'},
+        '1998.3-2003.2': {'degree': '공학사', 'field': '기계공학', 'institution': '한국과학기술원 (KAIST)'},
+    },
+    # index-aligned with professor["Research Interests"]
+    'Research Interests': [
+        '소재·제조 분야 인공지능',
+        '소재·제조 특화 시각언어모델(VLM) 및 AI 에이전트',
+        '소재 물성 예측을 위한 딥러닝',
+        '제조공정을 위한 물리기반 기계학습',
+        '생성형 AI(확산모델, GAN)를 활용한 미세조직 합성',
+        '금속소재 멀티스케일 모델링',
+        '금속 성형 및 적층제조 공정 시뮬레이션·최적화',
+    ],
+    # Fallback only — the live data lives in src/data/professor.json -> "ko".
+    'Honors and Awards': [
+        {'name': '신진기술상', 'org': '한국소성가공학회', 'year': '2017'},
+        {'name': '공로상', 'org': '한국재료연구원', 'year': '2017'},
+        {'name': '학술대회우수논문상', 'org': '한국소성가공학회', 'year': '2012'},
+        {'name': 'Max-Planck Scholarship', 'org': '독일 막스플랑크 철강연구소', 'year': '2010'},
+        {'name': '우수 조교상', 'org': 'KAIST 기계공학과', 'year': '2005'},
+    ],
+    # index-aligned with professor["Professional Activities/Memberships"]
+    'Professional Activities/Memberships': [
+        'Discover Metals (Springer Nature) 편집위원',
+        '한국소성가공학회 편집위원',
+        '대한금속·재료학회 국제협력위원회 위원',
+        '대한금속·재료학회 AI소재분과 위원',
+        '대한금속·재료학회 집합조직분과 위원',
+        '한국소성가공학회 공정전산해석분과 위원',
+        '한국소성가공학회 단조분과 위원',
+        '제9회 아시아 소재데이터 심포지엄 조직위원 (서울, 2026)',
+        '제12회 멀티스케일 재료 모델링 국제학술대회 지역조직위원 (제주, 2026)',
+        '제7회 아시아 소재데이터 심포지엄 지역조직위원 (대구, 2023)',
+        '국제냉간단조그룹(ICFG) 제48차 총회 지역조직위원 (대전, 2015)',
+        'AMPT 국제학술대회 사무국 (2007)',
+        '대한금속·재료학회 정회원',
+        '한국소성가공학회 정회원',
+        '대한기계학회 정회원',
+        '한국정밀공학회 정회원',
+        '한국인공지능학회 정회원',
+    ],
+}
+
+
 class SectionHeader(Flowable):
     """Custom flowable for section headers with icon."""
-    def __init__(self, text, icon_char="●", subtitle=None):
+    def __init__(self, text, icon_char="●", subtitle=None,
+                 title_font="Helvetica-Bold", subtitle_font="Helvetica", uppercase=True):
         Flowable.__init__(self)
         self.text = text
         self.icon_char = icon_char
         self.subtitle = subtitle
+        self.title_font = title_font
+        self.subtitle_font = subtitle_font
+        self.uppercase = uppercase
         self.width = 17*cm
         self.height = 1.2*cm
+        # Never let a section header sit alone at the bottom of a page,
+        # separated from the content that follows it.
+        self.keepWithNext = 1
 
     def draw(self):
+        title = self.text.upper() if self.uppercase else self.text
+
         # Draw icon circle
         self.canv.setFillColor(NAVY)
         self.canv.circle(0.4*cm, 0.4*cm, 0.35*cm, fill=1, stroke=0)
@@ -90,14 +241,14 @@ class SectionHeader(Flowable):
 
         # Draw section title
         self.canv.setFillColor(NAVY)
-        self.canv.setFont("Helvetica-Bold", 13)
-        self.canv.drawString(1.2*cm, 0.25*cm, self.text.upper())
+        self.canv.setFont(self.title_font, 13)
+        self.canv.drawString(1.2*cm, 0.25*cm, title)
 
         # Draw subtitle if present (lighter color)
         if self.subtitle:
-            title_width = self.canv.stringWidth(self.text.upper(), "Helvetica-Bold", 13)
+            title_width = self.canv.stringWidth(title, self.title_font, 13)
             self.canv.setFillColor(LIGHT_GRAY)
-            self.canv.setFont("Helvetica", 11)
+            self.canv.setFont(self.subtitle_font, 11)
             self.canv.drawString(1.2*cm + title_width + 0.2*cm, 0.25*cm, self.subtitle)
 
 
@@ -120,14 +271,21 @@ class TimelineItem(Flowable):
             self.canv.restoreState()
 
 
-def create_styles():
-    """Create custom paragraph styles."""
+def create_styles(lang='en'):
+    """Create custom paragraph styles. In Korean mode, text styles that carry
+    Hangul use the Korean font family (with a real bold weight); the publication
+    list stays in Helvetica since those entries are English."""
+    ko = (lang == 'ko')
+    base = KFONT if ko else 'Helvetica'
+    bold = KFONT_BOLD if ko else 'Helvetica-Bold'
+    oblique = KFONT if ko else 'Helvetica-Oblique'
+
     styles = getSampleStyleSheet()
 
     # Header name style (white on dark)
     styles.add(ParagraphStyle(
         name='HeaderName',
-        fontName='Helvetica',
+        fontName=base,
         fontSize=28,
         textColor=white,
         alignment=TA_LEFT,
@@ -137,7 +295,7 @@ def create_styles():
     # Header contact style
     styles.add(ParagraphStyle(
         name='HeaderContact',
-        fontName='Helvetica',
+        fontName=base,
         fontSize=10,
         textColor=white,
         alignment=TA_LEFT,
@@ -147,7 +305,7 @@ def create_styles():
     # Summary style
     styles.add(ParagraphStyle(
         name='Summary',
-        fontName='Helvetica',
+        fontName=base,
         fontSize=10,
         textColor=black,
         alignment=TA_JUSTIFY,
@@ -159,7 +317,7 @@ def create_styles():
     # Date style (left column)
     styles.add(ParagraphStyle(
         name='Date',
-        fontName='Helvetica',
+        fontName=base,
         fontSize=10,
         textColor=ACCENT,
         alignment=TA_LEFT,
@@ -169,7 +327,7 @@ def create_styles():
     # Item title style
     styles.add(ParagraphStyle(
         name='ItemTitle',
-        fontName='Helvetica-Bold',
+        fontName=bold,
         fontSize=10,
         textColor=black,
         alignment=TA_LEFT,
@@ -179,7 +337,7 @@ def create_styles():
     # Item subtitle style (institution)
     styles.add(ParagraphStyle(
         name='ItemSubtitle',
-        fontName='Helvetica-Oblique',
+        fontName=oblique,
         fontSize=10,
         textColor=ACCENT,
         alignment=TA_LEFT,
@@ -189,7 +347,7 @@ def create_styles():
     # Item description style
     styles.add(ParagraphStyle(
         name='ItemDesc',
-        fontName='Helvetica',
+        fontName=base,
         fontSize=9,
         textColor=LIGHT_GRAY,
         alignment=TA_LEFT,
@@ -228,7 +386,7 @@ def create_styles():
     # Subsection style
     styles.add(ParagraphStyle(
         name='Subsection',
-        fontName='Helvetica-Bold',
+        fontName=bold,
         fontSize=10,
         textColor=NAVY,
         alignment=TA_LEFT,
@@ -239,43 +397,51 @@ def create_styles():
     return styles
 
 
-def create_header_table(professor):
+def create_header_table(professor, lang='en'):
     """Create the header with dark background, photo, and affiliation."""
-    styles = create_styles()
+    ko = (lang == 'ko')
+    styles = create_styles(lang)
+    base = KFONT if ko else 'Helvetica'
+    L = LABELS[lang]
+    kod = professor.get('ko') or KO_PROFESSOR  # Korean data from professor.json
 
     # Name styling: regular font
-    name_html = professor["name"]
+    name_html = kod['name'] if ko else professor["name"]
 
-    # Current affiliations (extract Director position only)
+    # Current affiliations
     affiliation_line1 = ""
     affiliation_line2 = ""
-    for exp in professor.get("experience", []):
-        if isinstance(exp, dict):
-            # New object format
-            position = exp.get("position", "")
-            institution = exp.get("institution", "")
-            period = exp.get("period", "")
-            if "Director" in position and ("Present" in period or "present" in period):
-                affiliation_line1 = position
-                department = exp.get("Department", "")
-                if department:
-                    affiliation_line2 = f"{department}<br/>{institution}"
-                else:
-                    affiliation_line2 = institution.replace(", ", "<br/>")
-                break
-        else:
-            # Legacy string format
-            if "Director" in exp and ("Present" in exp or "present" in exp):
-                parts = exp.split(", ")
-                if len(parts) >= 3:
-                    affiliation_line1 = parts[0]  # Director
-                    affiliation_line2 = f"{parts[1]}, {parts[2]}"  # Division, Institution
+    if ko:
+        affiliation_line1 = kod.get('header_title', '')
+        affiliation_line2 = kod.get('header_org', '')
+    else:
+        for exp in professor.get("experience", []):
+            if isinstance(exp, dict):
+                # New object format
+                position = exp.get("position", "")
+                institution = exp.get("institution", "")
+                period = exp.get("period", "")
+                if "Director" in position and ("Present" in period or "present" in period):
+                    affiliation_line1 = position
+                    department = exp.get("Department", "")
+                    if department:
+                        affiliation_line2 = f"{department}<br/>{institution}"
+                    else:
+                        affiliation_line2 = institution.replace(", ", "<br/>")
                     break
+            else:
+                # Legacy string format
+                if "Director" in exp and ("Present" in exp or "present" in exp):
+                    parts = exp.split(", ")
+                    if len(parts) >= 3:
+                        affiliation_line1 = parts[0]  # Director
+                        affiliation_line2 = f"{parts[1]}, {parts[2]}"  # Division, Institution
+                        break
 
     # Name style
     name_style = ParagraphStyle(
         name='HeaderName',
-        fontName='Helvetica',
+        fontName=base,
         fontSize=18,
         textColor=white,
         alignment=TA_LEFT,
@@ -286,7 +452,7 @@ def create_header_table(professor):
     # Affiliation style with tighter leading
     affiliation_style = ParagraphStyle(
         name='HeaderAffiliation',
-        fontName='Helvetica',
+        fontName=base,
         fontSize=9,
         textColor=HexColor('#e2e8f0'),
         alignment=TA_LEFT,
@@ -300,8 +466,8 @@ def create_header_table(professor):
         affiliation_text = f'{affiliation_line1}<br/>{affiliation_line2}'
         affiliation_para = Paragraph(affiliation_text, affiliation_style)
 
-    phone_para = Paragraph(f"<b>Phone</b>  {professor['phone']}", styles['HeaderContact'])
-    email_para = Paragraph(f"<b>E-mail</b>  {professor['email']}", styles['HeaderContact'])
+    phone_para = Paragraph(f"<b>{L['phone']}</b>  {professor['phone']}", styles['HeaderContact'])
+    email_para = Paragraph(f"<b>{L['email']}</b>  {professor['email']}", styles['HeaderContact'])
 
     # Right column: photo
     image_path = SCRIPT_DIR.parent / "public" / professor.get("image", "").lstrip("/")
@@ -348,6 +514,20 @@ def create_header_table(professor):
     return header_table
 
 
+def add_section_header(story, title, icon="●", subtitle=None, gap=6, lang='en'):
+    """Append a section header followed by a gap, chained with keepWithNext so the
+    header is never stranded at the bottom of a page away from its first content."""
+    if lang == 'ko':
+        header = SectionHeader(title, icon, subtitle,
+                               title_font=KFONT_BOLD, subtitle_font=KFONT, uppercase=False)
+    else:
+        header = SectionHeader(title, icon, subtitle)
+    story.append(header)
+    spacer = Spacer(1, gap)
+    spacer.keepWithNext = 1  # chain header -> gap -> first content flowable
+    story.append(spacer)
+
+
 def create_timeline_entry(date_text, title, subtitle=None, description=None, styles=None):
     """Create a timeline entry with date, bullet, and content."""
     content_parts = [Paragraph(title, styles['ItemTitle'])]
@@ -376,7 +556,7 @@ def create_timeline_entry(date_text, title, subtitle=None, description=None, sty
         ('LEFTPADDING', (0, 0), (-1, -1), 0),
         ('RIGHTPADDING', (0, 0), (-1, -1), 0),
         ('TOPPADDING', (0, 0), (-1, -1), 2),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 4),
         ('VALIGN', (0, 0), (-1, -1), 'TOP'),
     ]))
 
@@ -496,9 +676,11 @@ def is_first_or_corresponding(authors, name="Ho Won Lee"):
     return False
 
 
-def generate_cv():
-    """Generate the CV PDF."""
+def generate_cv(lang='en'):
+    """Generate the CV PDF in the given language ('en' or 'ko')."""
     OUTPUT_DIR.mkdir(exist_ok=True)
+    ko = (lang == 'ko')
+    L = LABELS[lang]
 
     # Load data
     professor = load_json("professor.json")
@@ -506,8 +688,13 @@ def generate_cv():
     projects = load_json("projects.json")
     if_data = load_json("IF.json")
 
+    # Korean content lives in professor.json under "ko" (fallback to the
+    # in-module KO_PROFESSOR default if the JSON has not been populated yet).
+    kod = professor.get('ko') or KO_PROFESSOR
+
     # Setup document
-    output_path = OUTPUT_DIR / f"{datetime.now().strftime('%Y%m%d')}_CV_HLee.pdf"
+    suffix = "_KR" if ko else ""
+    output_path = OUTPUT_DIR / f"{datetime.now().strftime('%Y%m%d')}_CV_HLee{suffix}.pdf"
     doc = SimpleDocTemplate(
         str(output_path),
         pagesize=A4,
@@ -517,23 +704,23 @@ def generate_cv():
         bottomMargin=1.5*cm
     )
 
-    styles = create_styles()
+    styles = create_styles(lang)
     story = []
 
     # === CV TITLE ===
     cv_title_style = ParagraphStyle(
         name='CVTitle',
-        fontName='Helvetica-Bold',
+        fontName=(KFONT_BOLD if ko else 'Helvetica-Bold'),
         fontSize=22,
         textColor=NAVY,
         alignment=TA_CENTER,
         spaceAfter=6,
     )
-    story.append(Paragraph("CURRICULUM VITAE", cv_title_style))
+    story.append(Paragraph(L['cv_title'], cv_title_style))
     story.append(Spacer(1, 12))
 
     # === HEADER ===
-    story.append(create_header_table(professor))
+    story.append(create_header_table(professor, lang))
     story.append(Spacer(1, 4))
 
     # Horizontal line under header
@@ -546,29 +733,28 @@ def generate_cv():
 
     # === RESEARCH INTERESTS ===
     if professor.get("Research Interests"):
-        story.append(SectionHeader("Research Interests", "◈"))
-        story.append(Spacer(1, 8))
+        add_section_header(story, L['research_interests'], "◈", lang=lang)
 
         interest_style = ParagraphStyle(
             name='Interest',
-            fontName='Helvetica',
+            fontName=(KFONT if ko else 'Helvetica'),
             fontSize=9,
             textColor=black,
             alignment=TA_LEFT,
             leading=12,
-            spaceBefore=2,
-            spaceAfter=2,
+            spaceBefore=1,
+            spaceAfter=1,
             leftIndent=12,
             firstLineIndent=-7,
         )
-        for interest in professor["Research Interests"]:
+        interests = kod['Research Interests'] if ko else professor["Research Interests"]
+        for interest in interests:
             story.append(Paragraph(f"•&nbsp;&nbsp;{interest}", interest_style))
 
         story.append(Spacer(1, 6))
 
     # === PROFESSIONAL EXPERIENCE ===
-    story.append(SectionHeader("Professional Experience", "◆"))
-    story.append(Spacer(1, 8))
+    add_section_header(story, L['experience'], "◆", lang=lang)
 
     # Sort experience by start year (newest first)
     def get_exp_start_year(exp):
@@ -589,8 +775,16 @@ def generate_cv():
             department = exp.get("Department", "")
             institution = exp.get("institution", "")
             period = exp.get("period", "")
+            if ko:
+                # Look up Korean translation by period key
+                ko_exp = kod.get('experience', {}).get(period)
+                if ko_exp:
+                    position = ko_exp['position']
+                    subtitle = ko_exp['org']
+                else:
+                    subtitle = f"{department}<br/>{institution}" if department else institution
             # Combine department and institution with line break
-            if department:
+            elif department:
                 subtitle = f"{department}<br/>{institution}"
             else:
                 subtitle = institution
@@ -619,8 +813,7 @@ def generate_cv():
 
     # === EDUCATION ===
     story.append(Spacer(1, 6))
-    story.append(SectionHeader("Education", "◇"))
-    story.append(Spacer(1, 8))
+    add_section_header(story, L['education'], "◇", lang=lang)
 
     for edu in professor["education"]:
         if isinstance(edu, dict):
@@ -632,9 +825,16 @@ def generate_cv():
             thesis = edu.get("thesis", "")
             advisor = edu.get("advisor", "")
 
+            if ko:
+                ko_edu = kod.get('education', {}).get(period, {})
+                degree = ko_edu.get('degree', degree)
+                field = ko_edu.get('field', field)
+                institution = ko_edu.get('institution', institution)
+                advisor = ko_edu.get('advisor', advisor)
+
             title = f"{degree}, {field}, {institution}"
 
-            # Thesis and advisor as subtitle
+            # Thesis and advisor as subtitle (thesis kept in English)
             subtitle = None
             description = None
             if thesis:
@@ -642,6 +842,8 @@ def generate_cv():
                     subtitle = f"{thesis} ({advisor})"
                 else:
                     subtitle = thesis
+            elif ko and advisor:
+                subtitle = f"지도교수: {advisor}"
 
             # Extract start and end years from period like "2003.3-2010.1"
             year_matches = re.findall(r'(\d{4})', period)
@@ -675,49 +877,55 @@ def generate_cv():
             styles
         ))
 
-    # === GRANTS AND AWARDS ===
-    if professor.get("Grants and Awards"):
+    # === HONORS AND AWARDS ===
+    awards_list = professor.get("Honors and Awards") or professor.get("Grants and Awards")
+    if awards_list:
         story.append(Spacer(1, 6))
-        story.append(SectionHeader("Grants and Awards", "★"))
-        story.append(Spacer(1, 8))
+        add_section_header(story, L['awards'], "★", lang=lang)
 
-        for award in professor["Grants and Awards"]:
-            # Parse: "Award Name, Date, Institution"
-            parts = award.split(", ")
-            if len(parts) >= 2:
-                # Try to find date pattern
-                date_str = ""
-                award_parts = []
-                for part in parts:
-                    if re.search(r'\d{4}', part):
-                        date_str = part
-                    else:
-                        award_parts.append(part)
-
-                award_name = award_parts[0] if award_parts else parts[0]
-                institution = ", ".join(award_parts[1:]) if len(award_parts) > 1 else ""
-
-                # Extract year for display
-                year_match = re.search(r'(\d{4})', date_str)
-                date_display = year_match.group(1) if year_match else ""
-
+        if ko:
+            for a in kod.get('Honors and Awards', []):
                 story.append(create_timeline_entry(
-                    date_display,
-                    award_name,
-                    institution if institution else None,
-                    None,
-                    styles
+                    a.get('year', ''), a.get('name', ''),
+                    a.get('org') or None, None, styles
                 ))
+        else:
+            for award in awards_list:
+                # Parse: "Award Name, Date, Institution"
+                parts = award.split(", ")
+                if len(parts) >= 2:
+                    # Try to find date pattern
+                    date_str = ""
+                    award_parts = []
+                    for part in parts:
+                        if re.search(r'\d{4}', part):
+                            date_str = part
+                        else:
+                            award_parts.append(part)
+
+                    award_name = award_parts[0] if award_parts else parts[0]
+                    institution = ", ".join(award_parts[1:]) if len(award_parts) > 1 else ""
+
+                    # Extract year for display
+                    year_match = re.search(r'(\d{4})', date_str)
+                    date_display = year_match.group(1) if year_match else ""
+
+                    story.append(create_timeline_entry(
+                        date_display,
+                        award_name,
+                        institution if institution else None,
+                        None,
+                        styles
+                    ))
 
     # === PROFESSIONAL ACTIVITIES/MEMBERSHIPS ===
     if professor.get("Professional Activities/Memberships"):
         story.append(Spacer(1, 6))
-        story.append(SectionHeader("Professional Activities", "●"))
-        story.append(Spacer(1, 8))
+        add_section_header(story, L['activities'], "●", lang=lang)
 
         activity_style = ParagraphStyle(
             name='Activity',
-            fontName='Helvetica',
+            fontName=(KFONT if ko else 'Helvetica'),
             fontSize=9,
             textColor=black,
             alignment=TA_LEFT,
@@ -727,21 +935,22 @@ def generate_cv():
             leftIndent=12,
             firstLineIndent=-7,
         )
-        for activity in professor["Professional Activities/Memberships"]:
+        activities = (kod['Professional Activities/Memberships'] if ko
+                      else professor["Professional Activities/Memberships"])
+        for activity in activities:
             story.append(Paragraph(f"•&nbsp;&nbsp;{activity}", activity_style))
 
     # === PUBLICATIONS ===
     story.append(Spacer(1, 6))
-    story.append(SectionHeader("Publications", "■", subtitle="(2024-2026)"))
-    story.append(Spacer(1, 4))
+    add_section_header(story, L['publications'], "■", subtitle="(2024-2026)", gap=4, lang=lang)
     pub_note_style = ParagraphStyle(
         name='PubNote',
-        fontName='Helvetica',
+        fontName=(KFONT if ko else 'Helvetica'),
         fontSize=8,
         textColor=LIGHT_GRAY,
         alignment=TA_RIGHT,
     )
-    story.append(Paragraph('* Shaded entries indicate first author or corresponding author publications.', pub_note_style))
+    story.append(Paragraph(L['pub_note'], pub_note_style))
 
     # Filter publications from 2024 onwards only
     recent_journals = [j for j in journals if j.get('year', 0) >= 2024]
@@ -781,17 +990,17 @@ def generate_cv():
 
     def format_pub_stats(total, corresponding, coauthor):
         """Format publication statistics, omitting zero values."""
-        parts = [f"Total: {total}"]
+        parts = [f"{L['total']}: {total}"]
         if corresponding > 0:
-            parts.append(f"Corresponding: {corresponding}")
+            parts.append(f"{L['corresponding']}: {corresponding}")
         if coauthor > 0:
-            parts.append(f"Co-Author: {coauthor}")
+            parts.append(f"{L['coauthor']}: {coauthor}")
         return ", ".join(parts)
 
     # Journal Articles section (first)
     story.append(Spacer(1, 4))
     journal_stats = format_pub_stats(len(published_journals), journal_corresponding, journal_coauthor)
-    story.append(Paragraph(f"<b>Journal Articles</b> ({journal_stats})", styles['Subsection']))
+    story.append(Paragraph(f"<b>{L['journal_articles']}</b> ({journal_stats})", styles['Subsection']))
 
     pub_number = 1
     for year in years:
@@ -842,13 +1051,13 @@ def generate_cv():
         story.append(Spacer(1, 4))
         preprint_submitted.sort(key=get_sort_key)
         submitted_stats = format_pub_stats(len(preprint_submitted), submitted_corresponding, submitted_coauthor)
-        story.append(Paragraph(f"<b>In Submission</b> ({submitted_stats})", styles['Subsection']))
+        story.append(Paragraph(f"<b>{L['in_submission']}</b> ({submitted_stats})", styles['Subsection']))
 
         for i, pub in enumerate(preprint_submitted, 1):
             authors = format_authors(pub['authors'])
             title = pub['title']
             journal = pub['journal']
-            status = 'Submitted'  # Always show as Submitted
+            status = L['submitted']  # Always show as Submitted/투고 중
 
             # Add IF info right after journal name
             if_info = ""
@@ -916,27 +1125,39 @@ def generate_cv():
     ongoing = sorted([p for p in pi_projects if p.get('status') == 'ongoing'], key=get_project_start_year, reverse=True)
     completed = sorted([p for p in pi_projects if p.get('status') == 'completed'], key=get_project_start_year, reverse=True)
 
+    def fund_amount(billion):
+        """Localized funding amount: '23.2B KRW' (en) or '232억 원' (ko)."""
+        if ko:
+            eok = billion * 10  # 1B KRW = 10억 원
+            return (f"{int(eok)}억 원" if abs(eok - round(eok)) < 1e-6 else f"{eok:.1f}억 원")
+        return f"{billion:.1f}B KRW"
+
     # Calculate total funding amount and date range
     total_funding = sum(get_funding_amount_billion(p) for p in pi_projects)
     earliest_year = min(get_project_start_year(p) for p in pi_projects) if pi_projects else 0
-    total_funding_str = f"{total_funding:.1f}B KRW since {earliest_year}" if total_funding > 0 else ""
+    if total_funding > 0:
+        if ko:
+            total_funding_str = f"{fund_amount(total_funding)}, {earliest_year}년 이후"
+        else:
+            total_funding_str = f"{fund_amount(total_funding)} {L['since']} {earliest_year}"
+    else:
+        total_funding_str = ""
 
     story.append(Spacer(1, 6))
-    story.append(SectionHeader("Research Grants", "◆", subtitle=f"({total_funding_str})" if total_funding_str else None))
-    story.append(Spacer(1, 4))
+    add_section_header(story, L['grants'], "◆", subtitle=f"({total_funding_str})" if total_funding_str else None, gap=4, lang=lang)
     grant_note_style = ParagraphStyle(
         name='GrantNote',
-        fontName='Helvetica',
+        fontName=(KFONT if ko else 'Helvetica'),
         fontSize=8,
         textColor=LIGHT_GRAY,
         alignment=TA_RIGHT,
     )
-    story.append(Paragraph('* Shaded entries indicate grants with funding ≥ 10B KRW.', grant_note_style))
+    story.append(Paragraph(L['grant_note'], grant_note_style))
 
     # Compact project style
     project_style = ParagraphStyle(
         name='ProjectCompact',
-        fontName='Helvetica',
+        fontName=(KFONT if ko else 'Helvetica'),
         fontSize=9,
         textColor=black,
         alignment=TA_LEFT,
@@ -950,7 +1171,7 @@ def generate_cv():
     # Highlighted project style (for PI/Co-PI)
     project_highlight_style = ParagraphStyle(
         name='ProjectHighlight',
-        fontName='Helvetica',
+        fontName=(KFONT if ko else 'Helvetica'),
         fontSize=9,
         textColor=black,
         alignment=TA_LEFT,
@@ -966,15 +1187,24 @@ def generate_cv():
         """Create a compact one-line project entry."""
         title_en = proj['title'].get('en', proj['title']) if isinstance(proj['title'], dict) else proj['title']
         title_ko = proj['title'].get('ko', '') if isinstance(proj['title'], dict) else ''
+        if ko:
+            title_ko = ko_sanitize(title_ko)
         period = proj['period'].get('en', proj['period']) if isinstance(proj['period'], dict) else proj['period']
         role = proj['role'].get('en', proj['role']) if isinstance(proj['role'], dict) else proj['role']
         agency = proj['fundingAgency'].get('en', proj['fundingAgency']) if isinstance(proj['fundingAgency'], dict) else proj['fundingAgency']
+
+        # Role color (PI and Co-PI both blue) and localized label
+        role_upper = role.upper()
+        role_hex = '#2563eb' if role_upper in ['PI', 'CO-PI'] else '#6b7280'
+        if ko:
+            role_label = {'PI': '연구책임', 'CO-PI': '공동연구'}.get(role_upper, role)
+        else:
+            role_label = role
+
+        # Localized funding amount
         amount = ''
         if proj.get('fundingAmount'):
-            amount = proj['fundingAmount'].get('en', proj['fundingAmount']) if isinstance(proj['fundingAmount'], dict) else proj['fundingAmount']
-
-        # Role color (PI and Co-PI both blue)
-        role_hex = '#2563eb' if role.upper() in ['PI', 'CO-PI'] else '#6b7280'
+            amount = fund_amount(get_funding_amount_billion(proj))
 
         # Shorten year format: 2021.01 => 21.01, and replace " - " with "~"
         def shorten_period(p):
@@ -983,12 +1213,16 @@ def generate_cv():
             return p
         period = shorten_period(period)
 
-        # Format: Title (Korean) | Period | Agency | Role | Budget - all in one line
-        line = f'•&nbsp;&nbsp;{title_en}'
-        if title_ko:
-            line += f' <font face="{KOREAN_FONT_NAME}" color="#718096">({title_ko})</font>'
+        # Format: Title | Period | Agency | Role | Budget - all in one line.
+        # Korean CV leads with the Korean title; English CV leads with English.
+        if ko and title_ko:
+            line = f'•&nbsp;&nbsp;{title_ko}'
+        else:
+            line = f'•&nbsp;&nbsp;{title_en}'
+            if title_ko:
+                line += f' <font face="{KOREAN_FONT_NAME}" color="#718096">({title_ko})</font>'
         line += f' | {period} | {agency} |'
-        line += f' <font color="{role_hex}"><b>{role}</b></font>'
+        line += f' <font color="{role_hex}"><b>{role_label}</b></font>'
         if amount:
             line += f' | <font color="#2563eb">{amount}</font>'
 
@@ -1015,8 +1249,8 @@ def generate_cv():
 
     # Ongoing Projects
     if ongoing:
-        ongoing_total_str = f"({ongoing_total:.1f}B KRW)" if ongoing_total > 0 else ""
-        story.append(Paragraph(f"<b>Ongoing Grants</b> {ongoing_total_str}", styles['Subsection']))
+        ongoing_total_str = f"({fund_amount(ongoing_total)})" if ongoing_total > 0 else ""
+        story.append(Paragraph(f"<b>{L['ongoing']}</b> {ongoing_total_str}", styles['Subsection']))
         for proj in ongoing:
             style = project_highlight_style if is_large_grant(proj) else project_style
             story.append(Paragraph(format_project_line(proj), style))
@@ -1024,8 +1258,8 @@ def generate_cv():
     # Completed Grants
     if completed:
         story.append(Spacer(1, 4))
-        completed_total_str = f"({completed_total:.1f}B KRW)" if completed_total > 0 else ""
-        story.append(Paragraph(f"<b>Completed Grants</b> {completed_total_str}", styles['Subsection']))
+        completed_total_str = f"({fund_amount(completed_total)})" if completed_total > 0 else ""
+        story.append(Paragraph(f"<b>{L['completed']}</b> {completed_total_str}", styles['Subsection']))
         for proj in completed:
             style = project_highlight_style if is_large_grant(proj) else project_style
             story.append(Paragraph(format_project_line(proj), style))
@@ -1037,4 +1271,5 @@ def generate_cv():
 
 
 if __name__ == "__main__":
-    generate_cv()  # Generate PDF
+    generate_cv('en')   # English CV
+    generate_cv('ko')   # Korean CV (이력서)
