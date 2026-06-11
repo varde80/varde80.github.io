@@ -1,6 +1,6 @@
 # CV Generator
 
-Automatically generates a PDF CV from AIMAT Lab website data.
+Automatically generates bilingual (English + Korean) PDF CVs from AIMAT Lab website data.
 
 ## Setup
 
@@ -29,13 +29,14 @@ The generated CV will be saved in the `output/` folder.
 
 ## Output
 
-- Filename format: `YYYYMMDD_CV_HLee.pdf`
-- Location: `cv-generator/output/`
+- English CV: `YYYYMMDD_CV_HLee.pdf`
+- Korean CV: `YYYYMMDD_CV_HLee_KR.pdf`
+- Location: `cv-generator/output/` (local only, not committed to git)
 
 ## Data Sources
 
 Uses JSON data files from the website:
-- `src/data/members.json` - Professor info, education, experience
+- `src/data/professor.json` - Professor info, education, experience, awards, activities (Korean content under the `ko` key)
 - `src/data/journals.json` - Journal publications
-- `src/data/conferences.json` - Conference proceedings
-- `src/data/projects.json` - Research projects
+- `src/data/projects.json` - Research grants (PI/Co-PI only)
+- `src/data/IF.json` - Journal impact factors
