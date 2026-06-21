@@ -1437,7 +1437,9 @@
         ],
         "journal": "Engineering with Computers",
         "year": 2026,
-        "status": "accepted",
+        "volume": 42,
+        "pages":132,        
+        "doi":"10.1007/s00366-026-02368-4"
         "featured": false
     }
     ]
