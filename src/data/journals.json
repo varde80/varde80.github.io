@@ -1442,5 +1442,26 @@
         "doi":"10.1007/s00366-026-02368-4",
         "highlightImage": "/images/publications/2026_EWC_Tran_f.jpg",
         "featured": false
+    },
+    {
+        "id": "pub78",
+        "type": "journal",
+        "title": "Lorentz-force alignment governs keyhole stability in laser metal melting",
+        "authors": [
+            "Dac-Phuc Pham",
+            "Zhengtong Shan",
+            "Kyung-Hwan Jung",
+            "Ho Won Lee^",
+            "Wen Chen",
+            "Jiong Zhang",
+            "Dong-Kyu Kim*"
+        ],
+        "journal": "International Journal of Mechanical Sciences",
+        "year": 2026,
+        "volume": "325",
+        "pages": "111877",
+        "doi": "10.1016/j.ijmecsci.2026.111877",
+        "highlightImage": "/images/publications/2026_IJMS_Pham.jpg",
+        "featured": false
     }
     ]
