@@ -80,7 +80,7 @@
     "id": "f7",
     "name": "Collaborative Robot Arm",
     "description": "A compact, lightweight 6-axis collaborative robot arm designed to automate handling and repetitive tasks in confined workspaces.",
-    "image": "/images/facilities/ur3e.jpg",
+    "image": "/images/facilities/ur3e.png",
     "manufacturer": "Universal Robots",
     "model": "UR3e",
     "specifications": [
@@ -96,7 +96,7 @@
     "id": "f8",
     "name": "Large-Format SLA 3D Printer",
     "description": "A large-format desktop stereolithography (SLA) resin 3D printer for high-resolution prototyping and fabrication of large parts.",
-    "image": "/images/facilities/form_4l.jpg",
+    "image": "/images/facilities/form_4l.png",
     "manufacturer": "Formlabs",
     "model": "Form 4L",
     "specifications": [
