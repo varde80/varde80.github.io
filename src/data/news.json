@@ -44,5 +44,16 @@
     "description": "Dr. Tran and Mr. Cuong attended the Materials Research Meeting (MRM) 2025 held in Yokohama, Japan.",
     "date": "2025-12-08",
     "category": "Conferences"
+  },
+  {
+    "id": "g5",
+    "images": [
+      "/images/news/PRESM2026_1.jpg",
+      "/images/news/PRESM2026_2.jpg"
+    ],
+    "title": "PRESM 2026 in Singapore",
+    "description": "Prof. Lee, Dr. Tran, and Mr. Joo attended the International Conference on Precision Engineering and Sustainable Manufacturing (PRESM 2026), held at Marina Bay Sands Expo, Singapore, and presented two posters.",
+    "date": "2026-07-03",
+    "category": "Conferences"
   }
 ]

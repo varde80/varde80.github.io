@@ -1154,5 +1154,44 @@
         "Venue": "Sono Calm Yeosu Hotel, Yeosu, Korea",
         "featured": false,
         "scope": "domestic"
+    },
+    {
+        "id": "conf60",
+        "type": "conference",
+        "title": "Data-efficient Prediction of Microstructure-property Linkage in Polycrystals Using Graph Neural Networks",
+        "authors": [
+            "Minh Tien Tran^",
+            "Jaimyun Jung",
+            "Hoheok Kim",
+            "Se-Jong Kim",
+            "Ho Won Lee^"
+        ],
+        "Conference Name": "International Conference on Precision Engineering and Sustainable Manufacturing (PRESM 2026)",
+        "year": 2026,
+        "start date": "2026.6.28",
+        "end date": "2026.7.3",
+        "Venue": "Marina Bay Sands Expo, Singapore",
+        "featured": false,
+        "scope": "international"
+    },
+    {
+        "id": "conf61",
+        "type": "conference",
+        "title": "Transformer-enabled Surrogate Model for Polycrystal Plasticity: High-efficiency Prediction of Mechanical Behavior under Complex Loading Paths",
+        "authors": [
+            "Mooyeong Joo^",
+            "Minh Tien Tran^",
+            "Chi-hun Lee",
+            "Sehyeok Oh",
+            "Seongjun Bae",
+            "Ho Won Lee^"
+        ],
+        "Conference Name": "International Conference on Precision Engineering and Sustainable Manufacturing (PRESM 2026)",
+        "year": 2026,
+        "start date": "2026.6.28",
+        "end date": "2026.7.3",
+        "Venue": "Marina Bay Sands Expo, Singapore",
+        "featured": false,
+        "scope": "international"
     }
 ]
