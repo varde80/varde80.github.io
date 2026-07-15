@@ -7,8 +7,9 @@
     "manufacturer": "Miruware",
     "model": "K8S Cluster",
     "specifications": [
-      "Nvidia A100 x10ea",
-      "Nvidia A6000 x24ea"
+      "Nvidia A100 x18ea",
+      "Nvidia A6000 x24ea",
+      "Nvidia RTX PRO6000 x1ea"
     ]
   },
   {
@@ -73,6 +74,37 @@
       "Repeatability: 0.020 mm / 300 mm",
       "Laser Lifespan: Over 100,000 hours",
       "Processing Area (Working Area): 1.2 m x 0.9 m"
+    ]
+  },
+  {
+    "id": "f7",
+    "name": "Collaborative Robot Arm",
+    "description": "A compact, lightweight 6-axis collaborative robot arm designed to automate handling and repetitive tasks in confined workspaces.",
+    "image": "/images/facilities/ur3e.jpg",
+    "manufacturer": "Universal Robots",
+    "model": "UR3e",
+    "specifications": [
+      "Payload: 3 kg",
+      "Reach: 500 mm",
+      "Degrees of Freedom: 6 rotating joints",
+      "Pose Repeatability: ± 0.03 mm (ISO 9283)",
+      "Footprint: Ø 128 mm",
+      "Weight: 11.2 kg"
+    ]
+  },
+  {
+    "id": "f8",
+    "name": "Large-Format SLA 3D Printer",
+    "description": "A large-format desktop stereolithography (SLA) resin 3D printer for high-resolution prototyping and fabrication of large parts.",
+    "image": "/images/facilities/form_4l.jpg",
+    "manufacturer": "Formlabs",
+    "model": "Form 4L",
+    "specifications": [
+      "Print Technology: Low Force Display (LFD) / MSLA",
+      "Build Volume: 353 × 196 × 350 mm (24.2 L)",
+      "XY Resolution: 46 µm pixel size",
+      "Layer Thickness: 25–200 µm",
+      "XY Dimensional Tolerance: ± 0.15%"
     ]
   }
 ]
