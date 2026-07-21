@@ -335,7 +335,7 @@
         "type": "journal",
         "title": "Interface-correlated bonding properties for a roll-bonded Ti/Al 2-ply sheet",
         "authors": [
-            "Kwang Seok Lee*",
+            "Kwang Seok Lee",
             "Seong Jun Bae",
             "Ho Won Lee^",
             "Seong Hoon Kang"
@@ -766,7 +766,7 @@
             "Kook-Chae Chung",
             "Duck-Young Hwang",
             "Seong-Hoon Kang",
-            "Jeong Whan Yoon*"
+            "Jeong Whan Yoon"
         ],
         "journal": "Metals and Materials International",
         "year": 2022,
@@ -784,7 +784,7 @@
             "In Yong Moon",
             "Hi Won Jeong",
             "Ho Won Lee^",
-            "Ji Hoon Kim*",
+            "Ji Hoon Kim",
             "Seong-Hoon Kang"
         ],
         "journal": "Metals and Materials International",
@@ -859,7 +859,7 @@
         "type": "journal",
         "title": "Interpretable machine learning-based analysis of mechanical properties of extruded Mg-Al-Zn-Mn-Ca-Y alloys",
         "authors": [
-            "Joung Sik Suh*",
+            "Joung Sik Suh",
             "Young Min Kim",
             "Chang Dong Yim",
             "Byeong-Chan Suh",
@@ -915,7 +915,7 @@
         "type": "journal",
         "title": "Crystal Plasticity Finite Element Analyses on the Formability of AA6061 Aluminum Alloy with Different Ageing Treatments",
         "authors": [
-            "Huai Wang^*",
+            "Huai Wang^",
             "Ho Won Lee^*",
             "Seong-Hoon Kang",
             "Dong-Kyu Kim"
@@ -1068,7 +1068,7 @@
             "Jaimyun Jung",
             "Sehyeok Oh",
             "Dong-Kyu Kim",
-            "Ji Hoon Kim*",
+            "Ji Hoon Kim",
             "Ho Won Lee^*"
         ],
         "journal": "Korean Journal of Metals and Materials",
@@ -1454,7 +1454,7 @@
             "Ho Won Lee^",
             "Wen Chen",
             "Jiong Zhang",
-            "Dong-Kyu Kim*"
+            "Dong-Kyu Kim"
         ],
         "journal": "International Journal of Mechanical Sciences",
         "year": 2026,
@@ -1477,7 +1477,7 @@
             "Sun-Kwang Hwang",
             "Hobyung Chae",
             "Wanchuck Woo",
-            "Dong-Kyu Kim*"
+            "Dong-Kyu Kim"
         ],
         "journal": "Composites Part B: Engineering",
         "year": 2026,
