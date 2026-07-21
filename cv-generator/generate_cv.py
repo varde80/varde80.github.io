@@ -603,7 +603,7 @@ def create_header_table(professor, lang='en'):
         ('RIGHTPADDING', (1, 0), (1, 0), 15),
         ('TOPPADDING', (0, 0), (-1, -1), 15),
         ('BOTTOMPADDING', (0, 0), (-1, -1), 15),
-        ('VALIGN', (0, 0), (0, 0), 'TOP'),
+        ('VALIGN', (0, 0), (0, 0), 'MIDDLE'),  # center text so photo-driven banner height leaves no dead band below the contact lines
         ('VALIGN', (1, 0), (1, 0), 'MIDDLE'),
         ('ALIGN', (1, 0), (1, 0), 'RIGHT'),
     ]))
@@ -1244,6 +1244,7 @@ def build_grants(ctx):
     flow.append(Paragraph(ctx.labels['grant_note'], ctx.styles['GrantNote']))
 
     if ongoing:
+        flow.append(Spacer(1, 4))  # match the gap before the Journal Articles subsection
         ongoing_total = sum(get_funding_amount_billion(p) for p in ongoing)
         ongoing_total_str = f"({ctx.fund_amount(ongoing_total)})" if ongoing_total > 0 else ""
         flow.append(Paragraph(f"<b>{ctx.labels['ongoing']}</b> {ongoing_total_str}", ctx.styles['Subsection']))
