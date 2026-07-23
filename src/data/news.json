@@ -48,6 +48,7 @@
   {
     "id": "g5",
     "images": [
+      "/images/news/PRESM2026_0.jpg",
       "/images/news/PRESM2026_1.jpg",
       "/images/news/PRESM2026_2.jpg",
       "/images/news/PRESM2026_3.jpg",
@@ -58,6 +59,17 @@
     "title": "PRESM 2026 in Singapore",
     "description": "Prof. Lee, Dr. Tran, and Mr. Joo attended the International Conference on Precision Engineering and Sustainable Manufacturing (PRESM 2026), held at Marina Bay Sands Expo, Singapore, and presented two posters.",
     "date": "2026-07-03",
+    "category": "Conferences"
+  },
+  {
+    "id": "g6",
+    "images": [
+      "/images/news/ICML2026_1.jpg",
+      "/images/news/ICML2026_2.jpg"
+    ],
+    "title": "ICML 2026 in Seoul, Korea",
+    "description": "Prof. Lee, Dr. Tran, Mr. Joo, Mr. Cuong, and Mr. Nam attended the International Conference on Machine Learning (ICML 2026), held at COEX, Seoul, Korea.",
+    "date": "2026-07-11",
     "category": "Conferences"
   }
 ]
