@@ -33,8 +33,8 @@ interface HeroSlide {
 const heroSlides: HeroSlide[] = [
   {
     image: '/images/hero/slide1.png',
-    title: 'AI for Materials Lab',
-    subtitle: 'Exploring the secrets of materials using AI'
+    title: 'AIMAP Lab',
+    subtitle: 'AI for Materials and Processing — exploring the secrets of materials with AI'
   },
   {
     image: '/images/hero/slide2.png',
