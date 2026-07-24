@@ -201,7 +201,7 @@ const conferencesByYear = computed(() => {
 
 <template>
   <div class="bg-gray-50 min-h-screen">
-    <PageHero title="Publications" subtitle="Journal articles and conference presentations from AIMAT Lab.">
+    <PageHero title="Publications" subtitle="Journal articles and conference presentations from AIMAP Lab.">
       <!-- Tabs -->
       <div class="flex flex-wrap mt-8 gap-4">
         <FilterPill :active="activeTab === 'journals'" @click="activeTab = 'journals'">

@@ -1,35 +1,35 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand (blue) — anchors the original #0066cc/#3b82f6 palette */
-  --color-brand-50: #eff6ff;
-  --color-brand-100: #dbeafe;
-  --color-brand-300: #93c5fd;
-  --color-brand-400: #60a5fa;
-  --color-brand-500: #3b82f6;
-  --color-brand-600: #2563eb;
-  --color-brand-700: #1d4ed8;
-  --color-brand-900: #1e3a8a;
+  /* Brand (burnt orange) — anchors the AIMAP #D2622B identity */
+  --color-brand-50: #fdf4ed;
+  --color-brand-100: #fae3d1;
+  --color-brand-300: #efa876;
+  --color-brand-400: #e07b3c;
+  --color-brand-500: #d2622b;
+  --color-brand-600: #b6491c;
+  --color-brand-700: #963b17;
+  --color-brand-900: #5f2610;
 
-  /* Accent (violet) — the purple half of the tech gradient */
-  --color-accent-100: #ede9fe;
-  --color-accent-300: #c4b5fd;
-  --color-accent-400: #a78bfa;
-  --color-accent-500: #8b5cf6;
-  --color-accent-600: #7c3aed;
-  --color-accent-700: #6d28d9;
+  /* Accent (deep rust) — the darker half of the ember gradient */
+  --color-accent-100: #f7ded0;
+  --color-accent-300: #d68a58;
+  --color-accent-400: #c05a26;
+  --color-accent-500: #a8431a;
+  --color-accent-600: #8f3714;
+  --color-accent-700: #732c10;
 
-  /* Dark navy surfaces for hero/header/footer */
-  --color-navy-800: #16213a;
-  --color-navy-900: #0d1528;
-  --color-navy-950: #070d1c;
+  /* Dark warm charcoal surfaces for hero/header/footer */
+  --color-navy-800: #241c16;
+  --color-navy-900: #191310;
+  --color-navy-950: #100d0a;
 
   /* Warm highlight — retained from the legacy #F0980C, used sparingly */
   --color-highlight-500: #f0980c;
 
   --font-sans: "Pretendard Variable", Pretendard, system-ui, -apple-system, sans-serif;
 
-  --shadow-glow: 0 0 24px 0 rgb(124 58 237 / 0.25);
+  --shadow-glow: 0 0 24px 0 rgb(210 98 43 / 0.25);
   --ease-lift: cubic-bezier(0.22, 1, 0.36, 1);
 }
 

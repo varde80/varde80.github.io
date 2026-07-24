@@ -9,7 +9,7 @@ const currentYear = new Date().getFullYear()
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Lab Info -->
         <div>
-          <h3 class="text-lg font-semibold mb-4">UST AIMAT Lab</h3>
+          <h3 class="text-lg font-semibold mb-4">UST AIMAP Lab</h3>
           <p class="text-gray-400 text-sm leading-relaxed">
             797 Changwon-daero, Seongsan-gu, Changwon-si<br>
             51508 Republic of Korea
@@ -65,7 +65,7 @@ const currentYear = new Date().getFullYear()
 
       <!-- Copyright -->
       <div class="border-t border-white/10 mt-8 pt-8 text-center text-sm text-gray-400">
-        <p>&copy; {{ currentYear }} UST AIMAT Lab. All rights reserved.</p>
+        <p>&copy; {{ currentYear }} UST AIMAP Lab. All rights reserved.</p>
       </div>
     </div>
   </footer>

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CV Generator for AIMAT Lab Website
+CV Generator for AIMAP Lab Website
 Generates professional bilingual (English/Korean) PDF CVs with modern design.
 """
 

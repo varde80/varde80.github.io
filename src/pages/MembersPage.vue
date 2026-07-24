@@ -16,7 +16,7 @@ const activeTab = ref<'professor' | 'members'>('professor')
 
 <template>
   <div class="bg-gray-50 min-h-screen">
-    <PageHero title="Members" subtitle="The people behind AIMAT Lab's research.">
+    <PageHero title="Members" subtitle="The people behind AIMAP Lab's research.">
       <div class="flex flex-wrap mt-8 gap-4">
         <FilterPill :active="activeTab === 'professor'" @click="activeTab = 'professor'">
           Professor

@@ -9,7 +9,7 @@ const contact = ref<ContactInfo>(contactData as ContactInfo)
 
 <template>
   <div class="bg-gray-50 min-h-screen">
-    <PageHero title="Contact Us" subtitle="Get in touch with AIMAT Lab." />
+    <PageHero title="Contact Us" subtitle="Get in touch with AIMAP Lab." />
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
