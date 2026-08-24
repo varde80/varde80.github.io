@@ -1,9 +1,6 @@
 [
-    
-    
-    
     {
-        "id": "prep7",
+        "id": "prep1",
         "type": "journal",
         "title": "Unified Generation of Micrograph-Mask Pairs via Phase-Fraction-Guided Diffusion for Metallographic Segmentation in Small-Data Regimes",
         "authors": [
@@ -20,24 +17,56 @@
         "featured": false
     },
     {
-        "id": "prep8",
+        "id": "prep2",
         "type": "journal",
         "title": "ReFract: Projection-aware diffusion models with cross-domain attention for noise-robust electron backscatter diffraction pattern restoration and crystallographic indexing",
         "authors": [
-            "Hoang Hai Nam Nguyen^",                
-            "Chihun Lee",
-            "Jaimyun  Jung",
+            "Hoang Hai Nam Nguyen+^",
+            "Chihun Lee+",
+            "Jaimyun Jung",
             "Eun Young Kim",
             "Sangwon Lee",
             "Kyung Song",
             "Seong-Hoon Kang",
             "Ho Won Lee^*"
         ],
-        "journal": "In preperation",
+        "journal": "In preparation",
         "year": 2026,
-        "status": "In preperation",
+        "status": "In preparation",
+        "featured": false
+    },
+    {
+        "id": "prep3",
+        "type": "journal",
+        "title": "An Any-to-Any Framework for Alloys: Application to High-Entropy Ferritic Alloys",
+        "authors": [
+            "Jaimyun Jung",
+            "Ka Ram Lim",
+            "Heoun Jun Kwon",
+            "Sehyeok Oh",
+            "Seong Jun Bae",
+            "Hoheok Kim",
+            "Gian Song",
+            "Hye Jung Chang",
+            "Ho Won Lee^*"
+        ],
+        "journal": "In preparation",
+        "year": 2026,
+        "status": "In preparation",
+        "featured": false
+    },
+    {
+        "id": "prep4",
+        "type": "journal",
+        "title": "Condition–Grain Cross-Attention Surrogate for Predicting Stress Response and Texture Evolution in Self-Consistent Crystal Plasticity",
+        "authors": [
+            "Mooyeong Joo^",
+            "Minh Tien Tran^",
+            "Ho Won Lee^*"
+        ],
+        "journal": "In preparation",
+        "year": 2026,
+        "status": "In preparation",
         "featured": false
     }
-
-
 ]
