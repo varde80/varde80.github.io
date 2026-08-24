@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>AIMAP 연구실 홍보 전단 (한글)</title>
+<style>
+  :root {
+    --ink: #171210;
+    --ink-deep: #0e0b09;
+    --ink-warm: #221913;
+    --orange: #d2622b;
+    --orange-bright: #e0762f;
+    --ember: #f0955c;
+    --rust: #b6491c;
+    --cream: #f4ede5;
+    --muted: #8a7666;
+    --faint: #5e4f42;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  @page { size: A4; margin: 0; }
+  html, body { background: #555; }
+  body {
+    font-family: "Apple SD Gothic Neo", "Avenir Next", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    width: 210mm; height: 297mm;
+    overflow: hidden;
+    position: relative;
+    page-break-after: always;
+    margin: 0 auto;
+    display: flex; flex-direction: column;
+  }
+  @media screen { .page { margin: 8mm auto; box-shadow: 0 4px 24px rgba(0,0,0,.4); } }
+
+  /* ============ FRONT ============ */
+  .front { background: linear-gradient(160deg, #221913 0%, #171210 55%, #0e0b09 100%); color: var(--cream); }
+
+  .front .deco {
+    position: absolute; top: -30mm; right: -34mm; width: 120mm; height: 120mm;
+    opacity: .5; pointer-events: none;
+  }
+  .front .deco2 {
+    position: absolute; bottom: 30mm; left: -40mm; width: 90mm; height: 90mm;
+    opacity: .22; pointer-events: none;
+  }
+
+  .front-header { padding: 15mm 16mm 0; position: relative; z-index: 2; }
+  .logo-chip {
+    display: inline-block; background: #fdfbf7; border-radius: 3mm;
+    padding: 2.2mm 4mm; box-shadow: 0 1mm 4mm rgba(0,0,0,.45);
+  }
+  .logo-chip img { height: 13mm; display: block; }
+  .front-kicker {
+    margin-top: 9mm;
+    font-size: 8.8pt; letter-spacing: 1.4pt; font-weight: 700;
+    color: var(--ember);
+  }
+  .front-title {
+    margin-top: 2.5mm;
+    font-size: 27pt; line-height: 1.22; font-weight: 800; letter-spacing: -.3pt;
+    color: #fdf8f2;
+  }
+  .front-title .accent { color: var(--orange-bright); }
+  .front-sub {
+    margin-top: 3.6mm; font-size: 10.5pt; font-weight: 600; color: #d8cfc4;
+  }
+  .front-sub b { color: var(--cream); font-weight: 700; }
+  .front-tagline {
+    margin-top: 3.4mm; font-size: 9.4pt; line-height: 1.7; color: #b3a495;
+    max-width: 165mm;
+  }
+  .front-tagline .hl { color: var(--ember); font-weight: 700; }
+
+  .rule {
+    margin: 6.5mm 16mm 0; height: .45mm; border: 0;
+    background: linear-gradient(90deg, var(--orange) 0 28mm, rgba(138,118,102,.35) 28mm);
+  }
+
+  .section-label {
+    margin: 5.8mm 16mm 0;
+    font-size: 9.2pt; letter-spacing: 1.6pt; font-weight: 800;
+    color: var(--ember);
+  }
+
+  .research-grid {
+    margin: 4.5mm 16mm 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5mm;
+    align-content: start;
+  }
+  .rcard {
+    grid-column: span 2;
+    background: rgba(244,237,229,.055);
+    border: .3mm solid rgba(240,149,92,.28);
+    border-radius: 2.6mm;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .rcard img { width: 100%; height: 31mm; object-fit: cover; display: block; filter: saturate(1.05); }
+  .rcard .rbody { padding: 3mm 3.4mm 3.4mm; }
+  .rcard h3 { font-size: 10pt; font-weight: 800; color: #fbf3ea; line-height: 1.3; letter-spacing: -.2pt; }
+  .rcard h3 .num { color: var(--orange-bright); font-weight: 800; margin-right: 1.2mm; }
+  .rcard p { margin-top: 1.6mm; font-size: 8pt; line-height: 1.55; color: #b3a495; }
+
+  .stats-band {
+    margin: auto 16mm;
+    background: linear-gradient(120deg, var(--rust), var(--orange) 55%, var(--orange-bright));
+    border-radius: 3mm;
+    display: flex;
+    padding: 4.6mm 2mm;
+  }
+  .stat { flex: 1; text-align: center; border-right: .3mm solid rgba(255,244,235,.3); }
+  .stat:last-child { border-right: 0; }
+  .stat .n { font-size: 18pt; font-weight: 800; color: #fff7f0; line-height: 1; }
+  .stat .l { margin-top: 1.4mm; font-size: 7.6pt; letter-spacing: .4pt; color: #ffe3ce; font-weight: 700; }
+
+  .front-footer {
+    margin-top: 0;
+    padding: 3.8mm 16mm 5mm;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: .3mm solid rgba(138,118,102,.3);
+  }
+  .front-footer .url { font-size: 10pt; font-weight: 700; color: var(--ember); letter-spacing: .6pt; }
+  .front-footer .org { font-size: 7.8pt; color: var(--muted); text-align: right; line-height: 1.45; }
+
+  /* ============ BACK ============ */
+  .back { background: #f7f1e8; color: #2a2019; }
+  .back-band {
+    background: linear-gradient(120deg, var(--ink-warm), #33241a);
+    color: var(--cream);
+    padding: 4.2mm 14mm;
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .back-band .wm { font-size: 12.5pt; font-weight: 800; letter-spacing: 1.2pt; }
+  .back-band .wm span { color: var(--orange-bright); }
+  .back-band .sub { font-size: 8.4pt; letter-spacing: .8pt; color: var(--muted); font-weight: 700; }
+
+  .back-inner { flex: 1; padding: 4.4mm 14mm 0; display: flex; flex-direction: column; }
+
+  .sec-h {
+    font-size: 9.2pt; letter-spacing: 1.4pt; font-weight: 800;
+    color: var(--rust);
+    display: flex; align-items: center; gap: 2.5mm;
+  }
+  .sec-h::after { content: ""; flex: 1; height: .35mm; background: rgba(182,73,28,.25); }
+
+  .pi-row { display: flex; gap: 5.5mm; margin-top: 2.8mm; }
+  .pi-photo {
+    width: 25mm; height: 31mm; object-fit: cover; object-position: 50% 12%;
+    border-radius: 2.4mm; border: .6mm solid var(--orange);
+  }
+  .pi-info { flex: 1; }
+  .pi-name { font-size: 13pt; font-weight: 800; color: var(--ink-warm); }
+  .pi-name .ko { font-size: 9.6pt; font-weight: 600; color: var(--faint); margin-left: 1.5mm; }
+  .pi-role { margin-top: 1.2mm; font-size: 8.8pt; line-height: 1.55; color: #4a3d31; }
+  .pi-role b { color: var(--rust); }
+  .pi-meta { margin-top: 1.8mm; font-size: 7.8pt; line-height: 1.6; color: var(--muted); }
+
+  .member-line { margin-top: 1.8mm; font-size: 8.4pt; line-height: 1.75; color: #3a2f25; }
+  .member-line b { color: var(--rust); font-weight: 700; margin-right: .8mm; }
+
+  .benefit-row { display: flex; gap: 6mm; margin-top: 2.2mm; align-items: stretch; }
+  .benefit-list { flex: 1.15; }
+  .benefit-item { display: flex; gap: 2.2mm; margin-top: 2.2mm; font-size: 8.4pt; line-height: 1.5; color: #3a2f25; }
+  .benefit-item:first-child { margin-top: .6mm; }
+  .benefit-item .tick {
+    flex: 0 0 4.6mm; height: 4.6mm; margin-top: .3mm;
+    background: linear-gradient(120deg, var(--rust), var(--orange-bright));
+    border-radius: 1.2mm; color: #fff6ee; font-size: 7.6pt; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .benefit-item b { color: var(--ink-warm); }
+  .pay-box { flex: 1; }
+  table.pay {
+    width: 100%; border-collapse: collapse; margin-top: .6mm;
+    background: #fffdf9; border-radius: 2mm; overflow: hidden;
+  }
+  table.pay th, table.pay td {
+    border: .3mm solid rgba(182,73,28,.28);
+    padding: 1.9mm 2.4mm; font-size: 8.2pt; text-align: center; color: #3a2f25;
+  }
+  table.pay th {
+    background: linear-gradient(120deg, var(--rust), var(--orange-bright));
+    color: #fff6ee; font-weight: 800; border-color: rgba(255,246,238,.35);
+  }
+  table.pay td.rowh { font-weight: 800; color: var(--rust); background: rgba(210,98,43,.08); }
+  .pay-note { margin-top: 1.4mm; font-size: 7.2pt; color: var(--muted); text-align: right; }
+
+  .pub-list { margin-top: 2.4mm; display: flex; flex-direction: column; gap: 1.7mm; }
+  .pub { display: flex; align-items: flex-start; gap: 2.6mm; }
+  .if-badge {
+    flex: 0 0 15mm; text-align: center;
+    background: linear-gradient(120deg, var(--rust), var(--orange-bright));
+    color: #fff6ee; font-size: 7.4pt; font-weight: 800;
+    border-radius: 1.6mm; padding: 1mm 0; line-height: 1.25;
+  }
+  .pub .pt { font-size: 8.2pt; line-height: 1.4; color: #3a2f25; }
+  .pub .pt b { color: var(--ink-warm); }
+  .pub .pj { color: var(--rust); font-weight: 700; }
+  .pub .doi { color: var(--muted); font-size: 7pt; font-weight: 500; text-decoration: none; }
+
+  .chip {
+    font-size: 7.6pt; font-weight: 600; color: var(--rust);
+    background: rgba(210,98,43,.1); border: .3mm solid rgba(210,98,43,.35);
+    border-radius: 10mm; padding: .9mm 2.6mm;
+  }
+  .fac-chips { margin-top: 2.4mm; display: flex; flex-wrap: wrap; gap: 1.8mm; }
+  .proj-row { display: flex; gap: 4mm; margin-top: 2.4mm; }
+  .proj-card {
+    flex: 1; background: rgba(210,98,43,.07); border: .3mm solid rgba(210,98,43,.28);
+    border-radius: 2mm; padding: 2.6mm 3mm; font-size: 8pt; line-height: 1.45; color: #3a2f25;
+  }
+  .proj-card b { color: var(--ink-warm); }
+  .proj-card .sub2 { color: var(--muted); font-size: 7.2pt; }
+  .role-badge {
+    display: inline-block; font-size: 6.6pt; font-weight: 800; letter-spacing: .5pt;
+    color: #fff6ee; background: var(--orange); border-radius: 1.2mm;
+    padding: .4mm 1.8mm; margin-right: 1.2mm; vertical-align: .2mm;
+  }
+  .role-badge.co { background: var(--muted); }
+  .fac-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2.6mm; margin-top: 2.6mm; }
+  .fac-card {
+    background: #fffdf9; border: .3mm solid rgba(94,79,66,.28);
+    border-radius: 2mm; overflow: hidden; text-align: center;
+  }
+  .fac-card img { width: 100%; height: 14mm; object-fit: contain; padding: 1mm; background: #ffffff; display: block; }
+  .fac-card .cap { font-size: 6.8pt; font-weight: 700; color: #4a3d31; padding: 1mm 1mm 1.4mm; line-height: 1.25; }
+  .fac-chips .chip { background: rgba(34,25,19,.05); color: #4a3d31; border-color: rgba(94,79,66,.3); }
+  .fac-chips .chip.hot {
+    background: rgba(210,98,43,.12); color: var(--rust);
+    border-color: rgba(210,98,43,.45); font-weight: 800;
+  }
+  .fac-note { margin-top: 1.8mm; font-size: 7.8pt; line-height: 1.5; color: var(--muted); }
+
+  .join-band {
+    margin-top: 4mm;
+    background: linear-gradient(150deg, #221913, #171210 60%, #0e0b09);
+    color: var(--cream);
+    padding: 4.4mm 14mm 4.8mm;
+    display: flex; gap: 8mm; align-items: center;
+  }
+  .join-left { flex: 1; }
+  .join-h { font-size: 13pt; font-weight: 800; color: var(--ember); letter-spacing: -.2pt; }
+  .join-p { margin-top: 1.6mm; font-size: 8.6pt; line-height: 1.6; color: #cdc2b5; max-width: 120mm; }
+  .join-p b { color: var(--cream); }
+  .contact-line { margin-top: 2mm; font-size: 8.4pt; line-height: 1.6; color: #b3a495; }
+  .contact-line b { color: var(--ember); font-weight: 700; }
+  .qr-box { text-align: center; }
+  .qr-box img { width: 23mm; height: 23mm; border-radius: 1.8mm; display: block; }
+  .qr-box .qurl { margin-top: 1.8mm; font-size: 7.6pt; font-weight: 700; color: var(--ember); letter-spacing: .4pt; }
+</style>
+</head>
+<body>
+
+<!-- ================= 1면 · 앞면 ================= -->
+<div class="page front">
+  <svg class="deco" viewBox="0 0 200 200" fill="none">
+    <g stroke="#d2622b" stroke-width="1.1">
+      <path d="M100 8 L176 50 L180 138 L104 190 L26 148 L22 56 Z" opacity=".8"/>
+      <path d="M100 26 L160 60 L163 130 L103 172 L41 138 L38 64 Z" opacity=".6"/>
+      <path d="M100 44 L145 70 L147 122 L102 154 L56 128 L54 72 Z" opacity=".45"/>
+      <path d="M100 62 L130 80 L131 114 L101 136 L71 118 L70 80 Z" opacity=".3"/>
+    </g>
+    <circle cx="88" cy="104" r="4.5" fill="#f0955c"/>
+    <circle cx="118" cy="86" r="6" fill="#f0955c"/>
+    <line x1="88" y1="104" x2="118" y2="86" stroke="#f0955c" stroke-width="2.4"/>
+  </svg>
+  <svg class="deco2" viewBox="0 0 200 200" fill="none">
+    <g stroke="#8a7666" stroke-width="1">
+      <path d="M100 8 L176 50 L180 138 L104 190 L26 148 L22 56 Z"/>
+      <path d="M100 34 L154 64 L157 126 L103 164 L47 132 L44 68 Z"/>
+      <path d="M100 60 L132 78 L134 116 L102 138 L68 120 L66 80 Z"/>
+    </g>
+  </svg>
+
+  <div class="front-header">
+    <span class="logo-chip"><img src="../src/assets/logo.png" alt="AIMAP"></span>
+    <div class="front-kicker">과학기술연합대학원대학교 한국재료연구원 캠퍼스 (UST-KIMS)</div>
+    <div class="front-title">AI로 소재의 미래를 설계할<br><span class="accent">미래의 연구자</span>를 찾습니다</div>
+    <div class="front-sub"><b>AIMAP Lab</b> — AI for Materials &amp; Processing &nbsp;·&nbsp; UST 소재·공정 인공지능 연구실</div>
+    <div class="front-tagline">
+      소재와 제조 공정의 혁신을 선도하는 AIMAP 연구실에서 미래의 연구자를 모집합니다.<br>
+      금속소재를 설계하고, 미세조직을 판독하고, 제조공정을 예측하며, 자율 실험을 수행하는 AI를 연구합니다.<br>
+      <span class="hl">프로그래밍 능력이 부족해도, 도메인 지식이 없어도 괜찮습니다!</span><br>
+      함께 배우며 성장할 준비가 된 도전적인 학생들의 지원을 기다립니다.
+    </div>
+  </div>
+
+  <hr class="rule">
+  <div class="section-label">연구 분야</div>
+
+  <div class="research-grid">
+    <div class="rcard">
+      <img src="img/design.png" alt="">
+      <div class="rbody">
+        <h3><span class="num">01</span>AI 기반 소재 설계</h3>
+        <p>딥러닝 물성 예측과 생성형 AI로 새로운 합금의 설계와 탐색을 가속합니다.</p>
+      </div>
+    </div>
+    <div class="rcard">
+      <img src="img/analysis.png" alt="">
+      <div class="rbody">
+        <h3><span class="num">02</span>AI 기반 소재 분석·평가</h3>
+        <p>미세조직 자동 분석과 머신러닝 기반 물성·성능 예측 및 신뢰성 평가를 수행합니다.</p>
+      </div>
+    </div>
+    <div class="rcard">
+      <img src="img/process.png" alt="">
+      <div class="rbody">
+        <h3><span class="num">03</span>물리기반 AI 공정 예측</h3>
+        <p>물리 법칙을 결합한 AI–시뮬레이션 하이브리드 모델로 제조공정을 정밀하게 예측합니다.</p>
+      </div>
+    </div>
+    <div class="rcard">
+      <img src="img/agent.png" alt="">
+      <div class="rbody">
+        <h3><span class="num">04</span>소재 특화 VLM·AI 에이전트</h3>
+        <p>소재과학 특화 시각언어모델과 AI 에이전트로 연구 워크플로우를 자동화합니다.</p>
+      </div>
+    </div>
+    <div class="rcard">
+      <img src="img/autolab.png" alt="">
+      <div class="rbody">
+        <h3><span class="num">05</span>금속소재 자율실험실</h3>
+        <p>로봇과 AI를 결합한 자율 실험 플랫폼으로 소재 탐색과 최적화를 자동화합니다.</p>
+      </div>
+    </div>
+    <div class="rcard">
+      <img src="img/autonomfg.png" alt="">
+      <div class="rbody">
+        <h3><span class="num">06</span>자율제조</h3>
+        <p>비전·신호 기반 공정 이상탐지와 Physical AI로 스스로 인지하고 판단하는 제조 시스템을 구현합니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-band">
+    <div class="stat"><div class="n">77</div><div class="l">저널 논문</div></div>
+    <div class="stat"><div class="n">61</div><div class="l">학회 발표</div></div>
+    <div class="stat"><div class="n">38</div><div class="l">연구 과제</div></div>
+    <div class="stat"><div class="n">3</div><div class="l">오픈소스 SW</div></div>
+  </div>
+
+  <div class="front-footer">
+    <div class="url">aimat.kr</div>
+    <div class="org">과학기술연합대학원대학교 한국재료연구원 캠퍼스 (UST-KIMS)<br>경남 창원시</div>
+  </div>
+</div>
+
+<!-- ================= 2면 · 뒷면 ================= -->
+<div class="page back">
+  <div class="back-band">
+    <div class="wm">AI<span>MA</span>P <span style="font-weight:600; font-size:8.5pt; color:#8a7666; letter-spacing:.4pt;">· UST 소재·공정 인공지능 연구실</span></div>
+    <div class="sub">구성원 · 지원 혜택 · 모집 안내</div>
+  </div>
+
+  <div class="back-inner">
+    <div class="sec-h">지도교수</div>
+    <div class="pi-row">
+      <img class="pi-photo" src="../public/images/members/professor.jpeg" alt="이호원 교수">
+      <div class="pi-info">
+        <div class="pi-name">이호원 <span class="ko">Ho Won Lee, Ph.D.</span></div>
+        <div class="pi-role">
+          <b>교수</b>, 과학기술연합대학원대학교(UST)<br><b>단장</b>, 한국재료연구원(KIMS) 소재 AI 전략연구단
+        </div>
+        <div class="pi-meta">
+          KAIST 기계공학 박사 · 독일 막스플랑크 철연구소(MPIE) 연구원 역임<br>
+          <i>Discover Metals</i>(Springer Nature) 편집위원 · 한국소성가공학회 편집위원
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-h" style="margin-top:3.9mm;">구성원</div>
+    <div class="member-line" style="margin-top:1.8mm;">
+      <b>박사후연구원</b> Minh Tien Tran &nbsp;&nbsp; <b>박사과정</b> Hoang Cuong Phan · 주무영 (Mooyeong Joo) · Hoang Hai Nam Nguyen<br>
+      <b>석사과정</b> Phan Nguyen Duc Hieu &nbsp;&nbsp; <b>인턴</b> 최병세 (Byeong Se Choi)
+    </div>
+
+    <div class="sec-h" style="margin-top:3.9mm;">대학원생 지원 혜택</div>
+    <div class="benefit-row">
+      <div class="benefit-list">
+        <div class="benefit-item"><div class="tick">✓</div><div><b>국내외 학회 참가 적극 지원</b><br>참가비·출장비 전액 제공 — ICML, ICCV 워크숍 등 해외 학회 발표 실적 다수</div></div>
+        <div class="benefit-item"><div class="tick">✓</div><div><b>자유로운 연차 사용과 유연한 연구 환경</b><br>자율적인 연구 문화, 4대 보험 포함</div></div>
+        <div class="benefit-item"><div class="tick">✓</div><div><b>세계 최고 수준 저널 게재 지도</b><br>최근 2년간 저널 논문 23편 (IF 14.0 포함)</div></div>
+        <div class="benefit-item"><div class="tick">✓</div><div><b>정부출연연구소(KIMS)에서 연구</b><br>최신 장비와 대규모 GPU 클러스터를 직접 활용</div></div>
+      </div>
+      <div class="pay-box">
+        <table class="pay">
+          <tr><th style="width:32%;">월급 (세전)</th><th>1년차</th><th>2년차~</th></tr>
+          <tr><td class="rowh">석사과정</td><td>2,125,000원</td><td>2,375,000원</td></tr>
+          <tr><td class="rowh">박사과정</td><td>2,635,000원</td><td>2,945,000원</td></tr>
+        </table>
+        <div class="pay-note">UST 학생연구원 기준 (2026.07.29)</div>
+      </div>
+    </div>
+
+    <div class="sec-h" style="margin-top:3.9mm;">대표 연구 성과 — 지도교수 주저자(제1저자·교신저자) 논문</div>
+    <div class="pub-list">
+      <div class="pub">
+        <div class="if-badge">IF 11.4<br>상위 1.9%</div>
+        <div class="pt"><b>Quantifying microstructure- and deformation-mode-dependent heterogeneity using crystal plasticity simulations</b><br><span class="pj">International Journal of Mechanical Sciences</span> (2026) · <a class="doi" href="https://doi.org/10.1016/j.ijmecsci.2026.111818">doi.org/10.1016/j.ijmecsci.2026.111818</a></div>
+      </div>
+      <div class="pub">
+        <div class="if-badge">IF 11.5<br>상위 2.0%</div>
+        <div class="pt"><b>Parameter-aware high-fidelity microstructure generation using stable diffusion</b><br><span class="pj">Advanced Engineering Informatics</span> (2026) · <a class="doi" href="https://doi.org/10.1016/j.aei.2025.104080">doi.org/10.1016/j.aei.2025.104080</a></div>
+      </div>
+      <div class="pub">
+        <div class="if-badge">IF 9.0<br>상위 3.1%</div>
+        <div class="pt"><b>Synthetic microstructure generation using diffusion transformers with structure-preserving augmentation</b><br><span class="pj">Engineering Applications of Artificial Intelligence</span> (2026) · <a class="doi" href="https://doi.org/10.1016/j.engappai.2026.114543">doi.org/10.1016/j.engappai.2026.114543</a></div>
+      </div>
+      <div class="pub">
+        <div class="if-badge">IF 6.2<br>상위 6.8%</div>
+        <div class="pt"><b>Microstructure-informed forming limits in aluminum alloys: Experiments and crystal plasticity simulations</b><br><span class="pj">Materials Characterization</span> (2025) · <a class="doi" href="https://doi.org/10.1016/j.matchar.2025.115831">doi.org/10.1016/j.matchar.2025.115831</a></div>
+      </div>
+      <div class="pub">
+        <div class="if-badge">IF 8.2<br>Q1</div>
+        <div class="pt"><b>Multi-fidelity physics-guided graph neural networks for structure–property relationships in polycrystalline metals</b><br><span class="pj">Materials &amp; Design</span> (2026) · <a class="doi" href="https://doi.org/10.1016/j.matdes.2026.116310">doi.org/10.1016/j.matdes.2026.116310</a></div>
+      </div>
+    </div>
+
+    <div class="sec-h" style="margin-top:3.9mm;">주요 과제</div>
+    <div class="proj-row">
+      <div class="proj-card"><span class="role-badge">PI</span><b>금속소재 조성·공정 자동설계용 초거대 AI 서비스 개발</b><br><span class="sub2">NST(과기정통부) · 2026–2030 · 총 305억 원</span></div>
+      <div class="proj-card"><span class="role-badge">PI</span><b>금속소재 제조디지털혁신 플랫폼 구축</b><br><span class="sub2">KIAT(산업부) · 2022–2026 · 총 232억 원</span></div>
+      <div class="proj-card"><span class="role-badge co">Co-PI</span><b>우주항공용 3D 프린팅 소재 데이터 구축</b><br><span class="sub2">KIAT(산업부) · 2025–2029 · 총 12억 원</span></div>
+    </div>
+
+    <div class="sec-h" style="margin-top:3.9mm;">연구 인프라</div>
+    <div class="fac-grid">
+      <div class="fac-card"><img src="../public/images/facilities/cluster.jpg" alt=""><div class="cap">GPU 클러스터<br>(A100 18기 · A6000 24기)</div></div>
+      <div class="fac-card"><img src="../public/images/facilities/rolling.png" alt=""><div class="cap">자동 압연기</div></div>
+      <div class="fac-card"><img src="../public/images/facilities/atm.png" alt=""><div class="cap">자동 인장시험기</div></div>
+      <div class="fac-card"><img src="../public/images/facilities/xrd.png" alt=""><div class="cap">X선 회절분석기</div></div>
+      <div class="fac-card"><img src="../public/images/facilities/ur3e.png" alt=""><div class="cap">협동로봇</div></div>
+      <div class="fac-card"><img src="../public/images/facilities/form_4l.png" alt=""><div class="cap">대형 SLA 3D 프린터</div></div>
+    </div>
+    <div class="fac-note">자동 압연기·인장시험기·X선 회절분석기로 공정·물성 데이터를 직접 생산하고, 협동로봇과 SLA 3D 프린터로 실험을 자동화하며, GPU 클러스터에서 AI 모델을 학습합니다 — 데이터 생산부터 AI 개발·검증까지 한 연구실에서 수행합니다.</div>
+  </div>
+
+  <div class="join-band">
+    <div class="join-left">
+      <div class="join-h">지원하세요 — 함께 성장할 연구자를 찾습니다</div>
+      <div class="join-p">
+        <b>UST 석사·박사과정</b>(석박사통합 포함), <b>박사후연구원</b>, <b>인턴</b>을 상시 모집합니다.<br>
+        전공 배경보다 배우려는 의지가 중요합니다. 이메일로 부담 없이 연락 주세요.
+      </div>
+      <div class="contact-line">
+        <b>이호원 교수</b> · h.lee@kims.re.kr · 055-280-3843<br>
+        한국재료연구원, 경남 창원시 성산구 창원대로 797
+      </div>
+    </div>
+    <div class="qr-box">
+      <img src="qr_site.png" alt="QR: aimat.kr">
+      <div class="qurl">aimat.kr</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

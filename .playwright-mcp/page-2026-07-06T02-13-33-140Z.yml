@@ -1,0 +1,416 @@
+- generic [active] [ref=e1]:
+  - text: ⚠
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - link "Skip to main content":
+        - /url: "#screen-reader-main-content"
+        - generic [ref=e7] [cursor=pointer]: Skip to main content
+      - link "Skip to article":
+        - /url: "#screen-reader-main-title"
+        - generic [ref=e8] [cursor=pointer]: Skip to article
+      - banner [ref=e9]:
+        - generic [ref=e10]:
+          - link "ScienceDirect home page" [ref=e11] [cursor=pointer]:
+            - /url: /
+            - img "Elsevier logo" [ref=e12]
+            - img [ref=e13]
+          - generic [ref=e21]:
+            - navigation "links" [ref=e22]:
+              - list [ref=e23]:
+                - listitem [ref=e24]:
+                  - link "Journals & Books" [ref=e25] [cursor=pointer]:
+                    - /url: /browse/journals-and-books
+                    - generic [ref=e26]: Journals & Books
+            - navigation "utilities" [ref=e27]:
+              - list [ref=e28]:
+                - listitem [ref=e29]:
+                  - button "Help" [ref=e33] [cursor=pointer]:
+                    - img [ref=e34]
+                    - generic [ref=e36]: Help
+                - listitem [ref=e37]:
+                  - button "Search" [ref=e39] [cursor=pointer]:
+                    - img [ref=e40]
+                    - generic [ref=e42]: Search
+          - link "My account" [ref=e44] [cursor=pointer]:
+            - /url: /user/login?targetURL=%2Fscience%2Farticle%2Fpii%2FS0020740326007319&from=globalheader
+            - img [ref=e45]
+            - generic [ref=e47]: My account
+          - link "Sign in" [ref=e48] [cursor=pointer]:
+            - /url: /user/institution/login?targetURL=%2Fscience%2Farticle%2Fpii%2FS0020740326007319
+            - img [ref=e49]
+            - generic [ref=e51]: Sign in
+      - main [ref=e52]:
+        - region "Download options and search" [ref=e54]:
+          - list "PDF Options" [ref=e56]:
+            - listitem [ref=e57]:
+              - link "Access through your organization" [ref=e58] [cursor=pointer]:
+                - /url: /user/institution/login?targetUrl=%2Fscience%2Farticle%2Fpii%2FS0020740326007319
+                - img "Seamless access" [ref=e59]
+                - generic [ref=e63]:
+                  - text: Access through
+                  - strong [ref=e64]: your organization
+            - listitem [ref=e65]:
+              - link "Purchase PDF" [ref=e66] [cursor=pointer]:
+                - /url: /getaccess/pii/S0020740326007319/purchase
+                - generic [ref=e68]: Purchase PDF
+        - generic [ref=e69]:
+          - navigation "Table of Contents" [ref=e70]:
+            - generic [ref=e71]:
+              - heading "Article preview" [level=2] [ref=e72]
+              - list [ref=e73]:
+                - listitem [ref=e74]:
+                  - link "Abstract" [ref=e75] [cursor=pointer]:
+                    - /url: "#preview-section-abstract"
+                    - generic [ref=e76]: Abstract
+                - listitem [ref=e77]:
+                  - link "Introduction" [ref=e78] [cursor=pointer]:
+                    - /url: "#preview-section-introduction"
+                    - generic [ref=e79]: Introduction
+                - listitem [ref=e80]:
+                  - link "Section snippets" [ref=e81] [cursor=pointer]:
+                    - /url: "#preview-section-snippets"
+                    - generic [ref=e82]: Section snippets
+                - listitem [ref=e83]:
+                  - link "References (118)" [ref=e84] [cursor=pointer]:
+                    - /url: "#preview-section-references"
+                    - generic [ref=e85]: References (118)
+          - article [ref=e86]:
+            - generic [ref=e87]:
+              - link "Elsevier" [ref=e89] [cursor=pointer]:
+                - /url: /journal/international-journal-of-mechanical-sciences
+                - img "Elsevier" [ref=e92]
+              - generic [ref=e93]:
+                - heading "International Journal of Mechanical Sciences" [level=2] [ref=e94]:
+                  - link "International Journal of Mechanical Sciences" [ref=e95] [cursor=pointer]:
+                    - /url: /journal/international-journal-of-mechanical-sciences
+                    - generic [ref=e96]: International Journal of Mechanical Sciences
+                - generic [ref=e97]:
+                  - link "Volume 325" [ref=e98] [cursor=pointer]:
+                    - /url: /journal/international-journal-of-mechanical-sciences/vol/325/suppl/C
+                    - generic [ref=e99]: Volume 325
+                  - text: ", 1 September 2026, 111877"
+              - link "Homepage for International Journal of Mechanical Sciences" [ref=e101] [cursor=pointer]:
+                - /url: /journal/international-journal-of-mechanical-sciences/vol/325/suppl/C
+                - img "International Journal of Mechanical Sciences" [ref=e104]
+            - heading "Lorentz-force alignment governs keyhole stability in laser metal melting" [level=1] [ref=e106]
+            - generic [ref=e107]:
+              - generic [ref=e110]:
+                - generic [ref=e111]: Author links open overlay panel
+                - button "Dac-Phuc Pham a" [ref=e112] [cursor=pointer]:
+                  - generic [ref=e114]:
+                    - generic [ref=e115]: Dac-Phuc Pham
+                    - superscript [ref=e117]: a
+                - text: ","
+                - button "Zhengtong Shan a" [ref=e118] [cursor=pointer]:
+                  - generic [ref=e120]:
+                    - generic [ref=e121]: Zhengtong Shan
+                    - superscript [ref=e123]: a
+                - text: ","
+                - button "Kyung-Hwan Jung b" [ref=e124] [cursor=pointer]:
+                  - generic [ref=e126]:
+                    - generic [ref=e127]: Kyung-Hwan Jung
+                    - superscript [ref=e129]: b
+                - text: ","
+                - button "Ho Won Lee c" [ref=e130] [cursor=pointer]:
+                  - generic [ref=e132]:
+                    - generic [ref=e133]: Ho Won Lee
+                    - superscript [ref=e135]: c
+                - text: ","
+                - button "Wen Chen d" [ref=e136] [cursor=pointer]:
+                  - generic [ref=e138]:
+                    - generic [ref=e139]: Wen Chen
+                    - superscript [ref=e141]: d
+                - text: ","
+                - button "Jiong Zhang e" [ref=e142] [cursor=pointer]:
+                  - generic [ref=e144]:
+                    - generic [ref=e145]: Jiong Zhang
+                    - superscript [ref=e147]: e
+                - text: ","
+                - button "Dong-Kyu Kim aCorrespondence author iconAuthor email or social media contact details icon" [ref=e148] [cursor=pointer]:
+                  - generic [ref=e150]:
+                    - generic [ref=e151]: Dong-Kyu Kim
+                    - superscript [ref=e153]: a
+                    - img "Correspondence author icon" [ref=e154]
+                    - img "Author email or social media contact details icon" [ref=e156]
+              - button "Show more" [ref=e158] [cursor=pointer]:
+                - generic [ref=e159]: Show more
+                - img [ref=e160]
+              - generic [ref=e162]:
+                - button "Add to Mendeley" [ref=e163] [cursor=pointer]:
+                  - img [ref=e164]
+                  - generic [ref=e166]: Add to Mendeley
+                - button "Share" [ref=e170] [cursor=pointer]:
+                  - img [ref=e171]
+                  - generic [ref=e173]: Share
+                - button "Cite" [ref=e177] [cursor=pointer]:
+                  - img [ref=e178]
+                  - generic [ref=e180]: Cite
+            - generic [ref=e181]:
+              - link "Persistent link using digital object identifier" [ref=e182] [cursor=pointer]:
+                - /url: https://doi.org/10.1016/j.ijmecsci.2026.111877
+                - generic [ref=e183]:
+                  - text: https://doi.org/10.1016/j.ijmecsci.2026.111877
+                  - img "Opens in new window" [ref=e184]
+              - link "Get rights and contentOpens in new window" [ref=e186] [cursor=pointer]:
+                - /url: https://s100.copyright.com/AppDispatchServlet?publisherName=ELS&contentID=S0020740326007319&orderBeanReset=true
+                - generic [ref=e187]:
+                  - text: Get rights and content
+                  - img "Opens in new window" [ref=e188]
+            - generic [ref=e192]:
+              - generic [ref=e193]:
+                - heading "Highlights" [level=2] [ref=e194]
+                - list [ref=e197]:
+                  - listitem [ref=e198]:
+                    - generic [ref=e199]: •
+                    - generic [ref=e201]: Lorentz-force alignment, rather than magnitude, is identified as a factor governing keyhole stability.
+                  - listitem [ref=e202]:
+                    - generic [ref=e203]: •
+                    - generic [ref=e205]: Lorentz force modifies melt-pool dynamics through momentum redistribution, not simple damping.
+                  - listitem [ref=e206]:
+                    - generic [ref=e207]: •
+                    - generic [ref=e209]: Three force–flow regimes (co-aligned, counter-aligned, and orthogonal) are identified, each leading to distinct keyhole evolution behaviors.
+                  - listitem [ref=e210]:
+                    - generic [ref=e211]: •
+                    - generic [ref=e213]: A unified framework is proposed linking Lorentz-force alignment to keyhole instability in laser metal melting.
+              - generic [ref=e214]:
+                - heading "Abstract" [level=2] [ref=e215]
+                - generic [ref=e217]: Keyhole-driven metal melting during high-energy-density laser processing represents an extreme manufacturing regime governed by the dynamic stability of the keyhole. Keyhole collapse is the primary pathway for pore-defect formation. External electromagnetic fields offer a promising route for process control, and their effects are often intrinsically stabilizing. However, their interaction with melt-flow dynamics can be destabilized. This study investigates the under-explored governing mechanisms of the influence of electromagnetic fields on keyhole dynamics. We establish Lorentz-force alignment as a factor governing keyhole instability and show that pore-defect formation is dictated not only by the magnitude of the force but by the coupling between the electromagnetic force and intrinsic melt-flow topology. Using high-fidelity multiphysics simulations that resolve the recoil pressure, Marangoni convection, free-surface dynamics, and thermoelectric magnetohydrodynamics, we identify three characteristic configurations of Lorentz force–melt flow alignment. The transition to cavity collapse is suppressed when the Lorentz force counteracts the recirculation responsible for geometric necking. In contrast, co-alignment between the Lorentz force and dominant recirculation melt-flow patterns enhances the downward momentum flux and accelerates collapse events. Orthogonal alignment between the Lorentz force and dominant recirculation melt-flow patterns redistributes the lateral momentum without fully suppressing the dominant recirculation melt-flow patterns. Directional force–velocity correlation analysis reveals that electromagnetic fields selectively redistribute momentum, establishing Lorentz-force alignment as a factor governing instability transitions. These findings provide a mechanistic framework for understanding keyhole stability and establish a generalized pathway for electromagnetic cavity-stability control in laser metal melting.
+              - generic [ref=e218]:
+                - heading "Graphical abstract" [level=2] [ref=e219]
+                - figure [ref=e223]:
+                  - generic [ref=e224]:
+                    - img "Image, graphical abstract" [ref=e225]
+                    - list [ref=e226]:
+                      - listitem [ref=e227]:
+                        - 'link "Download: Download high-res image (247KB)" [ref=e228] [cursor=pointer]':
+                          - /url: https://ars.els-cdn.com/content/image/1-s2.0-S0020740326007319-ga1_lrg.jpg
+                          - generic [ref=e230]: "Download: Download high-res image (247KB)"
+                      - listitem [ref=e231]:
+                        - 'link "Download: Download full-size image" [ref=e232] [cursor=pointer]':
+                          - /url: https://ars.els-cdn.com/content/image/1-s2.0-S0020740326007319-ga1.jpg
+                          - generic [ref=e234]: "Download: Download full-size image"
+            - generic [ref=e237]:
+              - heading "Introduction" [level=2] [ref=e238]
+              - generic [ref=e239]:
+                - generic [ref=e240]: Laser metal melting processes, including additive manufacturing and deep-penetration welding [[1], [2], [3], [4]], represent high-energy-density manufacturing regimes governed by the dynamic stability of the keyhole [[5], [6], [7], [8]]. The destabilization of this cavity results in pore entrapment and heterogeneous microstructure formation [[9], [10], [11]], generating defects that degrade mechanical performance [[12], [13], [14]]. The formation of keyhole-induced pores is intrinsically linked to nonlinear interactions between parameters and factors such as recoil pressure [15,16], convection driven by surface tension [17,18], and vapor–liquid interface oscillations [19]. Despite substantial progress in process optimization, the issue of pore-defect formation persists [20,21].
+                - generic [ref=e241]: Current keyhole instability models primarily attribute pore-defect formation to excessive energy input or hydrodynamic fluctuations. They often emphasize the magnitude of driving factors, such as recoil pressure or Marangoni convection [[22], [23], [24], [25]]. However, pore-defect formation in keyholes is also driven by the redistribution of momentum near cavity walls and solid–liquid interfaces [[26], [27], [28]]. In particular, melt recirculation is a dominant contributor to necking [29,30], geometric narrowing [31,32], and subsequent pore entrapment [33,34]. Therefore, the accurate prediction of pore-defect formation requires resolving competing body forces that contribute to the reorganization of melt transport pathways and the triggering or suppression of instability transitions [35,36].
+                - generic [ref=e242]: External magnetic fields provide a unique physical perturbation to control pore-defect formation in high-energy-density melt environments [37,38]. Thermoelectric currents form naturally in electrically conductive melts with steep thermal gradients [39,40]. The coupling of an applied magnetic flux with these currents induced Lorentz forces, producing a thermoelectric magnetohydrodynamic (TEMHD) flow and introducing additional body-force terms in the momentum balance [41,42]. Previous experimental and numerical studies have demonstrated that magnetic fields can alter the penetration depth, keyhole oscillation behavior, and porosity in laser metal melting processes [43,44]. In particular, experimental studies have shown that magnetic fields can effectively influence microstructures, mechanical properties, and pore-defect formation. Zhao et al. [45] and Zhou et al. [46] showed that magnetic fields can tailor grain texture and crystallographic orientation in laser powder bed fusion (LPBF)-fabricated alloys. Du et al. [47,48] reported that static magnetic fields lead to densification and grain refinement of AlSi10Mg alloys. These studies primarily focused on microstructural outcomes rather than the underlying melt-pool dynamics. Regarding pore-defect mitigation, Hu et al. [49] demonstrated that improved pore escape behavior and dense coating can be easily achieved without adjusting process parameters. Further, Yadav et al. [50] showed that magnetic fields can reduce porosity and enhance melt quality, although the governing flow mechanisms responsible for these improvements were not explicitly clarified. Li et al. [51] and Xu et al. [52] reported improvements in the melt morphology and keyhole stability due to the application of the magnetic field. However, their interpretations remained largely phenomenological. More recently, Fan et al. [53] provided direct experimental evidence that magnetic fields can actively modulate keyhole instability. Meanwhile, Fan et al. [54] proposed thermoelectric magnetohydrodynamic control strategies to manipulate melt-pool flow. However, these efforts emphasized observable effects and control outcomes, and did not fully characterize the interaction between Lorentz forces and intrinsic flow structures.
+                - generic [ref=e243]: Although experimental studies provide valuable insights into magnetic-field-assisted laser metal melting, they are often expensive and time-consuming [[55], [56], [57], [58]]. Moreover, the optimal magnetic-field conditions cannot be guaranteed through simple trial-and-error experiments. Therefore, numerous simulation studies have focused on understanding the mechanisms underlying the effects of magnetic field on keyhole stability and estimating optimal process parameters. Chen et al. [59] and Chen et al. [60] incorporated thermoelectric currents in simulations to capture the effects of electromagnetic fields on melt-pool flow and microstructure evolution, primarily focusing on coupled thermal–electrical interactions rather than detailed flow structures. Similarly, Bachmann et al. [61] performed one of the earliest systematic studies on the Hartmann effect in laser-beam welding in the presence of steady magnetic fields. Their numerical and experimental analyses demonstrated that magnetic fields suppress melt convection through electromagnetic damping, modifying melt-pool flow and penetration behaviors. Notably, this work already implied that magnetic-field orientation influences melt-flow behavior. Meanwhile, the Lorentz force was primarily thought to hinder the overall melt-flow intensity. The study did not explicitly clarify whether the Lorentz force acted parallel or perpendicular to the dominant recirculation melt-flow patterns responsible for rear-wall instability. Wang and Yan [62] proposed a comprehensive TEMHD framework for laser-based additive manufacturing. Their model incorporated thermoelectric currents, Lorentz forces, and thermal-fluid transport. However, the effects of electromagnetic fields were primarily thought to be the global redistribution of heat, momentum, and convection intensity. The model did not establish a mechanistic framework linking the direction of Lorentz forces to instability transition, recirculation topology, or rear-wall collapse dynamics. Cao et al. [63] investigated the influence of magnetic fields on melt-pool flow during the laser welding of aluminum alloys. Their study showed that magnetic fields alter melt-flow circulation patterns, melt-pool morphology, and thermal transport behavior. Although different flow structures were observed in the presence of the magnetic field, the discussion focused on flow modification and convection suppression. More recent studies have extended these approaches to more complex process conditions. Zhou et al. [64] and Wang et al. [65] explored the effects of magnetic fields on microstructural evolution and particle–melt interactions. Meanwhile, Mei et al. [66] and Zeng et al. [67] examined dynamic melt-pool flow under varying magnetic-field configurations, including alternating fields. Further, Liu et al. [68] explicitly demonstrated that magnetic-field orientation strongly governs porosity in the deep-penetration laser welding of aluminum alloys. This study clearly established that the effects of electromagnetic fields are inherently directional and cannot be interpreted solely as a universal damping mechanism. However, the analysis was primarily phenomenological, focusing on process outcomes such as porosity reduction. The underlying instability mechanism explaining why different magnetic-field orientations produced fundamentally different cavity-collapse behaviors remained unresolved.
+                - generic [ref=e244]: Thus, previous experimental and numerical studies have demonstrated that magnetic fields can significantly alter melt-pool dynamics and pore-defect formation [69,70]. However, the effects of magnetic fields were predominantly interpreted in terms of overall keyhole stabilization or pore-defect suppression, rather than through the interaction of magnetic fields with evolving melt flow [71,72]. Consequently, the role of the Lorentz force in laser metal melting remains insufficiently understood, particularly regarding its coupling with the melt-pool flow that governs keyhole stability and pore-defect formation. Despite the development of increasingly sophisticated multiphysics models, the effects of electromagnetic fields are still predominantly characterized in terms of magnitude-dependent features, such as convection damping or enhancement. Most previous studies implicitly adopted a magnitude-based interpretation, in which increasing magnetic-field strength was expected to monotonically enhance stability or suppress pore-defect formation. However, experimental observations reported in the literature have revealed that magnetic fields of comparable intensity can produce markedly different melt-pool flow and defect outcomes depending on their orientation. This result suggests that magnetic-field intensity alone is insufficient to explain keyhole stability and highlights the need for a mechanistic framework that incorporates magnetic-field orientation. The interaction between Lorentz forces with different orientations and recirculating melt has not yet been systematically examined from the perspective of instability transition, recirculation topology, and cavity collapse dynamics.
+                - generic [ref=e245]: A key unresolved question is whether keyhole stability depends on the magnitude of the Lorentz forces or on their direction with respect to the dominant recirculation melt-flow patterns that govern cavity collapse. In this regard, previous studies largely focused on field intensity, implicitly assuming monotonic keyhole stabilization with increasing magnetic-field strength [[73], [74], [75], [76]]. The role of Lorentz force–melt flow alignment in keyhole stabilization or destabilization has not been systematically investigated. We hypothesize that the stabilization effect of Lorentz forces on the keyhole is strongly influenced by the alignment between the force and the dominant recirculation melt-flow patterns responsible for rear-wall collapse, rather than solely by the magnetic-field magnitude.
+                - generic [ref=e246]: This article introduces the Lorentz-force alignment as a factor governing keyhole instability in high-energy-density laser metal melting. We use multiphysics simulations to identify three characteristic configurations of Lorentz force–melt flow alignment. We show that cavity collapse is suppressed when Lorentz forces counteract rear-wall-directed recirculation, leading to a stable keyhole morphology with near elimination of pore formation. Conversely, the co-alignment of the Lorentz force and melt flow further destabilizes the momentum flux, accelerating collapse events. Orthogonal Lorentz force–melt flow alignment induces lateral momentum redistribution without fully suppressing the dominant recirculation melt-flow patterns. These findings establish that the relative orientation between Lorentz-force-induced momentum and the dominant recirculation melt-flow momentum responsible for rear-wall collapse governs keyhole instability. Unlike previous studies that primarily associated flow damping, convection suppression, or heat redistribution with magnetic-field intensity, the present work identifies the Lorentz-force alignment as the key factor linking magnetic-field orientation to keyhole stability, cavity collapse behavior, and pore-defect formation. Our study contributes to developing a generalized pathway for pore-defect formation control in keyhole-driven metal melting during high-energy-density laser processing.
+                - generic [ref=e247]: The remainder of this paper is structured as follows. Section 2 describes the multiphysics model incorporating Lorentz force used for analyzing keyhole dynamics during laser meltal melting. Section 3 presents the results and provides an in-depth discussion of the role of the Lorentz-force alignment in governing melt-pool flow and keyhole stability through the interaction of the force with intrinsic instability modes. Section 4 summarizes the main findings and outlines perspectives for future work.
+            - generic [ref=e249]:
+              - heading "Access through your organization" [level=2] [ref=e250]
+              - paragraph [ref=e251]: Check access to the full text by signing in through your organization.
+              - link "Access through your organization" [ref=e252] [cursor=pointer]:
+                - /url: /user/institution/login?targetUrl=%2Fscience%2Farticle%2Fpii%2FS0020740326007319
+                - img "Seamless access" [ref=e253]
+                - generic [ref=e257]:
+                  - text: Access through
+                  - strong [ref=e258]: your organization
+            - generic [ref=e261]:
+              - heading "Section snippets" [level=2] [ref=e262]
+              - generic [ref=e264]:
+                - heading "Multiphysics model incorporating the Lorentz force" [level=2] [ref=e265]
+                - generic [ref=e266]: This section presents the governing equations of the physical model, followed by the numerical implementation of the multiphysics framework, including model setup, parameter configuration, and computational procedures. …
+              - generic [ref=e268]:
+                - heading "Results and discussion" [level=2] [ref=e269]
+                - generic [ref=e270]:
+                  - text: This section analyzes keyhole dynamics and stability under different magnetic
+                  - strong [ref=e271]: "-"
+                  - text: field configurations. We define Lorentz force–melt flow alignment based on the relative orientation between the Lorentz force vector (induced by TEMHD effects) and the dominant recirculation melt-flow patterns (responsible for keyhole rear-wall impingement and collapse). This concept is independent of the magnitude of the Lorentz force. Depending on the relative orientation, the Lorentz force may oppose, redirect, or …
+              - generic [ref=e273]:
+                - heading "Conclusions" [level=2] [ref=e274]
+                - generic [ref=e275]: This study demonstrates that controlling the magnetic-field intensity alone is insufficient to stabilize keyhole dynamics in laser metal melting. The primary contribution of this work is the identification of Lorentz-force alignment as the factor governing the evolution of the keyhole instability. Unlike previous studies that primarily interpreted the effects of the magnetic field on keyhole stability in terms of electromagnetic damping or field-intensity variations, we reveal that keyhole …
+              - generic [ref=e277]:
+                - heading "CRediT authorship contribution statement" [level=2] [ref=e278]
+                - generic [ref=e279]:
+                  - strong [ref=e280]: "Dac-Phuc Pham:"
+                  - text: Writing – original draft, Methodology, Investigation.
+                  - strong [ref=e281]: "Zhengtong Shan:"
+                  - text: Methodology, Investigation.
+                  - strong [ref=e282]: "Kyung-Hwan Jung:"
+                  - text: Software, Methodology.
+                  - strong [ref=e283]: "Ho Won Lee:"
+                  - text: Methodology.
+                  - strong [ref=e284]: "Wen Chen:"
+                  - text: Methodology.
+                  - strong [ref=e285]: "Jiong Zhang:"
+                  - text: Methodology.
+                  - strong [ref=e286]: "Dong-Kyu Kim:"
+                  - text: Writing – review & editing, Supervision, Methodology, Conceptualization. …
+              - generic [ref=e288]:
+                - heading "Declaration of competing interest" [level=2] [ref=e289]
+                - generic [ref=e290]: The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper. …
+              - generic [ref=e292]:
+                - heading "Acknowledgments" [level=2] [ref=e293]
+                - generic [ref=e294]: This research was supported by the Basic Science Research Program (RS-2025–00523280) and Nano & Material Technology Development Program (RS-2024–00451579) through the National Research Foundation (NRF) of Korea funded by the Ministry of Science and ICT. This research was also supported by Konkuk University. …
+            - generic [ref=e296]:
+              - heading "References (118)" [level=2] [ref=e299]
+              - list [ref=e300]:
+                - listitem [ref=e301]:
+                  - generic [ref=e302]:
+                    - generic [ref=e303]: S.K. Hwang
+                    - emphasis [ref=e304]: et al.
+                  - heading "Exceptional cryogenic impact and fatigue properties of additively manufactured CrCoNi medium entropy alloy" [level=3] [ref=e305]:
+                    - link "Exceptional cryogenic impact and fatigue properties of additively manufactured CrCoNi medium entropy alloy" [ref=e306] [cursor=pointer]:
+                      - /url: /science/article/pii/S0142112324006261
+                      - generic [ref=e307]: Exceptional cryogenic impact and fatigue properties of additively manufactured CrCoNi medium entropy alloy
+                  - generic [ref=e308]:
+                    - heading "Int J Fatigue" [level=3] [ref=e310]
+                    - generic [ref=e311]: (2025)
+                - listitem [ref=e312]:
+                  - generic [ref=e313]:
+                    - generic [ref=e314]: Y. Wang
+                    - emphasis [ref=e315]: et al.
+                  - heading "Unraveling keyhole oscillation dynamics in laser processing with multiphysics modeling" [level=3] [ref=e316]:
+                    - link "Unraveling keyhole oscillation dynamics in laser processing with multiphysics modeling" [ref=e317] [cursor=pointer]:
+                      - /url: /science/article/pii/S0020740326000081
+                      - generic [ref=e318]: Unraveling keyhole oscillation dynamics in laser processing with multiphysics modeling
+                  - generic [ref=e319]:
+                    - heading "Int J Mech Sci" [level=3] [ref=e321]
+                    - generic [ref=e322]: (2026)
+                - listitem [ref=e323]:
+                  - generic [ref=e324]:
+                    - generic [ref=e325]: H.W. Lee
+                    - emphasis [ref=e326]: et al.
+                  - heading "Microstructure and mechanical anisotropy of CoCrW alloy processed by selective laser melting" [level=3] [ref=e327]:
+                    - link "Microstructure and mechanical anisotropy of CoCrW alloy processed by selective laser melting" [ref=e328] [cursor=pointer]:
+                      - /url: /science/article/pii/S0925838819317141
+                      - generic [ref=e329]: Microstructure and mechanical anisotropy of CoCrW alloy processed by selective laser melting
+                  - generic [ref=e330]:
+                    - heading "Mater Sci Eng A" [level=3] [ref=e332]
+                    - generic [ref=e333]: (2019)
+                - listitem [ref=e334]:
+                  - generic [ref=e335]:
+                    - generic [ref=e336]: X. Lai
+                    - emphasis [ref=e337]: et al.
+                  - heading "Heat and mass transfer in electron beam additive manufacturing" [level=3] [ref=e338]:
+                    - link "Heat and mass transfer in electron beam additive manufacturing" [ref=e339] [cursor=pointer]:
+                      - /url: /science/article/pii/S0020740323005155
+                      - generic [ref=e340]: Heat and mass transfer in electron beam additive manufacturing
+                  - generic [ref=e341]:
+                    - heading "Int J Mech Sci" [level=3] [ref=e343]
+                    - generic [ref=e344]: (2023)
+                - listitem [ref=e345]:
+                  - generic [ref=e346]:
+                    - generic [ref=e347]: B. Liu
+                    - emphasis [ref=e348]: et al.
+                  - heading "Predicting the porosity defects in selective laser melting (SLM) by molten pool geometry" [level=3] [ref=e349]:
+                    - link "Predicting the porosity defects in selective laser melting (SLM) by molten pool geometry" [ref=e350] [cursor=pointer]:
+                      - /url: /science/article/pii/S0020740322003794
+                      - generic [ref=e351]: Predicting the porosity defects in selective laser melting (SLM) by molten pool geometry
+                  - generic [ref=e352]:
+                    - heading "Int J Mech Sci" [level=3] [ref=e354]
+                    - generic [ref=e355]: (2022)
+                - listitem [ref=e356]:
+                  - generic [ref=e357]:
+                    - generic [ref=e358]: M.T. Tran
+                    - emphasis [ref=e359]: et al.
+                  - heading "Effect of hot isostatic pressing on the cryogenic mechanical properties of CrCoNi medium entropy alloy processed by direct energy deposition" [level=3] [ref=e360]:
+                    - link "Effect of hot isostatic pressing on the cryogenic mechanical properties of CrCoNi medium entropy alloy processed by direct energy deposition" [ref=e361] [cursor=pointer]:
+                      - /url: /science/article/pii/S0921509321013745
+                      - generic [ref=e362]: Effect of hot isostatic pressing on the cryogenic mechanical properties of CrCoNi medium entropy alloy processed by direct energy deposition
+                  - generic [ref=e363]:
+                    - heading "Mater Sci Eng A" [level=3] [ref=e365]
+                    - generic [ref=e366]: (2021)
+                - listitem [ref=e367]:
+                  - generic [ref=e368]:
+                    - generic [ref=e369]: X. Yang
+                    - emphasis [ref=e370]: et al.
+                  - heading "A finite volume–based thermo-fluid-mechanical model of the LPBF process" [level=3] [ref=e371]:
+                    - link "A finite volume–based thermo-fluid-mechanical model of the LPBF process" [ref=e372] [cursor=pointer]:
+                      - /url: /science/article/pii/S0020740324008002
+                      - generic [ref=e373]: A finite volume–based thermo-fluid-mechanical model of the LPBF process
+                  - generic [ref=e374]:
+                    - heading "Int J Mech Sci" [level=3] [ref=e376]
+                    - generic [ref=e377]: (2024)
+                - listitem [ref=e378]:
+                  - generic [ref=e379]:
+                    - generic [ref=e380]: D.K. Kim
+                    - emphasis [ref=e381]: et al.
+                  - heading "Stress partitioning behavior of an AlSi10Mg alloy produced by selective laser melting during tensile deformation using in situ neutron diffraction" [level=3] [ref=e382]:
+                    - link "Stress partitioning behavior of an AlSi10Mg alloy produced by selective laser melting during tensile deformation using in situ neutron diffraction" [ref=e383] [cursor=pointer]:
+                      - /url: /science/article/pii/S0925838816317224
+                      - generic [ref=e384]: Stress partitioning behavior of an AlSi10Mg alloy produced by selective laser melting during tensile deformation using in situ neutron diffraction
+                  - generic [ref=e385]:
+                    - heading "J Alloys Compd" [level=3] [ref=e387]
+                    - generic [ref=e388]: (2016)
+                - listitem [ref=e389]:
+                  - generic [ref=e390]:
+                    - generic [ref=e391]: A. Pandey
+                    - emphasis [ref=e392]: et al.
+                  - heading "An improved fatigue life prediction via defect-informed intelligent learning method" [level=3] [ref=e393]:
+                    - link "An improved fatigue life prediction via defect-informed intelligent learning method" [ref=e394] [cursor=pointer]:
+                      - /url: /science/article/pii/S0020740325009671
+                      - generic [ref=e395]: An improved fatigue life prediction via defect-informed intelligent learning method
+                  - generic [ref=e396]:
+                    - heading "Int J Mech Sci" [level=3] [ref=e398]
+                    - generic [ref=e399]: (2025)
+                - listitem [ref=e400]:
+                  - generic [ref=e401]:
+                    - generic [ref=e402]: D.K. Kim
+                    - emphasis [ref=e403]: et al.
+                  - heading "Evaluation of the stress-strain relationship of constituent phases in AlSi10Mg alloy produced by selective laser melting using crystal plasticity FEM" [level=3] [ref=e404]:
+                    - link "Evaluation of the stress-strain relationship of constituent phases in AlSi10Mg alloy produced by selective laser melting using crystal plasticity FEM" [ref=e405] [cursor=pointer]:
+                      - /url: /science/article/pii/S0925838817314743
+                      - generic [ref=e406]: Evaluation of the stress-strain relationship of constituent phases in AlSi10Mg alloy produced by selective laser melting using crystal plasticity FEM
+                  - generic [ref=e407]:
+                    - heading "J Alloys Compd" [level=3] [ref=e409]
+                    - generic [ref=e410]: (2017)
+              - button "View more references" [ref=e411] [cursor=pointer]:
+                - img [ref=e412]
+                - generic [ref=e414]: View more references
+            - region "Cited by" [ref=e416]:
+              - heading "Cited by (0)" [level=2] [ref=e419]
+            - link "View full text" [disabled] [ref=e421]:
+              - /url: /science/article/pii/S0020740326007319
+              - generic [ref=e422]: View full text
+            - generic [ref=e423]: © 2026 Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies.
+          - complementary "Related content" [ref=e425]:
+            - generic [ref=e426]:
+              - button "Recommended articles" [expanded] [ref=e428] [cursor=pointer]:
+                - heading "Recommended articles" [level=2] [ref=e431]
+                - img [ref=e432]
+              - generic [ref=e435]: No articles found.
+    - contentinfo [ref=e436]:
+      - link "Elsevier home page (opens in a new tab)" [ref=e438] [cursor=pointer]:
+        - /url: https://www.elsevier.com/
+        - img "Elsevier logo with wordmark" [ref=e439]
+      - generic [ref=e440]:
+        - list [ref=e442]:
+          - listitem [ref=e443]:
+            - link "About ScienceDirectOpens in new window" [ref=e444] [cursor=pointer]:
+              - /url: https://www.elsevier.com/solutions/sciencedirect
+              - generic [ref=e445]:
+                - text: About ScienceDirect
+                - img "Opens in new window" [ref=e446]
+          - listitem [ref=e448]:
+            - link "Remote access" [ref=e449] [cursor=pointer]:
+              - /url: /user/institution/login?targetURL=%2Fscience%2Farticle%2Fpii%2FS0020740326007319
+              - generic [ref=e450]: Remote access
+          - listitem [ref=e451]:
+            - link "Contact and supportOpens in new window" [ref=e452] [cursor=pointer]:
+              - /url: https://service.elsevier.com/app/contact/supporthub/sciencedirect/
+              - generic [ref=e453]:
+                - text: Contact and support
+                - img "Opens in new window" [ref=e454]
+          - listitem [ref=e456]:
+            - link "Terms and conditionsOpens in new window" [ref=e457] [cursor=pointer]:
+              - /url: https://www.elsevier.com/legal/elsevier-website-terms-and-conditions
+              - generic [ref=e458]:
+                - text: Terms and conditions
+                - img "Opens in new window" [ref=e459]
+          - listitem [ref=e461]:
+            - link "Privacy policyOpens in new window" [ref=e462] [cursor=pointer]:
+              - /url: https://www.elsevier.com/legal/privacy-policy
+              - generic [ref=e463]:
+                - text: Privacy policy
+                - img "Opens in new window" [ref=e464]
+          - listitem [ref=e466]:
+            - button "Cookie settings" [ref=e467] [cursor=pointer]
+        - paragraph [ref=e468]: "All content on this site: Copyright © 2026 Elsevier B.V., its licensors, and contributors. All rights are reserved, including those for text and data mining, AI training, and similar technologies. For all open access content, the relevant licensing terms apply."
+      - link "RELX home page (opens in a new tab)" [ref=e470] [cursor=pointer]:
+        - /url: https://www.relx.com/
+        - img "RELX group home page" [ref=e471]

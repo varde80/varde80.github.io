@@ -188,6 +188,7 @@ LABELS = {
     'en': {
         'cv_title': 'CURRICULUM VITAE',
         'phone': 'Phone', 'email': 'E-mail',
+        'rrn': 'Resident Registration No.', 'address': 'Address', 'account': 'Bank Account',
         'research_interests': 'Research Interests',
         'experience': 'Professional Experience',
         'education': 'Education',
@@ -207,6 +208,7 @@ LABELS = {
     'ko': {
         'cv_title': '이력서',
         'phone': '전화', 'email': '이메일',
+        'rrn': '주민등록번호', 'address': '주소', 'account': '계좌번호',
         'research_interests': '연구 분야',
         'experience': '주요 경력',
         'education': '학력',
@@ -493,7 +495,7 @@ def create_styles(lang='en'):
     return styles
 
 
-def create_header_table(professor, lang='en'):
+def create_header_table(professor, lang='en', personal=None):
     """Create the header with dark background, photo, and affiliation."""
     ko = (lang == 'ko')
     styles = create_styles(lang)
@@ -565,6 +567,18 @@ def create_header_table(professor, lang='en'):
     phone_para = Paragraph(f"<b>{L['phone']}</b>  {professor['phone']}", styles['HeaderContact'])
     email_para = Paragraph(f"<b>{L['email']}</b>  {professor['email']}", styles['HeaderContact'])
 
+    # Optional personal-info lines (RRN / address / bank account) for the
+    # rarely-used administrative variant; sourced from the gitignored
+    # personal_info.json, never from src/data.
+    personal_paras = []
+    if personal:
+        account_text = f"{personal['bank']} {personal['account_number']}"
+        for label_key, value in [('rrn', personal['rrn']),
+                                 ('address', personal['address']),
+                                 ('account', account_text)]:
+            personal_paras.append(
+                Paragraph(f"<b>{L[label_key]}</b>  {value}", styles['HeaderContact']))
+
     # Right column: photo
     image_path = SCRIPT_DIR.parent / "public" / professor.get("image", "").lstrip("/")
     if not image_path.exists():
@@ -585,6 +599,8 @@ def create_header_table(professor, lang='en'):
         left_content.append([affiliation_para])
     left_content.append([phone_para])
     left_content.append([email_para])
+    for para in personal_paras:
+        left_content.append([para])
     left_table = Table(left_content, colWidths=[12*cm])
     left_table.setStyle(TableStyle([
         ('LEFTPADDING', (0, 0), (-1, -1), 0),
@@ -868,6 +884,7 @@ class CVContext:
     if_data: dict
     labels: dict
     styles: object
+    personal: dict = None  # RRN/address/account for the personal variant
 
     @property
     def ko(self):
@@ -963,7 +980,7 @@ def build_title(ctx):
 
 def build_header(ctx):
     return [
-        create_header_table(ctx.professor, ctx.lang),
+        create_header_table(ctx.professor, ctx.lang, personal=ctx.personal),
         Spacer(1, 4),
         # Horizontal line under header
         HRFlowable(width="100%", thickness=2, color=NAVY, spaceAfter=8),
@@ -1278,14 +1295,51 @@ SECTION_BUILDERS = [
 ]
 
 
-def generate_cv(lang='en'):
-    """Generate the CV PDF in the given language ('en' or 'ko')."""
+PERSONAL_INFO_PATH = SCRIPT_DIR / "personal_info.json"
+PERSONAL_REQUIRED_KEYS = ['rrn', 'address', 'bank', 'account_number']
+
+
+# Environment-variable fallback (user keeps master copies in ~/.zshrc)
+PERSONAL_ENV_VARS = {
+    'rrn': 'Priv_rrn',
+    'address': 'Priv_address_h',  # home address; Priv_address_c is the office
+    'bank': 'Priv_bank',
+    'account_number': 'Priv_account',
+}
+
+
+def load_personal_info():
+    """Personal values for the --personal variant: gitignored
+    personal_info.json first, Priv_* environment variables as fallback.
+    Fails loudly when any value is still missing."""
+    info = {}
+    if PERSONAL_INFO_PATH.exists():
+        with open(PERSONAL_INFO_PATH, 'r', encoding='utf-8') as f:
+            info = json.load(f)
+    for key, env_var in PERSONAL_ENV_VARS.items():
+        if not str(info.get(key, '')).strip():
+            info[key] = os.environ.get(env_var, '')
+    missing = [k for k in PERSONAL_REQUIRED_KEYS if not str(info.get(k, '')).strip()]
+    if missing:
+        print(f"error: no personal info for {missing} — fill "
+              f"{PERSONAL_INFO_PATH.name} or export "
+              f"{[PERSONAL_ENV_VARS[k] for k in missing]}", file=sys.stderr)
+        sys.exit(1)
+    return info
+
+
+def generate_cv(lang='en', personal=False):
+    """Generate the CV PDF in the given language ('en' or 'ko').
+    With personal=True, the header additionally carries the RRN, home address,
+    and bank account from personal_info.json and the output file is suffixed
+    '_personal' so the standard PDFs are never overwritten."""
     ensure_fonts_registered()
     OUTPUT_DIR.mkdir(exist_ok=True)
 
     data = load_cv_data()
     validate_inputs(data, lang)
     professor = data['professor']
+    personal_info = load_personal_info() if personal else None
 
     ctx = CVContext(
         lang=lang,
@@ -1296,9 +1350,12 @@ def generate_cv(lang='en'):
         if_data=data['if_data'],
         labels=LABELS[lang],
         styles=create_styles(lang),
+        personal=personal_info,
     )
 
     suffix = "_KR" if ctx.ko else ""
+    if personal:
+        suffix += "_personal"
     output_path = OUTPUT_DIR / f"{datetime.now().strftime('%Y%m%d')}_CV_HLee{suffix}.pdf"
     doc = SimpleDocTemplate(
         str(output_path),
@@ -1319,8 +1376,19 @@ def generate_cv(lang='en'):
 
 
 def main():
-    generate_cv('en')   # English CV
-    generate_cv('ko')   # Korean CV (이력서)
+    import argparse
+    parser = argparse.ArgumentParser(description="Generate AIMAP Lab CV PDFs.")
+    parser.add_argument(
+        '--personal', action='store_true',
+        help="Korean CV with RRN/address/bank account from personal_info.json "
+             "(output *_KR_personal.pdf); skips the standard PDFs.")
+    args = parser.parse_args()
+
+    if args.personal:
+        generate_cv('ko', personal=True)  # 개인정보 포함 한국어 이력서
+    else:
+        generate_cv('en')   # English CV
+        generate_cv('ko')   # Korean CV (이력서)
 
 
 if __name__ == "__main__":

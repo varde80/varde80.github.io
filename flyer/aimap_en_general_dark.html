@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AIMAP Lab Flyer</title>
+<style>
+  :root {
+    --ink: #171210;
+    --ink-deep: #0e0b09;
+    --ink-warm: #221913;
+    --orange: #d2622b;
+    --orange-bright: #e0762f;
+    --ember: #f0955c;
+    --rust: #b6491c;
+    --cream: #f4ede5;
+    --muted: #8a7666;
+    --faint: #5e4f42;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  @page { size: A4; margin: 0; }
+  html, body { background: #555; }
+  body {
+    font-family: "Avenir Next", "Helvetica Neue", "Apple SD Gothic Neo", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    width: 210mm; height: 297mm;
+    overflow: hidden;
+    position: relative;
+    page-break-after: always;
+    margin: 0 auto;
+    display: flex; flex-direction: column;
+  }
+  @media screen { .page { margin: 8mm auto; box-shadow: 0 4px 24px rgba(0,0,0,.4); } }
+
+  /* ============ FRONT ============ */
+  .front { background: linear-gradient(160deg, #221913 0%, #171210 55%, #0e0b09 100%); color: var(--cream); }
+
+  .front .deco {
+    position: absolute; top: -30mm; right: -34mm; width: 120mm; height: 120mm;
+    opacity: .5; pointer-events: none;
+  }
+  .front .deco2 {
+    position: absolute; bottom: 30mm; left: -40mm; width: 90mm; height: 90mm;
+    opacity: .22; pointer-events: none;
+  }
+
+  .front-header { padding: 16mm 16mm 0; position: relative; z-index: 2; }
+  .logo-chip {
+    display: inline-block; background: #fdfbf7; border-radius: 3mm;
+    padding: 2.2mm 4mm; box-shadow: 0 1mm 4mm rgba(0,0,0,.45);
+  }
+  .logo-chip img { height: 13mm; display: block; }
+  .front-kicker {
+    margin-top: 9mm;
+    font-size: 8.6pt; letter-spacing: 2.6pt; font-weight: 600;
+    color: var(--ember); text-transform: uppercase;
+  }
+  .front-title {
+    margin-top: 2.5mm;
+    font-size: 30pt; line-height: 1.14; font-weight: 700; letter-spacing: .2pt;
+    color: #fdf8f2;
+  }
+  .front-title .accent { color: var(--orange-bright); }
+  .front-sub {
+    margin-top: 4mm; font-size: 10.5pt; font-weight: 500; color: #d8cfc4;
+  }
+  .front-sub b { color: var(--cream); font-weight: 600; }
+  .front-tagline {
+    margin-top: 3mm; font-size: 9pt; line-height: 1.55; color: var(--muted);
+    max-width: 158mm;
+  }
+
+  .rule {
+    margin: 6.5mm 16mm 0; height: .45mm; border: 0;
+    background: linear-gradient(90deg, var(--orange) 0 28mm, rgba(138,118,102,.35) 28mm);
+  }
+
+  .section-label {
+    margin: 5.5mm 16mm 0;
+    font-size: 8.6pt; letter-spacing: 2.6pt; font-weight: 700;
+    color: var(--ember); text-transform: uppercase;
+  }
+
+  .research-grid {
+    margin: 4mm 16mm 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 4mm;
+    align-content: start;
+  }
+  .rcard {
+    grid-column: span 2;
+    background: rgba(244,237,229,.055);
+    border: .3mm solid rgba(240,149,92,.28);
+    border-radius: 2.6mm;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .rcard img { width: 100%; height: 27mm; object-fit: cover; display: block; filter: saturate(1.05); }
+  .rcard .rbody { padding: 2.6mm 3.2mm 3mm; }
+  .rcard h3 { font-size: 9.6pt; font-weight: 700; color: #fbf3ea; line-height: 1.25; }
+  .rcard h3 .num { color: var(--orange-bright); font-weight: 700; margin-right: 1.2mm; }
+  .rcard p { margin-top: 1.4mm; font-size: 7.6pt; line-height: 1.42; color: #b3a495; }
+
+  .stats-band {
+    margin: auto 16mm;
+    background: linear-gradient(120deg, var(--rust), var(--orange) 55%, var(--orange-bright));
+    border-radius: 3mm;
+    display: flex;
+    padding: 4.2mm 2mm;
+  }
+  .stat { flex: 1; text-align: center; border-right: .3mm solid rgba(255,244,235,.3); }
+  .stat:last-child { border-right: 0; }
+  .stat .n { font-size: 19pt; font-weight: 700; color: #fff7f0; line-height: 1; }
+  .stat .l { margin-top: 1.4mm; font-size: 7.2pt; letter-spacing: 1pt; text-transform: uppercase; color: #ffe3ce; font-weight: 600; }
+
+  .front-footer {
+    margin-top: 0;
+    padding: 3.6mm 16mm 5mm;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: .3mm solid rgba(138,118,102,.3);
+  }
+  .front-footer .url { font-size: 10pt; font-weight: 700; color: var(--ember); letter-spacing: .6pt; }
+  .front-footer .org { font-size: 7.6pt; color: var(--muted); text-align: right; line-height: 1.4; }
+
+  /* ============ BACK ============ */
+  .back { background: #f7f1e8; color: #2a2019; }
+  .back-band {
+    background: linear-gradient(120deg, var(--ink-warm), #33241a);
+    color: var(--cream);
+    padding: 4.5mm 14mm;
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .back-band .wm { font-size: 13pt; font-weight: 700; letter-spacing: 1.5pt; }
+  .back-band .wm span { color: var(--orange-bright); }
+  .back-band .sub { font-size: 8pt; letter-spacing: 1.6pt; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+
+  .back-inner { flex: 1; padding: 5mm 14mm 0; display: flex; flex-direction: column; }
+
+  .sec-h {
+    font-size: 8.4pt; letter-spacing: 2.2pt; font-weight: 700; text-transform: uppercase;
+    color: var(--rust);
+    display: flex; align-items: center; gap: 2.5mm;
+  }
+  .sec-h::after { content: ""; flex: 1; height: .35mm; background: rgba(182,73,28,.25); }
+
+  .pi-row { display: flex; gap: 6mm; margin-top: 3.2mm; }
+  .pi-photo {
+    width: 27mm; height: 33mm; object-fit: cover; object-position: 50% 12%;
+    border-radius: 2.4mm; border: .6mm solid var(--orange);
+  }
+  .pi-info { flex: 1; }
+  .pi-name { font-size: 13.5pt; font-weight: 700; color: var(--ink-warm); }
+  .pi-name .ko { font-size: 10pt; font-weight: 600; color: var(--faint); margin-left: 1.5mm; }
+  .pi-role { margin-top: 1.2mm; font-size: 8.6pt; line-height: 1.5; color: #4a3d31; }
+  .pi-role b { color: var(--rust); }
+  .pi-meta { margin-top: 1.6mm; font-size: 7.8pt; line-height: 1.5; color: var(--muted); }
+  .team-chips { margin-top: 2.4mm; display: flex; flex-wrap: wrap; gap: 1.6mm; }
+  .chip {
+    font-size: 7.2pt; font-weight: 600; color: var(--rust);
+    background: rgba(210,98,43,.1); border: .3mm solid rgba(210,98,43,.35);
+    border-radius: 10mm; padding: .9mm 2.6mm;
+  }
+
+  .pub-list { margin-top: 2.6mm; display: flex; flex-direction: column; gap: 1.6mm; }
+  .pub { display: flex; align-items: flex-start; gap: 2.6mm; }
+  .if-badge {
+    flex: 0 0 15mm; text-align: center;
+    background: linear-gradient(120deg, var(--rust), var(--orange-bright));
+    color: #fff6ee; font-size: 7.4pt; font-weight: 700;
+    border-radius: 1.6mm; padding: 1mm 0; line-height: 1.25;
+  }
+  .pub .pt { font-size: 8.2pt; line-height: 1.35; color: #3a2f25; }
+  .pub .pt b { color: var(--ink-warm); }
+  .pub .pj { color: var(--rust); font-weight: 600; }
+  .pub .doi { color: var(--muted); font-size: 7pt; font-weight: 500; text-decoration: none; }
+
+  .two-col { display: flex; gap: 7mm; margin-top: 4.2mm; }
+  .col { flex: 1; min-width: 0; }
+  .item { margin-top: 2.4mm; font-size: 8.2pt; line-height: 1.4; color: #3a2f25; }
+  .item .role-badge {
+    display: inline-block; font-size: 6.6pt; font-weight: 700; letter-spacing: .5pt;
+    color: #fff6ee; background: var(--orange); border-radius: 1.2mm;
+    padding: .4mm 1.8mm; margin-right: 1.4mm; vertical-align: .2mm;
+  }
+  .item .role-badge.co { background: var(--muted); }
+  .item b { color: var(--ink-warm); }
+  .item .sub2 { color: var(--muted); font-size: 7.4pt; }
+  .item .gh { color: var(--rust); font-size: 7.2pt; font-weight: 600; }
+
+  .fac-chips { margin-top: 2.4mm; display: flex; flex-wrap: wrap; gap: 1.8mm; }
+  .fac-chips .chip { font-size: 7.6pt; background: rgba(34,25,19,.05); color: #4a3d31; border-color: rgba(94,79,66,.3); }
+  .fac-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2.6mm; margin-top: 2.8mm; }
+  .fac-card {
+    background: #fffdf9; border: .3mm solid rgba(94,79,66,.28);
+    border-radius: 2mm; overflow: hidden; text-align: center;
+  }
+  .fac-card img { width: 100%; height: 16mm; object-fit: contain; padding: 1mm; background: #ffffff; display: block; }
+  .fac-card .cap { font-size: 6.8pt; font-weight: 700; color: #4a3d31; padding: 1mm 1mm 1.4mm; line-height: 1.25; }
+
+  .join-band {
+    margin-top: 5.5mm;
+    background: linear-gradient(150deg, #221913, #171210 60%, #0e0b09);
+    color: var(--cream);
+    padding: 4.6mm 14mm 5mm;
+    display: flex; gap: 8mm; align-items: center;
+  }
+  .join-left { flex: 1; }
+  .join-h { font-size: 13pt; font-weight: 700; color: var(--ember); letter-spacing: .5pt; }
+  .join-p { margin-top: 1.6mm; font-size: 8.4pt; line-height: 1.55; color: #cdc2b5; max-width: 118mm; }
+  .join-p b { color: var(--cream); }
+  .contact-line { margin-top: 2mm; font-size: 8.2pt; line-height: 1.6; color: #b3a495; }
+  .contact-line b { color: var(--ember); font-weight: 600; }
+  .qr-box { text-align: center; }
+  .qr-box img { width: 23mm; height: 23mm; border-radius: 1.8mm; display: block; }
+  .qr-box .qurl { margin-top: 1.8mm; font-size: 7.6pt; font-weight: 700; color: var(--ember); letter-spacing: .4pt; }
+</style>
+</head>
+<body>
+
+<!-- ================= PAGE 1 · FRONT ================= -->
+<div class="page front">
+  <svg class="deco" viewBox="0 0 200 200" fill="none">
+    <g stroke="#d2622b" stroke-width="1.1">
+      <path d="M100 8 L176 50 L180 138 L104 190 L26 148 L22 56 Z" opacity=".8"/>
+      <path d="M100 26 L160 60 L163 130 L103 172 L41 138 L38 64 Z" opacity=".6"/>
+      <path d="M100 44 L145 70 L147 122 L102 154 L56 128 L54 72 Z" opacity=".45"/>
+      <path d="M100 62 L130 80 L131 114 L101 136 L71 118 L70 80 Z" opacity=".3"/>
+    </g>
+    <circle cx="88" cy="104" r="4.5" fill="#f0955c"/>
+    <circle cx="118" cy="86" r="6" fill="#f0955c"/>
+    <line x1="88" y1="104" x2="118" y2="86" stroke="#f0955c" stroke-width="2.4"/>
+  </svg>
+  <svg class="deco2" viewBox="0 0 200 200" fill="none">
+    <g stroke="#8a7666" stroke-width="1">
+      <path d="M100 8 L176 50 L180 138 L104 190 L26 148 L22 56 Z"/>
+      <path d="M100 34 L154 64 L157 126 L103 164 L47 132 L44 68 Z"/>
+      <path d="M100 60 L132 78 L134 116 L102 138 L68 120 L66 80 Z"/>
+    </g>
+  </svg>
+
+  <div class="front-header">
+    <span class="logo-chip"><img src="../src/assets/logo.png" alt="AIMAP"></span>
+    <div class="front-kicker">University of Science and Technology (UST) · KIMS Campus</div>
+    <div class="front-title">Where <span class="accent">Artificial Intelligence</span><br>Meets Materials &amp; Manufacturing</div>
+    <div class="front-sub"><b>AIMAP Lab</b> — AI for Materials &amp; Processing &nbsp;·&nbsp; UST 소재·공정 인공지능 연구실</div>
+    <div class="front-tagline">
+      We build AI that designs metals, reads microstructures, predicts manufacturing processes,
+      and runs autonomous experiments — bridging deep learning, physics-based simulation,
+      and robotics to accelerate materials innovation.
+    </div>
+  </div>
+
+  <hr class="rule">
+  <div class="section-label">Research Areas</div>
+
+  <div class="research-grid">
+    <div class="rcard">
+      <img src="img/design.png" alt="">
+      <div class="rbody">
+        <h3><span class="num">01</span>AI for Materials Design</h3>
+        <p>Deep-learning property prediction and generative models that accelerate the design and discovery of new alloys.</p>
+      </div>
+    </div>
+    <div class="rcard">
+      <img src="img/analysis.png" alt="">
+      <div class="rbody">
+        <h3><span class="num">02</span>AI-Based Materials Analysis</h3>
+        <p>AI-driven microstructure characterization, automated data analysis, and ML-based performance evaluation.</p>
+      </div>
+    </div>
+    <div class="rcard">
+      <img src="img/process.png" alt="">
+      <div class="rbody">
+        <h3><span class="num">03</span>Physics-Informed AI for Processes</h3>
+        <p>Hybrid AI–simulation frameworks that embed physical constraints for accurate, reliable process prediction.</p>
+      </div>
+    </div>
+    <div class="rcard">
+      <img src="img/agent.png" alt="">
+      <div class="rbody">
+        <h3><span class="num">04</span>Materials VLMs &amp; AI Agents</h3>
+        <p>Vision-language models and AI agents specialized for materials science that automate research workflows.</p>
+      </div>
+    </div>
+    <div class="rcard">
+      <img src="img/autolab.png" alt="">
+      <div class="rbody">
+        <h3><span class="num">05</span>Autonomous Laboratory</h3>
+        <p>Robotics + AI experimental platforms for closed-loop discovery and optimization of metallic materials.</p>
+      </div>
+    </div>
+    <div class="rcard">
+      <img src="img/autonomfg.png" alt="">
+      <div class="rbody">
+        <h3><span class="num">06</span>Autonomous Manufacturing</h3>
+        <p>Vision- and signal-based anomaly detection and physical AI for manufacturing systems that sense, decide, and act.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-band">
+    <div class="stat"><div class="n">77</div><div class="l">Journal Articles</div></div>
+    <div class="stat"><div class="n">61</div><div class="l">Conference Talks</div></div>
+    <div class="stat"><div class="n">38</div><div class="l">Funded Projects</div></div>
+    <div class="stat"><div class="n">3</div><div class="l">Open-Source Tools</div></div>
+  </div>
+
+  <div class="front-footer">
+    <div class="url">aimat.kr</div>
+    <div class="org">Korea Institute of Materials Science (KIMS) · University of Science and Technology (UST)<br>Changwon, Republic of Korea</div>
+  </div>
+</div>
+
+<!-- ================= PAGE 2 · BACK ================= -->
+<div class="page back">
+  <div class="back-band">
+    <div class="wm">AI<span>MA</span>P <span style="font-weight:400; font-size:8.5pt; color:#8a7666; letter-spacing:.8pt;">· AI for Materials &amp; Processing</span></div>
+    <div class="sub">People · Results · Join Us</div>
+  </div>
+
+  <div class="back-inner">
+    <div class="sec-h">Principal Investigator</div>
+    <div class="pi-row">
+      <img class="pi-photo" src="../public/images/members/professor.jpeg" alt="Prof. Ho Won Lee">
+      <div class="pi-info">
+        <div class="pi-name">Ho Won Lee, Ph.D. <span class="ko">이호원</span></div>
+        <div class="pi-role">
+          <b>Director</b>, Division of Materials AI Research, Korea Institute of Materials Science (KIMS)<br>
+          <b>Professor</b>, University of Science and Technology (UST)
+        </div>
+        <div class="pi-meta">
+          Ph.D. Mechanical Engineering, KAIST · formerly Max-Planck-Institut für Eisenforschung (Germany)<br>
+          Editorial Board, <i>Discover Metals</i> (Springer Nature) · Editorial Board, KSTP
+        </div>
+        <div class="team-chips">
+          <span class="chip">Team: 1 Postdoc · 3 Ph.D. · 1 M.S. · 1 Intern</span>
+          <span class="chip">Crystal Plasticity + GNN</span>
+          <span class="chip">Diffusion Models</span>
+          <span class="chip">Self-Supervised Learning</span>
+          <span class="chip">VLM for Materials</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-h" style="margin-top:4.5mm;">Selected Publications — PI as Lead/Corresponding Author</div>
+    <div class="pub-list">
+      <div class="pub">
+        <div class="if-badge">IF 11.4<br>top 1.9%</div>
+        <div class="pt"><b>Quantifying microstructure- and deformation-mode-dependent heterogeneity using crystal plasticity simulations</b><br><span class="pj">International Journal of Mechanical Sciences</span> (2026) · <a class="doi" href="https://doi.org/10.1016/j.ijmecsci.2026.111818">doi.org/10.1016/j.ijmecsci.2026.111818</a></div>
+      </div>
+      <div class="pub">
+        <div class="if-badge">IF 11.5<br>top 2.0%</div>
+        <div class="pt"><b>Parameter-aware high-fidelity microstructure generation using stable diffusion</b><br><span class="pj">Advanced Engineering Informatics</span> (2026) · <a class="doi" href="https://doi.org/10.1016/j.aei.2025.104080">doi.org/10.1016/j.aei.2025.104080</a></div>
+      </div>
+      <div class="pub">
+        <div class="if-badge">IF 9.0<br>top 3.1%</div>
+        <div class="pt"><b>Synthetic microstructure generation using diffusion transformers with structure-preserving augmentation</b><br><span class="pj">Engineering Applications of Artificial Intelligence</span> (2026) · <a class="doi" href="https://doi.org/10.1016/j.engappai.2026.114543">doi.org/10.1016/j.engappai.2026.114543</a></div>
+      </div>
+      <div class="pub">
+        <div class="if-badge">IF 6.2<br>top 6.8%</div>
+        <div class="pt"><b>Microstructure-informed forming limits in aluminum alloys: Experiments and crystal plasticity simulations</b><br><span class="pj">Materials Characterization</span> (2025) · <a class="doi" href="https://doi.org/10.1016/j.matchar.2025.115831">doi.org/10.1016/j.matchar.2025.115831</a></div>
+      </div>
+      <div class="pub">
+        <div class="if-badge">IF 8.2<br>Q1</div>
+        <div class="pt"><b>Multi-fidelity physics-guided graph neural networks for structure–property relationships in polycrystalline metals</b><br><span class="pj">Materials &amp; Design</span> (2026) · <a class="doi" href="https://doi.org/10.1016/j.matdes.2026.116310">doi.org/10.1016/j.matdes.2026.116310</a></div>
+      </div>
+      <div class="pub">
+        <div class="if-badge">IF 8.2<br>Q1</div>
+        <div class="pt"><b>Multi-fidelity learning-based latent diffusion model for three-dimensional inverse microstructure design of dual phase steels</b><br><span class="pj">Materials &amp; Design</span> (2025) · <a class="doi" href="https://doi.org/10.1016/j.matdes.2025.114623">doi.org/10.1016/j.matdes.2025.114623</a></div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="col">
+        <div class="sec-h">Flagship Projects</div>
+        <div class="item"><span class="role-badge">PI</span><b>Foundation-model AI service for automated design of metal materials &amp; processes</b><br><span class="sub2">NST (MSIT) · 2026–2030</span></div>
+        <div class="item"><span class="role-badge">PI</span><b>Digital innovation platform for metal materials manufacturing</b><br><span class="sub2">KIAT (MOTIE) · 2022–2026</span></div>
+        <div class="item"><span class="role-badge co">Co-PI</span><b>AI-enabled virtual engineering platform for aerospace metal additive manufacturing</b><br><span class="sub2">KIAT (MOTIE) · 2025–2029</span></div>
+      </div>
+      <div class="col">
+        <div class="sec-h">Open-Source Software</div>
+        <div class="item"><b>MatSSL</b> — self-supervised representation learning for metallographic image segmentation<br><span class="gh">github.com/duchieuphan2k1/MatSSL</span></div>
+        <div class="item"><b>SD3.5-DreamBooth-LoRA</b> — parameter-aware fine-tuning for controllable microstructure generation</div>
+        <div class="item"><b>Microstructure-SegNet</b> — unified semantic segmentation pipeline for microstructure validation</div>
+      </div>
+    </div>
+
+    <div class="sec-h" style="margin-top:4.2mm;">Research Infrastructure</div>
+    <div class="fac-grid">
+      <div class="fac-card"><img src="../public/images/facilities/cluster.jpg" alt=""><div class="cap">GPU Cluster<br>(18× A100 · 24× A6000)</div></div>
+      <div class="fac-card"><img src="../public/images/facilities/rolling.png" alt=""><div class="cap">Automatic Rolling Mill</div></div>
+      <div class="fac-card"><img src="../public/images/facilities/atm.png" alt=""><div class="cap">Auto Tensile Machine</div></div>
+      <div class="fac-card"><img src="../public/images/facilities/xrd.png" alt=""><div class="cap">X-Ray Diffractometer</div></div>
+      <div class="fac-card"><img src="../public/images/facilities/ur3e.png" alt=""><div class="cap">Collaborative Robot</div></div>
+      <div class="fac-card"><img src="../public/images/facilities/form_4l.png" alt=""><div class="cap">Large-Format SLA Printer</div></div>
+    </div>
+    <div class="fac-note" style="margin-top:1.8mm; font-size:7.6pt; line-height:1.5; color:#8a7666;">We produce process and property data in-house on the rolling mill, tensile machine, and XRD, automate experiments with the robot arm and SLA printer, and train AI models on our GPU cluster — from data generation to validation in one lab.</div>
+  </div>
+
+  <div class="join-band">
+    <div class="join-left">
+      <div class="join-h">Join Us — 함께할 연구자를 찾습니다</div>
+      <div class="join-p">
+        We welcome <b>M.S./Ph.D. students (UST)</b>, <b>postdoctoral researchers</b>, and <b>interns</b>
+        passionate about AI for materials and manufacturing. International applicants welcome — our team works in English.<br>
+        소재·제조 AI 연구에 함께할 대학원생(UST 석·박사), 박사후연구원, 인턴을 모집합니다.
+      </div>
+      <div class="contact-line">
+        <b>Prof. Ho Won Lee</b> · h.lee@kims.re.kr · +82-55-280-3843<br>
+        Korea Institute of Materials Science, 797 Changwondae-ro, Seongsan-gu, Changwon, Korea
+      </div>
+    </div>
+    <div class="qr-box">
+      <img src="qr_site.png" alt="QR: aimat.kr">
+      <div class="qurl">aimat.kr</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

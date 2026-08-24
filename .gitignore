@@ -26,6 +26,9 @@ dist-ssr
 # CV Generator output
 cv-generator/output/
 
+# Personal letters (recommendation letters etc.) — never publish
+letters/
+
 rawdata/
 _workspace/
 .claude/

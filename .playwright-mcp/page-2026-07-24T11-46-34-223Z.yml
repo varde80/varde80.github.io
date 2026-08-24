@@ -1,0 +1,137 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img "UST Lab Logo" [ref=e8]
+      - navigation [ref=e9]:
+        - link "Home" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - link "Members" [ref=e11] [cursor=pointer]:
+          - /url: /members
+        - link "Research Areas" [ref=e12] [cursor=pointer]:
+          - /url: /research
+        - link "Projects" [ref=e13] [cursor=pointer]:
+          - /url: /projects
+        - link "Facilities" [ref=e14] [cursor=pointer]:
+          - /url: /facilities
+        - link "Publications" [ref=e15] [cursor=pointer]:
+          - /url: /achievements
+        - link "Software" [ref=e16] [cursor=pointer]:
+          - /url: /software
+        - link "News" [ref=e17] [cursor=pointer]:
+          - /url: /news
+        - link "Contact" [ref=e18] [cursor=pointer]:
+          - /url: /contact
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - region "Lab highlights" [ref=e22]:
+        - generic [ref=e23]:
+          - img "AI for Materials Lab" [ref=e25]
+          - generic [ref=e28]:
+            - heading "AI for Materials Lab" [level=1] [ref=e29]
+            - paragraph [ref=e30]: Exploring the secrets of materials using AI
+            - link "Join Our Team" [ref=e31] [cursor=pointer]:
+              - /url: /contact
+        - generic:
+          - generic:
+            - generic:
+              - heading [level=1]: Cutting-edge Research
+              - paragraph: Investigating future materials with advanced Deep Learning techniques
+              - link:
+                - /url: /contact
+                - text: Join Our Team
+        - generic:
+          - generic:
+            - generic:
+              - heading [level=1]: Join Our Team
+              - paragraph: We are looking for passionate researchers to join us
+              - link:
+                - /url: /contact
+                - text: Join Our Team
+        - button "Previous slide" [ref=e34]
+        - button "Next slide" [ref=e37]
+        - generic [ref=e40]:
+          - button "Go to slide 1" [ref=e41]
+          - button "Go to slide 2" [ref=e42]
+          - button "Go to slide 3" [ref=e43]
+      - generic [ref=e46]:
+        - heading "About Our Lab" [level=2] [ref=e47]
+        - paragraph [ref=e48]: Our lab conducts research on AI for materials and processing. We work on property prediction, automation and acceleration of materials analysis, materials design, and process optimization by leveraging data generated from autonomous laboratories and computational science. By integrating these data sources with advanced AI models, we aim to develop innovative and efficient solutions for next-generation materials research.
+      - generic [ref=e50]:
+        - heading "Research Areas" [level=2] [ref=e51]
+        - generic [ref=e52]:
+          - link [ref=e53] [cursor=pointer]:
+            - /url: /research#research1
+            - generic [ref=e54]:
+              - img "AI for Materials Design" [ref=e55]
+              - heading "AI for Materials Design" [level=3] [ref=e58]
+          - link [ref=e59] [cursor=pointer]:
+            - /url: /research#research2
+            - generic [ref=e60]:
+              - img "AI-Based Materials Analysis and Evaluation" [ref=e61]
+              - heading "AI-Based Materials Analysis and Evaluation" [level=3] [ref=e64]
+          - link [ref=e65] [cursor=pointer]:
+            - /url: /research#research3
+            - generic [ref=e66]:
+              - img "Physics-Informed AI for Materials Process Prediction" [ref=e67]
+              - heading "Physics-Informed AI for Materials Process Prediction" [level=3] [ref=e70]
+          - link [ref=e71] [cursor=pointer]:
+            - /url: /research#research4
+            - generic [ref=e72]:
+              - img "Materials-Specialized VLMs and AI Agents" [ref=e73]
+              - heading "Materials-Specialized VLMs and AI Agents" [level=3] [ref=e76]
+          - link [ref=e77] [cursor=pointer]:
+            - /url: /research#research5
+            - generic [ref=e78]:
+              - img "Autonomous Laboratory for Metallic Materials" [ref=e79]
+              - heading "Autonomous Laboratory for Metallic Materials" [level=3] [ref=e82]
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - heading "News" [level=2] [ref=e86]
+          - link "View All" [ref=e87] [cursor=pointer]:
+            - /url: /news
+        - paragraph [ref=e91]: Prof. Lee, Dr. Tran, Mr. Joo, Mr. Cuong, and Mr. Nam attended the International Conference on Machine Learning (ICML 2026), held at COEX, Seoul, Korea.
+        - region "Recent news gallery" [ref=e93]:
+          - img "ICML 2026 in Seoul, Korea" [ref=e95]
+          - button "Previous slide" [ref=e96]
+          - button "Next slide" [ref=e99]
+          - generic [ref=e102]:
+            - button "Go to slide 1" [ref=e103]
+            - button "Go to slide 2" [ref=e104]
+            - button "Go to slide 3" [ref=e105]
+            - button "Go to slide 4" [ref=e106]
+            - button "Go to slide 5" [ref=e107]
+            - button "Go to slide 6" [ref=e108]
+            - button "Go to slide 7" [ref=e109]
+            - button "Go to slide 8" [ref=e110]
+            - button "Go to slide 9" [ref=e111]
+  - contentinfo [ref=e112]:
+    - generic [ref=e114]:
+      - generic [ref=e115]:
+        - generic [ref=e116]:
+          - heading "UST AIMAP Lab" [level=3] [ref=e117]
+          - paragraph [ref=e118]: 797 Changwon-daero, Seongsan-gu, Changwon-si 51508 Republic of Korea
+        - generic [ref=e119]:
+          - heading "Quick Links" [level=3] [ref=e120]
+          - list [ref=e121]:
+            - listitem [ref=e122]:
+              - link "Members" [ref=e123] [cursor=pointer]:
+                - /url: /members
+            - listitem [ref=e124]:
+              - link "Research Areas" [ref=e125] [cursor=pointer]:
+                - /url: /research
+            - listitem [ref=e126]:
+              - link "Publications" [ref=e127] [cursor=pointer]:
+                - /url: /achievements
+            - listitem [ref=e128]:
+              - link "Contact" [ref=e129] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e130]:
+          - heading "Contact" [level=3] [ref=e131]
+          - list [ref=e132]:
+            - listitem [ref=e133]:
+              - generic [ref=e136]: h.lee@kims.re.kr
+            - listitem [ref=e137]:
+              - generic [ref=e140]: +82-55-280-3843
+      - paragraph [ref=e142]: © 2026 UST AIMAP Lab. All rights reserved.
