@@ -2,7 +2,7 @@
     {
         "id": "prep1",
         "type": "journal",
-        "title": "Unified Generation of Micrograph-Mask Pairs via Phase-Fraction-Guided Diffusion for Metallographic Segmentation in Small-Data Regimes",
+        "title": "Unified generation of micrograph–mask pairs via a phase-fraction-guided diffusion model for data-scarce metallographic segmentation",
         "authors": [
             "Hoang Hai Nam Nguyen^",
             "Minh Tien Tran^",
