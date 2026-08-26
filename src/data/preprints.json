@@ -69,5 +69,23 @@
         "year": 2026,
         "status": "In preparation",
         "featured": false
+    },
+    {
+        "id": "prep5",
+        "type": "journal",
+        "title": "Dual-representation mesh-based graph neural networks for predicting mechanical response and stress–strain evolution behavior of ultra-thin steel steels",
+        "authors": [
+            "Minh Tien Tran^",
+            "Hoang Cuong Phan",
+            "Mooyeong Joo^",
+            "Hoang Hai Nam Nguyen^",
+            "Seong-Hoon Kang",
+            "Dong-Kyu Kim",
+            "Ho Won Lee^*"
+        ],
+        "journal": "In preparation",
+        "year": 2026,
+        "status": "In preparation",
+        "featured": false
     }
 ]
