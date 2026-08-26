@@ -87,5 +87,21 @@
         "year": 2026,
         "status": "In preparation",
         "featured": false
+    },
+    {
+        "id": "prep6",
+        "type": "journal",
+        "title": "Texture-aware transformers-based discovery of forming limits from orientation distribution functions",
+        "authors": [
+            "Minh Tien Tran^",            
+            "Mooyeong Joo^",            
+            "Seong-Hoon Kang",
+            "Dong-Kyu Kim",
+            "Ho Won Lee^*"
+        ],
+        "journal": "In preparation",
+        "year": 2026,
+        "status": "In preparation",
+        "featured": false
     }
 ]
