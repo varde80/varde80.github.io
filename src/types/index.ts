@@ -15,6 +15,11 @@ export interface Experience {
   institution: string
 }
 
+export interface ResearchInterestGroup {
+  category: string
+  items: string[]
+}
+
 export interface ProfessorKo {
   name?: string
   title?: string
@@ -22,7 +27,7 @@ export interface ProfessorKo {
   header_org?: string
   experience?: Record<string, { position: string; org: string }>
   education?: Record<string, { degree: string; field: string; institution: string; advisor?: string }>
-  "Research Interests"?: string[]
+  "Research Interests"?: (string | ResearchInterestGroup)[]
   "Honors and Awards"?: { name: string; org: string; year: string }[]
   "Professional Activities/Memberships"?: string[]
 }
@@ -36,7 +41,7 @@ export interface Professor {
   bio?: string
   education: Education[]
   experience: Experience[]
-  "Research Interests"?: string[]
+  "Research Interests"?: (string | ResearchInterestGroup)[]
   "Grants and Awards"?: string[]
   "Honors and Awards"?: string[]
   "Professional Activities/Memberships"?: string[]

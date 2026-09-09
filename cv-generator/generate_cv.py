@@ -17,6 +17,7 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import cm
 from reportlab.lib.colors import HexColor, white, black
+from reportlab.platypus import PageBreak
 from reportlab.platypus import (
     SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle,
     HRFlowable, Flowable, Image
@@ -198,10 +199,15 @@ LABELS = {
         'pub_note': '* Shaded entries indicate first author or corresponding author publications.',
         'journal_articles': 'Journal Articles',
         'in_submission': 'In Submission',
+        'in_press': 'In Press (accepted; offline publication scheduled)',
+        'in_press_tag': 'In press',
+        'earlier_grants': 'Earlier Grants (awarded before {ym})',
         'total': 'Total', 'corresponding': 'Corresponding', 'coauthor': 'Co-Author',
+        'top10': 'JCR top 10%',
+        'top10_sci': 'JCR top 10% (SCI(E) only)',
         'submitted': 'Submitted',
         'grants': 'Research Grants',
-        'grant_note': '* Shaded entries indicate grants with funding ≥ 10B KRW.',
+        'grant_note': '* Only grants led as principal investigator (lead or participating institution) are listed; shaded entries indicate funding ≥ 10B KRW.',
         'ongoing': 'Ongoing Grants', 'completed': 'Completed Grants',
         'since': 'since',
     },
@@ -218,10 +224,15 @@ LABELS = {
         'pub_note': '* 음영 표시는 제1저자 또는 교신저자 논문입니다.',
         'journal_articles': '학술지 논문',
         'in_submission': '투고 중',
+        'in_press': '게재 확정 (게재예정)',
+        'in_press_tag': '게재 확정',
+        'earlier_grants': '5년 이전 과제 ({ym} 이전 수주)',
         'total': '총', 'corresponding': '교신저자', 'coauthor': '공저자',
+        'top10': 'JCR 상위 10% 이내',
+        'top10_sci': 'JCR 상위 10% 이내(SCI(E) 기준)',
         'submitted': '투고 중',
         'grants': '연구 과제',
-        'grant_note': '* 음영 표시는 100억 원 이상 과제입니다.',
+        'grant_note': '* 연구책임자(총괄책임·참여기관 책임자)로 수행한 과제만 표기하며, 음영 표시는 100억 원 이상 과제입니다.',
         'ongoing': '진행 중 과제', 'completed': '완료 과제',
         'since': '이후',
     },
@@ -435,6 +446,33 @@ def create_styles(lang='en'):
         firstLineIndent=-7,
     ))
 
+    # Research-interest group heading (category line above sub-bullets)
+    styles.add(ParagraphStyle(
+        name='InterestGroup',
+        fontName=bold,
+        fontSize=9.5,
+        textColor=NAVY,
+        alignment=TA_LEFT,
+        leading=12,
+        spaceBefore=4,
+        spaceAfter=1,
+        leftIndent=0,
+    ))
+
+    # Research-interest sub-bullet under a group heading
+    styles.add(ParagraphStyle(
+        name='InterestSub',
+        fontName=base,
+        fontSize=9,
+        textColor=black,
+        alignment=TA_LEFT,
+        leading=12,
+        spaceBefore=0.5,
+        spaceAfter=0.5,
+        leftIndent=22,
+        firstLineIndent=-8,
+    ))
+
     # Professional-activity bullet line
     styles.add(ParagraphStyle(
         name='Activity',
@@ -519,7 +557,7 @@ def create_header_table(professor, lang='en', personal=None):
                 position = exp.get("position", "")
                 institution = exp.get("institution", "")
                 period = exp.get("period", "")
-                if "Director" in position and ("Present" in period or "present" in period):
+                if ("Director" in position or "Head" in position) and ("Present" in period or "present" in period):
                     affiliation_line1 = position
                     department = exp.get("Department", "")
                     if department:
@@ -885,6 +923,11 @@ class CVContext:
     labels: dict
     styles: object
     personal: dict = None  # RRN/address/account for the personal variant
+    doi_filter: dict = None   # {doi_lower: set(flags)} flags ⊂ {'inpress','esci'} — when set, only these papers are listed
+    pub_subtitle: str = None  # overrides the '(2024-2026)' subtitle of the publications section
+    grants_from: str = None   # 'YYYY.MM' — list only grants awarded (started) on/after this month
+    section_breaks: bool = True  # start Publications and Research Grants on a new page
+    if_override: dict = None  # {doi_lower: 'IF x, JCR y%'} — per-paper IF text replacing the IF.json value (e.g. publication-year JCR)
 
     @property
     def ko(self):
@@ -895,10 +938,12 @@ class CVContext:
         if self.ko:
             eok = billion * 10  # 1B KRW = 10억 원
             return (f"{int(eok)}억 원" if abs(eok - round(eok)) < 1e-6 else f"{eok:.1f}억 원")
+        if billion < 10:   # two decimals for small grants so the listed items add up to the subtotal
+            return f"{billion:.2f}".rstrip('0').rstrip('.') + "B KRW"
         return f"{billion:.1f}B KRW"
 
 
-def render_publication(pub, number, ctx, status=None):
+def render_publication(pub, number, ctx, status=None, journal_tag=None):
     """One numbered publication line; status switches to the in-submission format."""
     authors = format_authors(pub['authors'])
     title = pub['title']
@@ -910,7 +955,14 @@ def render_publication(pub, number, ctx, status=None):
             vol_info += f", {pub['volume']}"
         if pub.get('pages'):
             vol_info += f", {pub['pages']}"
-        text = f"{number}. {authors}, \"{title}\", {journal_with_if(journal, ctx.if_data)}{vol_info}."
+        if_data = ctx.if_data
+        ov = (ctx.if_override or {}).get(str(pub.get('doi', '')).lower().strip())
+        if ov:   # per-paper override (e.g. publication-year JCR when the current-year capture is unavailable)
+            if_data = {**ctx.if_data, journal: ov}
+        jtxt = journal_with_if(journal, if_data)
+        if journal_tag:   # e.g. 'ESCI' — index note right after the journal name
+            jtxt = jtxt.replace(journal, f"{journal} [{journal_tag}]", 1)
+        text = f"{number}. {authors}, \"{title}\", {jtxt}{vol_info}."
     else:
         # Skip the journal name when it just restates the status/preprint server
         skip_journal = (
@@ -944,7 +996,7 @@ def format_project_line(proj, ctx):
     # Role color (PI and Co-PI both blue) and localized label
     role_upper = role.upper()
     role_hex = LINK_BLUE if role_upper in ['PI', 'CO-PI'] else ROLE_GRAY
-    role_label = ({'PI': '연구책임', 'CO-PI': '공동연구'}.get(role_upper, role)
+    role_label = ({'PI': '총괄책임', 'CO-PI': '참여기관 책임자'}.get(role_upper, role)
                   if ctx.ko else role)
 
     # Localized funding amount
@@ -967,6 +1019,12 @@ def format_project_line(proj, ctx):
     line += f' <font color="{role_hex}"><b>{role_label}</b></font>'
     if amount:
         line += f' | <font color="{LINK_BLUE}">{amount}</font>'
+    note = proj.get('note')            # optional remark, e.g. {"ko": "26년 책임자 변경", "en": "PI changed in 2026"}
+    if note:
+        note = pick(note) if isinstance(note, dict) else str(note)
+        if ctx.ko and isinstance(proj.get('note'), dict):
+            note = proj['note'].get('ko', note)
+        line += f' <font color="{LIGHT_GRAY_HEX}">({note})</font>'
 
     return line
 
@@ -979,12 +1037,17 @@ def build_title(ctx):
 
 
 def build_header(ctx):
-    return [
+    flow = [
         create_header_table(ctx.professor, ctx.lang, personal=ctx.personal),
         Spacer(1, 4),
-        # Horizontal line under header
-        HRFlowable(width="100%", thickness=2, color=NAVY, spaceAfter=8),
     ]
+    ids = ctx.professor.get('ids') or []   # [{"label": "Scopus Author ID", "value": "..."}, ...]
+    if ids:
+        id_text = "   ·   ".join(f"<b>{d['label']}</b> {d['value']}" for d in ids if d.get('value'))
+        flow.append(Paragraph(id_text, ctx.styles['PubNote']))
+        flow.append(Spacer(1, 2))
+    flow.append(HRFlowable(width="100%", thickness=2, color=NAVY, spaceAfter=8))
+    return flow
 
 
 def build_summary(ctx):
@@ -999,8 +1062,17 @@ def build_interests(ctx):
         return []
     flow = make_section_header(ctx.labels['research_interests'], "◈", lang=ctx.lang)
     interests = ctx.kod['Research Interests'] if ctx.ko else ctx.professor["Research Interests"]
-    for interest in interests:
-        flow.append(Paragraph(f"•&nbsp;&nbsp;{interest}", ctx.styles['Interest']))
+    for entry in interests:
+        if isinstance(entry, dict):
+            # Grouped format: {"category": str, "items": [str, ...]}
+            category = entry.get("category", "")
+            if category:
+                flow.append(Paragraph(category, ctx.styles['InterestGroup']))
+            for item in entry.get("items", []):
+                flow.append(Paragraph(f"–&nbsp;&nbsp;{item}", ctx.styles['InterestSub']))
+        else:
+            # Legacy flat format: plain string bullet
+            flow.append(Paragraph(f"•&nbsp;&nbsp;{entry}", ctx.styles['Interest']))
     flow.append(Spacer(1, 6))
     return flow
 
@@ -1181,12 +1253,22 @@ def build_activities(ctx):
 
 def build_publications(ctx):
     L = ctx.labels
-    flow = [Spacer(1, 6)]
-    flow.extend(make_section_header(L['publications'], "■", subtitle="(2024-2026)", gap=4, lang=ctx.lang))
+    flow = [PageBreak()] if ctx.section_breaks else [Spacer(1, 6)]
+    flow.extend(make_section_header(L['publications'], "■", subtitle=(ctx.pub_subtitle or "(2024-2026)"), gap=4, lang=ctx.lang))
     flow.append(Paragraph(L['pub_note'], ctx.styles['PubNote']))
 
-    # Publications from 2024 onwards only, split into published vs in-submission
-    recent_journals = [j for j in ctx.journals if j.get('year', 0) >= 2024]
+    # Publications from 2024 onwards only, split into published vs in-submission.
+    # With a DOI filter (application-specific recognition window) only the listed
+    # papers are shown; those flagged 'inpress' go to a separate in-press group.
+    in_press = []
+    esci = []
+    if ctx.doi_filter:
+        recent_journals = [j for j in ctx.journals if str(j.get('doi', '')).lower().strip() in ctx.doi_filter]
+        in_press = [j for j in recent_journals if 'inpress' in ctx.doi_filter[str(j.get('doi', '')).lower().strip()]]
+        esci = [j for j in recent_journals if 'esci' in ctx.doi_filter[str(j.get('doi', '')).lower().strip()]]
+        # in-press papers stay in the main list (tagged), not in a separate group
+    else:
+        recent_journals = [j for j in ctx.journals if j.get('year', 0) >= 2024]
     preprint_submitted = [j for j in recent_journals if j.get('status', '').lower() in ['submitted', 'preprint']]
     published_journals = [j for j in recent_journals if not j.get('status')]
     published_journals.sort(key=get_pub_sort_key)
@@ -1211,6 +1293,21 @@ def build_publications(ctx):
     # Journal Articles (numbered continuously across year groups)
     flow.append(Spacer(1, 4))
     journal_stats = format_pub_stats(len(published_journals), journal_corresponding, journal_coauthor)
+
+    def jcr_pct(pub):
+        """JCR percentile from IF.json ('IF 11.4, JCR 1.9%' -> 1.9); None when only a quartile is given."""
+        info = (ctx.if_override or {}).get(str(pub.get('doi', '')).lower().strip()) or ctx.if_data.get(pub.get('journal', '')) or next(
+            (v for k, v in ctx.if_data.items() if k.lower() == str(pub.get('journal', '')).lower()), '')
+        m = re.search(r'JCR\s*([\d.]+)\s*%', str(info))
+        return float(m.group(1)) if m else None
+    if esci:   # SCI(E) vs ESCI breakdown right after the total
+        journal_stats = journal_stats.replace(f"{L['total']}: {len(published_journals)}",
+            f"{L['total']}: {len(published_journals)} (SCI(E) {len(published_journals) - len(esci)}, ESCI {len(esci)})", 1)
+    top10 = [p for p in published_journals if p not in esci and (jcr_pct(p) is not None and jcr_pct(p) <= 10.0)]
+    if top10:
+        t10_corr = sum(1 for p in top10 if is_corresponding_author(p['authors']))
+        top10_label = L['top10_sci'] if esci else L['top10']   # make the ESCI exclusion explicit
+        journal_stats += f" | {top10_label}: {len(top10)} ({L['corresponding']} {t10_corr}, {L['coauthor']} {len(top10) - t10_corr})"
     flow.append(Paragraph(f"<b>{L['journal_articles']}</b> ({journal_stats})", ctx.styles['Subsection']))
 
     pub_number = 1
@@ -1218,7 +1315,7 @@ def build_publications(ctx):
         flow.append(Spacer(1, 2))
         flow.append(Paragraph(f"<b><font size='10'>{year}</font></b>", ctx.styles['ItemDesc']))
         for pub in [p for p in published_journals if p['year'] == year]:
-            flow.append(render_publication(pub, pub_number, ctx))
+            flow.append(render_publication(pub, pub_number, ctx, journal_tag=('ESCI' if pub in esci else None)))
             pub_number += 1
 
     # In Submission (numbering restarts)
@@ -1233,10 +1330,21 @@ def build_publications(ctx):
     return flow
 
 
+def get_project_start_ym(project):
+    """'2026.01 - 2030.12' -> '2026.01' (zero-padded, lexicographically comparable)."""
+    m = re.match(r'\s*(\d{4})\.(\d{1,2})', str(project.get('period', '')))
+    return f"{m.group(1)}.{int(m.group(2)):02d}" if m else "0000.00"
+
+
 def build_grants(ctx):
     # Only include PI/Co-PI projects with funding >= 0.1B KRW (1억원)
     pi_projects = [p for p in ctx.projects
                    if is_pi_role(p) and get_funding_amount_billion(p) >= 0.1]
+    earlier = []
+    if ctx.grants_from:   # application-specific window, e.g. 'most recent 5 years'
+        earlier = sorted([p for p in pi_projects if get_project_start_ym(p) < ctx.grants_from],
+                         key=get_project_start_year, reverse=True)
+        pi_projects = [p for p in pi_projects if get_project_start_ym(p) >= ctx.grants_from]
     ongoing = sorted([p for p in pi_projects if p.get('status') == 'ongoing'],
                      key=get_project_start_year, reverse=True)
     completed = sorted([p for p in pi_projects if p.get('status') == 'completed'],
@@ -1245,7 +1353,15 @@ def build_grants(ctx):
     # Total funding amount and date range for the header subtitle
     total_funding = sum(get_funding_amount_billion(p) for p in pi_projects)
     earliest_year = min(get_project_start_year(p) for p in pi_projects) if pi_projects else 0
-    if total_funding > 0:
+    if total_funding > 0 and ctx.grants_from:
+        pi_only = sum(get_funding_amount_billion(p) for p in pi_projects if str(p.get('role', {}).get('en', p.get('role', ''))).strip() == 'PI')
+        copi = total_funding - pi_only
+        yr, mo = ctx.grants_from.split('.')
+        if ctx.ko:
+            total_funding_str = f"총괄책임 {ctx.fund_amount(pi_only)} · 참여기관 책임 {ctx.fund_amount(copi)}, {yr}.{int(mo)} 이후 수주"
+        else:
+            total_funding_str = f"PI {ctx.fund_amount(pi_only)} · Co-PI {ctx.fund_amount(copi)}, awarded since {yr}.{int(mo)}"
+    elif total_funding > 0:
         if ctx.ko:
             total_funding_str = f"{ctx.fund_amount(total_funding)}, {earliest_year}년 이후"
         else:
@@ -1253,7 +1369,7 @@ def build_grants(ctx):
     else:
         total_funding_str = ""
 
-    flow = [Spacer(1, 6)]
+    flow = [PageBreak()] if ctx.section_breaks else [Spacer(1, 6)]
     flow.extend(make_section_header(
         ctx.labels['grants'], "◆",
         subtitle=f"({total_funding_str})" if total_funding_str else None,
@@ -1275,6 +1391,16 @@ def build_grants(ctx):
         completed_total_str = f"({ctx.fund_amount(completed_total)})" if completed_total > 0 else ""
         flow.append(Paragraph(f"<b>{ctx.labels['completed']}</b> {completed_total_str}", ctx.styles['Subsection']))
         for proj in completed:
+            style_name = 'ProjectHighlight' if is_large_grant(proj) else 'ProjectCompact'
+            flow.append(Paragraph(format_project_line(proj, ctx), ctx.styles[style_name]))
+
+    if earlier:   # grants awarded before the window, kept for completeness
+        yr, mo = ctx.grants_from.split('.')
+        earlier_total = sum(get_funding_amount_billion(p) for p in earlier)
+        flow.append(Spacer(1, 4))
+        label = ctx.labels['earlier_grants'].format(ym=f"{yr}.{int(mo)}")
+        flow.append(Paragraph(f"<b>{label}</b> ({ctx.fund_amount(earlier_total)})", ctx.styles['Subsection']))
+        for proj in earlier:
             style_name = 'ProjectHighlight' if is_large_grant(proj) else 'ProjectCompact'
             flow.append(Paragraph(format_project_line(proj, ctx), ctx.styles[style_name]))
 
@@ -1328,7 +1454,7 @@ def load_personal_info():
     return info
 
 
-def generate_cv(lang='en', personal=False):
+def generate_cv(lang='en', personal=False, doi_filter=None, pub_subtitle=None, suffix_extra='', grants_from=None, section_breaks=True, if_override=None):
     """Generate the CV PDF in the given language ('en' or 'ko').
     With personal=True, the header additionally carries the RRN, home address,
     and bank account from personal_info.json and the output file is suffixed
@@ -1351,11 +1477,17 @@ def generate_cv(lang='en', personal=False):
         labels=LABELS[lang],
         styles=create_styles(lang),
         personal=personal_info,
+        doi_filter=doi_filter,
+        pub_subtitle=pub_subtitle,
+        grants_from=grants_from,
+        section_breaks=section_breaks,
+        if_override=if_override,
     )
 
     suffix = "_KR" if ctx.ko else ""
     if personal:
         suffix += "_personal"
+    suffix += suffix_extra
     output_path = OUTPUT_DIR / f"{datetime.now().strftime('%Y%m%d')}_CV_HLee{suffix}.pdf"
     doc = SimpleDocTemplate(
         str(output_path),
@@ -1382,13 +1514,36 @@ def main():
         '--personal', action='store_true',
         help="Korean CV with RRN/address/bank account from personal_info.json "
              "(output *_KR_personal.pdf); skips the standard PDFs.")
+    parser.add_argument('--doi-list', help="text file of DOIs (one per line, optional ',inpress' flag; '#' comments) — "
+                        "restricts the publication list to an application's recognition window")
+    parser.add_argument('--pub-subtitle', help="subtitle for the publications section, e.g. '(2022.9-2026.9)'")
+    parser.add_argument('--suffix', default='', help="extra output filename suffix, e.g. _Ajou")
+    parser.add_argument('--lang', choices=['en', 'ko', 'both'], default='both')
+    parser.add_argument('--no-section-breaks', action='store_true', help="do not start Publications / Research Grants on a new page")
+    parser.add_argument('--grants-from', help="'YYYY.MM' — list only grants awarded on/after this month (e.g. 2021.09 for a 5-year window)")
+    parser.add_argument('--if-override', help="JSON file {doi: 'IF x, JCR y%'} — per-paper IF text replacing IF.json (e.g. publication-year JCR)")
     args = parser.parse_args()
 
+    doi_filter = None
+    if args.doi_list:
+        doi_filter = {}
+        for line in open(args.doi_list, encoding='utf-8'):
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+            parts = [x.strip() for x in line.split(',')]
+            doi_filter[parts[0].lower()] = {x.lower() for x in parts[1:] if x}
+    if_override = None
+    if args.if_override:
+        import json as _json
+        if_override = {str(k).lower().strip(): v for k, v in _json.load(open(args.if_override, encoding='utf-8')).items()}
+
     if args.personal:
-        generate_cv('ko', personal=True)  # 개인정보 포함 한국어 이력서
+        generate_cv('ko', personal=True, section_breaks=not args.no_section_breaks)  # 개인정보 포함 한국어 이력서
     else:
-        generate_cv('en')   # English CV
-        generate_cv('ko')   # Korean CV (이력서)
+        langs = ['en', 'ko'] if args.lang == 'both' else [args.lang]
+        for lg in langs:
+            generate_cv(lg, doi_filter=doi_filter, pub_subtitle=args.pub_subtitle, suffix_extra=args.suffix, grants_from=args.grants_from, section_breaks=not args.no_section_breaks, if_override=if_override)
 
 
 if __name__ == "__main__":

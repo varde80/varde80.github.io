@@ -91,7 +91,7 @@
     {
         "id": "prep6",
         "type": "journal",
-        "title": "Texture-aware transformers-based discovery of forming limits from orientation distribution functions",
+        "title": "Toward scalable formability prediction for large grain-resolved microstructures: Texture-aware transformer with transfer learning",
         "authors": [
             "Minh Tien Tran^",            
             "Mooyeong Joo^",            

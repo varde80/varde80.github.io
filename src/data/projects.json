@@ -11,7 +11,7 @@
       "en": "PI"
     },
     "fundingAgency": "NST (MSIT)",
-    "fundingAmount": "30.5B KRW",    
+    "fundingAmount": "30.5B KRW",
     "status": "ongoing"
   },
   {
@@ -42,7 +42,11 @@
     },
     "fundingAgency": "KEIT (MOTIE)",
     "fundingAmount": "0.52B KRW",
-    "status": "ongoing"
+    "status": "ongoing",
+    "note": {
+      "ko": "26년 책임자 변경",
+      "en": "PI changed in 2026"
+    }
   },
   {
     "id": "proj4",

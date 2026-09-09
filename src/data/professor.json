@@ -3,7 +3,7 @@
   "title": "Professor",
   "email": "h.lee@kims.re.kr",
   "phone": "+82-55-280-3843",
-  "image": "/images/members/professor.jpeg",  
+  "image": "/images/members/professor.jpeg",
   "education": [
     {
       "degree": "Ph.D.",
@@ -23,8 +23,8 @@
   "experience": [
     {
       "period": "2026.4-Present",
-      "position": "Director",
-      "Department": "Division of Materials AI Research",
+      "position": "Head (concurrent)",
+      "Department": "Materials AI Strategic Research Group",
       "institution": "Korea Institute of Materials Science (KIMS)"
     },
     {
@@ -36,7 +36,7 @@
       "period": "2011.12-Present",
       "position": "Principal/Senior Researcher",
       "institution": "Korea Institute of Materials Science (KIMS)"
-    },    
+    },
     {
       "period": "2024.6-2026.4",
       "position": "Director",
@@ -65,15 +65,41 @@
     }
   ],
   "Research Interests": [
-    "AI for Materials and Manufacturing",
-    "Materials and Manufacturing-Specialized VLMs and AI Agents",
-    "Deep Learning for Materials Property Prediction",
-    "Physics-Informed Machine Learning for Manufacturing",    
-    "Synthetic Microstructure Generation using Generative AI (Diffusion Models, GANs)",
-    "Multi-scale Modeling of Metallic Materials",    
-    "Metal Forming & Additive Manufacturing Process Simulation and Optimization"    
+    {
+      "category": "Computational Mechanics and Metal Forming Process Simulation",
+      "items": [
+        "Finite Element Analysis and Process/Die Design of Metal Forming (Rolling, Forging, Extrusion, Wire Drawing, Sheet Stamping)",
+        "Constitutive Modeling of Hot Deformation: Flow Stress, Processing Maps and Surface Defect Prediction",
+        "Sheet Metal Formability and Ductile Fracture: Forming Limit Diagrams, Fracture Loci and Damage Mechanics",
+        "Tribology in Metal Forming and Micro/Nano Surface Patterning (Friction Testing, Roll-to-Roll Hot Imprinting)"
+      ]
+    },
+    {
+      "category": "Multi-scale Modeling of Microstructure and Mechanical Behavior",
+      "items": [
+        "Crystal Plasticity Finite Element Modeling of Texture Evolution, Formability and Micromechanical Heterogeneity",
+        "Microstructure Evolution Modeling: Recrystallization, Grain Growth and Solidification (Cellular Automata, LBM–CA)",
+        "Multiscale Mechanical Characterization: Nanoindentation–FE Inverse Analysis, In-situ EBSD/Neutron Diffraction, Acoustic Emission"
+      ]
+    },
+    {
+      "category": "Advanced Manufacturing Processes",
+      "items": [
+        "Additive Manufacturing: Process–Microstructure–Property Relationships, Residual Stress and Architected Metamaterials",
+        "Energy-Beam and Thermal Processing: Laser/Electron-Beam Melting, Large Pulsed Electron Beam Surface Treatment, Heat Treatment–Microstructure–Property Linkages"
+      ]
+    },
+    {
+      "category": "AI for Materials and Manufacturing",
+      "items": [
+        "Deep Learning-based Property Prediction and Process Optimization",
+        "Physics-Informed Machine Learning and Surrogate Models for Manufacturing Processes and Polycrystal Plasticity",
+        "Generative AI for Microstructure Synthesis and Inverse Design (Diffusion Models, GANs)",
+        "Materials and Manufacturing-Specialized VLMs, AI Agents and Autonomous Laboratories"
+      ]
+    }
   ],
-  "Honors and Awards": [    
+  "Honors and Awards": [
     "Young Engineer Awards, Korean Society of Technology of plasticity, 2017.10",
     "Achievement Award, Korea Institute of Materials Science, 2017.4",
     "Best post paper Awards, Korean Society of Technology of plasticity, 2012.5",
@@ -83,7 +109,7 @@
   "Professional Activities/Memberships": [
     "Editorial Board Member, Scientific Reports, Springer Nature",
     "Editorial Board Member, Discover Metals, Springer Nature",
-    "Editorial Board Member, The Korean Society for Technology of Plasticity (KSTP)",    
+    "Editorial Board Member, The Korean Society for Technology of Plasticity (KSTP)",
     "Member, Committee of International Collaboration, Korean Institute of Metals and Materials (KIM)",
     "Member, Subcommittee of AI Materials Science, Korean Institute of Metals and Materials (KIM)",
     "Member, Subcommittee of crystallographic texture, Korean Institute of Metals and Materials (KIM)",
@@ -92,7 +118,7 @@
     "Organizing committee,The 9th Asian Materials Data Symposium, Seoul, Korea, 2026",
     "Local organizing committee,The 12th International Conference on Multiscale Materials Modeling, Jeju, Korea, 2026",
     "Local organizing committee, The 7th Asian Materials Data Symposium, Daegu, Korea, 2023",
-    "Local organizing committee, International Cold Forging Group 48th Plenary Meeting, Daejeon, Korea, 2015",    
+    "Local organizing committee, International Cold Forging Group 48th Plenary Meeting, Daejeon, Korea, 2015",
     "Conference Secretary, International Conferences on Advances in Materials and Processing Technologies (AMPT), 2007",
     "Member of The Korean Institute of Metals and Materials (KIM)",
     "Member of Korea Society for Technology of Plasticity (KSTP)",
@@ -103,46 +129,126 @@
   "ko": {
     "name": "이호원",
     "title": "소재 AI 전략연구단장",
-    "header_title": "소재 AI 전략연구단장",
+    "header_title": "소재 AI 전략연구단장(겸)",
     "header_org": "한국재료연구원 (KIMS)",
     "experience": {
-      "2026.4-Present": { "position": "소재 AI 전략연구단장", "org": "한국재료연구원 (KIMS)" },
-      "2023.3-Present": { "position": "교수", "org": "과학기술연합대학원대학교 (UST)" },
-      "2011.12-Present": { "position": "책임연구원", "org": "한국재료연구원 (KIMS)" },
-      "2024.6-2026.4": { "position": "재료데이터·분석연구본부장", "org": "한국재료연구원 (KIMS)" },
-      "2013.4-2013.6": { "position": "방문연구원", "org": "독일 보훔대학교 ICAMS" },
-      "2011.8-2011.12": { "position": "박사후연구원", "org": "KAIST 기계기술연구소" },
-      "2010.9-2011.8": { "position": "과학자", "org": "독일 막스플랑크 철연구소" },
-      "2010.2-2010.8": { "position": "박사후연구원", "org": "KAIST 기계기술연구소" }
+      "2026.4-Present": {
+        "position": "소재 AI 전략연구단장",
+        "org": "한국재료연구원 (KIMS)"
+      },
+      "2023.3-Present": {
+        "position": "교수",
+        "org": "과학기술연합대학원대학교 (UST)"
+      },
+      "2011.12-Present": {
+        "position": "책임연구원",
+        "org": "한국재료연구원 (KIMS)"
+      },
+      "2024.6-2026.4": {
+        "position": "재료데이터·분석연구본부장",
+        "org": "한국재료연구원 (KIMS)"
+      },
+      "2013.4-2013.6": {
+        "position": "방문연구원",
+        "org": "독일 보훔대학교 ICAMS"
+      },
+      "2011.8-2011.12": {
+        "position": "박사후연구원",
+        "org": "KAIST 기계기술연구소"
+      },
+      "2010.9-2011.8": {
+        "position": "과학자",
+        "org": "독일 막스플랑크 철연구소"
+      },
+      "2010.2-2010.8": {
+        "position": "박사후연구원",
+        "org": "KAIST 기계기술연구소"
+      }
     },
     "education": {
-      "2003.3-2010.1": { "degree": "공학박사", "field": "기계공학", "institution": "한국과학기술원 (KAIST)", "advisor": "임용택 교수" },
-      "1998.3-2003.2": { "degree": "공학사", "field": "기계공학", "institution": "한국과학기술원 (KAIST)" }
+      "2003.3-2010.1": {
+        "degree": "공학박사",
+        "field": "기계공학",
+        "institution": "한국과학기술원 (KAIST)",
+        "advisor": "임용택 교수"
+      },
+      "1998.3-2003.2": {
+        "degree": "공학사",
+        "field": "기계공학",
+        "institution": "한국과학기술원 (KAIST)"
+      }
     },
     "Research Interests": [
-      "소재 및 제조 분야 인공지능 활용 기술",
-      "소재·제조 특화 시각언어모델(VLM) 및 AI 에이전트",
-      "소재 물성 예측을 위한 딥러닝 기술",
-      "제조공정을 위한 물리기반 기계학습 기술",
-      "생성형 AI(확산모델, GAN)를 활용한 미세조직 합성 및 증강 기술",
-      "금속소재 멀티스케일 모델링",
-      "금속 성형 및 적층제조 공정 시뮬레이션·최적화"
+      {
+        "category": "전산역학 및 금속 성형공정 해석",
+        "items": [
+          "금속 성형공정(압연·단조·압출·인발·판재 성형)의 유한요소해석 및 공정·금형 설계",
+          "고온 변형 구성방정식 모델링: 유동응력, 공정지도 및 표면결함 예측",
+          "판재 성형성 및 연성파괴: 성형한계도, 파괴한계선 및 손상역학",
+          "금속 성형 트라이볼로지 및 마이크로/나노 표면 패터닝 (마찰 시험, 롤투롤 열간 임프린팅)"
+        ]
+      },
+      {
+        "category": "미세조직 및 기계적 거동의 멀티스케일 모델링",
+        "items": [
+          "결정소성 유한요소해석 기반 집합조직 발달, 성형성 및 미시역학적 불균일성 예측",
+          "미세조직 발달 모델링: 재결정·결정립 성장·응고 (셀룰러 오토마타, LBM–CA)",
+          "멀티스케일 기계적 특성 평가: 나노압입–유한요소 역해석, In-situ EBSD/중성자 회절, 음향방출"
+        ]
+      },
+      {
+        "category": "첨단 제조공정",
+        "items": [
+          "적층제조: 공정–미세조직–물성 상관관계, 잔류응력 및 격자구조 메타물질",
+          "에너지빔 및 열처리 공정: 레이저/전자빔 용융, 대면적 전자빔 표면처리, 열처리–미세조직–물성 연계"
+        ]
+      },
+      {
+        "category": "소재·제조 분야 인공지능",
+        "items": [
+          "딥러닝 기반 물성 예측 및 공정 최적화",
+          "제조공정 및 다결정 소성 해석을 위한 물리기반 기계학습 및 대리모델",
+          "생성형 AI(확산모델, GAN) 기반 미세조직 합성 및 역설계",
+          "소재·제조 특화 시각언어모델(VLM), AI 에이전트 및 자율실험실"
+        ]
+      }
     ],
     "Honors and Awards": [
-      { "name": "신진기술상", "org": "한국소성가공학회", "year": "2017" },
-      { "name": "공로상", "org": "한국재료연구원", "year": "2017" },
-      { "name": "학술대회 우수논문상", "org": "한국소성가공학회", "year": "2012" },
-      { "name": "Max-Planck Scholarship", "org": "독일 막스플랑크 철강연구소", "year": "2010" },
-      { "name": "우수 조교상", "org": "KAIST 기계공학과", "year": "2005" }
+      {
+        "name": "신진기술상",
+        "org": "한국소성가공학회",
+        "year": "2017"
+      },
+      {
+        "name": "공로상",
+        "org": "한국재료연구원",
+        "year": "2017"
+      },
+      {
+        "name": "학술대회 우수논문상",
+        "org": "한국소성가공학회",
+        "year": "2012"
+      },
+      {
+        "name": "Max-Planck Scholarship",
+        "org": "독일 막스플랑크 철강연구소",
+        "year": "2010"
+      },
+      {
+        "name": "우수 조교상",
+        "org": "KAIST 기계공학과",
+        "year": "2005"
+      }
     ],
     "Professional Activities/Memberships": [
-      "Discover Metals (Springer Nature) 편집위원",      
+      "Scientific Reports (Springer Nature) 편집위원",
+      "Discover Metals (Springer Nature) 편집위원",
       "한국소성가공학회 편집위원",
       "대한금속·재료학회 국제위원회 위원",
       "대한금속·재료학회 인공지능재료과학 분과위원회 간사위원",
       "대한금속·재료학회 집합조직 분과위원회 간사위원",
       "한국소성가공학회 공정계산역학부문 위원",
-      "한국소성가공학회 단조부문 위원",              
+      "한국소성가공학회 단조부문 위원",
       "제9회 아시아 소재데이터 심포지엄 (Asian Materials Data Symposium, AMDS) 조직위원, 서울, 2026",
       "제12회 멀티스케일 재료 모델링 (Multiscale Materials Modeling, MMM12) 국제학술대회 지역 조직위원, 제주, 2026",
       "제7회 아시아 소재데이터 심포지엄 (Asian Materials Data Symposium, AMDS) 지역 조직위원, 대구, 2023",
@@ -154,5 +260,19 @@
       "한국정밀공학회 정회원",
       "한국인공지능학회 정회원"
     ]
-  }
+  },
+  "ids": [
+    {
+      "label": "Scopus Author ID",
+      "value": "56529845100"
+    },
+    {
+      "label": "ORCID",
+      "value": "0000-0003-3739-9732"
+    },
+    {
+      "label": "ResearcherID",
+      "value": "D-1296-2009"
+    }
+  ]
 }
