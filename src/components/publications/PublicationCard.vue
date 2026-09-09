@@ -99,6 +99,19 @@ const hasEqualContribution = computed(() => props.pub.authors.some(a => a.includ
           </a>
         </div>
 
+        <!-- Grant numbers from the paper's Acknowledgments -->
+        <div v-if="pub.grants && pub.grants.length" class="flex flex-wrap items-center gap-1.5 mt-2">
+          <span class="text-xs text-gray-400 uppercase tracking-wide mr-1">Grant</span>
+          <span
+            v-for="grant in pub.grants"
+            :key="grant"
+            class="px-2.5 py-0.5 rounded-full text-xs font-medium whitespace-nowrap bg-gradient-to-r from-brand-600 to-accent-600 text-white"
+            :title="`Supported by grant ${grant} (from Acknowledgments)`"
+          >
+            {{ grant }}
+          </span>
+        </div>
+
         <!-- DOI link (journals) -->
         <a
           v-if="kind === 'journal' && pub.doi"

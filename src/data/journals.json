@@ -653,7 +653,11 @@
         "volume": "47",
         "pages": "40008-40025",
         "doi": "10.1016/j.ijhydene.2022.09.163",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "P0022331",
+            "2022R1C1C1012700"
+        ]
     },
     {
         "id": "pub37",
@@ -670,7 +674,11 @@
         "volume": "154",
         "pages": "103298",
         "doi": "10.1016/j.ijplas.2022.103298",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "N0002598",
+            "2022R1C1C1012700"
+        ]
     },
     {
         "id": "pub38",
@@ -688,7 +696,11 @@
         "volume": "929",
         "pages": "167233",
         "doi": "10.1016/j.jallcom.2022.167233",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "P00223311",
+            "2021RIS-001"
+        ]
     },
     {
         "id": "pub39",
@@ -710,7 +722,12 @@
         "volume": "854",
         "pages": "143852",
         "doi": "10.1016/j.msea.2022.143852",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "20011444",
+            "PNK8440",
+            "N0002598"
+        ]
     },
     {
         "id": "pub40",
@@ -733,7 +750,11 @@
         "volume": "12",
         "pages": "110",
         "doi": "10.3390/met12010110",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "20011371",
+            "N0002598"
+        ]
     },
     {
         "id": "pub41",
@@ -754,7 +775,11 @@
         "volume": "12",
         "pages": "223",
         "doi": "10.3390/met12020223",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "20011444",
+            "N0002598"
+        ]
     },
     {
         "id": "pub42",
@@ -773,7 +798,11 @@
         "volume": "28",
         "pages": "1697-1710",
         "doi": "10.1007/s12540-021-01023-5",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "10053590",
+            "N0002598"
+        ]
     },
     {
         "id": "pub43",
@@ -792,7 +821,11 @@
         "volume": "28",
         "pages": "3016-3032",
         "doi": "10.1007/s12540-022-01194-9",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "20011444",
+            "N0002598"
+        ]
     },
     {
         "id": "pub44",
@@ -814,7 +847,11 @@
         "volume": "217",
         "pages": "110631",
         "doi": "10.1016/j.matdes.2022.110631",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "20011371",
+            "PNK8440"
+        ]
     },
     {
         "id": "pub45",
@@ -871,7 +908,11 @@
         "volume": "968",
         "pages": "172007",
         "doi": "10.1016/j.jallcom.2023.172007",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "PNK9250",
+            "P0022331"
+        ]
     },
     {
         "id": "pub48",
@@ -891,7 +932,11 @@
         "volume": "171",
         "pages": "103812",
         "doi": "10.1016/j.ijplas.2023.103812",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "2022R1C1C1012700",
+            "P0022331"
+        ]
     },
     {
         "id": "pub49",
@@ -908,7 +953,11 @@
         "volume": "17",
         "pages": "2360",
         "doi": "10.3390/ma17102360",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "2022R1C1C1012700",
+            "ZR2022QE206"
+        ]
     },
     {
         "id": "pub50",
@@ -925,7 +974,11 @@
         "volume": "14",
         "pages": "503",
         "doi": "10.3390/met14050503",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "P0022331",
+            "ZR2022QE206"
+        ]
     },
     {
         "id": "pub51",
@@ -948,7 +1001,11 @@
         "volume": "277",
         "pages": "109420",
         "doi": "10.1016/j.ijmecsci.2024.109420",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "2022R1C1C1012700",
+            "P0022331"
+        ]
     },
     {
         "id": "pub52",
@@ -973,7 +1030,11 @@
         "volume": "279",
         "pages": "109615",
         "doi": "10.1016/j.ijmecsci.2024.109615",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "2022R1C1C1012700",
+            "P0022331"
+        ]
     },
     {
         "id": "pub53",
@@ -993,7 +1054,11 @@
         "volume": "268",
         "pages": "109055",
         "doi": "10.1016/j.ijmecsci.2024.109055",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "2022R1C1C1012700",
+            "P0022331"
+        ]
     },
     {
         "id": "pub54",
@@ -1015,7 +1080,11 @@
         "volume": "217",
         "pages": "114356",
         "doi": "10.1016/j.matchar.2024.114356",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "RS-2024-00451579",
+            "P0022331"
+        ]
     },
     {
         "id": "pub55",
@@ -1035,7 +1104,11 @@
         "volume": "193",
         "pages": "108767",
         "doi": "10.1016/j.ijfatigue.2024.108767",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "2022R1C1C1012700",
+            "P0022331"
+        ]
     },
     {
         "id": "pub58",
@@ -1057,7 +1130,11 @@
         "pages": "114623",
         "doi": "10.1016/j.matdes.2025.114623",
         "highlightImage": "/images/publications/2025_JAMDE_JJung.jpg",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "RS-2024-00451579",
+            "PNKA640"
+        ]
     },
     {
         "id": "pub59",
@@ -1077,7 +1154,12 @@
         "pages": "542-552",
         "doi": "10.3365/KJMM.2025.63.7.542",
         "highlightImage": "/images/publications/2025_KJMM_HJLee.jpg",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "PNKA640",
+            "P0022331",
+            "20011371"
+        ]
     },
     {
         "id": "pub60",
@@ -1093,7 +1175,11 @@
         "volume": "109",
         "pages": "104908",
         "doi": "10.1016/j.addma.2025.104908",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "RS-2025-00523280",
+            "RS-2024-00451579"
+        ]
     },
     {
         "id": "pub61",
@@ -1114,7 +1200,11 @@
         "volume": "27",
         "pages": "105720",
         "doi": "10.1016/j.rineng.2025.105720",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "RS-2025-00523280",
+            "RS-2025-21512977"
+        ]
     },
     {
         "id": "pub62",
@@ -1135,7 +1225,11 @@
         "volume": "287",
         "pages": "109959",
         "doi": "10.1016/j.ijmecsci.2025.109959",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "RS-2024-00451579",
+            "P0022331"
+        ]
     },
     {
         "id": "pub63",
@@ -1158,7 +1252,11 @@
         "volume": "1010",
         "pages": "177929",
         "doi": "10.1016/j.jallcom.2024.177929",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "PNKA220",
+            "2021R1I1A3045191"
+        ]
     },
     {
         "id": "pub64",
@@ -1178,7 +1276,11 @@
         "pages": "115831",
         "doi": "10.1016/j.matchar.2025.115831",
         "featured": false,
-        "highlightImage": "/images/publications/2025_MC_Tran.jpg"
+        "highlightImage": "/images/publications/2025_MC_Tran.jpg",
+        "grants": [
+            "RS-2024-00451579",
+            "PNKA640"
+        ]
     },
     {
         "id": "pub65",
@@ -1199,7 +1301,12 @@
         "volume": "218",
         "pages": "114150",
         "doi": "10.1016/j.tws.2025.114150",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "RS-2025-00523280",
+            "RS-2025-21512977",
+            "1711175147"
+        ]
     },
     {
         "id": "pub66",
@@ -1220,7 +1327,11 @@
         "pages": "104080",
         "doi": "10.1016/j.aei.2025.104080",
         "featured": false,
-        "highlightImage": "/images/publications/2025_AdvEI_Cuong.jpg"
+        "highlightImage": "/images/publications/2025_AdvEI_Cuong.jpg",
+        "grants": [
+            "P0022331",
+            "RS-2024-00451579"
+        ]
     },
     {
         "id": "pub67",
@@ -1238,8 +1349,12 @@
         "journal": "International Journal of Mechanical Sciences",
         "year": 2026,
         "pages": "111504",
-        "doi": "10.1016/j.ijmecsci.2026.111504",        
-        "featured": false
+        "doi": "10.1016/j.ijmecsci.2026.111504",
+        "featured": false,
+        "grants": [
+            "RS-2025-00523280",
+            "RS-2024-00451579"
+        ]
     },
     {
         "id": "pub68",
@@ -1261,7 +1376,11 @@
         "year": 2026,
         "pages": "111944",
         "doi": "10.1016/j.engfracmech.2026.111944",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "RS-2025-00523280",
+            "RS-2025-21512977"
+        ]
     },
     {
         "id": "pub69",
@@ -1281,7 +1400,10 @@
         "pages": "187234",
         "doi": "10.1016/j.jallcom.2026.187234",
         "highlightImage": "/images/publications/2026_jalcom_Oh.png",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "P0022331"
+        ]
     },
     {
         "id": "pub70",
@@ -1298,7 +1420,11 @@
         "year": 2026,
         "pages": "115798",
         "doi": "10.1016/j.matdes.2026.115798",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "P00223311",
+            "RS-2025-00555072"
+        ]
     },
     {
         "id": "pub71",
@@ -1312,11 +1438,15 @@
             "Ho Won Lee^*"
         ],
         "journal": "Engineering Applications of Artificial Intelligence",
-        "year": 2026,    
+        "year": 2026,
         "pages": "114543",
-        "doi": "10.1016/j.engappai.2026.114543",    
+        "doi": "10.1016/j.engappai.2026.114543",
         "highlightImage": "/images/publications/2026_EAAI_Cuong.png",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "P0022331",
+            "RS-2024-00451579"
+        ]
     },
     {
         "id": "pub72",
@@ -1331,12 +1461,16 @@
             "Jonghun Yoon"
         ],
         "journal": "Journal of Materials Research and Technology",
-        "year": 2025,    
+        "year": 2025,
         "pages": "3796-3806",
-        "doi": "10.1016/j.jmrt.2025.04.053",    
-        "featured": false
-    }
-    ,
+        "doi": "10.1016/j.jmrt.2025.04.053",
+        "featured": false,
+        "grants": [
+            "P00223311",
+            "20022814",
+            "RS-2025-00555072"
+        ]
+    },
     {
         "id": "pub73",
         "type": "journal",
@@ -1355,10 +1489,13 @@
             "Seong-Hoon Kang"
         ],
         "journal": "Computational Materials Science",
-        "year": 2025,    
+        "year": 2025,
         "pages": "114246",
-        "doi": "10.1016/j.commatsci.2025.114246",    
-        "featured": false
+        "doi": "10.1016/j.commatsci.2025.114246",
+        "featured": false,
+        "grants": [
+            "RS-2024-00431827"
+        ]
     },
     {
         "id": "pub74",
@@ -1377,7 +1514,11 @@
         "pages": "116310",
         "doi": "10.1016/j.matdes.2026.116310",
         "highlightImage": "/images/publications/2026_JMADE_Tran.jpg",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "RS-2024-00451579",
+            "PNKB300"
+        ]
     },
     {
         "id": "pub75",
@@ -1401,7 +1542,11 @@
         "volume": "42",
         "pages": "12031-12041",
         "doi": "10.1016/j.jmrt.2026.06.041",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "RS-2024-00431835",
+            "PNKB300"
+        ]
     },
     {
         "id": "pub76",
@@ -1421,7 +1566,11 @@
         "pages": "111818",
         "doi": "10.1016/j.ijmecsci.2026.111818",
         "highlightImage": "/images/publications/2026_IJMS_Tran.jpg",
-        "featured": false        
+        "featured": false,
+        "grants": [
+            "RS-2024-00451579",
+            "PNKB300"
+        ]
     },
     {
         "id": "pub77",
@@ -1438,10 +1587,14 @@
         "journal": "Engineering with Computers",
         "year": 2026,
         "volume": 42,
-        "pages": 132,        
-        "doi":"10.1007/s00366-026-02368-4",
+        "pages": 132,
+        "doi": "10.1007/s00366-026-02368-4",
         "highlightImage": "/images/publications/2026_EWC_Tran_f.jpg",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "RS-2024-00451579",
+            "PNKB300"
+        ]
     },
     {
         "id": "pub78",
@@ -1462,7 +1615,11 @@
         "pages": "111877",
         "doi": "10.1016/j.ijmecsci.2026.111877",
         "highlightImage": "/images/publications/2026_IJMS_Pham.jpg",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "RS-2025-00523280",
+            "RS-2024-00451579"
+        ]
     },
     {
         "id": "pub79",
@@ -1484,6 +1641,10 @@
         "pages": "114010",
         "doi": "10.1016/j.compositesb.2026.114010",
         "highlightImage": "/images/publications/2026_CompB_Kwon.jpg",
-        "featured": false
+        "featured": false,
+        "grants": [
+            "RS-2025-00523280",
+            "RS-2024-00451579"
+        ]
     }
-    ]
+]

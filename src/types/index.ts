@@ -91,6 +91,8 @@ export interface Publication {
   "end date"?: string
   Venue?: string
   scope?: 'domestic' | 'international'
+  /** Grant/project numbers exactly as written in the paper's Acknowledgments (e.g. "RS-2024-00451579"). */
+  grants?: string[]
 }
 
 // Facility types
