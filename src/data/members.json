@@ -47,9 +47,38 @@
       "image": "/images/members/hieu.jpeg",
       "research": "VLM for Materials Science",
       "year": 2024
+    },
+    {
+      "id": "ms2",
+      "name": "Duy Khanh Nguyen",
+      "position": "M.S. Candidate",
+      "email": "",
+      "image": "/images/members/duy.png",
+      "research": "",
+      "year": 2026
+    },
+    {
+      "id": "ms2",
+      "name": "Hoang Nguyen",
+      "position": "M.S. Candidate",
+      "email": "",
+      "image": "/images/members/Hoang.png",
+      "research": "",
+      "year": 2026
+    },    
+    {
+      "id": "ms3",
+      "name": "Giang Buitruong Le",
+      "position": "M.S. Candidate",
+      "email": "",
+      "image": "/images/members/Giang.png",
+      "research": "",
+      "year": 2026
     }
   ],
-  "Intern": [
+  "Intern": [ 
+  ],
+  "alumni": [
     {
       "id": "int1",
       "name": "Byeong Se Choi",
@@ -58,7 +87,5 @@
       "image": "/images/members/choi.jpg",
       "research": "",
       "year": 2026
-    }
-  ],
-  "alumni": []
+    }]
 }
