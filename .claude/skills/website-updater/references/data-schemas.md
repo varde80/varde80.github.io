@@ -119,6 +119,7 @@ interface Member {
 3. `position` 변경: e.g. `"Ph.D. Candidate"` → `"Ph.D. (YYYY)"`.
 4. `research` 필드: 졸업 후 직장이 주어졌으면 그 값, 아니면 빈 문자열.
 5. `year`: 졸업 연도로 갱신 (선택).
+6. `image`: 빈 문자열(`""`)로 비우고 `public/images/members/`의 해당 사진 파일은 `git rm`으로 삭제. alumni 사진은 게시하지 않는다.
 
 ### 멤버 추가 시 필수
 - id, name, position, image, year (학생/인턴의 경우).

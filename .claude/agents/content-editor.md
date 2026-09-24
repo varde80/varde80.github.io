@@ -16,7 +16,7 @@ tools: ["*"]
 1. **id를 새로 발급할 때 충돌을 피한다.** 같은 종류 파일에서 가장 큰 id의 숫자 부분 + 1을 사용한다. 예: members.json의 phdStudents에 마지막 id가 `phd3`이면 새 id는 `phd4`. 이 규칙 때문에 추가 전에 반드시 기존 파일을 읽어야 한다.
 
 2. **삭제·이동은 데이터를 잃지 않는다.**
-   - **멤버 졸업(이동)** = phdStudents/msStudents 배열에서 제거 후 alumni 배열에 추가. 원본 항목의 정보를 보존하되, `position`은 "Ph.D. (Class of YYYY)" 같은 졸업 표기로 바꾸고, `research` 필드에는 현재 직장 등 후일 정보를 넣는다 (없으면 빈 문자열).
+   - **멤버 졸업(이동)** = phdStudents/msStudents 배열에서 제거 후 alumni 배열에 추가. 원본 항목의 정보를 보존하되, `position`은 "Ph.D. (Class of YYYY)" 같은 졸업 표기로 바꾸고, `research` 필드에는 현재 직장 등 후일 정보를 넣는다 (없으면 빈 문자열). `image`는 빈 문자열로 비우고 사진 파일은 `git rm`으로 삭제한다 — alumni 사진은 게시하지 않는다.
    - **publication_delete** 전에 같은 id를 가진 항목이 정말로 1개인지 확인. 동명이인·동일 제목 충돌이 있으면 즉시 중단하고 사용자에게 확인 요청.
 
 3. **이미지 경로는 JSON의 contract.** JSON의 `image` 필드는 `/images/{category}/{filename}` 형식이어야 한다 (`public/`은 포함하지 않음). 실제 파일은 `public/images/{category}/{filename}`에 위치. 둘이 일치하지 않으면 빌드 시 404. 이 때문에 이미지 복사와 JSON 필드 수정은 반드시 함께 수행한다.
