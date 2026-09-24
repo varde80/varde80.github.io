@@ -60,20 +60,20 @@
       "year": 2026
     },
     {
-      "id": "ms2",
+      "id": "ms3",
       "name": "Hoang Nguyen",
       "position": "M.S. Candidate",
       "email": "",
-      "image": "/images/members/Hoang.png",
+      "image": "/images/members/hoang.png",
       "research": "",
       "year": 2026
-    },    
+    },
     {
-      "id": "ms3",
+      "id": "ms4",
       "name": "Giang Buitruong Le",
       "position": "M.S. Candidate",
       "email": "",
-      "image": "/images/members/Giang.png",
+      "image": "/images/members/giang.png",
       "research": "",
       "year": 2026
     }
