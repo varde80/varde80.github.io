@@ -38,6 +38,15 @@
       "image": "/images/members/nam.png",
       "research": "Microstructure Segmentation using SSL and GMs",
       "year": 2023
+    },
+    {
+      "id": "ip2",
+      "name": "Giang Buitruong Le",
+      "position": "Integrated M.S./Ph.D. Student",
+      "email": "",
+      "image": "/images/members/giang.png",
+      "research": "",
+      "year": 2026
     }
   ],
   "msStudents": [
@@ -67,19 +76,9 @@
       "image": "/images/members/hoang.png",
       "research": "",
       "year": 2026
-    },
-    {
-      "id": "ms4",
-      "name": "Giang Buitruong Le",
-      "position": "M.S. Candidate",
-      "email": "",
-      "image": "/images/members/giang.png",
-      "research": "",
-      "year": 2026
     }
   ],
-  "Intern": [ 
-  ],
+  "Intern": [],
   "alumni": [
     {
       "id": "int1",
@@ -89,5 +88,6 @@
       "image": "",
       "research": "",
       "year": 2026
-    }]
+    }
+  ]
 }
