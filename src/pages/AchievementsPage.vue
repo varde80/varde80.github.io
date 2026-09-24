@@ -23,6 +23,7 @@ const allMemberNames = computed(() => {
   const names: string[] = [professor.name]
   members.researchers.forEach(m => names.push(m.name))
   members.phdStudents.forEach(m => names.push(m.name))
+  members.integratedStudents.forEach(m => names.push(m.name))
   members.msStudents.forEach(m => names.push(m.name))
   members.Intern.forEach(m => names.push(m.name))
   return names

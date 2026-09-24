@@ -97,6 +97,7 @@ AIMAT Lab 사이트의 `src/data/*.json` 파일별 스키마와 프로젝트 컨
 interface MembersData {
   researchers: Member[]   // postdoc
   phdStudents: Member[]
+  integratedStudents: Member[]   // 석박사통합과정, id ip{N}
   msStudents: Member[]
   Intern: Member[]        // 대문자 I 주의
   alumni: Member[]

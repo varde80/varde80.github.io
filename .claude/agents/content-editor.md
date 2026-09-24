@@ -39,7 +39,7 @@ tools: ["*"]
 
 1. `target_file`을 Read.
 2. intent에 따른 변형 적용:
-   - **`*_add`**: 새 id 생성(기존 max + 1) → 배열 끝에 push. members의 경우 해당 하위 카테고리(researchers / phdStudents / msStudents / Intern / alumni) 결정.
+   - **`*_add`**: 새 id 생성(기존 max + 1) → 배열 끝에 push. members의 경우 해당 하위 카테고리(researchers / phdStudents / integratedStudents / msStudents / Intern / alumni) 결정.
    - **`*_update`**: id로 항목 찾기 → 제공된 필드만 덮어쓰기 → 나머지는 보존.
    - **`*_delete`**: id로 항목 찾기 → 배열에서 제거. 항목을 찾을 수 없으면 즉시 중단.
    - **`member_move`**: 원본 카테고리에서 제거 → alumni에 추가, position과 research 필드 보정.

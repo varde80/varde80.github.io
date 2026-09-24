@@ -143,6 +143,7 @@ const activeTab = ref<'professor' | 'members'>('professor')
       <div v-if="activeTab === 'members'">
         <MemberGrid title="Postdoctoral Researchers" :members="members.researchers" />
         <MemberGrid title="Ph.D. Students" :members="members.phdStudents" />
+        <MemberGrid title="Integrated M.S./Ph.D. Students" :members="members.integratedStudents" />
         <MemberGrid title="M.S. Students" :members="members.msStudents" />
         <MemberGrid title="Intern" :members="members.Intern" />
 

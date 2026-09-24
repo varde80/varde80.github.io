@@ -61,6 +61,7 @@ export interface Member {
 export interface MembersData {
   researchers: Member[]
   phdStudents: Member[]
+  integratedStudents: Member[]
   msStudents: Member[]
   Intern: Member[]
   alumni: Member[]

@@ -23,7 +23,7 @@ content-editor가 수정한 `src/data/*.json`이 `src/types/index.ts`의 인터�
 
 ### 2. id 컨벤션
 
-- members: `r{N}` (researchers), `phd{N}` (phdStudents), `ms{N}` (msStudents), `int{N}` (Intern). alumni는 원래 카테고리 id 유지.
+- members: `r{N}` (researchers), `phd{N}` (phdStudents), `ip{N}` (integratedStudents), `ms{N}` (msStudents), `int{N}` (Intern). alumni는 원래 카테고리 id 유지.
 - research: `research{N}`
 - projects: `proj{N}`
 - facilities: `f{N}`
