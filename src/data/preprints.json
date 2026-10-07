@@ -11,9 +11,9 @@
             "Seong-Hoon Kang",
             "Ho Won Lee^*"
         ],
-        "journal": "submitted",
+        "journal": "Under review",
         "year": 2026,
-        "status": "submitted",
+        "status": "Under review",
         "featured": false
     },
     {
@@ -50,9 +50,9 @@
             "Hye Jung Chang",
             "Ho Won Lee^*"
         ],
-        "journal": "In preparation",
+        "journal": "Under review",
         "year": 2026,
-        "status": "In preparation",
+        "status": "Under review",
         "featured": false
     },
     {
@@ -93,10 +93,64 @@
         "type": "journal",
         "title": "Toward scalable formability prediction for large grain-resolved microstructures: Texture-aware transformer with transfer learning",
         "authors": [
-            "Minh Tien Tran^",            
-            "Mooyeong Joo^",            
+            "Minh Tien Tran^",
+            "Mooyeong Joo^",
             "Seong-Hoon Kang",
             "Dong-Kyu Kim",
+            "Ho Won Lee^*"
+        ],
+        "journal": "Under review",
+        "year": 2026,
+        "status": "Under review",
+        "featured": false
+    },
+    {
+        "id": "prep7",
+        "type": "journal",
+        "title": "Decision-complete traces as supervision and purchasable information",
+        "authors": [
+            "Hoang Cuong Phan^",
+            "Minh Tien Tran^",
+            "Chihun Lee",
+            "Hoheok Kim",
+            "Sehyeok Oh",
+            "Dong-Kyu Kim",
+            "Ho Won Lee^*"
+        ],
+        "journal": "In preparation",
+        "year": 2026,
+        "status": "In preparation",
+        "featured": false
+    },
+    {
+        "id": "prep8",
+        "type": "journal",
+        "title": "A study on multi-fidelity modeling for predicting formability of aluminum alloys",
+        "authors": [
+            "Inwon Choi",
+            "Minh Tien Tran^",
+            "Sehyeok Oh",
+            "Hoheok Kim",
+            "Seong Jun Bae",
+            "Chihun Lee",
+            "Se-Jong Kim",
+            "Young-Seok Oh",
+            "Seong-Hoon Kang",
+            "Yoon Suk Choi",
+            "Ho Won Lee^*",
+            "Jaimyun Jung"
+        ],
+        "journal": "In preparation",
+        "year": 2026,
+        "status": "In preparation",
+        "featured": false
+    },
+    {
+        "id": "prep9",
+        "type": "journal",
+        "title": "AlloyAgents: Hypothesis-Guided Multi-Agent LLMs for Sample-Efficient Alloy Discovery",
+        "authors": [
+            "Hoang Hai Nam Nguyen^",
             "Ho Won Lee^*"
         ],
         "journal": "In preparation",
